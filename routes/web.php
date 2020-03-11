@@ -21,3 +21,6 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/account', 'AccountController@index')->name('account');
+
+Route::get('/account/address/create', 'AddressController@create')->name('address.create');
+Route::post('/account/address/create', 'AddressController@createAddress');
