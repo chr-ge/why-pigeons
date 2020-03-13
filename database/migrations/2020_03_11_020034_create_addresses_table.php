@@ -16,12 +16,12 @@ class CreateAddressesTable extends Migration
         Schema::create('addresses', function (Blueprint $table) {
             $table->bigIncrements('address_id');;
             $table->unsignedBigInteger('user_id')->index();
-            $table->string('description', 15);
+            $table->string('description', 15)->default('delivery');
             $table->string('street_address', 30);
             $table->string('city', 20);
             $table->string('province', 20);
-            $table->string('postal_code', 10);
-            $table->string('country', 20)->default('Canada');
+            $table->string('postal_code', 15);
+            $table->string('country', 20);
             $table->timestamp('added_on');
         });
     }

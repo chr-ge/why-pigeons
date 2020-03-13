@@ -11,9 +11,14 @@ class Address extends Model
      *
      * @var array
      */
+
+    public $timestamps = false;
+
     protected $fillable = [
-        'description', 'street_address', 'city', 'province', 'country',
+        'street_address', 'city', 'province', 'postal_code','country',
     ];
+
+    //protected $guarded = [];
 
     public function user(){
         return $this->belongsTo(User::class);

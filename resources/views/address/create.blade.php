@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-    <form method="POST" action="{{ route('address.create') }}">
+    <form method="POST" action="{{ route('address.store') }}">
         @csrf
 
         <div class="form-group row">
@@ -19,7 +19,7 @@
             </div>
         </div>
 
-        <div class=".form-group row">
+        <div class="form-group row">
             <label for="city" class="col-md-4 col-form-label text-md-right">City</label>
 
             <div class="col-md-6">
