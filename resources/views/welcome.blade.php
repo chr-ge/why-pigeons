@@ -8,8 +8,10 @@
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
-
         <!-- Styles -->
+
+        <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
         <style>
             html, body {
                 background-color: #fff;
@@ -79,9 +81,61 @@
                 </div>
             @endif
 
-            <div class="content">
-
+            <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light">
+                <div class="col-md-8 p-lg-5 mx-auto my-5">
+                    <h1 class="display-4 font-weight-normal">Food and maybe some pigeons?</h1>
+                    <p class="lead font-weight-normal">Quick food delivery right to your door.</p>
+                    <a class="btn btn-outline-secondary" href="#">Coming soon</a>
+                </div>
+                <div class="product-device shadow-sm d-none d-md-block"></div>
+                <div class="product-device product-device-2 shadow-sm d-none d-md-block"></div>
             </div>
         </div>
+        <footer class="container py-5">
+            <div class="row">
+                <div class="col-12 col-md">
+                    <img src="/public/svg/dove.svg" height="30px">
+                    <small class="d-block mb-3 text-muted">© 2020</small>
+                </div>
+                <div class="col-6 col-md">
+                    <h5>Features</h5>
+                    <ul class="list-unstyled text-small">
+                        <li><a class="text-muted" href="https://getbootstrap.com/docs/4.4/examples/product/#">Cool stuff</a></li>
+                        <li><a class="text-muted" href="https://getbootstrap.com/docs/4.4/examples/product/#">Random feature</a></li>
+                        <li><a class="text-muted" href="https://getbootstrap.com/docs/4.4/examples/product/#">Team feature</a></li>
+                        <li><a class="text-muted" href="https://getbootstrap.com/docs/4.4/examples/product/#">Stuff for developers</a></li>
+                        <li><a class="text-muted" href="https://getbootstrap.com/docs/4.4/examples/product/#">Another one</a></li>
+                        <li><a class="text-muted" href="https://getbootstrap.com/docs/4.4/examples/product/#">Last time</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-md">
+                    <h5>Restaurants</h5>
+                    <ul class="list-unstyled text-small">
+                        <li><a class="text-muted" href="https://getbootstrap.com/docs/4.4/examples/product/#">Resource</a></li>
+                        <li><a class="text-muted" href="https://getbootstrap.com/docs/4.4/examples/product/#">Resource name</a></li>
+                        <li><a class="text-muted" href="https://getbootstrap.com/docs/4.4/examples/product/#">Another resource</a></li>
+                        <li><a class="text-muted" href="https://getbootstrap.com/docs/4.4/examples/product/#">Final resource</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-md">
+                    <h5>Locations</h5>
+                    <ul class="list-unstyled text-small">
+                        <li><a class="text-muted" href="https://getbootstrap.com/docs/4.4/examples/product/#">Business</a></li>
+                        <li><a class="text-muted" href="https://getbootstrap.com/docs/4.4/examples/product/#">Education</a></li>
+                        <li><a class="text-muted" href="https://getbootstrap.com/docs/4.4/examples/product/#">Government</a></li>
+                        <li><a class="text-muted" href="https://getbootstrap.com/docs/4.4/examples/product/#">Gaming</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-md">
+                    <h5>About</h5>
+                    <ul class="list-unstyled text-small">
+                        <li><a class="text-muted" href="https://getbootstrap.com/docs/4.4/examples/product/#">Team</a></li>
+                        <li><a class="text-muted" href="https://getbootstrap.com/docs/4.4/examples/product/#">Locations</a></li>
+                        <li><a class="text-muted" href="https://getbootstrap.com/docs/4.4/examples/product/#">Privacy</a></li>
+                        <li><a class="text-muted" href="https://getbootstrap.com/docs/4.4/examples/product/#">Terms</a></li>
+                    </ul>
+                </div>
+            </div>
+        </footer>
     </body>
 </html>

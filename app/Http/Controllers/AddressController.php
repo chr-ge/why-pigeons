@@ -14,7 +14,7 @@ class AddressController extends Controller
 
     public function create()
     {
-        return view('/address/create');
+        return view('/account/address/create');
     }
 
     public function store(){
