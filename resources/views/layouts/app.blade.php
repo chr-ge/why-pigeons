@@ -25,7 +25,7 @@
             <div class="container">
                 <a class="navbar-brand d-flex" href="{{ url('/') }}">
                     <div>
-                        <img src="./svg/dove.svg" style="height: 30px; width: 30px">
+                        <img src="/public/svg/dove.svg" style="height: 30px; width: 30px">
                         Food and Maybe Pigeons?
                     </div>
                 </a>

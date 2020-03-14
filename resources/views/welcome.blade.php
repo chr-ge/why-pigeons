@@ -83,6 +83,7 @@
 
             <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light">
                 <div class="col-md-8 p-lg-5 mx-auto my-5">
+                    <img src="/public/svg/dove.svg" style="height: 60px; width: 60px">
                     <h1 class="display-4 font-weight-normal">Food and maybe some pigeons?</h1>
                     <p class="lead font-weight-normal">Quick food delivery right to your door.</p>
                     <a class="btn btn-outline-secondary" href="#">Coming soon</a>
