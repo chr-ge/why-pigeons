@@ -45,6 +45,6 @@ class RestaurantController extends Controller
             'image' => $imagePath,
         ]);
 
-        return redirect('/r/' . $restaurant->name);
+        return redirect('/r/' . $restaurant->id);
     }
 }
