@@ -120,10 +120,10 @@
                 <div class="col-6 col-md">
                     <h5>Locations</h5>
                     <ul class="list-unstyled text-small">
-                        <li><a class="text-muted" href="https://getbootstrap.com/docs/4.4/examples/product/#">Business</a></li>
-                        <li><a class="text-muted" href="https://getbootstrap.com/docs/4.4/examples/product/#">Education</a></li>
-                        <li><a class="text-muted" href="https://getbootstrap.com/docs/4.4/examples/product/#">Government</a></li>
-                        <li><a class="text-muted" href="https://getbootstrap.com/docs/4.4/examples/product/#">Gaming</a></li>
+                        <li><a class="text-muted" href="https://getbootstrap.com/docs/4.4/examples/product/#">Montreal</a></li>
+                        <li><a class="text-muted" href="https://getbootstrap.com/docs/4.4/examples/product/#">Laval</a></li>
+                        <li><a class="text-muted" href="https://getbootstrap.com/docs/4.4/examples/product/#">Toronto</a></li>
+                        <li><a class="text-muted" href="https://getbootstrap.com/docs/4.4/examples/product/#">Ottawa</a></li>
                     </ul>
                 </div>
                 <div class="col-6 col-md">

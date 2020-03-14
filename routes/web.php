@@ -19,8 +19,11 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/account', 'AccountController@index')->name('account');
+Route::get('/home', 'RestaurantController@index');
+Route::get('/r/create', 'RestaurantController@create')->name('r.create');
+Route::post('/r', 'RestaurantController@store')->name('r.store');
+Route::get('/r/{restaurant}', 'RestaurantController@show')->name('r.show');
 
+//Route::get('/account', 'AccountController@index')->name('account');
 Route::get('/account/address/create', 'AddressController@create')->name('address.create');
 Route::post('/account/address', 'AddressController@store')->name('address.store');

@@ -9,7 +9,7 @@
             <label for="street_address" class="col-md-4 col-form-label text-md-right">Street Address</label>
 
             <div class="col-md-6">
-                <input id="street_address" type="text" class="form-control @error('name') is-invalid @enderror" name="street_address" value="{{ old('street_address') }}" required autocomplete="street_address" autofocus>
+                <input id="street_address" type="text" class="form-control @error('street_address') is-invalid @enderror" name="street_address" value="{{ old('street_address') }}" required autocomplete="street_address" autofocus>
 
                 @error('street_address')
                 <span class="invalid-feedback" role="alert">
