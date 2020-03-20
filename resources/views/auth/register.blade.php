@@ -11,6 +11,7 @@
                     @isset($url)
                         <form method="POST" action='{{ url("register/$url") }}' aria-label="{{ __('Register') }}">
                     @else
+                        {{ $url = '' }}
                         <form method="POST" action="{{ route('register') }}" aria-label="{{ __('Register') }}">
                     @endisset
                         @csrf
