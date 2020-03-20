@@ -17,12 +17,16 @@ class CreateRestaurantsTable extends Migration
             $table->bigIncrements('id');
             $table->string('name')->index();
             $table->string('email')->unique();
-            $table->string('phone')->unique();
+            $table->string('phone', 11)->unique();
             $table->string('password')->nullable();
             $table->unsignedInteger('category_id');
             $table->string('image');
             $table->rememberToken();
             $table->timestamps();
+
+            $table->foreign('category_id')
+                ->references('id')
+                ->on('categories');
         });
     }
 

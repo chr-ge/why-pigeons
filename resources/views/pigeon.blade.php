@@ -31,7 +31,7 @@
                                         <td>{{ $restaurant->name }}</td>
                                         <td>{{ $restaurant->email }}</td>
                                         <td>{{ $restaurant->phone }}</td>
-                                        <td>{{ $restaurant->category_id }}</td>
+                                        <td>{{ \App\Category::find($restaurant->category_id)->name }}</td>
                                     </tr>
                                 @endforeach
                             </tbody>
@@ -58,7 +58,7 @@
                                     <td>{{ $restaurant->name }}</td>
                                     <td>{{ $restaurant->email }}</td>
                                     <td>{{ $restaurant->phone }}</td>
-                                    <td>{{ $restaurant->category_id }}</td>
+                                    <td>{{ \App\Category::find($restaurant->category_id)->name }}</td>
                                 </tr>
                             @endforeach
                             </tbody>
