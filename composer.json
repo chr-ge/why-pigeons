@@ -4,7 +4,23 @@
     "description": "The Laravel Framework.",
     "keywords": [
         "framework",
-        "laravel"
+        "laravel",
+        "pigeons",
+        "php"
+    ],
+    "authors": [
+        {
+            "name": "George Christeas",
+            "email": "1753475@edu.vaniercollege.qc.ca"
+        },
+        {
+            "name": "Kian Morot",
+            "email": "kian.morot1@gmail.com"
+        },
+        {
+            "name": "Terence Ludford",
+            "email": "tlvaniertemp@gmail.com"
+        }
     ],
     "license": "MIT",
     "require": {

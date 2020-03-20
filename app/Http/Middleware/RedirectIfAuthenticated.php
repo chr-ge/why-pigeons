@@ -18,8 +18,17 @@ class RedirectIfAuthenticated
      */
     public function handle($request, Closure $next, $guard = null)
     {
+        if ($guard === "pigeon" && Auth::guard($guard)->check()) {
+            return redirect('/pigeon');
+        }
+        if ($guard === "driver" && Auth::guard($guard)->check()) {
+            return redirect('/driver');
+        }
+        if ($guard === "restaurant" && Auth::guard($guard)->check()) {
+            return redirect('/restaurant');
+        }
         if (Auth::guard($guard)->check()) {
-            return redirect(RouteServiceProvider::HOME);
+            return redirect('/home');
         }
 
         return $next($request);

@@ -2,8 +2,11 @@
 
 namespace App\Exceptions;
 
+use Exception;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Illuminate\Auth\AuthenticationException;
 use Throwable;
+use Auth;
 
 class Handler extends ExceptionHandler
 {
@@ -51,5 +54,29 @@ class Handler extends ExceptionHandler
     public function render($request, Throwable $exception)
     {
         return parent::render($request, $exception);
+    }
+
+    /**
+     * Convert an authentication exception into an unauthenticated response.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Auth\AuthenticationException  $exception
+     * @return \Illuminate\Http\Response
+     */
+    protected function unauthenticated($request, AuthenticationException $exception)
+    {
+        if ($request->expectsJson()) {
+            return response()->json(['error' => 'Unauthenticated.'], 401);
+        }
+        if ($request->is('pigeon') || $request->is('pigeon/*')) {
+            return redirect()->guest('/login/pigeon');
+        }
+        if ($request->is('driver') || $request->is('driver/*')) {
+            return redirect()->guest('/login/driver');
+        }
+        if ($request->is('restaurant') || $request->is('restaurant/*')) {
+            return redirect()->guest('/login/restaurant');
+        }
+        return redirect()->guest(route('login'));
     }
 }

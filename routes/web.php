@@ -13,17 +13,42 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
+Route::view('/','welcome');
 Auth::routes();
 
-Route::get('/home', 'RestaurantController@index');
-Route::get('/r/create', 'RestaurantController@create')->name('r.create');
-Route::post('/r', 'RestaurantController@store')->name('r.store');
-Route::get('/r/{restaurant}', 'RestaurantController@show')->name('r.show');
+//Route::get('/login', 'Auth\LoginController@showUserLoginForm')->name('login.user');
+//Route::get('/register', 'Auth\RegisterController@showUserRegisterForm')->name('login.user');;
 
-//Route::get('/account', 'AccountController@index')->name('account');
+Route::get('/login/pigeon', 'Auth\LoginController@showPigeonLoginForm')->name('login.pigeon');
+Route::get('/login/driver', 'Auth\LoginController@showDriverLoginForm')->name('login.driver');;
+Route::get('/login/restaurant', 'Auth\LoginController@showRestaurantLoginForm')->name('login.restaurant');;
+Route::get('/register/pigeon', 'Auth\RegisterController@showPigeonRegisterForm')->name('register.pigeon');
+Route::get('/register/driver', 'Auth\RegisterController@showDriverRegisterForm')->name('register.driver');
+Route::get('/register/restaurant', 'Auth\RegisterController@showRestaurantRegisterForm')->name('register.restaurant');
+
+Route::post('/login/pigeon', 'Auth\LoginController@pigeonLogin');
+Route::post('/login/driver', 'Auth\LoginController@driverLogin');
+Route::post('/login/restaurant', 'Auth\LoginController@restaurantLogin');
+Route::post('/register/pigeon', 'Auth\RegisterController@createPigeon')->name('register.pigeon');
+Route::post('/register/driver', 'Auth\RegisterController@createDriver')->name('register.driver');
+Route::post('/register/restaurant', 'Auth\RegisterController@createrestaurant')->name('register.restaurant');
+
+Route::get('/home', 'HomeController@index');//->middleware('auth');
+Route::get('/r/{restaurant}', 'HomeController@show')->name('home.show');
+
+Route::group(['middleware' => 'auth:pigeon'], function () {
+    Route::get('/pigeon', 'PigeonController@index')->name('pigeon.index');
+    Route::get('/pigeon/details/{restaurant}', 'PigeonController@details')->name('pigeon.details');
+    Route::patch('/pigeon/details/{restaurant}', 'PigeonController@setTempPassword')->name('pigeon.setTempPass');
+});
+
+Route::group(['middleware' => 'auth:driver'], function () {
+    Route::view('/driver', 'driver');
+});
+
+Route::group(['middleware' => 'auth:restaurant'], function () {
+    Route::get('/restaurant', 'RestaurantController@index')->name('restaurant.index');
+});
+
 Route::get('/account/address/create', 'AddressController@create')->name('address.create');
 Route::post('/account/address', 'AddressController@store')->name('address.store');

@@ -6,3 +6,28 @@
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
+
+.module {
+    box-sizing: border-box;
+    position: relative;
+    margin: 0 auto;
+}
+
+.module img {
+    vertical-align: middle;
+}
+
+.module .content {
+    position: absolute;
+    bottom: 0;
+    background: rgb(0, 0, 0); /* Fallback color */
+    background: rgba(0, 0, 0, 0.5); /* Black background with 0.5 opacity */
+    color: #f1f1f1;
+    width: 92%;
+    padding: 10px;
+    text-align:center;
+}
+
+.module .content:hover {
+    background: rgba(0, 0, 0, 0.75); /* Black background with 0.5 opacity */
+}

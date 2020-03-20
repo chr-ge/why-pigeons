@@ -86,7 +86,7 @@
                     <img src="/public/svg/dove.svg" style="height: 60px; width: 60px">
                     <h1 class="display-4 font-weight-normal">Food and maybe some pigeons?</h1>
                     <p class="lead font-weight-normal">Quick food delivery right to your door.</p>
-                    <a class="btn btn-outline-secondary" href="#">Coming soon</a>
+                    <a class="btn btn-outline-secondary" href="/public/home">Coming soon</a>
                 </div>
                 <div class="product-device shadow-sm d-none d-md-block"></div>
                 <div class="product-device product-device-2 shadow-sm d-none d-md-block"></div>
@@ -99,23 +99,21 @@
                     <small class="d-block mb-3 text-muted">© 2020</small>
                 </div>
                 <div class="col-6 col-md">
-                    <h5>Features</h5>
+                    <h5>Drivers</h5>
                     <ul class="list-unstyled text-small">
-                        <li><a class="text-muted" href="https://getbootstrap.com/docs/4.4/examples/product/#">Cool stuff</a></li>
-                        <li><a class="text-muted" href="https://getbootstrap.com/docs/4.4/examples/product/#">Random feature</a></li>
+                        <li><a class="text-muted" href="/public/login/driver">Driver Login</a></li>
+                        <li><a class="text-muted" href="/public/register/driver">Drive with us</a></li>
                         <li><a class="text-muted" href="https://getbootstrap.com/docs/4.4/examples/product/#">Team feature</a></li>
-                        <li><a class="text-muted" href="https://getbootstrap.com/docs/4.4/examples/product/#">Stuff for developers</a></li>
-                        <li><a class="text-muted" href="https://getbootstrap.com/docs/4.4/examples/product/#">Another one</a></li>
-                        <li><a class="text-muted" href="https://getbootstrap.com/docs/4.4/examples/product/#">Last time</a></li>
+                        <li><a class="text-muted" href="https://getbootstrap.com/docs/4.4/examples/product/#">Driver Support</a></li>
                     </ul>
                 </div>
                 <div class="col-6 col-md">
                     <h5>Restaurants</h5>
                     <ul class="list-unstyled text-small">
-                        <li><a class="text-muted" href="https://getbootstrap.com/docs/4.4/examples/product/#">Resource</a></li>
-                        <li><a class="text-muted" href="https://getbootstrap.com/docs/4.4/examples/product/#">Resource name</a></li>
-                        <li><a class="text-muted" href="https://getbootstrap.com/docs/4.4/examples/product/#">Another resource</a></li>
-                        <li><a class="text-muted" href="https://getbootstrap.com/docs/4.4/examples/product/#">Final resource</a></li>
+                        <li><a class="text-muted" href="/public/login/restaurant">Restaurant Login</a></li>
+                        <li><a class="text-muted" href="/public/register/restaurant">Partner with us</a></li>
+                        <li><a class="text-muted" href="https://getbootstrap.com/docs/4.4/examples/product/#">Advantages</a></li>
+                        <li><a class="text-muted" href="https://getbootstrap.com/docs/4.4/examples/product/#">Restaurant Support</a></li>
                     </ul>
                 </div>
                 <div class="col-6 col-md">

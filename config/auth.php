@@ -46,6 +46,21 @@ return [
             'provider' => 'users',
             'hash' => false,
         ],
+
+        'driver' => [
+            'driver' => 'session',
+            'provider' => 'drivers',
+        ],
+
+        'restaurant' => [
+            'driver' => 'session',
+            'provider' => 'restaurants',
+        ],
+
+        'pigeon' => [
+            'driver' => 'session',
+            'provider' => 'pigeons',
+        ],
     ],
 
     /*
@@ -71,6 +86,20 @@ return [
             'model' => App\User::class,
         ],
 
+        'drivers' => [
+            'driver' => 'eloquent',
+            'model' => App\Driver::class,
+        ],
+
+        'restaurants' => [
+            'driver' => 'eloquent',
+            'model' => App\Restaurant::class,
+        ],
+
+        'pigeons' => [
+            'driver' => 'eloquent',
+            'model' => App\Pigeon::class,
+        ],
         // 'users' => [
         //     'driver' => 'database',
         //     'table' => 'users',
@@ -99,6 +128,24 @@ return [
             'expire' => 60,
             'throttle' => 60,
         ],
+
+        'drivers' => [
+            'provider' => 'drivers',
+            'table' => 'password_resets',
+            'expire' => 60,
+        ],
+
+        'restaurants' => [
+            'provider' => 'restaurants',
+            'table' => 'password_resets',
+            'expire' => 60,
+        ],
+
+        'pigeons' => [
+            'provider' => 'pigeons',
+            'table' => 'password_resets',
+            'expire' => 60,
+        ],
     ],
 
     /*
@@ -113,5 +160,4 @@ return [
     */
 
     'password_timeout' => 10800,
-
 ];
