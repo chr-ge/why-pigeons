@@ -8,13 +8,13 @@ use Illuminate\Http\Request;
 class HomeController extends Controller
 {
     /**
-     * Show the application dashboard.
+     * Show the application index.
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
     public function index()
     {
-        $restaurants = Restaurant::whereNotNull('password')->get();
+        $restaurants = Restaurant::where('active', true)->get();
         return view('home', compact('restaurants'));
     }
 

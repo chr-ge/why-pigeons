@@ -15,12 +15,13 @@ class CreateRestaurantsTable extends Migration
     {
         Schema::create('restaurants', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name')->index();
+            $table->string('name', 50)->index();
             $table->string('email')->unique();
             $table->string('phone', 11)->unique();
             $table->string('password')->nullable();
             $table->unsignedInteger('category_id');
             $table->string('image')->default('uploads/default.jpg');
+            $table->boolean('active')->default(false);
             $table->rememberToken();
             $table->timestamps();
 

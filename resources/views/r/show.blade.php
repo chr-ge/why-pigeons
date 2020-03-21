@@ -1,8 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-
-
     <div class="container">
         <div class="position-relative overflow-hidden p-3 text-center bg-light"
              style="background-image: url('/public/storage/{{ $restaurant->image }}'); background-size: cover;background-position: center;">

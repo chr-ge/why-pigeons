@@ -9,8 +9,8 @@ use Illuminate\Support\Facades\Hash;
 class PigeonController extends Controller
 {
     public function index(){
-        $new_restaurants = Restaurant::whereNull('password')->get();
-        $all_restaurants = Restaurant::whereNotNull('password')->get();
+        $new_restaurants = Restaurant::where('active', false)->get();
+        $all_restaurants = Restaurant::where('active', true)->get();
         return view('pigeon', compact('new_restaurants', 'all_restaurants'));
     }
 
