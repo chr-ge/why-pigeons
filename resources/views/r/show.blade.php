@@ -8,8 +8,11 @@
              style="background-image: url('/public/storage/{{ $restaurant->image }}'); background-size: cover;background-position: center;">
             <div class="col-md-5 p-lg-5 mx-auto my-5" style="background: #F8FAFC">
                 <h1 class="display-4 font-weight-normal">{{ $restaurant->name }}</h1>
-                <p class="lead font-weight-normal">{{ $restaurant->description }}</p>
-                <a class="btn btn-outline-secondary" href="https://getbootstrap.com/docs/4.4/examples/product/#">Coming soon</a>
+                <p class="lead font-weight-normal">
+                    @foreach($restaurant->categories as $category)
+                        <span class="badge badge-primary">{{$category->name}}</span>
+                    @endforeach
+                </p>
             </div>
             <div class="product-device shadow-sm d-none d-md-block"></div>
             <div class="product-device product-device-2 shadow-sm d-none d-md-block"></div>

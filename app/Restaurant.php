@@ -29,4 +29,8 @@ class Restaurant extends Authenticatable
     {
         return $this->hasOne(Address::class);
     }
+
+    public function categories(){
+        return $this->belongsToMany(Category::class)->orderBy('name');
+    }
 }

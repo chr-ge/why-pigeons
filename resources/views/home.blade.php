@@ -8,12 +8,7 @@
                 <div class="card-header">Search</div>
 
                 <div class="card-body">
-                    {{session('status') == true}}
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
+
                 </div>
             </div>
         </div>

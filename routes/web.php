@@ -34,6 +34,7 @@ Route::post('/register/driver', 'Auth\RegisterController@createDriver')->name('r
 Route::post('/register/restaurant', 'Auth\RegisterController@createrestaurant')->name('register.restaurant');
 
 Route::get('/home', 'HomeController@index');//->middleware('auth');
+Route::get('/account/settings', 'HomeController@settings')->middleware('auth');
 Route::get('/r/{restaurant}', 'HomeController@show')->name('home.show');
 
 Route::group(['middleware' => 'auth:pigeon'], function () {
@@ -48,6 +49,7 @@ Route::group(['middleware' => 'auth:driver'], function () {
 
 Route::group(['middleware' => 'auth:restaurant'], function () {
     Route::get('/restaurant', 'RestaurantController@index')->name('restaurant.index');
+    Route::post('/restaurant', 'RestaurantController@addCategory')->name('addCategory');
 });
 
 Route::get('/account/address/create', 'AddressController@create')->name('address.create');
