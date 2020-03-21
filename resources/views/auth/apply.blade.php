@@ -7,38 +7,6 @@
     img{
         width: 100%;
     }
-
-    .form-signin {
-        width: 100%;
-        background: #94f0ff;
-        max-width: 500px;
-        padding: 15px;
-        margin: auto;
-    }
-    .form-signin .form-control {
-        position: relative;
-        box-sizing: border-box;
-        height: auto;
-        padding: 10px;
-        font-size: 16px;
-    }
-    .form-signin .form-control:focus {
-        z-index: 2;
-    }
-    .form-signin input[type="text"] {
-        margin-bottom: -1px;
-        border-bottom-right-radius: 0;
-        border-bottom-left-radius: 0;
-    }
-    .form-signin input[type="email"] {
-        margin-bottom: -1px;
-        border-radius: 0;
-    }
-    .form-signin input[type="tel"] {
-        margin-bottom: 10px;
-        border-top-left-radius: 0;
-        border-top-right-radius: 0;
-    }
 </style>
 @section('content')
 <div class="container">
@@ -53,11 +21,24 @@
 
                 <h1 class="h2 mb-3 font-weight-normal">Become a partner restaurant</h1>
 
-                <input id="name" type="text" placeholder="Restaurant Name" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                <input id="name" type="text" placeholder="Restaurant Name" class="form-control top @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                <input id="email" type="email" placeholder="Email" class="form-control middle @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                <input id="phone" type="tel" placeholder="Phone Number" class="form-control bottom @error('phone') is-invalid @enderror" name="phone" value="{{ old('phone') }}" required autocomplete="phone" autofocus>
 
-                <input id="email" type="email" placeholder="Email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
-
-                <input id="phone" type="tel" placeholder="Phone Number" class="form-control @error('phone') is-invalid @enderror" name="phone" value="{{ old('phone') }}" required autocomplete="phone" autofocus>
+                <input id="street_address" type="text" placeholder="Street Address" class="form-control top @error('street_address') is-invalid @enderror" name="street_address" value="{{ old('street_address') }}" required autocomplete="street_address" autofocus>
+                <div class="input-group">
+                    <input id="city" type="text" placeholder="City" class=" form-control middle @error('city') is-invalid @enderror" name="city" value="{{ old('city') }}" required autocomplete="city" autofocus>
+                    <input id="province" type="text" placeholder="Province" class="form-control middle @error('province') is-invalid @enderror" name="province" value="{{ old('province') }}" required autocomplete="province" autofocus>
+                </div>
+                <div class="input-group">
+                    <input id="postal_code" type="text" placeholder="Postal Code" class="form-control bottom @error('postal_code') is-invalid @enderror" name="postal_code" value="{{ old('postal_code') }}" required autocomplete="postal_code" autofocus>
+                    <select id="country" class="form-control bottom" name="country">
+                        <option value="" disabled selected>Country</option>
+                        @foreach($countries as $country)
+                            <option value="{{ $country }}">{{ $country }}</option>
+                        @endforeach
+                    </select>
+                </div>
 
                 <select id="category_id" class="form-control" name="category_id">
                     <option value="" disabled selected>Type of cuisine</option>
@@ -66,12 +47,20 @@
                     @endforeach
                 </select>
 
-                <div class="custom-file mt-2">
-                    <input type="file" class="custom-file-input" id="image" name="image">
-                    <label class="custom-file-label" for="image">Choose a Restaurant Image</label>
-                </div>
+                @error('street_address')
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+                @enderror
 
-                <button type="submit" class="btn btn-primary mt-5">
+                <div class="mt-5">
+                    <p class="legal">
+                        By clicking “Apply Now,” you agree to Why Pigeons Why?
+                        <a href="#">General Terms and Conditions</a> and acknowledge
+                        you have read the <a href="#">Privacy Policy</a>.
+                    </p>
+                </div>
+                <button type="submit" class="btn btn-primary">
                     {{ __('Apply Now') }}
                 </button>
             </form>

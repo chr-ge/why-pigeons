@@ -20,7 +20,7 @@ class CreateRestaurantsTable extends Migration
             $table->string('phone', 11)->unique();
             $table->string('password')->nullable();
             $table->unsignedInteger('category_id');
-            $table->string('image');
+            $table->string('image')->default('uploads/default.jpg');
             $table->rememberToken();
             $table->timestamps();
 

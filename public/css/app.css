@@ -10910,3 +10910,54 @@ a.text-dark:focus {
   /* Black background with 0.5 opacity */
 }
 
+.legal {
+  font-size: 12px;
+}
+
+.legal a:link {
+  text-decoration: none;
+  font-weight: bold;
+  color: #6574cd;
+}
+
+.legal a:link:hover {
+  color: #4e50cd;
+}
+
+.form-signin {
+  width: 100%;
+  background: #94f0ff;
+  max-width: 500px;
+  padding: 15px;
+  margin: auto;
+}
+
+.form-signin .form-control {
+  position: relative;
+  box-sizing: border-box;
+  height: auto;
+  padding: 10px;
+  font-size: 16px;
+}
+
+.form-signin .form-control:focus {
+  z-index: 2;
+}
+
+.form-signin .top {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.form-signin .middle {
+  margin-bottom: -1px;
+  border-radius: 0;
+}
+
+.form-signin .bottom {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+

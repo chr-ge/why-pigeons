@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Category;
 use App\Restaurant;
+use Intervention\Image\Facades\Image;
 
 class RestaurantController extends Controller
 {
@@ -40,6 +41,22 @@ class RestaurantController extends Controller
         else {
             return redirect()->back()->with('error', 'That category already exists for this restaurant');
         }
+
+        return redirect()->back();
+    }
+
+    public function setImage(){
+        $data  = request()->validate([
+            'image' => 'required|image'
+        ]);
+
+        $imagePath = request('image')->store('uploads', 'public');
+        $image = Image::make(public_path("storage/{$imagePath}"))->fit(1200, 1200);
+        $image->save();
+
+        Restaurant::update([
+            'image' => $imagePath
+        ]);
 
         return redirect()->back();
     }

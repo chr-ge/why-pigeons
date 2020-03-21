@@ -14,7 +14,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $restaurants = Restaurant::all();
+        $restaurants = Restaurant::whereNotNull('password')->get();
         return view('home', compact('restaurants'));
     }
 

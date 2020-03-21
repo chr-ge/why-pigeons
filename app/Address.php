@@ -14,7 +14,7 @@ class Address extends Model
      * @var array
      */
     protected $fillable = [
-        'street_address', 'city', 'province', 'postal_code','country',
+        'account_id', 'street_address', 'city', 'province', 'postal_code','country',
     ];
 
     public function user(){
@@ -22,6 +22,6 @@ class Address extends Model
     }
 
     public function restaurant(){
-    return $this->belongsTo(Restaurant::class);
-}
+        return $this->belongsTo(Restaurant::class, 'id');
+    }
 }

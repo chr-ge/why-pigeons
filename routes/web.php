@@ -32,6 +32,7 @@ Route::post('/login/restaurant', 'Auth\LoginController@restaurantLogin');
 Route::post('/register/pigeon', 'Auth\RegisterController@createPigeon')->name('register.pigeon');
 Route::post('/register/driver', 'Auth\RegisterController@createDriver')->name('register.driver');
 Route::post('/register/restaurant', 'Auth\RegisterController@createrestaurant')->name('register.restaurant');
+Route::view('/get-back-to-you', 'get-back-to-you');
 
 Route::get('/home', 'HomeController@index');//->middleware('auth');
 Route::get('/account/settings', 'HomeController@settings')->middleware('auth');

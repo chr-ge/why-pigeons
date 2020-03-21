@@ -13,6 +13,17 @@
                 </div>
 
                 <div class="card mt-3">
+                    <div class="card-header">Set a Restaurant Image</div>
+
+                    <div class="card-body">
+                        <div class="custom-file">
+                            <input type="file" class="custom-file-input" id="image" name="image">
+                            <label class="custom-file-label" for="image">Choose a Restaurant Image</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card mt-3">
                     <div class="card-header">Categories</div>
 
                     <div class="card-body">

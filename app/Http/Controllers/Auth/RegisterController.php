@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Address;
 use App\Category;
 use App\Driver;
 use App\Http\Controllers\Controller;
@@ -77,9 +78,10 @@ class RegisterController extends Controller
 
     public function showRestaurantRegisterForm()
     {
+        $countries = ['Canada', 'United States of America'];
         $categories = Category::pluck('id', 'name');
         $url = 'restaurant';
-        return view('auth.apply', compact('categories', 'url'));
+        return view('auth.apply', compact('categories', 'url', 'countries'));
     }
 
     /**
@@ -135,25 +137,35 @@ class RegisterController extends Controller
     protected function createRestaurant(Request $request)
     {
         $data  = request()->validate([
-            'name' => 'required',
+            'name' => 'required|string',
             'email' => 'required|email|unique:restaurants,email',
             'phone' => 'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:10|unique:restaurants,phone',
             'category_id' => 'required',
-            'image' => 'required|image',
+
+            'street_address' => 'required|string',
+            'city' => 'required|string',
+            'province' => 'required|string',
+            'postal_code' => 'required|string',
+            'country' => 'required|string',
         ]);
 
-        $imagePath = request('image')->store('uploads', 'public');
-        $image = Image::make(public_path("storage/{$imagePath}"))->fit(1200, 1200);
-        $image->save();
-
-        Restaurant::create([
+        $newRestaurant = Restaurant::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'phone' => $data['phone'],
-            'category_id' => $data['category_id'],
-            'image' => $imagePath,
+            'category_id' => $data['category_id']
         ]);
 
-        return redirect()->intended('login/restaurant');
+        Address::create([
+            'account_id' => $newRestaurant->id,
+            'description' => 'restaurant',
+            'street_address' => $data['street_address'],
+            'city' => $data['city'],
+            'province' => $data['province'],
+            'postal_code' => $data['postal_code'],
+            'country' => $data['country'],
+        ]);
+
+        return redirect()->intended('get-back-to-you');
     }
 }

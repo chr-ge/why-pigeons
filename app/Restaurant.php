@@ -27,7 +27,7 @@ class Restaurant extends Authenticatable
 
     public function address()
     {
-        return $this->hasOne(Address::class);
+        return $this->hasOne(Address::class, 'account_id');
     }
 
     public function categories(){
