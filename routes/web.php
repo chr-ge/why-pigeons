@@ -16,9 +16,6 @@ use Illuminate\Support\Facades\Route;
 Route::view('/','welcome');
 Auth::routes();
 
-//Route::get('/login', 'Auth\LoginController@showUserLoginForm')->name('login.user');
-//Route::get('/register', 'Auth\RegisterController@showUserRegisterForm')->name('login.user');;
-
 Route::get('/login/pigeon', 'Auth\LoginController@showPigeonLoginForm')->name('login.pigeon');
 Route::get('/login/driver', 'Auth\LoginController@showDriverLoginForm')->name('login.driver');;
 Route::get('/login/restaurant', 'Auth\LoginController@showRestaurantLoginForm')->name('login.restaurant');;
@@ -34,7 +31,7 @@ Route::post('/register/driver', 'Auth\RegisterController@createDriver')->name('r
 Route::post('/register/restaurant', 'Auth\RegisterController@createrestaurant')->name('register.restaurant');
 Route::view('/get-back-to-you', 'get-back-to-you');
 
-Route::get('/home', 'HomeController@index');//->middleware('auth');
+Route::get('/home', 'HomeController@index')->name('home');//->middleware('auth');
 Route::get('/account/settings', 'HomeController@settings')->middleware('auth');
 Route::get('/r/{restaurant}', 'HomeController@show')->name('home.show');
 
@@ -50,7 +47,8 @@ Route::group(['middleware' => 'auth:driver'], function () {
 
 Route::group(['middleware' => 'auth:restaurant'], function () {
     Route::get('/restaurant', 'RestaurantController@index')->name('restaurant.index');
-    Route::post('/restaurant', 'RestaurantController@addCategory')->name('addCategory');
+    Route::get('/management', 'RestaurantController@management')->name('restaurant.manage');
+    Route::post('/management', 'RestaurantController@addCategory')->name('addCategory');
 });
 
 Route::get('/account/address/create', 'AddressController@create')->name('address.create');

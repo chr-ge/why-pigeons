@@ -15,11 +15,11 @@ class CreateDriversTable extends Migration
     {
         Schema::create('drivers', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
+            $table->string('name', 50);
             $table->string('email')->unique();
             $table->string('phone', 11)->unique();
             $table->string('password');
-            $table->string('type')->nullable();
+            $table->string('type', 50)->nullable();
             $table->string('profile_picture')->nullable();
             $table->rememberToken();
             $table->timestamps();

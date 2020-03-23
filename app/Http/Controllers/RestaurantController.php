@@ -9,13 +9,17 @@ use Intervention\Image\Facades\Image;
 class RestaurantController extends Controller
 {
     public function index(){
-        $restaurant = auth()->user();
+        return view('dashboard.dashboard');
+    }
+
+    public function management(){
         $categories = Category::pluck('id', 'name');
 
-        return view('restaurant', compact('restaurant', 'categories'));
+        return view('dashboard.management', compact('categories'));
     }
 
     public function addCategory(){
+        dd(request());
         $data = request()->validate([
             'category_id' => 'required|numeric'
         ]);
