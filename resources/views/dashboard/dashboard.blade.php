@@ -284,6 +284,6 @@
 @endsection
 
 @push('js')
-    <script src="{{ asset('admin/vendor/chart.js/dist/Chart.min.js') }}"></script>
-    <script src="{{ asset('admin/vendor/chart.js/dist/Chart.extension.js') }}"></script>
+    <script src="{{ asset('dashboard/vendor/chart.js/dist/Chart.min.js') }}"></script>
+    <script src="{{ asset('dashboard/vendor/chart.js/dist/Chart.extension.js') }}"></script>
 @endpush
