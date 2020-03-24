@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Category;
 use App\Restaurant;
+use Illuminate\Support\Facades\File;
 use Intervention\Image\Facades\Image;
 
 class RestaurantController extends Controller
@@ -18,8 +19,11 @@ class RestaurantController extends Controller
         return view('dashboard.management', compact('categories'));
     }
 
+    public function menu(){
+        return view('dashboard.menu');
+    }
+
     public function addCategory(){
-        dd(request());
         $data = request()->validate([
             'category_id' => 'required|numeric'
         ]);
@@ -50,15 +54,21 @@ class RestaurantController extends Controller
     }
 
     public function setImage(){
+        $currentUser = auth()->user();
         $data  = request()->validate([
             'image' => 'required|image'
         ]);
 
-        $imagePath = request('image')->store('uploads', 'public');
+        if(File::exists(public_path('storage/'.$currentUser->image))
+            && $currentUser->image !== 'uploads/default.jpeg'){
+            File::delete(public_path('storage/'.$currentUser->image));
+        }
+
+        $imagePath = $data['image']->store('uploads', 'public');
         $image = Image::make(public_path("storage/{$imagePath}"))->fit(1200, 1200);
         $image->save();
 
-        Restaurant::update([
+        Restaurant::findOrFail($currentUser->id)->update([
             'image' => $imagePath
         ]);
 

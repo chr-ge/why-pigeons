@@ -36,6 +36,6 @@
         @stack('js')
 
         <!-- Argon JS -->
-        <script src="{{ asset('dashboard/js/argon.js?v=1.0.0') }}"></script>
+        <script src="{{ asset('dashboard/js/argon.min.js?v=1.0.0') }}"></script>
     </body>
 </html>
