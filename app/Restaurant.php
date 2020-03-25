@@ -25,6 +25,11 @@ class Restaurant extends Authenticatable
         'password', 'remember_token'
     ];
 
+    public function menu_items()
+    {
+        return $this->hasMany(Menu::class);
+    }
+
     public function address()
     {
         return $this->hasOne(Address::class, 'account_id');
