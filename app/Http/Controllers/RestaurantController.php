@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Category;
+use App\Menu;
 use App\Restaurant;
 use Illuminate\Support\Facades\File;
 use Intervention\Image\Facades\Image;
@@ -20,7 +21,8 @@ class RestaurantController extends Controller
     }
 
     public function menu(){
-        return view('dashboard.menu');
+        $menu_items = Menu::where('restaurant_id', auth()->id())->paginate(10);
+        return view('dashboard.menu', compact('menu_items'));
     }
 
     public function addCategory(){

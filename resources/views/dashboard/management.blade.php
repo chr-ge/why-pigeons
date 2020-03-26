@@ -59,7 +59,7 @@
                             <div class="card-body">
                                 <div class="row align-items-center">
                                     <div class="col-3">
-                                        <img src="/public/storage/{{ auth()->user()->image }}" alt="restaurant_image" class="w-100"/>
+                                        <img src="/public/storage/{{ auth()->user()->image }}" alt="Restaurant Image" class="w-100"/>
                                     </div>
                                     <form method="POST" action="{{ route('setImage') }}" enctype ="multipart/form-data" class="col-9"   >
                                         @csrf
