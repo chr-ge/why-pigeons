@@ -62,7 +62,8 @@ class RegisterController extends Controller
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'phone' => ['required', 'string', 'min:10', 'unique:users'],
+            'password' => ['required', 'string', 'min:6', 'confirmed'],
         ]);
     }
 
@@ -103,8 +104,8 @@ class RegisterController extends Controller
     protected function createPigeon(Request $request)
     {
         $data = $request->validate([
-            'name' => 'required|alpha',
-            'username' => 'required|unique:pigeons,username|alpha_dash',
+            'name' => 'required|string',
+            'username' => 'required|alpha_dash|unique:pigeons,username',
             'password' => 'required',
         ]);
 
@@ -119,9 +120,9 @@ class RegisterController extends Controller
     protected function createDriver(Request $request)
     {
         $data = $request->validate([
-            'name' => 'required|alpha',
+            'name' => 'required|string',
             'email' => 'required|unique:drivers,email',
-            'phone' => 'required|unique:drivers,phone|regex:/^([0-9\s\-\+\(\)]*)$/|min:10',
+            'phone' => 'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:10|unique:drivers,phone',
             'password' => 'required',
         ]);
 

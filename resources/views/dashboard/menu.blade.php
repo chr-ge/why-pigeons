@@ -1,7 +1,7 @@
 @extends('dashboard.layouts.app')
 
 @section('content')
-    <div class="header bg-primary pb-8 pt-5 pt-lg-7 d-flex">
+    <div class="header bg-gradient-primary pb-8 pt-5 pt-lg-7 d-flex">
         <!-- Header container -->
         <div class="container-fluid">
             <div class="header-body">
@@ -75,16 +75,13 @@
                                         <td>
                                             {{$menu_item->category->name ?? 'None'}}
                                         </td>
-                                        <td class="text-right">
-                                            <div class="dropdown">
-                                                <a class="btn btn-sm btn-icon-only text-light" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                    <i class="fas fa-ellipsis-v"></i>
-                                                </a>
-                                                <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
-                                                    <a class="dropdown-item" href="#">Edit</a>
-                                                    <a class="dropdown-item" href="#">Delete</a>
-                                                </div>
-                                            </div>
+                                        <td class="">
+                                            <a href="#" class="table-action" data-toggle="tooltip" data-original-title="Edit menu item">
+                                                <i class="fas fa-user-edit"></i>
+                                            </a>
+                                            <a href="#" class="table-action table-action-delete" data-toggle="tooltip" data-original-title="Delete menu item">
+                                                <i class="fas fa-trash"></i>
+                                            </a>
                                         </td>
                                     </tr>
                                 @endforeach
