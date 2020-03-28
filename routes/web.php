@@ -48,7 +48,9 @@ Route::group(['middleware' => 'auth:driver'], function () {
 Route::group(['middleware' => 'auth:restaurant'], function () {
     Route::get('/restaurant', 'RestaurantController@index')->name('restaurant.index');
     Route::get('/menu', 'RestaurantController@menu')->name('restaurant.menu');
+    Route::get('/menu/new', 'RestaurantController@newMenuItem')->name('restaurant.newMenuItem');
     Route::get('/management', 'RestaurantController@management')->name('restaurant.manage');
+    Route::post('/create-menu-item', 'RestaurantController@createMenuItem')->name('restaurant.createMenuItem');
     Route::post('/set-image', 'RestaurantController@setImage')->name('setImage');
     Route::post('/add-category', 'RestaurantController@addCategory')->name('addCategory');
 });

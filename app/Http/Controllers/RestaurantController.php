@@ -25,6 +25,23 @@ class RestaurantController extends Controller
         return view('dashboard.menu', compact('menu_items'));
     }
 
+    public function newMenuItem(){
+        $categories = Category::pluck('id', 'name')->except('$', '$$', '$$$');
+        return view('dashboard.newmenuitem', compact('categories'));
+    }
+
+    public function createMenuItem(){
+        $data = request()->validate([
+            'name' => 'required|string',
+            'description' => 'nullable|string',
+            'image' => 'nullable|image',
+            'category_id' => 'nullable',
+            'price' => 'required|numeric|between:0,200'
+        ]);
+
+        return redirect()->back();
+    }
+
     public function addCategory(){
         $data = request()->validate([
             'category_id' => 'required|numeric'
