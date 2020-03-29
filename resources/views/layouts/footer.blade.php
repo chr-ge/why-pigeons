@@ -1,7 +1,7 @@
 <footer class="container py-5" id="footer">
     <div class="row">
         <div class="col-12 col-md">
-            <img src="/public/svg/dove.svg" height="30px">
+            <img src="{{asset('svg/dove.svg')}}" height="30px">
             <small class="d-block mb-3 text-muted">© 2020</small>
         </div>
         <div class="col-6 col-md">
