@@ -51,6 +51,8 @@ Route::group(['middleware' => 'auth:restaurant'], function () {
     Route::get('/menu/new', 'RestaurantController@newMenuItem')->name('restaurant.newMenuItem');
     Route::get('/management', 'RestaurantController@management')->name('restaurant.manage');
     Route::post('/create-menu-item', 'RestaurantController@createMenuItem')->name('restaurant.createMenuItem');
+    Route::post('/edit-menu-item/{menu}', 'RestaurantController@editMenuItem')->name('restaurant.editMenuItem');
+    Route::delete('/delete-menu-item/{menu}', 'RestaurantController@deleteMenuItem')->name('restaurant.deleteMenuItem');
     Route::post('/set-image', 'RestaurantController@setImage')->name('setImage');
     Route::post('/add-category', 'RestaurantController@addCategory')->name('addCategory');
 });

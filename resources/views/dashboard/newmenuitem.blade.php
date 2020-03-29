@@ -53,7 +53,7 @@
                         <h3 class="mb-0">Create a new menu item</h3>
                     </div>
                     <div class="card-body" >
-                        <form method="POST" action="{{route('restaurant.createMenuItem')}}">
+                        <form method="POST" action="{{route('restaurant.createMenuItem')}}" enctype="multipart/form-data">
                             @csrf
                             <div class="form-group">
                                 <label class="col-form-label" for="name">Item Name</label>

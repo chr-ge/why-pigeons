@@ -1,6 +1,24 @@
 @extends('dashboard.layouts.app')
 
 @section('content')
+    <style>
+        .table-action {
+            font-size:.875rem;
+            margin:0 .25rem;
+            color:#adb5bd
+        }
+        .table-action:hover {
+            color:#919ca6
+        }
+        .table-action-delete:hover {
+            color:#f5365c
+        }
+        .button-container form,
+        .button-container form div {
+            display: inline;
+        }
+    </style>
+
     <div class="header bg-gradient-primary pb-8 pt-5 pt-lg-7 d-flex">
         <!-- Header container -->
         <div class="container-fluid">
@@ -25,6 +43,19 @@
                         <a href="#" class="btn btn-sm btn-neutral">Filters</a>
                     </div>
                 </div>
+                @if (Session::has('success'))
+                    <div class="row">
+                        <div class="col col-md-6 offset-md-3 text-center">
+                            <div class="alert alert-success alert-dismissible fade show mb-0" role="alert">
+                                <span class="alert-icon"><i class="fa fa-trash" aria-hidden="true"></i></span>
+                                <span class="alert-text">{!! Session::get('success') !!}</span>
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                @endif
             </div>
         </div>
     </div>
@@ -75,13 +106,30 @@
                                         <td>
                                             {{$menu_item->category->name ?? 'None'}}
                                         </td>
-                                        <td class="">
-                                            <a href="#" class="table-action" data-toggle="tooltip" data-original-title="Edit menu item">
-                                                <i class="fas fa-user-edit"></i>
-                                            </a>
-                                            <a href="#" class="table-action table-action-delete" data-toggle="tooltip" data-original-title="Delete menu item">
-                                                <i class="fas fa-trash"></i>
-                                            </a>
+                                        <td>
+                                            <div class="button-container">
+                                                <form id="edit-form-{{$menu_item->id}}" action="{{route('restaurant.editMenuItem', $menu_item->id)}}" method="POST">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <div>
+                                                        <a href="" class="table-action" data-toggle="tooltip" data-original-title="Edit menu item"
+                                                           onclick="event.preventDefault();document.getElementById('edit-form-{{$menu_item->id}}').submit();">
+                                                            <i class="fas fa-edit"></i>
+                                                        </a>
+                                                    </div>
+                                                </form>
+
+                                                <form id="delete-form-{{$menu_item->id}}" action="{{route('restaurant.deleteMenuItem', $menu_item->id)}}" method="POST">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <div>
+                                                        <a href="" class="table-action table-action-delete" data-toggle="tooltip" data-original-title="Delete menu item"
+                                                           onclick="event.preventDefault();document.getElementById('delete-form-{{$menu_item->id}}').submit();">
+                                                            <i class="fas fa-trash"></i>
+                                                        </a>
+                                                    </div>
+                                                </form>
+                                            </div>
                                         </td>
                                     </tr>
                                 @endforeach

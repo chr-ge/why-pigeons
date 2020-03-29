@@ -18,8 +18,8 @@
         <!-- Argon CSS -->
         <link type="text/css" href="{{ asset('dashboard/css/argon.min.css?v=1.0.0') }}" rel="stylesheet">
         <link type="text/css" href="{{ asset('css/select2.min.css') }}" rel="stylesheet">
-
         <script src="{{ asset('dashboard/vendor/jquery/dist/jquery-3.4.1.min.js') }}"></script>
+        <script src="{{ asset('dashboard/vendor/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
     </head>
     <body class="{{ $class ?? '' }}">
         @auth()
@@ -33,7 +33,7 @@
             @yield('content')
         </div>
 
-        <script src="{{ asset('dashboard/vendor/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
+
 
         @stack('js')
 

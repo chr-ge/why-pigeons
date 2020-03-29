@@ -9,7 +9,7 @@ class Menu extends Model
     public $timestamps = false;
 
     protected  $fillable = [
-        'restaurant_id', 'name', 'description', 'image', 'category', 'price',
+        'restaurant_id', 'name', 'description', 'image', 'category_id', 'price',
     ];
 
     public function restaurant()
