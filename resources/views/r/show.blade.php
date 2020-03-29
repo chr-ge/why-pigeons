@@ -29,7 +29,7 @@
                             <div class="card-body">
                                 <h5 class="card-title">{{ $menu->name }}</h5>
                                 <p class="card-text">{{ $menu->description }}</p>
-                                <p class="card-text"><small class="text-muted">{{ $menu->price }}</small></p>
+                                <p class="card-text"><small class="text-muted">${{ $menu->price }}</small></p>
                             </div>
                         </div>
                     </div>
