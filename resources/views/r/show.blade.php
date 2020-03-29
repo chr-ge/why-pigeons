@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="container">
-        <div class="position-relative overflow-hidden p-3 text-center bg-light"
+        <div class="position-relative overflow-hidden p-3 text-center"
              style="background-image: url('/public/storage/{{ $restaurant->image }}'); background-size: cover;background-position: center;">
             <div class="col-md-5 p-lg-5 mx-auto my-5" style="background: #F8FAFC">
                 <h1 class="display-4 font-weight-normal">{{ $restaurant->name }}</h1>
@@ -16,20 +16,25 @@
             <div class="product-device product-device-2 shadow-sm d-none d-md-block"></div>
         </div>
 
-        <div class="row">
-            <div class="col-3 p-5">
-                <img src="/public/storage/{{ $restaurant->image }}" class="w-100">
-            </div>
-            <div class="col-9 pt-5">
-                <div class="d-flex justify-content-between align-items-baseline">
-                    <div class="d-flex align-items-center pb-3">
-                        <div class="h4">{{ $restaurant->name }}</div>
+        <div class="card-columns mt-4">
+            @foreach($menus as $menu)
+                <div class="card">
+                    <div class="row no-gutters">
+                        @if(isset($menu->image))
+                            <div class="col-md-4">
+                                <img src="/public/storage/{{ $menu->image }}" class="w-100" alt="">
+                            </div>
+                        @endif
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ $menu->name }}</h5>
+                                <p class="card-text">{{ $menu->description }}</p>
+                                <p class="card-text"><small class="text-muted">{{ $menu->price }}</small></p>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="pt-4 font-weight-bold">{{ $restaurant->name }}</div>
-                <div>{{ $restaurant->description }}</div>
-                <div><a href="#">{{ $restaurant->category_id }}</a></div>
-            </div>
+            @endforeach
         </div>
     </div>
 @endsection
