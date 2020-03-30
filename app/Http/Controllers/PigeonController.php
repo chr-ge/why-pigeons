@@ -9,9 +9,13 @@ use Illuminate\Support\Facades\Hash;
 class PigeonController extends Controller
 {
     public function index(){
-        $new_restaurants = Restaurant::where('active', false)->get();
         $all_restaurants = Restaurant::where('active', true)->get();
-        return view('pigeon', compact('new_restaurants', 'all_restaurants'));
+        return view('dashboard.pigeon.dashboard', compact('new_restaurants', 'all_restaurants'));
+    }
+
+    public function applications(){
+        $restaurants = Restaurant::where('active', false)->get();
+        return view('dashboard.pigeon.applications', compact('restaurants'));
     }
 
     public function details(Restaurant $restaurant){

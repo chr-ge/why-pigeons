@@ -7,7 +7,12 @@
 
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>Restaurant Dashboard</title>
+        @if(Auth::guard('pigeon')->check())
+            <title>Admin Dashboard</title>
+        @elseif(Auth::guard('restaurant')->check())
+            <title>Restaurant Dashboard</title>
+        @endif
+
         <!-- Favicon -->
         <link href="{{ asset('/svg/dove.svg') }}" rel="icon" type="image/png">
         <!-- Fonts -->
@@ -27,13 +32,16 @@
                 @csrf
             </form>
         @endauth
-        @include('layouts.dashboard.navbars.sidebar')
+        @if(Auth::guard('pigeon')->check())
+            @include('layouts.dashboard.navbars.sidebar-pigeon')
+        @elseif(Auth::guard('restaurant')->check())
+            @include('layouts.dashboard.navbars.sidebar-restaurant')
+        @endif
+
         <div class="main-content">
             @include('layouts.dashboard.navbars.navbar')
             @yield('content')
         </div>
-
-
 
         @stack('js')
 

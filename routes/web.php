@@ -35,12 +35,6 @@ Route::get('/home', 'HomeController@index')->name('home');//->middleware('auth')
 Route::get('/account/settings', 'HomeController@settings')->middleware('auth');
 Route::get('/r/{restaurant}', 'HomeController@show')->name('home.show');
 
-Route::group(['middleware' => 'auth:pigeon'], function () {
-    Route::get('/pigeon', 'PigeonController@index')->name('pigeon.index');
-    Route::get('/pigeon/details/{restaurant}', 'PigeonController@details')->name('pigeon.details');
-    Route::patch('/pigeon/details/{restaurant}', 'PigeonController@setTempPassword')->name('pigeon.setTempPass');
-});
-
 Route::group(['middleware' => 'auth:driver'], function () {
     Route::view('/driver', 'driver');
 });
@@ -57,6 +51,16 @@ Route::group(['middleware' => 'auth:restaurant'], function () {
     Route::delete('/menu/delete/{menu}', 'RestaurantController@deleteMenuItem')->name('restaurant.deleteMenuItem');
     Route::post('/set-image', 'RestaurantController@setImage')->name('setImage');
     Route::post('/add-category', 'RestaurantController@addCategory')->name('addCategory');
+});
+
+Route::group(['middleware' => 'auth:pigeon'], function () {
+    Route::get('/pigeon', 'PigeonController@index')->name('pigeon.index');
+    Route::get('/drivers', 'PigeonController@drivers')->name('pigeon.drivers');
+    Route::get('/restaurants', 'PigeonController@restaurants')->name('pigeon.restaurants');
+    Route::get('/restaurants/applications', 'PigeonController@applications')->name('pigeon.applications');
+    Route::get('/restaurants/{restaurant}/details', 'PigeonController@restaurantDetails')->name('pigeon.restaurantDetails');
+
+    Route::patch('/pigeon/details/{restaurant}', 'PigeonController@setTempPassword')->name('pigeon.setTempPass');
 });
 
 Route::get('/account/address/create', 'AddressController@create')->name('address.create');
