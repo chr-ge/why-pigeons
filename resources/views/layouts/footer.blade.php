@@ -7,8 +7,8 @@
         <div class="col-6 col-md">
             <h5>Drivers</h5>
             <ul class="list-unstyled text-small">
-                <li><a class="text-muted" href="/public/login/driver">Driver Login</a></li>
-                <li><a class="text-muted" href="/public/register/driver">Drive with us</a></li>
+                <li><a class="text-muted" href="{{route('login.driver')}}">Driver Login</a></li>
+                <li><a class="text-muted" href="{{route('register.driver')}}">Drive with us</a></li>
                 <li><a class="text-muted" href="https://getbootstrap.com/docs/4.4/examples/product/#">Team feature</a></li>
                 <li><a class="text-muted" href="https://getbootstrap.com/docs/4.4/examples/product/#">Driver Support</a></li>
             </ul>
@@ -16,8 +16,8 @@
         <div class="col-6 col-md">
             <h5>Restaurants</h5>
             <ul class="list-unstyled text-small">
-                <li><a class="text-muted" href="/public/login/restaurant">Restaurant Login</a></li>
-                <li><a class="text-muted" href="/public/register/restaurant">Partner with us</a></li>
+                <li><a class="text-muted" href="{{route('login.restaurant')}}">Restaurant Login</a></li>
+                <li><a class="text-muted" href="{{route('register.driver')}}t">Partner with us</a></li>
                 <li><a class="text-muted" href="https://getbootstrap.com/docs/4.4/examples/product/#">Advantages</a></li>
                 <li><a class="text-muted" href="https://getbootstrap.com/docs/4.4/examples/product/#">Restaurant Support</a></li>
             </ul>

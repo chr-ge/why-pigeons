@@ -3,7 +3,7 @@
 @section('content')
     <div class="container">
         <div class="position-relative overflow-hidden p-3 text-center"
-             style="background-image: url('/public/storage/{{ $restaurant->image }}'); background-size: cover;background-position: center;">
+             style="background-image: url('{{ url('storage/'.$restaurant->image) }}'); background-size: cover;background-position: center;">
             <div class="col-md-5 p-lg-5 mx-auto my-5" style="background: #F8FAFC">
                 <h1 class="display-4 font-weight-normal">{{ $restaurant->name }}</h1>
                 <p class="lead font-weight-normal">
