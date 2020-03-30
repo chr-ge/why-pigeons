@@ -22,7 +22,7 @@
                     <div class="row no-gutters">
                         @if(isset($menu->image))
                             <div class="col-md-4">
-                                <img src="/public/storage/{{ $menu->image }}" class="w-100" alt="">
+                                <img src="{{ url('storage/'.$menu->image) }}" class="w-100" alt="">
                             </div>
                         @endif
                         <div class="col-md-8">

@@ -87,7 +87,7 @@
                                             <div class="media align-items-center">
                                                 <a href="#" class="avatar rounded-circle mr-3">
                                                     @if($menu_item->image)
-                                                        <img alt="Image" src="/public/storage/{{$menu_item->image}}">
+                                                        <img alt="Image" src="{{ url('storage/'.$menu_item->image) }}">
                                                     @endif
                                                 </a>
                                                 <div class="media-body">

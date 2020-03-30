@@ -27,7 +27,7 @@
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    <img src="/public/svg/dove.svg" style="height: 30px; width: 30px">
+                    <img src="{{ asset('/svg/dove.svg') }}" style="height: 30px; width: 30px">
                     Food and Maybe Pigeons?
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
