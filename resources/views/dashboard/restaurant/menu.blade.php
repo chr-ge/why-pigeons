@@ -1,4 +1,4 @@
-@extends('dashboard.layouts.app')
+@extends('layouts.dashboard.app')
 
 @section('content')
     <style>
@@ -68,7 +68,7 @@
                     <div class="card-header border-0">
                         <h3 class="mb-0">Restaurant Menu</h3>
                     </div>
-                    <!-- Light table -->
+                    <!-- Table -->
                     <div class="table-responsive" data-toggle="list" data-list-values='["name", "description", "price", "category"]'>
                         <table class="table align-items-center table-flush">
                             <thead class="thead-light">
@@ -141,7 +141,7 @@
             </div>
         </div>
 
-        @include('dashboard.layouts.footers.auth')
+        @include('layouts.dashboard.footers.auth')
     </div>
 @endsection
 

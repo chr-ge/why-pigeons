@@ -1,4 +1,4 @@
-@extends('dashboard.layouts.app')
+@extends('layouts.dashboard.app')
 
 @section('content')
     <div class="header pb-8 pt-5 pt-lg-8 d-flex" style="background-image: url('/public/storage/{{ auth()->user()->image }}'); background-size: cover; background-position: center center;">
@@ -93,7 +93,7 @@
             </div>
         </div>
 
-        @include('dashboard.layouts.footers.auth')
+        @include('layouts.dashboard.footers.auth')
     </div>
 @endsection
 

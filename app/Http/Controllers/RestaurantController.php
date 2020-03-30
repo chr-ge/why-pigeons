@@ -11,28 +11,28 @@ use Intervention\Image\Facades\Image;
 class RestaurantController extends Controller
 {
     public function index(){
-        return view('dashboard.dashboard');
+        return view('dashboard.restaurant.dashboard');
     }
 
     public function management(){
         $categories = Category::pluck('id', 'name');
 
-        return view('dashboard.management', compact('categories'));
+        return view('dashboard.restaurant.management', compact('categories'));
     }
 
     public function menu(){
         $menu_items = Menu::where('restaurant_id', auth()->id())->paginate(10);
-        return view('dashboard.menu', compact('menu_items'));
+        return view('dashboard.restaurant.menu', compact('menu_items'));
     }
 
     public function newMenuItem(){
         $categories = Category::pluck('id', 'name')->except('$', '$$', '$$$');
-        return view('dashboard.newmenuitem', compact('categories'));
+        return view('dashboard.restaurant.newmenuitem', compact('categories'));
     }
 
     public function editMenuItem(Menu $menu){
         $categories = Category::pluck('id', 'name')->except('$', '$$', '$$$');
-        return view('dashboard.editmenuitem', compact('menu','categories'));
+        return view('dashboard.restaurant.editmenuitem', compact('menu','categories'));
     }
 
     public function createMenuItem(){

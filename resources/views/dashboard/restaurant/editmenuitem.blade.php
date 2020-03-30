@@ -1,4 +1,4 @@
-@extends('dashboard.layouts.app')
+@extends('layouts.dashboard.app')
 
 @section('content')
     <script>
@@ -128,7 +128,7 @@
             </div>
         </div>
 
-        @include('dashboard.layouts.footers.auth')
+        @include('layouts.dashboard.footers.auth')
     </div>
 @endsection
 
