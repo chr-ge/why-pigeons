@@ -27,9 +27,9 @@
                 @csrf
             </form>
         @endauth
-        @include('dashboard.layouts.navbars.sidebar')
+        @include('layouts.dashboard.navbars.sidebar')
         <div class="main-content">
-            @include('dashboard.layouts.navbars.navbar')
+            @include('layouts.dashboard.navbars.navbar')
             @yield('content')
         </div>
 
