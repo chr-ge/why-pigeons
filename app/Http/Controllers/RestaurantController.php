@@ -30,6 +30,11 @@ class RestaurantController extends Controller
         return view('dashboard.newmenuitem', compact('categories'));
     }
 
+    public function editMenuItem(Menu $menu){
+        $categories = Category::pluck('id', 'name')->except('$', '$$', '$$$');
+        return view('dashboard.editmenuitem', compact('menu','categories'));
+    }
+
     public function createMenuItem(){
         $data = request()->validate([
             'name' => 'required|string',
@@ -49,6 +54,38 @@ class RestaurantController extends Controller
         }
 
         Menu::create([
+            'restaurant_id' => auth()->user()->id,
+            'name' => $data['name'],
+            'description' => $data['description'],
+            'image' => $imagePath,
+            'category_id' => $data['category_id'],
+            'price' => $data['price']
+        ]);
+
+        return redirect()->route('restaurant.menu');
+    }
+
+    public function updateMenuItem(Menu $menu){
+        $data = request()->validate([
+            'name' => 'required|string',
+            'description' => 'nullable|string',
+            'image' => 'nullable|image',
+            'category_id' => 'nullable|numeric',
+            'price' => 'required|numeric|between:0,200'
+        ]);
+
+        if(isset($data['image'])){
+            if(File::exists(public_path('storage/'.$menu->image))){
+                File::delete(public_path('storage/'.$menu->image));
+            }
+            $imagePath = $data['image']->store('uploads/menu/'.auth()->user()->id, 'public');
+            $image = Image::make(public_path("storage/{$imagePath}"))->fit(1200, 1200);
+            $image->save();
+        }
+        else{
+            $imagePath = null;
+        }
+        Menu::findOrFail($menu->id)->update([
             'restaurant_id' => auth()->user()->id,
             'name' => $data['name'],
             'description' => $data['description'],

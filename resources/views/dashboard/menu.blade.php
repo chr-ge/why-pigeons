@@ -108,23 +108,18 @@
                                         </td>
                                         <td>
                                             <div class="button-container">
-                                                <form id="edit-form-{{$menu_item->id}}" action="{{route('restaurant.editMenuItem', $menu_item->id)}}" method="POST">
-                                                    @csrf
-                                                    @method('DELETE')
-                                                    <div>
-                                                        <a href="" class="table-action" data-toggle="tooltip" data-original-title="Edit menu item"
-                                                           onclick="event.preventDefault();document.getElementById('edit-form-{{$menu_item->id}}').submit();">
-                                                            <i class="fas fa-edit"></i>
-                                                        </a>
-                                                    </div>
-                                                </form>
+                                                <div style="display: inline-block">
+                                                    <a href="{{route('restaurant.editMenuItem', $menu_item->id)}}" class="table-action" data-toggle="tooltip" data-original-title="Edit menu item" onclick="window.location ='{{route('restaurant.editMenuItem', $menu_item->id)}}'">
+                                                        <i class="fas fa-edit"></i>
+                                                    </a>
+                                                </div>
 
                                                 <form id="delete-form-{{$menu_item->id}}" action="{{route('restaurant.deleteMenuItem', $menu_item->id)}}" method="POST">
                                                     @csrf
                                                     @method('DELETE')
                                                     <div>
                                                         <a href="" class="table-action table-action-delete" data-toggle="tooltip" data-original-title="Delete menu item"
-                                                           onclick="event.preventDefault();document.getElementById('delete-form-{{$menu_item->id}}').submit();">
+                                                           onclick="document.getElementById('delete-form-{{$menu_item->id}}').submit();">
                                                             <i class="fas fa-trash"></i>
                                                         </a>
                                                     </div>
