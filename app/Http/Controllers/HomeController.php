@@ -23,4 +23,10 @@ class HomeController extends Controller
         $menus = Menu::where('restaurant_id', $restaurant->id)->get();
         return view('r.show', compact('restaurant', 'menus'));
     }
+
+    public function search(Request $request){
+        $search = $request->get('search');
+        $restaurants = Restaurant::where('name','like','%'. $search .'%')->get();
+        return view('home', compact('restaurants'));
+    }
 }
