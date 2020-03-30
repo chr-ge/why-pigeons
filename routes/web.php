@@ -32,6 +32,7 @@ Route::post('/register/restaurant', 'Auth\RegisterController@createrestaurant')-
 Route::view('/get-back-to-you', 'get-back-to-you');
 
 Route::get('/home', 'HomeController@index')->name('home');//->middleware('auth');
+Route::get('/search','HomeController@search');
 Route::get('/account/settings', 'HomeController@settings')->middleware('auth');
 Route::get('/r/{restaurant}', 'HomeController@show')->name('home.show');
 

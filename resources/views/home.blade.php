@@ -2,18 +2,18 @@
 
 @section('content')
 <div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-12">
-            <div class="card">
-                <div class="card-header">Search</div>
-
-                <div class="card-body">
-
+    <div class="row pt-2">
+        <div class="col-6 offset-md-3">
+            <form action="{{action('HomeController@search')}}" accept-charset="UTF-8" method="get">
+                <div class="form-group d-flex">
+                    <input type="text" name="search" class="form-control">
+                    <span class="form-group-btn">
+                        <button type="submit" class="btn btn-primary">Search</button>
+                    </span>
                 </div>
-            </div>
+            </form>
         </div>
     </div>
-
     <div class="row pt-5">
         @foreach($restaurants as $restaurant)
             <div class="module col-4 mb-4">
