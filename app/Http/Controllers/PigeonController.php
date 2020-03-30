@@ -14,7 +14,7 @@ class PigeonController extends Controller
     }
 
     public function applications(){
-        $restaurants = Restaurant::where('active', false)->get();
+        $restaurants = Restaurant::where('active', false)->paginate(10);;
         return view('dashboard.pigeon.applications', compact('restaurants'));
     }
 

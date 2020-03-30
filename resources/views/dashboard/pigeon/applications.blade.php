@@ -32,8 +32,8 @@
                     <div class="col-lg-6 col-7">
                         <nav aria-label="breadcrumb" class="d-none d-md-inline-block">
                             <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
-                                <li class="breadcrumb-item"><a href="{{ route('restaurant.index') }}"><i class="fas fa-home"></i></a></li>
-                                <li class="breadcrumb-item"><a href="#">Restaurant</a></li>
+                                <li class="breadcrumb-item"><a href="{{ route('pigeon.index') }}"><i class="fas fa-home"></i></a></li>
+                                <li class="breadcrumb-item"><a href="{{ route('pigeon.restaurants') }}">Restaurants</a></li>
                                 <li class="breadcrumb-item active" aria-current="page">Menu</li>
                             </ol>
                         </nav>
@@ -86,22 +86,22 @@
                                         <th scope="row">
                                             <div class="media align-items-center">
                                                 <a href="#" class="avatar rounded-circle mr-3">
-                                                    @if($menu_item->image)
-                                                        <img alt="Image" src="{{ url('storage/'.$menu_item->image) }}">
+                                                    @if($restaurant->image)
+                                                        <img alt="Image" src="{{ url('storage/'.$restaurant->image) }}">
                                                     @endif
                                                 </a>
                                                 <div class="media-body">
-                                                    <span class="name mb-0 text-sm">{{$menu_item->name}}</span>
+                                                    <span class="name mb-0 text-sm">{{$restaurant->name}}</span>
                                                 </div>
                                             </div>
                                         </th>
                                         <td>
                                             <span class="badge badge-dot mr-4">
-                                                <span class="status">{{$menu_item->description}}</span>
+                                                <span class="status">{{$restaurant->description}}</span>
                                             </span>
                                         </td>
                                         <td class="budget">
-                                            $ {{$menu_item->price}}
+                                            $ {{$restaurant->price}}
                                         </td>
                                         <td>
                                             {{$menu_item->category->name ?? 'None'}}
@@ -109,17 +109,17 @@
                                         <td>
                                             <div class="button-container">
                                                 <div style="display: inline-block">
-                                                    <a href="{{route('restaurant.editMenuItem', $menu_item->id)}}" class="table-action" data-toggle="tooltip" data-original-title="Edit menu item" onclick="window.location ='{{route('restaurant.editMenuItem', $menu_item->id)}}'">
+                                                    <a href="{{route('restaurant.editMenuItem', $restaurant->id)}}" class="table-action" data-toggle="tooltip" data-original-title="Edit menu item" onclick="window.location ='{{route('restaurant.editMenuItem', $menu_item->id)}}'">
                                                         <i class="fas fa-edit"></i>
                                                     </a>
                                                 </div>
 
-                                                <form id="delete-form-{{$menu_item->id}}" action="{{route('restaurant.deleteMenuItem', $menu_item->id)}}" method="POST">
+                                                <form id="delete-form-{{$restaurant->id}}" action="{{route('restaurant.deleteMenuItem', $menu_item->id)}}" method="POST">
                                                     @csrf
                                                     @method('DELETE')
                                                     <div>
                                                         <a href="" class="table-action table-action-delete" data-toggle="tooltip" data-original-title="Delete menu item"
-                                                           onclick="document.getElementById('delete-form-{{$menu_item->id}}').submit();">
+                                                           onclick="document.getElementById('delete-form-{{$restaurant->id}}').submit();">
                                                             <i class="fas fa-trash"></i>
                                                         </a>
                                                     </div>
@@ -132,9 +132,9 @@
                         </table>
                     </div>
                     <!-- Card footer -->
-                    @if($menu_items->hasPages())
+                    @if($restaurants->hasPages())
                         <div class="card-footer">
-                            {{ $menu_items->links() }}
+                            {{ $restaurants->links() }}
                         </div>
                     @endif
                 </div>
