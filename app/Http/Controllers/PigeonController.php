@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Restaurant;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Hash;
 
 class PigeonController extends Controller
@@ -23,7 +24,9 @@ class PigeonController extends Controller
     }
 
     public function restaurantDetails(Restaurant $restaurant){
-        $menu_items = $restaurant->menu_items()->count();
+        $menu_items = Cache::remember('menu.count.'.$restaurant->id, now()->addSeconds(30), function () use ($restaurant){
+            return $restaurant->menu_items()->count();
+        });
         return view('dashboard.pigeon.r-details', compact('restaurant', 'menu_items'));
     }
 
