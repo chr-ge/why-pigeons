@@ -24,7 +24,7 @@
                                 <div class="card-header">
                                     <div class="row align-items-center">
                                         <div class="col">
-                                            <h2 class="mb-0">Set Temporary Password</h2>
+                                            <h2 class="mb-0">{{ __('Set Temporary Password') }}</h2>
                                         </div>
                                     </div>
                                 </div>
