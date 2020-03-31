@@ -25,7 +25,7 @@
             <div class="header-body">
                 <div class="row">
                     <div class="col-md-12 {{ $class ?? '' }}">
-                        <h1 class="display-2 text-white">Restaurant Applications</h1>
+                        <h1 class="display-2 text-white">Active Restaurants</h1>
                     </div>
                 </div>
                 <div class="row align-items-center">
@@ -34,11 +34,12 @@
                             <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
                                 <li class="breadcrumb-item"><a href="{{ route('pigeon.index') }}"><i class="fas fa-home"></i></a></li>
                                 <li class="breadcrumb-item"><a href="{{ route('pigeon.restaurants') }}">Restaurants</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">Applications</li>
+                                <li class="breadcrumb-item active" aria-current="page">Active</li>
                             </ol>
                         </nav>
                     </div>
                     <div class="col-lg-6 col-5 text-right">
+                        <a href="{{ route('restaurant.newMenuItem') }}" class="btn btn-sm btn-neutral">New</a>
                         <a href="#" class="btn btn-sm btn-neutral">Filters</a>
                     </div>
                 </div>
