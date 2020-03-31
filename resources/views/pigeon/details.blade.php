@@ -33,7 +33,7 @@
                 </div>
 
                 <div class="w-50 pt-4">
-                    @if($restaurant->password == null)
+                    @if($restaurant->password === null)
                         <form method="POST" action="/public/pigeon/details/{{ $restaurant->id }}">
                             @method('PATCH')
                             @csrf
