@@ -14,9 +14,9 @@
             </form>
         </div>
     </div>
-    <div class="row pt-5">
+    <div class="row">
         @foreach($restaurants as $restaurant)
-            <div class="module col-4 mb-4">
+            <div class="module col-4 m-0 pt-3">
                 <a href="{{ route('home.show', $restaurant->id) }}">
                     <img src="{{ url('storage/'.$restaurant->image) }}" class="w-100">
                     <div class="content">
@@ -25,6 +25,11 @@
                 </a>
             </div>
         @endforeach
+    </div>
+    <div class="row pt-2">
+        <div class="col-12 d-flex justify-content-center">
+            {{$restaurants->links()}}
+        </div>
     </div>
 </div>
 @endsection

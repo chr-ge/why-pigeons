@@ -15,7 +15,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $restaurants = Restaurant::where('active', true)->get();
+        $restaurants = Restaurant::where('active', true)->paginate(6);
         return view('home', compact('restaurants'));
     }
 
@@ -26,7 +26,7 @@ class HomeController extends Controller
 
     public function search(Request $request){
         $search = $request->get('search');
-        $restaurants = Restaurant::where('name','like','%'. $search .'%')->get();
+        $restaurants = Restaurant::where('name','like','%'. $search .'%')->paginate(6);
         return view('home', compact('restaurants'));
     }
 }
