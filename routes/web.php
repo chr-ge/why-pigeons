@@ -61,7 +61,7 @@ Route::group(['middleware' => 'auth:pigeon'], function () {
     Route::get('/restaurants/applications', 'PigeonController@applications')->name('pigeon.applications');
     Route::get('/restaurants/{restaurant}/details', 'PigeonController@restaurantDetails')->name('pigeon.restaurantDetails');
 
-    Route::patch('/pigeon/details/{restaurant}', 'PigeonController@setTempPassword')->name('pigeon.setTempPass');
+    Route::post('/pigeon/details/{restaurant}', 'PigeonController@setTempPassword')->name('pigeon.setTempPass');
 });
 
 Route::get('/account/address/create', 'AddressController@create')->name('address.create');
