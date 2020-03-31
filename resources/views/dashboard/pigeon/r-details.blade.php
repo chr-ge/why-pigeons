@@ -115,8 +115,12 @@
                                     <dt>Phone</dt>
                                     <dd>{{$restaurant->phone}}</dd>
 
-                                    <dt>Main Category</dt>
-                                    <dd>{{App\Category::find($restaurant->category_id)->name}}</dd>
+                                    <dt>Categories</dt>
+                                    <dd>
+                                        @foreach($restaurant->categories as $category)
+                                            <span class="badge badge-primary">{{$category->name}}</span>
+                                        @endforeach
+                                    </dd>
                                 </dl>
                                 <dl class="dl-horizontal">
                                     <dt>Address</dt>
