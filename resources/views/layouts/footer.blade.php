@@ -17,7 +17,7 @@
             <h5>Restaurants</h5>
             <ul class="list-unstyled text-small">
                 <li><a class="text-muted" href="{{route('login.restaurant')}}">Restaurant Login</a></li>
-                <li><a class="text-muted" href="{{route('register.driver')}}t">Partner with us</a></li>
+                <li><a class="text-muted" href="{{route('register.restaurant')}}">Partner with us</a></li>
                 <li><a class="text-muted" href="https://getbootstrap.com/docs/4.4/examples/product/#">Advantages</a></li>
                 <li><a class="text-muted" href="https://getbootstrap.com/docs/4.4/examples/product/#">Restaurant Support</a></li>
             </ul>

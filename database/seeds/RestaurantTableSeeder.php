@@ -39,5 +39,50 @@ class RestaurantTableSeeder extends Seeder
             'image' => 'uploads/4Pz9iVZMACVKBNf5OrANsPkCBajd4nagGz5CnDhD.jpeg',
             'active' => 1
         ]);
+        Restaurant::create([
+            'name' => 'Ottavio',
+            'email' => 'management@ottavio.com',
+            'phone' => '4506549787',
+            'password' => '$2y$10$P9VGRpOjLYqH./lsilogA.Zwj6Gi22Qp2e3vlB3E61CKSadcUuDeC',
+            'category_id' => 7,
+            'image' => 'uploads/n36STHaObnhYc0270RQakTBcb8i4ebrmAPRC2klE.jpeg',
+            'active' => 1
+        ]);
+        Restaurant::create([
+            'name' => 'Subway',
+            'email' => 'montreal@subway.com',
+            'phone' => '5146449844',
+            'password' => '$2y$10$Xw6TNAU9IJaJCWd/nIXDTOWQJjDWPPVE8U1ZMOYNl8zF3qwJCC9lu',
+            'category_id' => 19,
+            'image' => 'uploads/2PSFYLOJhEKfY6gl8yNNbgd3de2okpx1thi8Xza8.jpeg',
+            'active' => 1
+        ]);
+        Restaurant::create([
+            'name' => 'Thaï Express',
+            'email' => 'owner@thaiexpress.com',
+            'phone' => '5145437766',
+            'password' => '$2y$10$w.uvFGk7tRKOBTRS8MlpY.sw6YBSKbXSsSVsYEbdZNRYd5F1oJCnS',
+            'category_id' => 12,
+            'image' => 'uploads/AXLNLx9GKy3qRbSnLPyopCAiPq2suwck3FKz1Fmz.jpeg',
+            'active' => 1
+        ]);
+        Restaurant::create([
+            'name' => 'Burger King',
+            'email' => 'king@burgerking.com',
+            'phone' => '5141123217',
+            'password' => '$2y$10$aPQbkSdt1JLXMFKq.3cSMukW09N4HRxlyIUluKaEcV090Vkw6bz8u',
+            'category_id' => 20,
+            'image' => 'uploads/vmUhuBOGFo1evapnmuzPLKlvuhCWQE6sxo0RDde5.webp',
+            'active' => 1
+        ]);
+        Restaurant::create([
+            'name' => 'In-N-Out Burger',
+            'email' => 'restaurants@in-n-out.com',
+            'phone' => '4506339527',
+            'password' => '$2y$10$BsHCqBhuPY0kO/od.M7dku6T560J38thfjNrM754HDz98SQs1Jbia',
+            'category_id' => 20,
+            'image' => 'uploads/vlBjPVQ9UfvVHY6EA3FJVNk93KIWgA0TgWhZSdJM.webp',
+            'active' => 1
+        ]);
     }
 }

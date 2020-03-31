@@ -74,7 +74,6 @@
                             <thead class="thead-light">
                                 <tr>
                                     <th scope="col" class="sort" data-sort="name">Restaurant Name</th>
-                                    <th scope="col" class="sort" data-sort="price">Email</th>
                                     <th scope="col" class="sort" data-sort="price">Phone</th>
                                     <th scope="col" class="sort" data-sort="category">Category</th>
                                     <th scope="col" class="sort" data-sort="city">City</th>
@@ -96,11 +95,6 @@
                                                 </div>
                                             </div>
                                         </th>
-                                        <td>
-                                            <span class="badge badge-dot mr-4">
-                                                <span class="status">{{$restaurant->email}}</span>
-                                            </span>
-                                        </td>
                                         <td>
                                             <span class="badge badge-dot mr-4">
                                                 <span class="status">{{$restaurant->phone}}</span>

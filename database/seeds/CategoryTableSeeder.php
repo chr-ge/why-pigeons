@@ -30,5 +30,7 @@ class CategoryTableSeeder extends Seeder
         Category::create(['name' => 'Gluten free']);
         Category::create(['name' => 'Pasta']);
         Category::create(['name' => 'Spicy']);
+        Category::create(['name' => 'Sandwiches']);
+        Category::create(['name' => 'Burgers']);
     }
 }
