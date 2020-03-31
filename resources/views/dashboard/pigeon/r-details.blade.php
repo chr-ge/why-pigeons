@@ -65,7 +65,7 @@
                             </div>
                         </div>
                         <div class="col-lg-6">
-                            <div class="card bg-gradient-info border-0">
+                            <div class="card bg-gradient-blue border-0">
                                 <!-- Card body -->
                                 <div class="card-body">
                                     <div class="row">
@@ -98,11 +98,7 @@
                                     </div>
                                     <div class="col">
                                         <ul class="nav nav-pills justify-content-end">
-                                            @if($restaurant->active === 1)
-                                                <span class="badge badge-success">Active</span>
-                                            @else
-                                                <span class="badge badge-danger">Not Active</span>
-                                            @endif
+                                            <span class="badge @if($restaurant->active) badge-success @else badge-danger @endif">{{$restaurant->getStatus()}}</span>
                                         </ul>
                                     </div>
                                 </div>

@@ -25,6 +25,11 @@ class Restaurant extends Authenticatable
         'password', 'remember_token'
     ];
 
+    public function getStatus()
+    {
+        return ($this->active === 1 ? 'Active' : 'Not Active');
+    }
+
     public function menu_items()
     {
         return $this->hasMany(Menu::class);
