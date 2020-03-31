@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Hash;
 class PigeonController extends Controller
 {
     public function index(){
-        return view('dashboard.pigeon.dashboard', compact('all_restaurants'));
+        return view('dashboard.pigeon.dashboard');
     }
 
     public function restaurants(){
@@ -22,8 +22,9 @@ class PigeonController extends Controller
         return view('dashboard.pigeon.applications', compact('restaurants'));
     }
 
-    public function details(Restaurant $restaurant){
-        return view('pigeon.details', compact('restaurant'));
+    public function restaurantDetails(Restaurant $restaurant){
+        $menu_items = $restaurant->menu_items()->count();
+        return view('dashboard.pigeon.r-details', compact('restaurant', 'menu_items'));
     }
 
     public function setTempPassword(Restaurant $restaurant){
