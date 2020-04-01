@@ -1,6 +1,13 @@
 @extends('layouts.dashboard.app')
 
 @section('content')
+    <style>
+        .button-container form,
+        .button-container form div {
+            display: inline;
+        }
+    </style>
+
     <div class="header pb-8 pt-5 pt-lg-8 d-flex" style="background-image: url('/public/storage/{{ $restaurant->image }}'); background-size: cover; background-position: center center;">
         <!-- Mask -->
         <span class="mask bg-gradient-cyan opacity-8"></span>
@@ -136,6 +143,29 @@
                     </div>
                     <div class="card-body">
 
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-4">
+            <div class="col-xl-12 mb-xl-0">
+                <div class="card shadow border-danger">
+                    <div class="card-body button-container">
+                        <form method="POST" action="{{ route('pigeon.activateRestaurant', $restaurant->id) }}" enctype="multipart/form-data">
+                            @csrf
+                            @method('PATCH')
+                            {!!
+                                $restaurant->active
+                                ? '<input type="submit" value="Deactivate" class="btn btn-warning" />'
+                                : '<input type="submit" value="Activate" class="btn btn-success" />'
+                            !!}
+                        </form>
+                        <form method="POST" action="{{ route('pigeon.delRestaurant', $restaurant->id) }}" enctype="multipart/form-data">
+                            @csrf
+                            @method('DELETE')
+                            <input type="submit" value="{{__('Delete')}}" class="btn btn-danger" />
+                        </form>
                     </div>
                 </div>
             </div>

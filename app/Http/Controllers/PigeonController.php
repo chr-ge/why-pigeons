@@ -30,6 +30,18 @@ class PigeonController extends Controller
         return view('dashboard.pigeon.r-details', compact('restaurant', 'menu_items'));
     }
 
+    public function activateRestaurant(Restaurant $restaurant){
+        $restaurant->update([
+            'active' => !$restaurant->active
+        ]);
+        return redirect()->back();
+    }
+
+    public function delRestaurant(Restaurant $restaurant){
+
+        return redirect()->back();
+    }
+
     public function setTempPassword(Restaurant $restaurant){
         $data  = request()->validate([
             'temp_pass' => 'required|string'
