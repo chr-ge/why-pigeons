@@ -38,8 +38,8 @@ class PigeonController extends Controller
     }
 
     public function delRestaurant(Restaurant $restaurant){
-
-        return redirect()->back();
+        $restaurant->delete();
+        return redirect()->route('pigeon.restaurants');
     }
 
     public function setTempPassword(Restaurant $restaurant){

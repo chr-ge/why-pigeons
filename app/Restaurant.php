@@ -30,6 +30,14 @@ class Restaurant extends Authenticatable
         return ($this->active === 1 ? 'Active' : 'Not Active');
     }
 
+    public function delete()
+    {
+        $this->address()->delete();
+        $this->menu_items()->delete();
+        $this->categories()->detach();
+        return parent::delete();
+    }
+
     public function menu_items()
     {
         return $this->hasMany(Menu::class);

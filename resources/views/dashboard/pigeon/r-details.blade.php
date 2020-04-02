@@ -161,11 +161,38 @@
                                 : '<input type="submit" value="Activate" class="btn btn-success" />'
                             !!}
                         </form>
-                        <form method="POST" action="{{ route('pigeon.delRestaurant', $restaurant->id) }}" enctype="multipart/form-data">
-                            @csrf
-                            @method('DELETE')
-                            <input type="submit" value="{{__('Delete')}}" class="btn btn-danger" />
-                        </form>
+                        @can('delete-restaurant')
+                            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-delete">Delete</button>
+                            <div class="modal fade" id="modal-delete" tabindex="-1" role="dialog" aria-labelledby="modal-delete" aria-hidden="true">
+                                <div class="modal-dialog modal-danger modal-dialog-centered modal-" role="document">
+                                    <div class="modal-content bg-gradient-danger">
+                                        <div class="modal-header">
+                                            <h6 class="modal-title" id="modal-title-delete">Your attention is required</h6>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">×</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="py-3 text-center">
+                                                <i class="ni ni-bell-55 ni-3x"></i>
+                                                <h4 class="heading mt-4">{{__('Are you sure?')}}</h4>
+                                                <p>Deleting this restaurant cannot be reversed! All associated items will also be permanently deleted (Address, Menu Items).</p>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <form method="POST" action="{{ route('pigeon.delRestaurant', $restaurant->id) }}" enctype="multipart/form-data">
+                                                @csrf
+                                                @method('DELETE')
+                                                <input type="submit" value="{{__('Delete')}}" class="btn btn-white"/>
+                                            </form>
+                                            <button type="button" class="btn btn-link text-white ml-auto" data-dismiss="modal">Close</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        @else
+                            <input type="button" value="{{__('Delete')}}" class="btn btn-danger" disabled/>
+                        @endcan
                     </div>
                 </div>
             </div>
