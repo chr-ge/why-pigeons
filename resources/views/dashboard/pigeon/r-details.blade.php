@@ -5,6 +5,7 @@
         .button-container form,
         .button-container form div {
             display: inline;
+            margin-right: 5px;
         }
     </style>
 
