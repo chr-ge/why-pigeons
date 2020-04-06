@@ -3,7 +3,7 @@
 use App\Address;
 use Illuminate\Database\Seeder;
 
-class AddressSeeder extends Seeder
+class AddressTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.

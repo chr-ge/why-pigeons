@@ -3,7 +3,7 @@
 use App\Menu;
 use Illuminate\Database\Seeder;
 
-class MenuSeeder extends Seeder
+class MenuTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -26,5 +26,21 @@ class MenuSeeder extends Seeder
         Menu::create(['restaurant_id' => '3','name' => 'POUTINE','description' => 'KFC\'s take on a Canadian classic. Crisp golden fries, cheese curds and gravy.','image' => 'uploads/menu/3/UGi35EcO6SBxcJ95LveFuCpSGyzTWKlz6BE7kk3p.jpeg','category_id' => 11,'price' => 5.64]);
         Menu::create(['restaurant_id' => '3','name' => 'HOMESTYLE COLESLAW','description' => 'Homestyle coleslaw with our sweet vinaigrette.','image' => 'uploads/menu/3/OtGm4fc5Y3LIqBWtyIuE2DzvPesXCQYroUQuUu1q.jpeg','category_id' => 10,'price' => 3.54]);
         Menu::create(['restaurant_id' => '3','name' => 'STRAWERRY SWIRL CHEESECAKE','description' => 'Indulge in our creamy Strawberry Swirl cheesecake.','image' => 'uploads/menu/3/NqDmnf27Dr0TvANwIuSIHK1eF1vZk3AqCHXEVVeG.jpeg','category_id' => 5,'price' => 4.66]);
+
+        //Menu::create(['restaurant_id' => '4','name' => '','description' => '','image' => '','category_id' => 11,'price' => ]);
+
+        Menu::create(['restaurant_id' => '4','name' => 'Inspiration','description' => 'Spring mix, cucumbers, sun-dried cherry tomatoes, Kalamata olives, Balsamic vinaigrette','image' => '','category_id' => 10,'price' => 12.00]);
+        Menu::create(['restaurant_id' => '4','name' => 'Greek','description' => 'imported Dodoni Greek feta, cucumbers, red onions, cherry tomatoes, olive tapenade, Greek oregano, olive oil','image' => '','category_id' => 10,'price' => 14.50]);
+        Menu::create(['restaurant_id' => '4','name' => 'Margherita','description' => 'Fior di latte, basil','image' => '','category_id' => 14,'price' => 16.00]);
+        Menu::create(['restaurant_id' => '4','name' => 'Californian','description' => 'arugula, sun-dried tomatoes, goat cheese, mozzarella','image' => '','category_id' => 11,'price' => 18.50]);
+        Menu::create(['restaurant_id' => '4','name' => 'Homemade lasagna','description' => 'meat sauce, cream, mozzarella','image' => '','category_id' => 17,'price' => 20.50]);
+        Menu::create(['restaurant_id' => '4','name' => 'Linguine with seafood','description' => 'tomato sauce, shrimp, scallops, clams, mussels, shallots','image' => '','category_id' => 17,'price' => 26.00]);
+        Menu::create(['restaurant_id' => '4','name' => 'Baklava cheesecake','description' => 'Creamy cheesecake filled and topped with chunks of baklava.','image' => '','category_id' => 5,'price' => 8.00]);
+
+        Menu::create(['restaurant_id' => '5','name' => 'Beyond Meatball','description' => 'Our Beyond Meatball sub is a saucy classic featuring the tasty plant-based Beyond Meatball.','image' => 'uploads/menu/5/64f8yKnQHj0YLCT0klezcyof8nDAT0rgzV4hVF5h.jpeg','category_id' => 19,'price' => 6.45]);
+        Menu::create(['restaurant_id' => '5','name' => 'Cold Cut Combo','description' => 'Delicious deli meats, topped with crisp vegetables','image' => 'uploads/menu/5/TvIOo8nos7tEU4VD9hDARScN1bulrvL1OqC6kxtm.jpeg','category_id' => 19,'price' => 5.99]);
+        Menu::create(['restaurant_id' => '5','name' => 'Pizza Sub Melt','description' => 'The Italian sandwich par excellence','image' => 'uploads/menu/5/lLiOPrQP0cysvc8H89RLQ0HtVN4rzGzfGODI4nod.jpeg','category_id' => 19,'price' => 5.97]);
+        Menu::create(['restaurant_id' => '5','name' => 'Tuna','description' => 'Made with flaked tuna, mixed with mayo','image' => 'uploads/menu/5/QqQ79SBzkRrZaZ9vhJiJlXw4kdOQ87MKKJd7tFMp.jpeg','category_id' => 19,'price' => 6.54]);
+        Menu::create(['restaurant_id' => '5','name' => 'Cookies','description' => 'Tender and moist, it is the perfect way to complement your meal.','image' => 'uploads/menu/5/hX1g4yuf7VbJJ5K6yLMuU1c6jYj8faFOMLIawBr0.jpeg','category_id' => 5,'price' => 2.05]);
     }
 }
