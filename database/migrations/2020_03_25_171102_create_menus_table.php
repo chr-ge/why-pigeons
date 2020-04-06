@@ -17,7 +17,7 @@ class CreateMenusTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('restaurant_id');
             $table->string('name', 50);
-            $table->string('description', 100)->nullable();
+            $table->string('description')->nullable();
             $table->string('image')->nullable();
             $table->unsignedBigInteger('category_id')->nullable();
             $table->unsignedDecimal('price', 8, 2);

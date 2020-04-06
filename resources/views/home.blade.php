@@ -26,7 +26,7 @@
             </div>
         @endforeach
     </div>
-    <div class="row pt-2">
+    <div class="row mt-4">
         <div class="col-12 d-flex justify-content-center">
             {{$restaurants->links()}}
         </div>

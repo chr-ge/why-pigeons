@@ -133,18 +133,21 @@ return [
             'provider' => 'drivers',
             'table' => 'password_resets',
             'expire' => 60,
+            'throttle' => 60,
         ],
 
         'restaurants' => [
             'provider' => 'restaurants',
             'table' => 'password_resets',
             'expire' => 60,
+            'throttle' => 60,
         ],
 
         'pigeons' => [
             'provider' => 'pigeons',
             'table' => 'password_resets',
             'expire' => 60,
+            'throttle' => 60,
         ],
     ],
 
