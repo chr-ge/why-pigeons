@@ -68,7 +68,7 @@
 
                             <div class="form-group">
                                 <label class="form-control-label" for="description">Item Description</label>
-                                <textarea class="form-control @error('description') is-invalid @enderror" name="description" value="{{ old('description') ?? $menu->description}}" rows="2" resize="none"></textarea>
+                                <textarea class="form-control @error('description') is-invalid @enderror" name="description" rows="2" resize="none">{{ old('description') ?? $menu->description}}</textarea>
 
                                 @error('description')
                                 <span class="invalid-feedback" role="alert">
@@ -78,7 +78,7 @@
                             </div>
 
                             <div class="custom-file mb-4" style="height: auto">
-                                <label class="custom-file-label" for="image">Choose an optional menu image</label>
+                                <label class="custom-file-label" for="image">{{ $menu->image ?: 'Choose an optional menu image' }}</label>
                                 <input type="file" class="custom-file-input" id="image" name="image">
 
                                 @error('image')
