@@ -61,10 +61,12 @@ Route::group(['middleware' => 'auth:pigeon'], function () {
     Route::get('/restaurants', 'PigeonController@restaurants')->name('pigeon.restaurants');
     Route::get('/restaurants/applications', 'PigeonController@applications')->name('pigeon.applications');
     Route::get('/restaurants/{restaurant}/details', 'PigeonController@restaurantDetails')->name('pigeon.restaurantDetails');
+    Route::get('/account/settings', 'PigeonController@settings')->name('pigeon.settings');
 
     Route::post('/restaurants/{restaurant}/temp', 'PigeonController@setTempPassword')->name('pigeon.setTempPass');
     Route::patch('/restaurants/{restaurant}/activate', 'PigeonController@activateRestaurant')->name('pigeon.activateRestaurant');
     Route::delete('/restaurants/{restaurant}/delete', 'PigeonController@delRestaurant')->name('pigeon.delRestaurant');
+    Route::patch('/account/settings', 'PigeonController@updateAccount')->name('pigeon.updateAccount');
 });
 
 Route::get('/account/address/create', 'AddressController@create')->name('address.create');

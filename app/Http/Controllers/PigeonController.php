@@ -28,8 +28,13 @@ class PigeonController extends Controller
     }
 
     public function applications(){
-        $restaurants = Restaurant::where('active', false)->paginate(10);
+        $restaurants = Restaurant::where('active', false)->whereNull('password')->paginate(10);
         return view('dashboard.pigeon.applications', compact('restaurants'));
+    }
+
+    public function settings(){
+        $pigeon = auth()->user();
+        return view('dashboard.pigeon.settings', compact('pigeon'));
     }
 
     public function restaurantDetails(Restaurant $restaurant){
@@ -58,12 +63,29 @@ class PigeonController extends Controller
     }
 
     public function setTempPassword(Restaurant $restaurant){
-        $data  = request()->validate([
+        $data = request()->validate([
             'temp_pass' => 'required|string'
         ]);
 
         $restaurant->update([
-            'password' => Hash::make($data['temp_pass'])
+            'password' => bcrypt($data['temp_pass'])
+        ]);
+
+        return redirect()->back()->with('success', 'Updated Successfully');
+    }
+
+    public function updateAccount(){
+        $data = request()->validate([
+            'name' => 'required|string|min:3',
+            'username' => 'required|string|min:3|unique:pigeons,username,'.auth()->user()->id,
+            'password' => 'nullable|string|min:6',
+            'new_password' => 'required_if:password'
+        ]);
+
+        auth()->user()->update([
+            'name' => $data['name'],
+            'username' => $data['username'],
+            'new_password' => bcrypt($data['new_password']),
         ]);
 
         return redirect()->back()->with('success', 'Updated Successfully');
