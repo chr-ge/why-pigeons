@@ -19,4 +19,9 @@ class Pigeon extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public static function getPercentatgeChange($oldValue, $newValue){
+        $decreasedValue = $newValue - $oldValue;
+        return ($decreasedValue / $oldValue) * 100;
+    }
 }
