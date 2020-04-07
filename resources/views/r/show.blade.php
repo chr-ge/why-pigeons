@@ -16,26 +16,41 @@
             <div class="product-device product-device-2 shadow-sm d-none d-md-block"></div>
         </div>
 
-        <div class="card-columns mt-4">
-            @foreach($menus as $menu)
-                <div class="card">
-                    <div class="row no-gutters">
-                        @if($menu->image)
-                        <div class="col-md-8">
-                        @else
-                        <div class="col-md-12">
-                        @endif
+        <ul class="pt-3 nav nav-pills mb-3" id="category-nav" role="tablist">
+            @php($count = 0)
+            @foreach($categories as $category)
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="pill" onclick="window.location.href='#{{$category->name}}';" role="tab"  aria-selected="false">{{$category->name}}</a>
+            </li>
+            @php($count+=1)
+            @endforeach
+        </ul>
+
+        @foreach($categories as $category)
+            <h2 id="{{$category->name}}">
+                {{$category->name}}
+            </h2>
+            <div class="card-columns mt-4">
+                @foreach($menus as $menu)
+                    @if($menu->category_id == $category->id)
+                    <div class="card">
+                        <div class="row no-gutters">
+                            @if($menu->image)
+                                <div class="col-md-8">
+                            @else
+                                <div class="col-md-12">
+                            @endif
                             <div class="pl-3 pt-3">
                                 <h5 class="card-title">{{ $menu->name }}</h5>
                                 <p class="card-text pr-3">{{ $menu->description }}</p>
                             </div>
                         </div>
                         @if($menu->image)
-                            <div class="col-md-4">
-                                <div class="pr-3 pt-3">
-                                    <img src="{{ url('storage/'.$menu->image) }}" class="w-100" alt="">
-                                </div>
+                        <div class="col-md-4">
+                            <div class="pr-3 pt-3">
+                                <img src="{{ url('storage/'.$menu->image) }}" class="w-100" alt="">
                             </div>
+                        </div>
                         @endif
                         <div class="row no-gutters pt-2 w-100">
                             <div class="pl-3 pb-3 w-100">
@@ -49,7 +64,9 @@
                         </div>
                     </div>
                 </div>
+                @endif
             @endforeach
-        </div>
+            </div>
+        @endforeach
     </div>
 @endsection
