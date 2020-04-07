@@ -66,7 +66,7 @@
                 <div class="card shadow">
                     <!-- Card header -->
                     <div class="card-header border-0">
-                        <h3 class="mb-0">Restaurant Menu</h3>
+                        <h3 class="mb-0">{{auth()->user()->name}} Menu</h3>
                     </div>
                     <!-- Table -->
                     <div class="table-responsive" data-toggle="list" data-list-values='["name", "description", "price", "category"]'>
@@ -97,7 +97,7 @@
                                         </th>
                                         <td>
                                             <span class="badge badge-dot mr-4">
-                                                <span class="status">{{$menu_item->description}}</span>
+                                                <span class="status">{{ \Illuminate\Support\Str::limit($menu_item->description, 40, $end='...') }}</span>
                                             </span>
                                         </td>
                                         <td class="budget">
