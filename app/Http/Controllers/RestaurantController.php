@@ -83,7 +83,12 @@ class RestaurantController extends Controller
             $image->save();
         }
         else{
-            $imagePath = null;
+            if(isset($menu->image)){
+                $imagePath = $menu->image;
+            }
+            else{
+                $imagePath = null;
+            }
         }
         Menu::findOrFail($menu->id)->update([
             'restaurant_id' => auth()->user()->id,
