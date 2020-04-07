@@ -27,7 +27,7 @@
                         @endif
                             <div class="pl-3 pt-3">
                                 <h5 class="card-title">{{ $menu->name }}</h5>
-                                <p class="card-text ">{{ $menu->description }}</p>
+                                <p class="card-text pr-3">{{ $menu->description }}</p>
                             </div>
                         </div>
                         @if($menu->image)
