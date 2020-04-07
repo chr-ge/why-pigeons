@@ -71,13 +71,13 @@
             <!-- Navigation -->
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('restaurant.index') }}">
+                    <a class="nav-link" href="{{ route('pigeon.index') }}">
                         <i class="ni ni-tv-2 text-primary"></i> {{ __('Dashboard') }}
                     </a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="#">
+                    <a class="nav-link" href="{{ route('pigeon.users') }}">
                         <i class="ni ni-single-02 text-blue"></i> {{ __('Users') }}
                     </a>
                 </li>

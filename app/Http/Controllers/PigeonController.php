@@ -18,8 +18,8 @@ class PigeonController extends Controller
     }
 
     public function users(){
-        $restaurants = User::all()->paginate(10);
-        return view('dashboard.pigeon.restaurants', compact('restaurants'));
+        $users = User::whereNotNull('name')->paginate(10);
+        return view('dashboard.pigeon.users', compact('users'));
     }
 
     public function restaurants(){

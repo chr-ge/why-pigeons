@@ -22,6 +22,8 @@ class Pigeon extends Authenticatable
 
     public static function getPercentatgeChange($oldValue, $newValue){
         $decreasedValue = $newValue - $oldValue;
-        return ($decreasedValue / $oldValue) * 100;
+        if($oldValue !== 0){
+            return ($decreasedValue / $oldValue) * 100;
+        }
     }
 }

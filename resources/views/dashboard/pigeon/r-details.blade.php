@@ -88,7 +88,7 @@
                                         </div>
                                     </div>
                                     <p class="mt-3 mb-0 text-sm">
-                                        <span class="text-white mr-2"><i class="fa fa-arrow-up"></i> {{$menu_change}}%</span>
+                                        <span class="text-white mr-2"><i class="fa fa-arrow-up"></i> {{$menu_change ?? 'N/A '}}%</span>
                                         <span class="text-nowrap text-light">Since last month</span>
                                     </p>
                                 </div>
