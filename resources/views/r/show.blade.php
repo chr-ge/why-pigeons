@@ -20,16 +20,31 @@
             @foreach($menus as $menu)
                 <div class="card">
                     <div class="row no-gutters">
-                        @if(isset($menu->image))
+                        @if($menu->image)
+                        <div class="col-md-8">
+                        @else
+                        <div class="col-md-12">
+                        @endif
+                            <div class="pl-3 pt-3">
+                                <h5 class="card-title">{{ $menu->name }}</h5>
+                                <p class="card-text ">{{ $menu->description }}</p>
+                            </div>
+                        </div>
+                        @if($menu->image)
                             <div class="col-md-4">
-                                <img src="{{ url('storage/'.$menu->image) }}" class="w-100" alt="">
+                                <div class="pr-3 pt-3">
+                                    <img src="{{ url('storage/'.$menu->image) }}" class="w-100" alt="">
+                                </div>
                             </div>
                         @endif
-                        <div class="col-md-8">
-                            <div class="card-body">
-                                <h5 class="card-title">{{ $menu->name }}</h5>
-                                <p class="card-text">{{ $menu->description }}</p>
-                                <p class="card-text"><small class="text-muted">${{ $menu->price }}</small></p>
+                        <div class="row no-gutters pt-2 w-100">
+                            <div class="pl-3 pb-3 w-100">
+                                <div class="d-inline-flex align-items-center w-100">
+                                    <p class="card-text m-0"><small class="text-muted">${{ $menu->price }}</small></p>
+                                    <div class="w-100 pr-3">
+                                        <button style="float:right;"class="btn btn-primary">+</button>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
