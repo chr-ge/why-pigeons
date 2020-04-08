@@ -14,42 +14,39 @@
 
         <style>
             html, body {
-                background-color: #fff;
+                background-color: white;
                 color: #636b6f;
                 font-family: 'Nunito', sans-serif;
                 font-weight: 200;
                 height: 100vh;
                 margin: 0;
             }
-
+            .clip{
+                background-color: #bfbddb;
+                clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
+            }
             .full-height {
                 height: 100vh;
             }
-
             .flex-center {
                 align-items: center;
                 display: flex;
                 justify-content: center;
             }
-
             .position-ref {
                 position: relative;
             }
-
             .top-right {
                 position: absolute;
                 right: 10px;
                 top: 18px;
             }
-
             .content {
                 text-align: center;
             }
-
             .title {
                 font-size: 84px;
             }
-
             .links > a {
                 color: #636b6f;
                 padding: 0 25px;
@@ -59,14 +56,14 @@
                 text-decoration: none;
                 text-transform: uppercase;
             }
-
             .m-b-md {
                 margin-bottom: 30px;
             }
         </style>
     </head>
     <body>
-        <div class="flex-center position-ref full-height">
+        <div class="clip">
+        <div class="flex-center position-ref full-height" style="">
             @if (Route::has('login'))
                 <div class="top-right links">
                     @auth
@@ -83,7 +80,7 @@
 
             <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light">
                 <div class="col-md-8 p-lg-5 mx-auto my-5">
-                    <img src="{{asset('svg/dove.svg')}}" style="height: 60px; width: 60px">
+                    <img src="{{ asset('svg/dove.svg' )}}" style="height: 60px; width: 60px">
                     <h1 class="display-4 font-weight-normal">Food and maybe some pigeons?</h1>
                     <p class="lead font-weight-normal">Quick food delivery right to your door.</p>
                     <a class="btn btn-outline-secondary" href="{{route('home')}}">Coming soon</a>
@@ -91,6 +88,7 @@
                 <div class="product-device shadow-sm d-none d-md-block"></div>
                 <div class="product-device product-device-2 shadow-sm d-none d-md-block"></div>
             </div>
+        </div>
         </div>
         @extends('layouts.footer')
     </body>
