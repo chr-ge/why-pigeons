@@ -16,20 +16,18 @@
             <div class="product-device product-device-2 shadow-sm d-none d-md-block"></div>
         </div>
 
-        <ul class="pt-3 nav nav-pills mb-3" id="category-nav" role="tablist">
-            @php($count = 0)
-            @foreach($categories as $category)
-            <li class="nav-item">
-                <a class="nav-link" data-toggle="pill" onclick="window.location.href='#{{$category->name}}';" role="tab"  aria-selected="false">{{$category->name}}</a>
-            </li>
-            @php($count+=1)
-            @endforeach
-        </ul>
+        <div class="categories-nav" id="navigation-bar">
+            <ul role="tablist">
+                @foreach($categories as $category)
+                    <li>
+                        <a class="nav-link" data-toggle="pill" onclick="window.location.href='#{{$category->name}}';" role="tab" aria-selected="false">{{$category->name}}</a>
+                    </li>
+                @endforeach
+            </ul>
+        </div>
 
         @foreach($categories as $category)
-            <h2 id="{{$category->name}}">
-                {{$category->name}}
-            </h2>
+            <h2 id="{{$category->name}}">{{$category->name}}</h2>
             <div class="card-columns mt-4">
                 @foreach($menus as $menu)
                     @if($menu->category_id == $category->id)
@@ -46,26 +44,26 @@
                             </div>
                         </div>
                         @if($menu->image)
-                        <div class="col-md-4">
-                            <div class="pr-3 pt-3">
-                                <img src="{{ url('storage/'.$menu->image) }}" class="w-100" alt="">
+                            <div class="col-md-4">
+                                <div class="pr-3 pt-3">
+                                    <img src="{{ url('storage/'.$menu->image) }}" class="w-100" alt="">
+                                </div>
                             </div>
-                        </div>
                         @endif
-                        <div class="row no-gutters pt-2 w-100">
-                            <div class="pl-3 pb-3 w-100">
-                                <div class="d-inline-flex align-items-center w-100">
-                                    <p class="card-text m-0"><small class="text-muted">${{ $menu->price }}</small></p>
-                                    <div class="w-100 pr-3">
-                                        <button style="float:right;"class="btn btn-primary">+</button>
+                            <div class="row no-gutters pt-2 w-100">
+                                <div class="pl-3 pb-3 w-100">
+                                    <div class="d-inline-flex align-items-center w-100">
+                                        <p class="card-text m-0"><small class="text-muted">${{ $menu->price }}</small></p>
+                                        <div class="w-100 pr-3">
+                                            <button style="float:right;" class="btn btn-primary">+</button>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                @endif
-            @endforeach
+                    @endif
+                @endforeach
             </div>
         @endforeach
     </div>
