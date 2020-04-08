@@ -10,7 +10,7 @@ class Restaurant extends Authenticatable
     //Restaurant model
     use Notifiable;
 
-    //protected $guard = 'restaurant';
+    protected $guard = 'restaurant';
 
     protected  $fillable = [
         'name', 'email', 'phone', 'password', 'category_id', 'image', 'active',

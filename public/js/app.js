@@ -65615,6 +65615,21 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 
 __webpack_require__(/*! ./components/Example */ "./resources/js/components/Example.js");
+/*****************************************************************************/
+
+
+var getFontSize = function getFontSize(textLength) {
+  if (textLength >= 15) {
+    return "1.5vw";
+  }
+
+  return "2vw";
+};
+
+var contents = document.querySelectorAll('.content h1');
+contents.forEach(function (content) {
+  content.style.fontSize = getFontSize(content.textContent.length);
+});
 
 /***/ }),
 

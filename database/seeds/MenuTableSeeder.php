@@ -30,7 +30,7 @@ class MenuTableSeeder extends Seeder
         Menu::create(['restaurant_id' => '4','name' => 'Inspiration','description' => 'Spring mix, cucumbers, sun-dried cherry tomatoes, Kalamata olives, Balsamic vinaigrette','image' => '','category_id' => 10,'price' => 12.00]);
         Menu::create(['restaurant_id' => '4','name' => 'Greek','description' => 'imported Dodoni Greek feta, cucumbers, red onions, cherry tomatoes, olive tapenade, Greek oregano, olive oil','image' => '','category_id' => 10,'price' => 14.50]);
         Menu::create(['restaurant_id' => '4','name' => 'Margherita','description' => 'Fior di latte, basil','image' => '','category_id' => 14,'price' => 16.00]);
-        Menu::create(['restaurant_id' => '4','name' => 'Californian','description' => 'arugula, sun-dried tomatoes, goat cheese, mozzarella','image' => '','category_id' => 11,'price' => 18.50]);
+        Menu::create(['restaurant_id' => '4','name' => 'Californian','description' => 'arugula, sun-dried tomatoes, goat cheese, mozzarella','image' => '','category_id' => 14,'price' => 18.50]);
         Menu::create(['restaurant_id' => '4','name' => 'Homemade lasagna','description' => 'meat sauce, cream, mozzarella','image' => '','category_id' => 17,'price' => 20.50]);
         Menu::create(['restaurant_id' => '4','name' => 'Linguine with seafood','description' => 'tomato sauce, shrimp, scallops, clams, mussels, shallots','image' => '','category_id' => 17,'price' => 26.00]);
         Menu::create(['restaurant_id' => '4','name' => 'Baklava cheesecake','description' => 'Creamy cheesecake filled and topped with chunks of baklava.','image' => '','category_id' => 5,'price' => 8.00]);

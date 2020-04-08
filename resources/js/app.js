@@ -13,3 +13,18 @@ require('./bootstrap');
  */
 
 require('./components/Example');
+
+/*****************************************************************************/
+
+const getFontSize = (textLength) => {
+    if (textLength >= 15) {
+        return `1.5vw`;
+    }
+    return `2vw`;
+};
+
+const contents = document.querySelectorAll('.content h1');
+
+contents.forEach(content => {
+    content.style.fontSize = getFontSize(content.textContent.length);
+});

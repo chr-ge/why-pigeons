@@ -7,7 +7,6 @@ use App\Pigeon;
 use App\Restaurant;
 use App\User;
 use Carbon\Carbon;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Hash;
 
@@ -68,7 +67,7 @@ class PigeonController extends Controller
         ]);
 
         $restaurant->update([
-            'password' => bcrypt($data['temp_pass'])
+            'password' => Hash::make($data['temp_pass'])
         ]);
 
         return redirect()->back()->with('success', 'Updated Successfully');
@@ -85,7 +84,7 @@ class PigeonController extends Controller
         auth()->user()->update([
             'name' => $data['name'],
             'username' => $data['username'],
-            'new_password' => bcrypt($data['new_password']),
+            'new_password' => Hash::make($data['new_password']),
         ]);
 
         return redirect()->back()->with('success', 'Updated Successfully');

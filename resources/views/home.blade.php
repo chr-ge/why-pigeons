@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row pt-2">
         <div class="col-6 offset-md-3">
-            <form action="{{action('HomeController@search')}}" accept-charset="UTF-8" method="get">
+            <form action="{{ action('HomeController@search') }}" accept-charset="UTF-8" method="get">
                 <div class="form-group d-flex">
                     <input type="text" name="search" class="form-control">
                     <span class="form-group-btn">
@@ -16,7 +16,7 @@
     </div>
     <div class="row">
         @foreach($restaurants as $restaurant)
-            <div class="module col-4 m-0 pt-3">
+            <div class="module col-3 p-0">
                 <a href="{{ route('home.show', $restaurant->id) }}">
                     <img src="{{ url('storage/'.$restaurant->image) }}" class="w-100">
                     <div class="content">
@@ -28,7 +28,7 @@
     </div>
     <div class="row mt-4">
         <div class="col-12 d-flex justify-content-center">
-            {{$restaurants->links()}}
+            {{ $restaurants->links() }}
         </div>
     </div>
 </div>
