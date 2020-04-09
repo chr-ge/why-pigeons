@@ -7,6 +7,7 @@
             <div class="col-md-5 p-lg-5 mx-auto my-5" style="background: #F8FAFC">
                 <h1 class="display-4 font-weight-normal">{{ $restaurant->name }}</h1>
                 <p class="lead font-weight-normal">
+                    <span class="badge badge-danger">9.5</span> &#183;
                     @foreach($restaurant->categories as $category)
                         <span class="badge badge-primary">{{$category->name}}</span>
                     @endforeach
@@ -34,7 +35,7 @@
                                         <span aria-hidden="true">×</span>
                                     </button>
                                 </div>
-                                <div class="modal-body">
+                                <div class="modal-body text-center">
                                     <h3><i class="fa fa-clock"></i> Operating Hours</h3>
                                     <p>Tue - Fri 10:00 AM - 4:00 PM, 10:00 AM - 4:00 PM<br>
                                         Sat, Sun 10:00 AM - 4:00 PM, 9:30 AM - 4:00 PM</p>
