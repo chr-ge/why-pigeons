@@ -16,7 +16,7 @@
             <div class="product-device product-device-2 shadow-sm d-none d-md-block"></div>
         </div>
 
-        <div class="categories-nav" id="navigation-bar">
+        <div class="categories-nav">
             <ul role="tablist">
                 @foreach($categories as $category)
                     <li>
@@ -27,8 +27,8 @@
         </div>
 
         @foreach($categories as $category)
-            <h2 id="{{$category->name}}">{{$category->name}}</h2>
-            <div class="card-columns mt-4">
+            <h2 class="mt-4" id="{{$category->name}}">{{$category->name}}</h2>
+            <div class="card-columns">
                 @foreach($menus as $menu)
                     @if($menu->category_id == $category->id)
                     <div class="card">
