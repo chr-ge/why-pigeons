@@ -31,8 +31,8 @@ Route::post('/register/driver', 'Auth\RegisterController@createDriver')->name('r
 Route::post('/register/restaurant', 'Auth\RegisterController@createrestaurant')->name('register.restaurant');
 Route::view('/get-back-to-you', 'get-back-to-you');
 
-Route::get('/home', 'HomeController@index')->name('home');//->middleware('auth');
-Route::get('/search','HomeController@search');
+Route::get('/home', 'HomeController@index')->name('home.index');//->middleware('auth');
+Route::get('/home/s','HomeController@search')->name('home.search');
 Route::get('/account/settings', 'HomeController@settings')->middleware('auth');
 Route::get('/r/{restaurant}', 'HomeController@show')->name('home.show');
 

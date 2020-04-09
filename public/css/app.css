@@ -11016,12 +11016,12 @@ a.text-dark:focus {
   width: 10%;
 }
 
-.categories-nav li:hover a::before {
+.categories-nav li:hover .category-a::before {
   right: 0;
   left: 0;
 }
 
-.categories-nav a {
+.categories-nav .category-a {
   color: var(--gray-dark);
   font-size: 15px;
   text-decoration: none;
@@ -11032,11 +11032,11 @@ a.text-dark:focus {
   transition: all 0.2s ease;
 }
 
-.categories-nav a:hover {
+.categories-nav .category-a:hover {
   color: var(--gray);
 }
 
-.categories-nav a::before {
+.categories-nav .category-a::before {
   content: "";
   transition: all 0.4s ease-in-out;
   position: absolute;
@@ -11047,8 +11047,21 @@ a.text-dark:focus {
   background-color: #BFBDDB;
 }
 
-.categories-nav a:hover::before {
+.categories-nav .category-a:hover::before {
   right: 0;
   left: 0;
+}
+
+.categories-nav .category-info {
+  float: right;
+  font-size: 1.1rem;
+}
+
+.categories-nav .categories-info:hover {
+  color: var(--gray);
+}
+
+h3 > i {
+  color: #9561e2;
 }
 

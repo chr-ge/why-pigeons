@@ -67,7 +67,7 @@
             @if (Route::has('login'))
                 <div class="top-right links">
                     @auth
-                        <a href="{{ url('/home') }}">Home</a>
+                        <a href="{{ route('home.index') }}">Home</a>
                     @else
                         <a href="{{ route('login') }}">Login</a>
 
@@ -83,7 +83,7 @@
                     <img src="{{ asset('svg/dove.svg' )}}" style="height: 60px; width: 60px">
                     <h1 class="display-4 font-weight-normal">Food and maybe some pigeons?</h1>
                     <p class="lead font-weight-normal">Quick food delivery right to your door.</p>
-                    <a class="btn btn-outline-secondary" href="{{route('home')}}">Coming soon</a>
+                    <a class="btn btn-outline-secondary" href="{{ route('home.index') }}">Coming soon</a>
                 </div>
                 <div class="product-device shadow-sm d-none d-md-block"></div>
                 <div class="product-device product-device-2 shadow-sm d-none d-md-block"></div>

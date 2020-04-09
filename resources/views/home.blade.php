@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row pt-2">
         <div class="col-6 offset-md-3">
-            <form action="{{ action('HomeController@search') }}" accept-charset="UTF-8" method="get">
+            <form action="{{ route('home.search') }}" accept-charset="UTF-8" method="get">
                 <div class="input-group d-flex mb-3">
                     <input type="text" name="search" class="form-control" placeholder="Search for restaurants">
                     <div class="input-group-append">
