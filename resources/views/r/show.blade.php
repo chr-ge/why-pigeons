@@ -4,7 +4,7 @@
     <div class="container">
         <div class="position-relative overflow-hidden p-3 text-center"
              style="background-image: url('{{ url('storage/'.$restaurant->image) }}'); background-size: cover;background-position: center;">
-            <div class="col-md-5 p-lg-5 mx-auto my-5" style="background: #F8FAFC">
+            <div class="col-md-5 p-lg-5 mx-auto my-5" style="background: #F8FAFC;">
                 <h1 class="display-4 font-weight-normal">{{ $restaurant->name }}</h1>
                 <p class="lead font-weight-normal">
                     <span class="badge badge-danger">9.5</span> &#183;
@@ -25,7 +25,7 @@
                     </li>
                 @endforeach
                 <li class="float-right">
-                    <a class="nav-link category-info" data-toggle="modal" aria-labelledby="modal-default" data-target="#modal-default" aria-hidden="true" role="dialog" aria-selected="false"><i class="fa fa-info-circle"></i></a>
+                    <a class="nav-link category-info" title="More info" data-toggle="modal" aria-labelledby="modal-default" data-target="#modal-default" aria-hidden="true" role="dialog" aria-selected="false"><i class="fa fa-info-circle"></i></a>
                     <div class="modal fade" id="modal-default" tabindex="-1">
                         <div class="modal-dialog modal- modal-dialog-centered modal-" role="document">
                             <div class="modal-content">
@@ -36,7 +36,7 @@
                                     </button>
                                 </div>
                                 <div class="modal-body text-center">
-                                    <h3><i class="fa fa-clock"></i> Operating Hours</h3>
+                                    <h3><i class="fa fa-clock"></i> {{ __('Operating Hours') }}</h3>
                                     <p>Tue - Fri 10:00 AM - 4:00 PM, 10:00 AM - 4:00 PM<br>
                                         Sat, Sun 10:00 AM - 4:00 PM, 9:30 AM - 4:00 PM</p>
                                     <h3><i class="fa fa-map-marker-alt"></i> Address</h3>

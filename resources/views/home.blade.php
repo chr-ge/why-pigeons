@@ -8,7 +8,7 @@
                 <div class="input-group d-flex mb-3">
                     <input type="text" name="search" class="form-control" placeholder="Search for restaurants">
                     <div class="input-group-append">
-                        <button type="submit" class="btn btn-primary">Search</button>
+                        <button type="submit" class="btn btn-primary">{{ __('Search') }}</button>
                     </div>
                 </div>
             </form>
@@ -33,4 +33,3 @@
     </div>
 </div>
 @endsection
-
