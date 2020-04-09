@@ -23,7 +23,7 @@ class CategoryTableSeeder extends Seeder
         Category::create(['name' => 'Chicken']);
         Category::create(['name' => 'Salad']);
         Category::create(['name' => 'Fries']);
-        Category::create(['name' => 'Chinese']);
+        Category::create(['name' => 'Asian']);
         Category::create(['name' => 'Vegan']);
         Category::create(['name' => 'Pizza']);
         Category::create(['name' => 'Sushi']);
@@ -32,5 +32,12 @@ class CategoryTableSeeder extends Seeder
         Category::create(['name' => 'Spicy']);
         Category::create(['name' => 'Sandwiches']);
         Category::create(['name' => 'Burgers']);
+        Category::create(['name' => 'Canadian']);
+        Category::create(['name' => 'American']);
+        Category::create(['name' => 'Chinese']);
+        Category::create(['name' => 'Mexican']);
+        Category::create(['name' => 'Indian']);
+        Category::create(['name' => 'Fingerfood']);
+        Category::create(['name' => 'Beverage']);
     }
 }

@@ -5,11 +5,11 @@
     <div class="row pt-2">
         <div class="col-6 offset-md-3">
             <form action="{{ action('HomeController@search') }}" accept-charset="UTF-8" method="get">
-                <div class="form-group d-flex">
-                    <input type="text" name="search" class="form-control">
-                    <span class="form-group-btn">
+                <div class="input-group d-flex mb-3">
+                    <input type="text" name="search" class="form-control" placeholder="Search for restaurants">
+                    <div class="input-group-append">
                         <button type="submit" class="btn btn-primary">Search</button>
-                    </span>
+                    </div>
                 </div>
             </form>
         </div>

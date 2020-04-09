@@ -65620,10 +65620,10 @@ __webpack_require__(/*! ./components/Example */ "./resources/js/components/Examp
 
 var getFontSize = function getFontSize(textLength) {
   if (textLength >= 15) {
-    return "1.5vw";
+    return "1.1vw";
   }
 
-  return "2vw";
+  return "1.5vw";
 };
 
 var contents = document.querySelectorAll('.content h1');
