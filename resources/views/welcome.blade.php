@@ -19,11 +19,16 @@
                 font-family: 'Nunito', sans-serif;
                 font-weight: 200;
                 height: 100vh;
+                overflow-x: hidden;
                 margin: 0;
             }
             .clip{
                 background-color: #bfbddb;
                 clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
+            }
+            .clip2{
+                background-color: #b5afdb;
+                clip-path: polygon(0% 0%, 75% 0%, 100% 100%, 25% 100%);
             }
             .full-height {
                 height: 100vh;
@@ -63,33 +68,66 @@
     </head>
     <body>
         <div class="clip">
-        <div class="flex-center position-ref full-height" style="">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ route('home.index') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
+            <div class="flex-center position-ref full-height" style="">
+                @if (Route::has('login'))
+                    <div class="top-right links">
+                        @auth
+                            <a href="{{ route('home.index') }}">Home</a>
+                        @else
+                            <a href="{{ route('login') }}">Login</a>
 
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
-                        @endif
-                    @endauth
-                </div>
-            @endif
+                            @if (Route::has('register'))
+                                <a href="{{ route('register') }}">Register</a>
+                            @endif
+                        @endauth
+                    </div>
+                @endif
 
-            <div class="position-relative overflow-hidden text-center bg-light">
-                <div class="col-md-8 p-lg-5 mx-auto my-5">
-                    <img src="{{ asset('svg/dove.svg' )}}" style="height: 60px; width: 60px;">
-                    <h1 class="display-4 font-weight-normal">Food and maybe some pigeons?</h1>
-                    <p class="lead font-weight-normal">Quick food delivery right to your door.</p>
-                    <a class="btn btn-outline-secondary" href="{{ route('home.index') }}">Coming soon</a>
+                <div class="position-relative overflow-hidden text-center bg-light">
+                    <div class="col-md-8 p-lg-5 mx-auto my-5">
+                        <img src="{{ asset('svg/dove.svg' )}}" style="height: 60px; width: 60px;">
+                        <h1 class="display-4 font-weight-normal">Food and maybe some pigeons?</h1>
+                        <p class="lead font-weight-normal">Quick food delivery right to your door.</p>
+                        <a class="btn btn-outline-secondary" href="{{ route('home.index') }}">Order Now</a>
+                    </div>
+                    <div class="product-device shadow-sm d-none d-md-block"></div>
+                    <div class="product-device product-device-2 shadow-sm d-none d-md-block"></div>
                 </div>
-                <div class="product-device shadow-sm d-none d-md-block"></div>
-                <div class="product-device product-device-2 shadow-sm d-none d-md-block"></div>
             </div>
         </div>
+        <div class="clip2">
+            <div class="row">
+                <div class="col-md-4 mt-4" style="margin-left: 25%">
+                    <div class="card flex-md-row box-shadow h-md-250">
+                        <div class="card-body d-flex flex-column align-items-start">
+                            <strong class="d-inline-block mb-2 text-primary">Driver</strong>
+                            <h3 class="mb-2">
+                                <a class="text-dark" href="#">Drive With Us</a>
+                            </h3>
+                            <p class="card-text mb-auto">Earn extra money in your spare time. Set your availability, keep 100% of your delivery fees and tips, and get paid weekly.</p>
+                            <a href="#" class="btn btn-info btn-sm">Join Now</a>
+                        </div>
+                        <img class="card-img-right flex-auto d-none d-md-block" style="width: 200px; height: 250px;" src="{{asset('svg/driver.jpeg')}}" data-holder-rendered="true">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 mt-4" style="margin-left: 50%">
+                    <div class="card flex-md-row mb-4 box-shadow h-md-250">
+                        <div class="card-body d-flex flex-column align-items-start">
+                            <strong class="d-inline-block mb-2 text-success">Restaurant</strong>
+                            <h3 class="mb-2">
+                                <a class="text-dark" href="#">Partner With Us</a>
+                            </h3>
+                            <p class="card-text mb-auto">Team up with us to reach more customers. Let us take care of the details, so you can stay focused on making great food.</p>
+                            <a href="#" class="btn btn-success btn-sm">Apply Now</a>
+                        </div>
+                        <img class="card-img-right flex-auto d-none d-md-block" style="width: 200px; height: 250px;" src="{{asset('storage/uploads/default.jpeg')}}" data-holder-rendered="true">
+                    </div>
+                </div>
+            </div>
         </div>
+
         @extends('layouts.footer')
     </body>
 </html>
