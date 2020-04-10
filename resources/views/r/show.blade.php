@@ -79,7 +79,7 @@
                                     <div class="d-inline-flex align-items-center w-100">
                                         <p class="card-text m-0"><small class="text-muted">${{ $menu->price }}</small></p>
                                         <div class="w-100 pr-3">
-                                            <button style="float:right;" class="btn btn-primary">+</button>
+                                            <button style="float:right;" class="btn btn-primary btn-sm"><i class="fas fa-plus"></i></button>
                                         </div>
                                     </div>
                                 </div>

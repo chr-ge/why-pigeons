@@ -100,10 +100,8 @@
                 <div class="col-md-4 mt-4" style="margin-left: 25%">
                     <div class="card flex-md-row box-shadow h-md-250">
                         <div class="card-body d-flex flex-column align-items-start">
-                            <strong class="d-inline-block mb-2 text-primary">Driver</strong>
-                            <h3 class="mb-2">
-                                <a class="text-dark" href="#">Drive With Us</a>
-                            </h3>
+                            <strong class="d-inline-block mb-2 text-primary">Drivers</strong>
+                            <h3 class="text-dark mb-2">Drive With Us</h3>
                             <p class="card-text mb-auto">Earn extra money in your spare time. Set your availability, keep 100% of your delivery fees and tips, and get paid weekly.</p>
                             <a href="#" class="btn btn-info btn-sm">Join Now</a>
                         </div>
@@ -115,10 +113,8 @@
                 <div class="col-md-4 mt-4" style="margin-left: 50%">
                     <div class="card flex-md-row mb-4 box-shadow h-md-250">
                         <div class="card-body d-flex flex-column align-items-start">
-                            <strong class="d-inline-block mb-2 text-success">Restaurant</strong>
-                            <h3 class="mb-2">
-                                <a class="text-dark" href="#">Partner With Us</a>
-                            </h3>
+                            <strong class="d-inline-block mb-2 text-success">Restaurants</strong>
+                            <h3 class="text-dark mb-2">Partner With Us</h3>
                             <p class="card-text mb-auto">Team up with us to reach more customers. Let us take care of the details, so you can stay focused on making great food.</p>
                             <a href="#" class="btn btn-success btn-sm">Apply Now</a>
                         </div>
