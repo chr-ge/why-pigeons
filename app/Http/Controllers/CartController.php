@@ -4,12 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Menu;
 use Darryldecode\Cart\Cart;
-use Illuminate\Http\Request;
 
 class CartController extends Controller
 {
-    public function showCart(){
-
+    public function index(){
+        return view('cart');
     }
 
     public function addItem(Menu $menu){
@@ -19,7 +18,7 @@ class CartController extends Controller
             'price' => $menu->price,
             'quantity' => 1,
             'attributes' => array(),
-            'associatedModel' => $menu
+            'associatedModel' => 'Menu'
         ));
     }
 

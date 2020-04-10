@@ -103,7 +103,7 @@
                             <strong class="d-inline-block mb-2 text-primary">Drivers</strong>
                             <h3 class="text-dark mb-2">Drive With Us</h3>
                             <p class="card-text mb-auto">Earn extra money in your spare time. Set your availability, keep 100% of your delivery fees and tips, and get paid weekly.</p>
-                            <a href="#" class="btn btn-info btn-sm">Join Now</a>
+                            <a href="{{ route('register.driver') }}" class="btn btn-info btn-sm">Join Now</a>
                         </div>
                         <img class="card-img-right flex-auto d-none d-md-block" style="width: 200px; height: 250px;" src="{{asset('svg/driver.jpeg')}}" data-holder-rendered="true">
                     </div>
@@ -116,7 +116,7 @@
                             <strong class="d-inline-block mb-2 text-success">Restaurants</strong>
                             <h3 class="text-dark mb-2">Partner With Us</h3>
                             <p class="card-text mb-auto">Team up with us to reach more customers. Let us take care of the details, so you can stay focused on making great food.</p>
-                            <a href="#" class="btn btn-success btn-sm">Apply Now</a>
+                            <a href="{{ route('register.restaurant') }}" class="btn btn-success btn-sm">Apply Now</a>
                         </div>
                         <img class="card-img-right flex-auto d-none d-md-block" style="width: 200px; height: 250px;" src="{{asset('storage/uploads/default.jpeg')}}" data-holder-rendered="true">
                     </div>

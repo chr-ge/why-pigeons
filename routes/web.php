@@ -36,6 +36,8 @@ Route::get('/home/s','HomeController@search')->name('home.search');
 Route::get('/account/settings', 'HomeController@settings')->middleware('auth');
 Route::get('/r/{restaurant}', 'HomeController@show')->name('home.show');
 
+Route::get('/cart', 'CartController@index')->name('cart.index');
+
 Route::group(['middleware' => 'auth:driver'], function () {
     Route::view('/driver', 'driver');
 });
