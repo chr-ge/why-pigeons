@@ -1,7 +1,7 @@
 @extends('layouts.dashboard.app')
 
 @section('content')
-    @include('layouts.dashboard.headers.cards')
+    @include('layouts.dashboard.headers.pigeon_cards')
 
     <div class="container-fluid mt--7">
         <div class="row">
