@@ -102,7 +102,7 @@
                             <div class="card-header">
                                 <div class="row align-items-center">
                                     <div class="col">
-                                        <h2 class="mb-0">Information</h2>
+                                        <h2 class="mb-0"><i class="fa fa-info-circle"></i> Information</h2>
                                     </div>
                                     <div class="col">
                                         <ul class="nav nav-pills justify-content-end">
@@ -140,10 +140,23 @@
             <div class="col-xl-4 mb-xl-0">
                 <div class="card shadow h-100">
                     <div class="card-header">
-                        <h2 class="mb-0">Operating Hours</h2>
+                        <h2 class="mb-0"><i class="fa fa-clock"></i> Operating Hours</h2>
                     </div>
                     <div class="card-body">
-
+                        @if(\App\RestaurantHours::hoursExist($restaurant->id))
+                            @for($i = 1; $i < 8; $i++)
+                                <div class="row">
+                                    <div class="col-5">
+                                        <h4>{{\App\RestaurantHours::dayFromNumber($i) }}: </h4>
+                                    </div>
+                                    <div class="col-7 @if($i !== \App\RestaurantHours::today()) text-muted @endif">
+                                        <p>{{\App\RestaurantHours::displayHours($restaurant->id, $i)}}</p>
+                                    </div>
+                                </div>
+                            @endfor
+                        @else
+                            <div><i>Hours have not been set.</i></div>
+                        @endif
                     </div>
                 </div>
             </div>

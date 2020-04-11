@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
 class Menu extends Model
@@ -19,5 +20,14 @@ class Menu extends Model
 
     public function category(){
         return $this->belongsTo(Category::class);
+    }
+    public function scopeNewMenuItemsThisMonth($query, $id){
+        return $query->where('restaurant_id', $id)->whereYear('added_on', Carbon::now())
+            ->whereMonth('added_on', Carbon::now())->count();
+    }
+
+    public function scopeNewMenuItemsLastMonth($query, $id){
+        return $query->where('restaurant_id', $id)->whereYear('added_on', Carbon::now())
+            ->whereMonth('added_on', Carbon::now()->subMonth(1))->count();
     }
 }

@@ -43,6 +43,11 @@ class Restaurant extends Authenticatable
         return $this->hasMany(Menu::class);
     }
 
+    public function menu_items_count()
+    {
+        return $this->menu_items()->count();
+    }
+
     public function address()
     {
         return $this->hasOne(Address::class, 'account_id');
@@ -50,5 +55,10 @@ class Restaurant extends Authenticatable
 
     public function categories(){
         return $this->belongsToMany(Category::class)->orderBy('name');
+    }
+
+    public function hours()
+    {
+        return $this->hasMany(RestaurantHours::class);
     }
 }

@@ -7,6 +7,8 @@ use Darryldecode\Cart\Cart;
 
 class CartController extends Controller
 {
+    //https://github.com/darryldecode/laravelshoppingcart
+
     public function index(){
         return view('cart');
     }

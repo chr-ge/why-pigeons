@@ -53,6 +53,8 @@ Route::group(['middleware' => 'auth:restaurant'], function () {
     Route::patch('/menu/{menu}', 'RestaurantController@updateMenuItem')->name('restaurant.updateMenuItem');
     Route::delete('/menu/delete/{menu}', 'RestaurantController@deleteMenuItem')->name('restaurant.deleteMenuItem');
     Route::post('/set-image', 'RestaurantController@setImage')->name('setImage');
+    Route::post('/set-hours', 'RestaurantController@setOperatingHours')->name('setOperatingHours');
+    Route::patch('/update-hours', 'RestaurantController@updateOperatingHours')->name('updateOperatingHours');
     Route::post('/add-category', 'RestaurantController@addCategory')->name('addCategory');
 });
 

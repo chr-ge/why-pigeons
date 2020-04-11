@@ -8,7 +8,7 @@
     <div class="col-xl-6">
         <ul class="nav nav-footer justify-content-center justify-content-xl-end">
             <li class="nav-item">
-                <a href="{{ route('home') }}" class="nav-link" target="_blank">Browse Restaurants</a>
+                <a href="{{ route('home.index') }}" class="nav-link" target="_blank">Browse Restaurants</a>
             </li>
             <li class="nav-item">
                 <a href="#" class="nav-link" target="_blank">Contact</a>

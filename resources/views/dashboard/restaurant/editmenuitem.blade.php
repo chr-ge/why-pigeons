@@ -48,7 +48,7 @@
                 <div class="card shadow">
                     <!-- Card header -->
                     <div class="card-header">
-                        <h3 class="mb-0">Edit menu item #{{$menu->id}}</h3>
+                        <h3 class="mb-0"><i class="far fa-edit"></i> Edit menu item #{{$menu->id}}</h3>
                     </div>
                     <div class="card-body" >
                         <form method="POST" action="{{route('restaurant.updateMenuItem', $menu->id)}}" enctype="multipart/form-data">

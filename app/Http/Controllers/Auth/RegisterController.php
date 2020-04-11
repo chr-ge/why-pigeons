@@ -80,7 +80,7 @@ class RegisterController extends Controller
     public function showRestaurantRegisterForm()
     {
         $countries = ['Canada', 'United States of America'];
-        $categories = Category::pluck('id', 'name')->except('$', '$$', '$$$');;
+        $categories = Category::noPriceRange();
         $url = 'restaurant';
         return view('auth.apply', compact('categories', 'url', 'countries'));
     }

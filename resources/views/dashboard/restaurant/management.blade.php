@@ -13,7 +13,6 @@
             </div>
         </div>
     </div>
-
     <div class="container-fluid mt--7">
         <div class="row">
             <div class="col-xl-8 mb-xl-0">
@@ -21,7 +20,7 @@
                     <div class="col-xl-12 mb-xl-0">
                         <div class="card shadow">
                             <div class="card-header">
-                                <h2 class="mb-0">Categories</h2>
+                                <h2 class="mb-0"><i class="fas fa-tags"></i> Categories</h2>
                             </div>
                             <div class="card-body">
                                 <div>
@@ -54,7 +53,7 @@
                     <div class="col-xl-12 mb-xl-0">
                         <div class="card shadow">
                             <div class="card-header">
-                                <h2 class="mb-0">Image</h2>
+                                <h2 class="mb-0"><i class="fas fa-image"></i> Image</h2>
                             </div>
                             <div class="card-body">
                                 <div class="row align-items-center">
@@ -81,18 +80,42 @@
             <div class="col-xl-4 mb-xl-0">
                 <div class="card shadow h-100">
                     <div class="card-header">
-                        <h2 class="mb-0">Operating Hours</h2>
+                        <h2 class="mb-0"><i class="fa fa-clock"></i> Operating Hours</h2>
                     </div>
                     <div class="card-body">
-                        <form method="POST" action="{{ route('addCategory') }}" enctype ="multipart/form-data">
+                        @if(\App\RestaurantHours::hoursExist())
+                            <form method="POST" action="{{ route('updateOperatingHours') }}">
+                                @method('PATCH')
+                        @else
+                            <form method="POST" action="{{ route('setOperatingHours') }}">
+                        @endif
                             @csrf
 
+                            @for($i = 1; $i < 8; $i++)
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <label for="{{ 'day-'.$i }}" class="col-md-6 col-form-label form-control-label">{{ \App\RestaurantHours::dayFromNumber($i)}}</label>
+                                            <label for="{{ 'day-'.$i }}" class="col-md-6 col-form-label form-control-label">{!! \App\RestaurantHours::hoursExist() ? \App\RestaurantHours::setStatus($i) : ''!!}</label>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <input class="form-control" type="time" value="{{ \App\RestaurantHours::hoursExist() ? old($i.'-open') ?? \App\RestaurantHours::getOpenTime($i) : old($i.'-open')}}" id="{{ $i.'-open' }}" name="{{ $i.'-open' }}">
+                                            </div>
+                                            <div class="col-md-6">
+                                                <input class="form-control" type="time" value="{{ \App\RestaurantHours::hoursExist() ? old($i.'-open') ?? \App\RestaurantHours::getCloseTime($i) : old($i.'-close')}}" id="{{ $i.'-close' }}" name="{{ $i.'-close' }}">
+                                            </div>
+                                        </div>
+                                    </div>
+                                @endfor
+                            <button type="submit" class="btn btn-primary btn-block">{{ \App\RestaurantHours::hoursExist() ? __('Save Changes') : __('Set Hours') }}</button>
                         </form>
                     </div>
                 </div>
+                @if(session()->get('errors'))
+                    <script>alert('{{ session()->get('errors')->first() }}')</script>
+                @endif
             </div>
         </div>
-
         @include('layouts.dashboard.footers.auth')
     </div>
 @endsection

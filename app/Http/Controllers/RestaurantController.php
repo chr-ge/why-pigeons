@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Category;
 use App\Menu;
+use App\Category;
 use App\Restaurant;
+use App\RestaurantHours;
 use Illuminate\Support\Facades\File;
 use Intervention\Image\Facades\Image;
+use App\Http\Requests\SetOperatingHoursRequest;
 
 class RestaurantController extends Controller
 {
@@ -26,12 +28,12 @@ class RestaurantController extends Controller
     }
 
     public function newMenuItem(){
-        $categories = Category::pluck('id', 'name')->except('$', '$$', '$$$');
+        $categories = Category::noPriceRange();
         return view('dashboard.restaurant.newmenuitem', compact('categories'));
     }
 
     public function editMenuItem(Menu $menu){
-        $categories = Category::pluck('id', 'name')->except('$', '$$', '$$$');
+        $categories = Category::noPriceRange();
         return view('dashboard.restaurant.editmenuitem', compact('menu','categories'));
     }
 
@@ -158,6 +160,34 @@ class RestaurantController extends Controller
         Restaurant::findOrFail($currentUser->id)->update([
             'image' => $imagePath
         ]);
+
+        return redirect()->back();
+    }
+
+    public function setOperatingHours(SetOperatingHoursRequest $request){
+        $array = $request->validated();
+
+        for($i = 1; $i < 8; $i++){
+            RestaurantHours::create([
+                'restaurant_id' => auth()->user()->id,
+                'day' => $i,
+                'open_time' => $array[$i.'-open'],
+                'close_time' => $array[$i.'-close'],
+            ]);
+        }
+
+        return redirect()->back();
+    }
+
+    public function updateOperatingHours(SetOperatingHoursRequest $request){
+        $array = $request->validated();
+
+        for($i = 1; $i < 8; $i++){
+            RestaurantHours::where('restaurant_id', auth()->user()->id)->where('day', $i)->update([
+                'open_time' => $array[$i.'-open'],
+                'close_time' => $array[$i.'-close'],
+            ]);
+        }
 
         return redirect()->back();
     }
