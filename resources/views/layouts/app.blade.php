@@ -25,7 +25,7 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm fixed-top">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     <img src="{{ asset('/svg/dove.svg') }}" style="height: 30px; width: 30px">
@@ -82,7 +82,7 @@
                 </div>
             </div>
         </nav>
-        <main class="py-4">
+        <main class="py-4 mt-9">
             @yield('content')
         </main>
         @extends('layouts.footer')

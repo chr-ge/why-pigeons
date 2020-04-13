@@ -10882,6 +10882,10 @@ a.text-dark:focus {
   }
 }
 
+body {
+  padding-top: 60px;
+}
+
 .module {
   box-sizing: border-box;
   position: relative;
