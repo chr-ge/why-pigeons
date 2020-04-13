@@ -44,6 +44,10 @@ class CategoryRestaurantTableSeeder extends Seeder
             array('category_id' => '1', 'restaurant_id' => '8',),
             array('category_id' => '11', 'restaurant_id' => '8',),
             array('category_id' => '20', 'restaurant_id' => '8',),
+
+            array('category_id' => '2', 'restaurant_id' => '9',),
+            array('category_id' => '15', 'restaurant_id' => '9',),
+            array('category_id' => '12', 'restaurant_id' => '9',),
         ));
     }
 }

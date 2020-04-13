@@ -84,5 +84,14 @@ class RestaurantTableSeeder extends Seeder
             'image' => 'uploads/vlBjPVQ9UfvVHY6EA3FJVNk93KIWgA0TgWhZSdJM.webp',
             'active' => 1
         ]);
+        Restaurant::create([
+            'name' => 'Fisshu',
+            'email' => 'sushi@fisshu.com',
+            'phone' => '5143191862',
+            'password' => '$2y$10$38qQYwcIgUZG5tDB6e0gaOb6jdxCWQRaT/moYFZPOI3cpM3SIH3g.',
+            'category_id' => 15,
+            'image' => 'uploads/13_fisshu_400-2018-08-09',
+            'active' => 1
+        ]);
     }
 }
