@@ -19,13 +19,13 @@
         }
     </style>
 
-    <div class="header bg-gradient-yellow pb-8 pt-5 pt-lg-7 d-flex">
+    <div class="header bg-gradient-pink pb-8 pt-5 pt-lg-7 d-flex">
         <!-- Header container -->
         <div class="container-fluid">
             <div class="header-body">
                 <div class="row">
                     <div class="col-md-12 {{ $class ?? '' }}">
-                        <h1 class="display-2 text-white">Users</h1>
+                        <h1 class="display-2 text-white">Drivers</h1>
                     </div>
                 </div>
                 <div class="row align-items-center">
@@ -33,7 +33,7 @@
                         <nav aria-label="breadcrumb" class="d-none d-md-inline-block">
                             <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
                                 <li class="breadcrumb-item"><a href="{{ route('pigeon.index') }}"><i class="fas fa-home"></i></a></li>
-                                <li class="breadcrumb-item"><a href="{{ route('pigeon.users') }}">Users</a></li>
+                                <li class="breadcrumb-item"><a href="{{ route('pigeon.users') }}">Drivers</a></li>
                                 <li class="breadcrumb-item active" aria-current="page">All</li>
                             </ol>
                         </nav>
@@ -65,41 +65,38 @@
                 <div class="card shadow">
                     <!-- Card header -->
                     <div class="card-header border-0">
-                        <h3 class="mb-0">Users</h3>
+                        <h3 class="mb-0">Drivers</h3>
                     </div>
                     <!-- Table -->
-                    <div class="table-responsive" data-toggle="list" data-list-values='["id", "name", "phone", "email", "city"]'>
+                    <div class="table-responsive" data-toggle="list" data-list-values='["id", "name", "phone", "type", "city"]'>
                         <table class="table align-items-center table-flush">
                             <thead class="thead-light">
                                 <tr>
                                     <th scope="col" class="sort" data-sort="id">ID</th>
-                                    <th scope="col" class="sort" data-sort="name">Client Name</th>
+                                    <th scope="col" class="sort" data-sort="name">Name</th>
                                     <th scope="col" class="sort" data-sort="phone">Phone</th>
-                                    <th scope="col" class="sort" data-sort="email">Email</th>
+                                    <th scope="col" class="sort" data-sort="type">Type</th>
                                     <th scope="col" class="sort" data-sort="city">City</th>
                                     <th scope="col"></th>
                                 </tr>
                             </thead>
                             <tbody class="list">
-                                @foreach($users as $user)
+                                @foreach($drivers as $driver)
                                     <tr>
                                         <th>
-                                            {{$user->id}}
+                                            {{$driver->id}}
                                         </th>
                                         <th>
-                                            {{$user->name}}
+                                            {{$driver->name}}
                                         </th>
                                         <td>
-                                            {{$user->phone}}
+                                            {{$driver->phone}}
                                         </td>
                                         <td>
-                                            <span class="badge badge-dot mr-4">
-                                                <i class="{{$user->email_verified_at ? 'bg-success' : 'bg-gray' }}"></i>
-                                                <span class="status">{{$user->email}}</span>
-                                            </span>
+                                            {{$driver->type}}
                                         </td>
                                         <td>
-                                            {{$user->address->city ?? 'N/A'}}
+                                            {{$driver->address->city ?? 'N/A'}}
                                         </td>
                                         <td>
                                             <button class="btn btn-sm" data-toggle="tooltip" onclick="window.location ='{{route('pigeon.restaurantDetails', $user->id)}}'">
@@ -112,9 +109,9 @@
                         </table>
                     </div>
                     <!-- Card footer -->
-                    @if($users->hasPages())
+                    @if($drivers->hasPages())
                         <div class="card-footer">
-                            {{ $users->links() }}
+                            {{ $drivers->links() }}
                         </div>
                     @endif
                 </div>

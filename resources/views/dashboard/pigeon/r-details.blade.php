@@ -57,7 +57,7 @@
                                     <div class="row">
                                         <div class="col">
                                             <h5 class="card-title text-uppercase text-muted mb-0 text-white">Restaurant Reviews</h5>
-                                            <span class="h2 font-weight-bold mb-0 text-white">5 stars</span>
+                                            <span class="h2 font-weight-bold mb-0 text-white">N/A</span>
                                         </div>
                                         <div class="col-auto">
                                             <div class="icon icon-shape bg-white text-dark rounded-circle shadow">
@@ -66,7 +66,7 @@
                                         </div>
                                     </div>
                                     <p class="mt-3 mb-0 text-sm">
-                                        <span class="text-white mr-2"><i class="fa fa-arrow-up"></i> 3.48%</span>
+                                        <span class="text-white mr-2"><i class="fa fa-arrow-up"></i> N/A %</span>
                                         <span class="text-nowrap text-light">Since last month</span>
                                     </p>
                                 </div>
