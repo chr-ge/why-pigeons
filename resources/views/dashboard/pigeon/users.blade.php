@@ -102,7 +102,7 @@
                                             {{$user->address->city ?? 'N/A'}}
                                         </td>
                                         <td>
-                                            <button class="btn btn-sm" data-toggle="tooltip" onclick="window.location ='{{route('pigeon.restaurantDetails', $user->id)}}'">
+                                            <button class="btn btn-sm" data-toggle="tooltip" onclick="window.location ='{{route('pigeon.userDetails', $user->id)}}'">
                                                 <i class="fas fa-info-circle"></i> View
                                             </button>
                                         </td>

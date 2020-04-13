@@ -48,6 +48,10 @@ class PigeonController extends Controller
         return view('dashboard.pigeon.settings', compact('pigeon'));
     }
 
+    public function userDetails(User $user){
+        return view('dashboard.pigeon.u-details', compact('user'));
+    }
+
     public function restaurantDetails(Restaurant $restaurant){
         $menu_items = Cache::remember('menu.count.'.$restaurant->id, now()->addSeconds(30), function () use ($restaurant){
             return $restaurant->menu_items_count();
