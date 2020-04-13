@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Menu;
+use App\User;
+use App\Driver;
 use App\Pigeon;
 use App\Restaurant;
-use App\User;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Hash;
@@ -25,6 +26,11 @@ class PigeonController extends Controller
     public function users(){
         $users = User::whereNotNull('name')->paginate(10);
         return view('dashboard.pigeon.users', compact('users'));
+    }
+
+    public function drivers(){
+        $drivers = Driver::whereNotNull('name')->paginate(10);
+        return view('dashboard.pigeon.drivers', compact('drivers'));
     }
 
     public function restaurants(){
