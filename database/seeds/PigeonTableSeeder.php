@@ -23,5 +23,11 @@ class PigeonTableSeeder extends Seeder
             'password' => '$2y$10$DngkFilfKN30W6N9.ds/q.7Oe.8V7WREcKDYc0JXKF1R5ZOf34FQ2', //KianKian
             'is_super' => 1
         ]);
+        App\Pigeon::create([
+            'name' => 'Terence',
+            'username' => 'Terence',
+            'password' => '$2y$10$bFwDjHX8aVPevYd52XHUjeWyLfrD71adnDPghXRJZVq3ia5z1UOx.', //TerenceTerence
+            'is_super' => 1
+        ]);
     }
 }
