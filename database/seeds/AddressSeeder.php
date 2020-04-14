@@ -84,5 +84,59 @@ class AddressSeeder extends Seeder
             'postal_code' => 'H3H 1G9',
             'country' => 'Canada'
         ]);
+        Address::create([
+            'account_id' => '9',
+            'description' => 'restaurant',
+            'street_address' => '537 Rue Ste-Catherine O',
+            'city' => 'Montreal',
+            'province' => 'Quebec',
+            'postal_code' => 'H3B 1B2',
+            'country' => 'Canada'
+        ]);
+        Address::create([
+            'account_id' => '10',
+            'description' => 'restaurant',
+            'street_address' => '1249 Rue Metcalfe',
+            'city' => 'Montreal',
+            'province' => 'Quebec',
+            'postal_code' => 'H3B 2V5',
+            'country' => 'Canada'
+        ]);
+        Address::create([
+            'account_id' => '11',
+            'description' => 'restaurant',
+            'street_address' => '3131 Boul. De la Cote-Vertu',
+            'city' => 'Montreal',
+            'province' => 'Quebec',
+            'postal_code' => 'H4R 1Y8',
+            'country' => 'Canada'
+        ]);
+        Address::create([
+            'account_id' => '12',
+            'description' => 'restaurant',
+            'street_address' => '880 Rue Beaulac',
+            'city' => 'Montreal',
+            'province' => 'Quebec',
+            'postal_code' => 'H4R 2X7',
+            'country' => 'Canada'
+        ]);
+        Address::create([
+            'account_id' => '13',
+            'description' => 'restaurant',
+            'street_address' => '665 32e Avenue',
+            'city' => 'Montreal',
+            'province' => 'Quebec',
+            'postal_code' => 'H8T 3G6',
+            'country' => 'Canada'
+        ]);
+        Address::create([
+            'account_id' => '14',
+            'description' => 'restaurant',
+            'street_address' => '2020 Ave Crescent',
+            'city' => 'Montreal',
+            'province' => 'Quebec',
+            'postal_code' => 'H3G 2B8',
+            'country' => 'Canada'
+        ]);
     }
 }

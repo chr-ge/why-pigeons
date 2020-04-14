@@ -48,6 +48,29 @@ class CategoryRestaurantTableSeeder extends Seeder
             array('category_id' => '2', 'restaurant_id' => '9',),
             array('category_id' => '15', 'restaurant_id' => '9',),
             array('category_id' => '12', 'restaurant_id' => '9',),
+
+            array('category_id' => '2', 'restaurant_id' => '10',),
+            array('category_id' => '19', 'restaurant_id' => '10',),
+            array('category_id' => '20', 'restaurant_id' => '10',),
+            array('category_id' => '17', 'restaurant_id' => '10',),
+
+            array('category_id' => '2', 'restaurant_id' => '11',),
+            array('category_id' => '9', 'restaurant_id' => '11',),
+            array('category_id' => '17', 'restaurant_id' => '11',),
+            array('category_id' => '14', 'restaurant_id' => '11',),
+
+            array('category_id' => '2', 'restaurant_id' => '12',),
+            array('category_id' => '14', 'restaurant_id' => '12',),
+            array('category_id' => '17', 'restaurant_id' => '12',),
+            array('category_id' => '19', 'restaurant_id' => '12',),
+            array('category_id' => '4', 'restaurant_id' => '12',),
+
+            array('category_id' => '2', 'restaurant_id' => '13',),
+            array('category_id' => '9', 'restaurant_id' => '13',),
+            array('category_id' => '11', 'restaurant_id' => '13',),
+
+            array('category_id' => '1', 'restaurant_id' => '14',),
+            array('category_id' => '22', 'restaurant_id' => '14',),
         ));
     }
 }

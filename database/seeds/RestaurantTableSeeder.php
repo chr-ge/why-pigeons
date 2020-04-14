@@ -90,7 +90,52 @@ class RestaurantTableSeeder extends Seeder
             'phone' => '5143191862',
             'password' => '$2y$10$38qQYwcIgUZG5tDB6e0gaOb6jdxCWQRaT/moYFZPOI3cpM3SIH3g.',
             'category_id' => 15,
-            'image' => 'uploads/13_fisshu_400-2018-08-09',
+            'image' => 'uploads/13_fisshu_400-2018-08-09.jpg',
+            'active' => 1
+        ]);
+        Restaurant::create([
+            'name' => 'Dunns',
+            'email' => 'info@dunnsfamous.com',
+            'phone' => '5143951927',
+            'password' => '$2y$10$rIUcWcobxh3FL4g9jcgu.OJCm7k25m2NzdK8hCDk/wWGS/KYA3.j6',
+            'category_id' => 19,
+            'image' => 'uploads/home_1950x750-smoked-meat-sandwich-3_en.jpg',
+            'active' => 1
+        ]);
+        Restaurant::create([
+            'name' => 'Scores',
+            'email' => 'info@scores.ca',
+            'phone' => '5143342828',
+            'password' => '$2y$10$u2NLY1H0F7Fe2re9kmrCteGe9KBLGWxnKdbsqYEz1NPlZpZnB73ei',
+            'category_id' => 9,
+            'image' => 'uploads/dinning.jpg',
+            'active' => 1
+        ]);
+        Restaurant::create([
+            'name' => 'Mikes',
+            'email' => 'toujours@mikes.ca',
+            'phone' => '5143319655',
+            'password' => '$2y$10$Y0pwAaEudA5S9/DKb6dLwO9xuLtcKiQEYvu4XHujblay.fpmaz7.y',
+            'category_id' => 14,
+            'image' => 'uploads/WEB20_011_WEB_Pizza_Event_400x300-V1.png',
+            'active' => 1
+        ]);
+        Restaurant::create([
+            'name' => 'St-Hubert',
+            'email' => 'restaurant@sthubert.ca',
+            'phone' => '5146374417',
+            'password' => '$2y$10$6eqPBKmIVU0W2XN.qfqW2ugWf9bdpqCAtNTFRfQccm1Z/Us.c8RGq',
+            'category_id' => 9,
+            'image' => 'uploads/10179@2x.jpg',
+            'active' => 1
+        ]);
+        Restaurant::create([
+            'name' => 'Boustan',
+            'email' => 'restaurant@sthubert.ca',
+            'phone' => '5148433194',
+            'password' => '$2y$10$oGsqXSKshMmQX6kuYBTsDOirBe3qCKGKV1h93KsGsd6aAa4FHNvum',
+            'category_id' => 22,
+            'image' => 'uploads/Al-Boustan0767-2-1024x565.png',
             'active' => 1
         ]);
     }
