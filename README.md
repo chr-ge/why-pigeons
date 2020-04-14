@@ -11,6 +11,7 @@ Laravel is a web application framework with expressive, elegant syntax. We belie
 5. `npm install`
 6. `npm run dev`
 7. `php artisan storage:link`
+8. `php artisan migrate --seed`
 
 
 
