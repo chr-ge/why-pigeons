@@ -15,13 +15,13 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $restaurants = Restaurant::where('active', true)->paginate(8);
+        $restaurants = Restaurant::where('active', true)->paginate(12);
         return view('home', compact('restaurants'));
     }
 
     public function search(){
         $data = request()->validate(['search' => 'string|max:50']);
-        $restaurants = Restaurant::where('name','like','%'. $data['search'] .'%')->paginate(8);
+        $restaurants = Restaurant::where('name','like','%'. $data['search'] .'%')->paginate(12);
         return view('home', compact('restaurants'));
     }
 
