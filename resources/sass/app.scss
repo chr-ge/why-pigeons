@@ -7,6 +7,9 @@
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
+body{
+    padding-top: 60px;
+}
 .module {
     box-sizing: border-box;
     position: relative;

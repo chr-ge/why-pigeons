@@ -25,27 +25,31 @@ class PigeonController extends Controller
 
     public function users(){
         $users = User::whereNotNull('name')->paginate(10);
-        return view('dashboard.pigeon.users', compact('users'));
+        return view('dashboard.pigeon.users.users', compact('users'));
     }
 
     public function drivers(){
         $drivers = Driver::whereNotNull('name')->paginate(10);
-        return view('dashboard.pigeon.drivers', compact('drivers'));
+        return view('dashboard.pigeon.drivers.drivers', compact('drivers'));
     }
 
     public function restaurants(){
         $restaurants = Restaurant::where('active', true)->paginate(10);
-        return view('dashboard.pigeon.restaurants', compact('restaurants'));
+        return view('dashboard.pigeon.restaurants.restaurants', compact('restaurants'));
     }
 
     public function applications(){
         $restaurants = Restaurant::where('active', false)->whereNull('password')->paginate(10);
-        return view('dashboard.pigeon.applications', compact('restaurants'));
+        return view('dashboard.pigeon.restaurants.applications', compact('restaurants'));
     }
 
     public function settings(){
         $pigeon = auth()->user();
         return view('dashboard.pigeon.settings', compact('pigeon'));
+    }
+
+    public function userDetails(User $user){
+        return view('dashboard.pigeon.users.u-details', compact('user'));
     }
 
     public function restaurantDetails(Restaurant $restaurant){
@@ -56,7 +60,7 @@ class PigeonController extends Controller
             return Pigeon::getPercentatgeChange( Menu::newMenuItemsLastMonth($restaurant->id), Menu::newMenuItemsThisMonth($restaurant->id));
         });
 
-        return view('dashboard.pigeon.r-details', compact('restaurant', 'menu_items', 'menu_change'));
+        return view('dashboard.pigeon.restaurants.r-details', compact('restaurant', 'menu_items', 'menu_change'));
     }
 
     public function activateRestaurant(Restaurant $restaurant){
