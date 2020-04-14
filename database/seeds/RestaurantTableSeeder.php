@@ -131,7 +131,7 @@ class RestaurantTableSeeder extends Seeder
         ]);
         Restaurant::create([
             'name' => 'Boustan',
-            'email' => 'restaurant@sthubert.ca',
+            'email' => 'boustancuisine@gmail.com',
             'phone' => '5148433194',
             'password' => '$2y$10$oGsqXSKshMmQX6kuYBTsDOirBe3qCKGKV1h93KsGsd6aAa4FHNvum',
             'category_id' => 22,
