@@ -2,93 +2,87 @@
 
 @section('content')
     <div class="container">
-        <div class="position-relative overflow-hidden p-3 text-center"
-             style="background-image: url('{{ url('storage/'.$restaurant->image) }}'); background-size: cover;background-position: center;">
-            <div class="col-md-5 p-lg-5 mx-auto my-5" style="background: #F8FAFC;">
-                <h1 class="display-4 font-weight-normal">{{ $restaurant->name }}</h1>
-                <p class="lead font-weight-normal">
-                    <span class="badge badge-danger">9.5</span> &#183;
-                    @foreach($restaurant->categories as $category)
-                        <span class="badge badge-primary">{{$category->name}}</span>
-                    @endforeach
-                </p>
-            </div>
-            <div class="product-device shadow-sm d-none d-md-block"></div>
-            <div class="product-device product-device-2 shadow-sm d-none d-md-block"></div>
-        </div>
-
-        <div class="categories-nav">
-            <ul role="tablist">
-                @foreach($categories as $category)
-                    <li>
-                        <a class="nav-link category-a" data-toggle="pill" onclick="window.location.href='#{{$category->name}}';" role="tab" aria-selected="false">{{$category->name}}</a>
-                    </li>
-                @endforeach
-                <li class="float-right">
-                    <a class="nav-link category-info" title="More info" data-toggle="modal" aria-labelledby="modal-default" data-target="#modal-default" aria-hidden="true" role="dialog" aria-selected="false"><i class="fa fa-info-circle"></i></a>
-                    <div class="modal fade" id="modal-default" tabindex="-1">
-                        <div class="modal-dialog modal- modal-dialog-centered modal-" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h6 class="modal-title" id="modal-title-default">More Info</h6>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">×</span>
-                                    </button>
-                                </div>
-                                <div class="modal-body text-center">
-                                    <h3><i class="fa fa-clock"></i> {{ __('Operating Hours') }}</h3>
-                                    <p>Tue - Fri 10:00 AM - 4:00 PM, 10:00 AM - 4:00 PM<br>
-                                        Sat, Sun 10:00 AM - 4:00 PM, 9:30 AM - 4:00 PM</p>
-                                    <h3><i class="fa fa-map-marker-alt"></i> Address</h3>
-                                    <p class="mb-0">{{$restaurant->address->street_address}}, {{$restaurant->address->city}}</p>
-                                    <p>{{$restaurant->address->province}}, {{$restaurant->address->country}} {{$restaurant->address->postal_code}}</p>
-                                </div>
-                            </div>
-                        </div>
+        <div class="row">
+            <div class="col-9">
+                <div class="row">
+                    <img src="{{ url('storage/'.$restaurant->image)}}" style="width: 100%; height:400px;">
+                </div>
+                <div class="row">
+                    <div class="col-3 p-0">
+                        <ul id="navigation">
+                            @foreach($categories as $category)
+                                <li>
+                                    <a id="{{$category->name}}link"onclick="window.location.href='#{{$category->name}}';" style="color:red;">
+                                        {{$category->name}}
+                                    </a>
+                                </li>
+                            @endforeach
+                        </ul>
                     </div>
-                </li>
-            </ul>
-        </div>
-
-        @foreach($categories as $category)
-            <h2 class="mt-4" id="{{$category->name}}">{{$category->name}}</h2>
-            <div class="card-columns">
-                @foreach($menus as $menu)
-                    @if($menu->category_id == $category->id)
-                    <div class="card">
-                        <div class="row no-gutters">
-                            @if($menu->image)
-                                <div class="col-md-8">
-                            @else
-                                <div class="col-md-12">
-                            @endif
-                            <div class="pl-3 pt-3">
-                                <h5 class="card-title">{{ $menu->name }}</h5>
-                                <p class="card-text pr-3">{{ $menu->description }}</p>
-                            </div>
-                        </div>
-                        @if($menu->image)
-                            <div class="col-md-4">
-                                <div class="pr-3 pt-3">
-                                    <img src="{{ url('storage/'.$menu->image) }}" class="w-100" alt="">
-                                </div>
-                            </div>
-                        @endif
-                            <div class="row no-gutters pt-2 w-100">
-                                <div class="pl-3 pb-3 w-100">
-                                    <div class="d-inline-flex align-items-center w-100">
-                                        <p class="card-text m-0"><small class="text-muted">${{ $menu->price }}</small></p>
-                                        <div class="w-100 pr-3">
-                                            <button style="float:right;" class="btn btn-primary btn-sm"><i class="fas fa-plus"></i></button>
+                    <div class="col-9 p-0">
+                        @foreach($categories as $category)
+                            <div class="card category" id="{{$category->name}}" style="margin-bottom:800px;">
+                                <h2>{{$category->name}}</h2>
+                                @foreach($menus as $menu)
+                                    @if($menu->category_id == $category->id)
+                                        <div class="row no-gutters" style="height:100px;">
+                                            <div class="row no-gutters w-100">
+                                                <div class="col-8">
+                                                    <div class="row no-gutters">
+                                                        <h5>{{$menu->name}}</h5>
+                                                    </div>
+                                                    <div class="row no-gutters">
+                                                        <p class="m-0 p-0">{{$menu->description}}</p>
+                                                    </div>
+                                                    <div class="row no-gutters">
+                                                        <p class="m-0 p-0">${{$menu->price}}</p>
+                                                    </div>
+                                                </div>
+                                                <div class="col-4">
+                                                    <img src="{{ url('storage/'.$menu->image) }}" style="height:100px; width:100px; float:right;" alt="">
+                                                </div>
+                                            </div>
                                         </div>
-                                    </div>
-                                </div>
+                                    @endif
+                                @endforeach
                             </div>
-                        </div>
+                        @endforeach
                     </div>
-                    @endif
-                @endforeach
+                </div>
             </div>
-        @endforeach
+            <div class="col-3">
+
+            </div>
+        </div>
     </div>
+
+    <script>
+        $( document ).ready(function() {
+            var nav = document.getElementById("navigation");
+            //var offset = jQuery(nav).offset().top;
+            jQuery(window).scroll(function(){
+                var scrollPos = jQuery(window).scrollTop();
+                if(scrollPos >= 429){
+                    nav.classList.add("fixed");
+                }
+                else{
+                    nav.classList.remove("fixed");
+                }
+
+                $('.category').each(function() {
+                    var target = $(this).offset().top;
+                    var id = $(this).attr('id');
+
+                    if (scrollPos >= target) {
+                        $('#navigation > li > a').removeClass('active');
+                        var link = document.getElementById(id + "link");
+                        link.classList.add('active');
+                    }
+                    if(scrollPos<429){
+                        $('#navigation > li > a').removeClass('active');
+                    }
+                });
+            });
+        });
+    </script>
 @endsection
