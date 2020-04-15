@@ -4,28 +4,26 @@
     <div class="container">
         <div class="row">
             <div class="col-9">
-                <div class="row">
-                    <img src="{{ url('storage/'.$restaurant->image)}}" style="width: 100%; height:400px;">
-                </div>
+                <div class="row header-image" style="background-image: url('{{ url('storage/'.$restaurant->image) }}')"></div>
                 <div class="row">
                     <div class="col-3 p-0">
                         <ul id="navigation">
                             @foreach($categories as $category)
                                 <li>
-                                    <a id="{{$category->name}}link"onclick="window.location.href='#{{$category->name}}';" style="color:red;">
+                                    <a id="{{$category->name}}-link" onclick="window.location.href='#{{$category->name}}'">
                                         {{$category->name}}
                                     </a>
                                 </li>
                             @endforeach
                         </ul>
                     </div>
-                    <div class="col-9 p-0">
+                    <div class="col-9 menu-list">
                         @foreach($categories as $category)
-                            <div class="card category" id="{{$category->name}}" style="margin-bottom:800px;">
+                            <div class="category" id="{{$category->name}}">
                                 <h2>{{$category->name}}</h2>
                                 @foreach($menus as $menu)
                                     @if($menu->category_id == $category->id)
-                                        <div class="row no-gutters" style="height:100px;">
+                                        <div class="row no-gutters menu-card">
                                             <div class="row no-gutters w-100">
                                                 <div class="col-8">
                                                     <div class="row no-gutters">
@@ -39,7 +37,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="col-4">
-                                                    <img src="{{ url('storage/'.$menu->image) }}" style="height:100px; width:100px; float:right;" alt="">
+                                                    <img src="{{ url('storage/'.$menu->image) }}" alt="{{$menu->name}}">
                                                 </div>
                                             </div>
                                         </div>
@@ -75,7 +73,7 @@
 
                     if (scrollPos >= target) {
                         $('#navigation > li > a').removeClass('active');
-                        var link = document.getElementById(id + "link");
+                        var link = document.getElementById(id + "-link");
                         link.classList.add('active');
                     }
                     if(scrollPos<429){
