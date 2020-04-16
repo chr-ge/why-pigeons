@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+<div class="container pt-4">
     <div class="row pt-2">
         <div class="col-6 offset-md-3">
             <form action="{{ route('home.search') }}" accept-charset="UTF-8" method="get">

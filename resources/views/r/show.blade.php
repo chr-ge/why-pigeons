@@ -5,6 +5,33 @@
         <div class="row">
             <div class="col-9">
                 <div class="row header-image" style="background-image: url('{{ url('storage/'.$restaurant->image) }}')"></div>
+                <div class="row information">
+                    <h1 class="m-0 my-auto">{{ $restaurant->name }}</h1>
+                    <p class="lead ml-5 mb-0 my-auto"><span class="badge badge-danger">4.5</span></p>
+                    <div class="info-icon ml-auto">
+                        <a class="nav-link pr-0" title="More info" data-toggle="modal" aria-labelledby="modal-default" data-target="#modal-default" aria-hidden="true" role="dialog" aria-selected="false"><i class="fa fa-info-circle"></i></a>
+                        <div class="modal fade" id="modal-default" tabindex="-1">
+                            <div class="modal-dialog modal- modal-dialog-centered modal-" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h6 class="modal-title" id="modal-title-default">More Info</h6>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">×</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body text-center">
+                                        <h3><i class="fa fa-clock"></i> {{ __('Operating Hours') }}</h3>
+                                        <p>Tue - Fri 10:00 AM - 4:00 PM, 10:00 AM - 4:00 PM<br>
+                                            Sat, Sun 10:00 AM - 4:00 PM, 9:30 AM - 4:00 PM</p>
+                                        <h3><i class="fa fa-map-marker-alt"></i> Address</h3>
+                                        <p class="mb-0">{{$restaurant->address->street_address}}, {{$restaurant->address->city}}</p>
+                                        <p>{{$restaurant->address->province}}, {{$restaurant->address->country}} {{$restaurant->address->postal_code}}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div class="row">
                     <div class="col-3 p-0">
                         <ul id="navigation">
@@ -37,7 +64,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="col-4">
-                                                    <img src="{{ url('storage/'.$menu->image) }}" alt="{{$menu->name}}">
+                                                    <img src="{{ url('storage/'.$menu->image) }}" alt=" ">
                                                 </div>
                                             </div>
                                         </div>

@@ -66,7 +66,7 @@
             }
         </style>
     </head>
-    <body>
+    <body class="pt-0">
         <div class="clip">
             <div class="flex-center position-ref full-height" style="">
                 @if (Route::has('login'))
