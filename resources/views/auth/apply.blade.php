@@ -14,7 +14,7 @@
 @endsection
 
 @section('content')
-<div class="container">
+<div class="container pt-2">
     <div class="modal-body row">
         <div class="col-md-6">
             <!-- <img src="https://i.pinimg.com/originals/07/7d/e1/077de1e0a97edc48c026661b9a3ba190.jpg"/> -->
