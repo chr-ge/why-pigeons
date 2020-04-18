@@ -1,13 +1,18 @@
 @extends('layouts.app')
-<style>
-    .imagerow{
-        background: url("https://i.pinimg.com/originals/07/7d/e1/077de1e0a97edc48c026661b9a3ba190.jpg");
-    }
 
-    img{
-        width: 100%;
-    }
-</style>
+@section('title', 'Become a partner restaurant')
+
+@section('extra-css')
+    <style>
+        .imagerow{
+            background: url("https://i.pinimg.com/originals/07/7d/e1/077de1e0a97edc48c026661b9a3ba190.jpg");
+        }
+        img{
+            width: 100%;
+        }
+    </style>
+@endsection
+
 @section('content')
 <div class="container">
     <div class="modal-body row">

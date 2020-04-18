@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title', $restaurant->name.' - '.$restaurant->address->city)
+
 @section('content')
     <div class="container">
         <div class="row">

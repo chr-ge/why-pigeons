@@ -7,7 +7,8 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name') }}</title>
+    <!-- Page Title -->
+    <title>@yield('title', config('app.name'))</title>
 
     <!-- Favicon -->
     <link href="{{ asset('/svg/dove.svg') }}" rel="icon" type="image/png">
@@ -23,6 +24,8 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+    @yield('extra-css')
 </head>
 <body>
     <div id="app">
