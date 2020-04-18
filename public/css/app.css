@@ -10937,6 +10937,24 @@ body {
   color: #4e50cd;
 }
 
+.restaurant-cart {
+  padding: 1rem;
+  border: 1px solid #BFBDDB;
+  background-color: var(--white);
+  border-radius: 0.25rem;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 70px;
+}
+
+.restaurant-cart h3 {
+  color: salmon;
+}
+
+.restaurant-cart p {
+  color: var(--gray);
+}
+
 @media (min-width: 600px) {
   .module {
     max-width: calc(50% - 16px);

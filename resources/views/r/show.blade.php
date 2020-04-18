@@ -78,7 +78,7 @@
                 </div>
             </div>
             <div class="col-3">
-
+                @include('partials.cart')
             </div>
         </div>
     </div>
