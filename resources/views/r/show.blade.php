@@ -22,9 +22,10 @@
                                         </button>
                                     </div>
                                     <div class="modal-body text-center">
-                                        <h3><i class="fa fa-clock"></i> {{ __('Operating Hours') }}</h3>
-                                        <p>Tue - Fri 10:00 AM - 4:00 PM, 10:00 AM - 4:00 PM<br>
-                                            Sat, Sun 10:00 AM - 4:00 PM, 9:30 AM - 4:00 PM</p>
+                                        @if(\App\RestaurantHours::hoursExist($restaurant->id))
+                                            <h3><i class="fa fa-clock"></i> {{ __('Today\'s Hours') }}</h3>
+                                            <p>{{ \App\RestaurantHours::displayHours($restaurant->id) }} </p>
+                                        @endif
                                         <h3><i class="fa fa-map-marker-alt"></i> Address</h3>
                                         <p class="mb-0">{{$restaurant->address->street_address}}, {{$restaurant->address->city}}</p>
                                         <p>{{$restaurant->address->province}}, {{$restaurant->address->country}} {{$restaurant->address->postal_code}}</p>
