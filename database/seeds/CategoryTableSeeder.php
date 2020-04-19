@@ -39,6 +39,7 @@ class CategoryTableSeeder extends Seeder
         Category::create(['name' => 'Chinese']);
         Category::create(['name' => 'Mexican']);
         Category::create(['name' => 'Indian']);
+        Category::create(['name' => 'Caribbean']);
         Category::create(['name' => 'Fingerfood']);
         Category::create(['name' => 'Beverage']);
     }

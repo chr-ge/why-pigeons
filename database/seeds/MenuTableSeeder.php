@@ -41,11 +41,11 @@ class MenuTableSeeder extends Seeder
         Menu::create(['restaurant_id' => '5','name' => 'Tuna','description' => 'Made with flaked tuna, mixed with mayo','image' => 'uploads/menu/5/QqQ79SBzkRrZaZ9vhJiJlXw4kdOQ87MKKJd7tFMp.jpeg','category_id' => 19,'price' => 6.54]);
         Menu::create(['restaurant_id' => '5','name' => 'Cookies','description' => 'Tender and moist, it is the perfect way to complement your meal.','image' => 'uploads/menu/5/hX1g4yuf7VbJJ5K6yLMuU1c6jYj8faFOMLIawBr0.jpeg','category_id' => 5,'price' => 2.05]);
 
-        Menu::create(['restaurant_id' => '9','name' => 'Shrimp Tempura','description' => '(1pc) Shrimp tempura, soy sauce, potato, daikon radish, sesame oil','image' => 'uploads/menu/9/29_fisshu_400-2018-08-09.jpg','category_id' => 15,'price' => 0.69]);
-        Menu::create(['restaurant_id' => '9','name' => 'Takoyaki','description' => '(1pc) Minced or diced octopus, tempura scraps, pickled ginger and green onion','image' => 'uploads/menu/9/07_fisshu_400-2018-08-09.jpg','category_id' => 15,'price' => 0.69]);
-        Menu::create(['restaurant_id' => '9','name' => 'Yakitori','description' => '(1pc) Grilled chicken on skewers with savory-sweet sauce','image' => 'uploads/menu/9/03_fisshu_400-2018-08-09.jpg','category_id' => 15,'price' => 1.29]);
-        Menu::create(['restaurant_id' => '9','name' => 'Tempura Platter','description' => '(8pcs) Zucchini tempura, pumpkin tempura, sweet potato tempura, eggplant tempura, soy sauce, potato, daikon radish, sesame oil','image' => 'uploads/menu/9/05_fisshu_400-2018-08-09.jpg','category_id' => 15,'price' => 8.99]);
-        Menu::create(['restaurant_id' => '9','name' => 'Sashimi Platter','description' => '(8pcs) Salmon, mackerel, squid, oil fish, flying fish caviar, imitation crab, sweet tofu, octopus','image' => 'uploads/menu/9/01_fisshu_400-2018-08-09.jpg','category_id' => 15,'price' => 8.99]);
+        Menu::create(['restaurant_id' => '9','name' => 'Shrimp Tempura','description' => 'Shrimp tempura, soy sauce, potato, daikon radish, sesame oil. (1pc)','image' => 'uploads/menu/9/29_fisshu_400-2018-08-09.jpg','category_id' => 15,'price' => 0.69]);
+        Menu::create(['restaurant_id' => '9','name' => 'Takoyaki','description' => 'Minced or diced octopus, tempura scraps, pickled ginger and green onion. (1pc)','image' => 'uploads/menu/9/07_fisshu_400-2018-08-09.jpg','category_id' => 15,'price' => 0.69]);
+        Menu::create(['restaurant_id' => '9','name' => 'Yakitori','description' => 'Grilled chicken on skewers with savory-sweet sauce. (1pc)','image' => 'uploads/menu/9/03_fisshu_400-2018-08-09.jpg','category_id' => 15,'price' => 1.29]);
+        Menu::create(['restaurant_id' => '9','name' => 'Tempura Platter','description' => 'Zucchini tempura, pumpkin tempura, sweet potato tempura, eggplant tempura, soy sauce, potato, daikon radish, sesame oil. (8pcs)','image' => 'uploads/menu/9/05_fisshu_400-2018-08-09.jpg','category_id' => 15,'price' => 8.99]);
+        Menu::create(['restaurant_id' => '9','name' => 'Sashimi Platter','description' => 'Salmon, mackerel, squid, oil fish, flying fish caviar, imitation crab, sweet tofu, octopus. (8pcs)','image' => 'uploads/menu/9/01_fisshu_400-2018-08-09.jpg','category_id' => 15,'price' => 8.99]);
 
         Menu::create(['restaurant_id' => '10','name' => 'Cheese Cake','description' => 'Strawberry cheese cake','image' => 'uploads/menu/10/menu-images_500x281-cheese-cake_en.jpg','category_id' => 5,'price' => 2.00]);
         Menu::create(['restaurant_id' => '10','name' => 'Smoked Meat Egg Roll','description' => 'Served with plum or honey mustard sauce.','image' => 'uploads/menu/10/home_1950x750-smoked-meat-eggrolls-2_en.jpg','category_id' => 19,'price' => 10.00]);
@@ -62,5 +62,57 @@ class MenuTableSeeder extends Seeder
         Menu::create(['restaurant_id' => '13','name' => 'Chicken Noodle Soup','description' => 'Pieces of roasted chicken, noodles and fresh vegetables in a soupe.','image' => 'uploads/menu/13/10003@2x.jpg','category_id' => 6,'price' => 4.25]);
 
         Menu::create(['restaurant_id' => '14','name' => 'Kibeh','description' => 'Lebanese Beef Croquettes.','image' => 'uploads/menu/14/FS-Al-Boustan0543-1024x683.png','category_id' => 22,'price' => 4.25]);
+
+        Menu::create(['restaurant_id' => '15','name' => '','description' => '','image' => 'uploads/menu/15/','category_id' => 20,'price' => 4.25]);
+
+        Menu::create(['restaurant_id' => '16','name' => '','description' => '','image' => 'uploads/menu/16/','category_id' => 27,'price' => 4.25]);
+
+        Menu::create(['restaurant_id' => '17','name' => '','description' => '','image' => 'uploads/menu/17/','category_id' => 14,'price' => 4.25]);
+
+        Menu::create(['restaurant_id' => '18','name' => '','description' => '','image' => 'uploads/menu/18/','category_id' => 22,'price' => 4.25]);
+
+        Menu::create(['restaurant_id' => '19','name' => '','description' => '','image' => 'uploads/menu/19/','category_id' => 26,'price' => 4.25]);
+
+        Menu::create(['restaurant_id' => '20','name' => '','description' => '','image' => 'uploads/menu/20/','category_id' => 20,'price' => 4.25]);
+
+        Menu::create(['restaurant_id' => '21','name' => '','description' => '','image' => 'uploads/menu/21/','category_id' => 20,'price' => 4.25]);
+
+        Menu::create(['restaurant_id' => '22','name' => '','description' => '','image' => 'uploads/menu/22/','category_id' => 15,'price' => 4.25]);
+
+        Menu::create(['restaurant_id' => '23','name' => '','description' => '','image' => 'uploads/menu/23/','category_id' => 8,'price' => 4.25]);
+
+        Menu::create(['restaurant_id' => '24','name' => '','description' => '','image' => 'uploads/menu/24/','category_id' => 25,'price' => 4.25]);
+
+        Menu::create(['restaurant_id' => '25','name' => '','description' => '','image' => 'uploads/menu/25/','category_id' => 27,'price' => 4.25]);
+
+        Menu::create(['restaurant_id' => '26','name' => '','description' => '','image' => 'uploads/menu/26/','category_id' => 7,'price' => 4.25]);
+
+        Menu::create(['restaurant_id' => '27','name' => '','description' => '','image' => 'uploads/menu/27/','category_id' => 11,'price' => 4.25]);
+
+        Menu::create(['restaurant_id' => '28','name' => '','description' => '','image' => 'uploads/menu/28/','category_id' => 13,'price' => 4.25]);
+
+        Menu::create(['restaurant_id' => '29','name' => '','description' => '','image' => 'uploads/menu/29/','category_id' => 28,'price' => 4.25]);
+
+        Menu::create(['restaurant_id' => '30','name' => '','description' => '','image' => 'uploads/menu/30/','category_id' => 21,'price' => 4.25]);
+
+        Menu::create(['restaurant_id' => '31','name' => '','description' => '','image' => 'uploads/menu/31/','category_id' => 10,'price' => 4.25]);
+
+        Menu::create(['restaurant_id' => '32','name' => '','description' => '','image' => 'uploads/menu/32/','category_id' => 5,'price' => 4.25]);
+
+        Menu::create(['restaurant_id' => '33','name' => '','description' => '','image' => 'uploads/menu/33/','category_id' => 4,'price' => 4.25]);
+
+        Menu::create(['restaurant_id' => '34','name' => '','description' => '','image' => 'uploads/menu/34/','category_id' => 12,'price' => 4.25]);
+
+        Menu::create(['restaurant_id' => '35','name' => '','description' => '','image' => 'uploads/menu/35/','category_id' => 19,'price' => 4.25]);
+
+        Menu::create(['restaurant_id' => '36','name' => '','description' => '','image' => 'uploads/menu/36/','category_id' => 24,'price' => 4.25]);
+
+        Menu::create(['restaurant_id' => '37','name' => '','description' => '','image' => 'uploads/menu/37/','category_id' => 5,'price' => 4.25]);
+
+        Menu::create(['restaurant_id' => '38','name' => '','description' => '','image' => 'uploads/menu/38/','category_id' => 12,'price' => 4.25]);
+
+        Menu::create(['restaurant_id' => '39','name' => '','description' => '','image' => 'uploads/menu/39/','category_id' => 30,'price' => 4.25]);
+
+        Menu::create(['restaurant_id' => '40','name' => '','description' => '','image' => 'uploads/menu/40/','category_id' => 21,'price' => 4.25]);
     }
 }
