@@ -64,9 +64,8 @@ class RestaurantHours extends Model
     }
 
     public static function displayHours($restaurant, $day = null){
-        $day === null
-            ?  $query = RestaurantHours::where('restaurant_id', $restaurant)->where('day', RestaurantHours::today())->first()
-            :  $query = RestaurantHours::where('restaurant_id', $restaurant)->where('day', $day)->first();
+        $query = RestaurantHours::where('restaurant_id', $restaurant)->where('day',
+            $day === null ? RestaurantHours::today() : $day )->first();
 
         $open = $query->open_time;
         $close = $query->close_time;
