@@ -9,7 +9,7 @@
                 <div class="row header-image" style="background-image: url('{{ url('storage/'.$restaurant->image) }}')"></div>
                 <div class="row information">
                     <h1 class="m-0 my-auto">{{ $restaurant->name }}</h1>
-                    <p class="lead ml-5 mb-0 my-auto"><span class="badge badge-danger">4.5</span></p>
+                    <p class="lead ml-5 mb-0 my-auto"><span class="badge badge-danger" style="background-color:#BFBDDB;">4.5</span></p>
                     <div class="info-icon ml-auto">
                         <a class="nav-link pr-0" title="More info" data-toggle="modal" aria-labelledby="modal-default" data-target="#modal-default" aria-hidden="true" role="dialog" aria-selected="false"><i class="fa fa-info-circle"></i></a>
                         <div class="modal fade" id="modal-default" tabindex="-1">
@@ -55,19 +55,21 @@
                                     @if($menu->category_id == $category->id)
                                         <div class="row no-gutters menu-card">
                                             <div class="row no-gutters w-100">
-                                                <div class="col-8">
-                                                    <div class="row no-gutters">
-                                                        <h5>{{$menu->name}}</h5>
+                                                <div class="col-9">
+                                                    <div class="row no-gutters" >
+                                                        <h5 class="itemTitle">{{$menu->name}}</h5>
                                                     </div>
                                                     <div class="row no-gutters">
-                                                        <p class="m-0 p-0">{{$menu->description}}</p>
+                                                        <p class="m-0 p-0 itemDescription">{{$menu->description}}</p>
                                                     </div>
                                                     <div class="row no-gutters">
-                                                        <p class="m-0 p-0">${{$menu->price}}</p>
+                                                        <p class="m-0 p-0 itemPrice">${{$menu->price}}</p>
                                                     </div>
                                                 </div>
-                                                <div class="col-4">
+                                                <div class="col-3">
+                                                    @if($menu->image)
                                                     <img src="{{ url('storage/'.$menu->image) }}" alt=" ">
+                                                    @endif
                                                 </div>
                                             </div>
                                         </div>
@@ -87,29 +89,52 @@
     <script>
         $( document ).ready(function() {
             var nav = document.getElementById("navigation");
-            //var offset = jQuery(nav).offset().top;
-            jQuery(window).scroll(function(){
-                var scrollPos = jQuery(window).scrollTop();
-                if(scrollPos >= 429){
-                    nav.classList.add("fixed");
-                }
-                else{
-                    nav.classList.remove("fixed");
-                }
-
-                $('.category').each(function() {
-                    var target = $(this).offset().top;
-                    var id = $(this).attr('id');
-
-                    if (scrollPos >= target) {
-                        $('#navigation > li > a').removeClass('active');
-                        var link = document.getElementById(id + "-link");
-                        link.classList.add('active');
+            var ignoreNextScroll = false;
+            var navLinks = nav.getElementsByTagName("li");
+            for(var i = 0; i < navLinks.length; i++){
+                var anchor = navLinks[i].getElementsByTagName("a");
+                anchor[0].addEventListener("click",function(){
+                    $('#navigation > li > a').removeClass('active');
+                    this.classList.add('active');
+                    ignoreNextScroll = true;
+                    var scrollPos = jQuery(window).scrollTop();
+                    if(scrollPos >= 429){
+                        nav.classList.add("fixed");
                     }
-                    if(scrollPos<429){
-                        $('#navigation > li > a').removeClass('active');
+                    else{
+                        nav.classList.remove("fixed");
                     }
                 });
+            }
+
+            //var offset = jQuery(nav).offset().top;
+            jQuery(window).scroll(function(){
+                if(ignoreNextScroll){
+                    return ignoreNextScroll = false;;
+                }
+                else{
+                    var scrollPos = jQuery(window).scrollTop();
+                    if(scrollPos >= 429){
+                        nav.classList.add("fixed");
+                    }
+                    else{
+                        nav.classList.remove("fixed");
+                    }
+
+                    $('.category').each(function() {
+                        var target = $(this).offset().top;
+                        var id = $(this).attr('id');
+
+                        if (scrollPos >= target) {
+                            $('#navigation > li > a').removeClass('active');
+                            var link = document.getElementById(id + "-link");
+                            link.classList.add('active');
+                        }
+                        if(scrollPos<429){
+                            $('#navigation > li > a').removeClass('active');
+                        }
+                    });
+                }
             });
         });
     </script>

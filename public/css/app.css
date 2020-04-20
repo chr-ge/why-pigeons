@@ -10948,7 +10948,7 @@ body {
 }
 
 .restaurant-cart h3 {
-  color: salmon;
+  color: #BFBDDB;
 }
 
 .restaurant-cart p {
@@ -11053,7 +11053,7 @@ body {
   margin: 10px 10px 10px 0;
   border: 1px solid #BFBDDB;
   list-style-type: none;
-  background-color: #e2e2e2;
+  background-color: #ffffff;
   border-radius: 0.25rem;
   padding: 0;
   font-size: 18px;
@@ -11064,7 +11064,8 @@ body {
 }
 
 #navigation .active {
-  color: salmon;
+  color: #BFBDDB;
+  font-weight: bold;
 }
 
 .fixed {
@@ -11083,11 +11084,12 @@ body {
 }
 
 .category h2 {
+  /*
   text-decoration: underline;
   -webkit-text-decoration-color: salmon;
   text-decoration-color: salmon;
   -webkit-text-decoration-style: wavy;
-  text-decoration-style: wavy;
+  text-decoration-style: wavy;*/
 }
 
 .menu-card {
@@ -11112,5 +11114,17 @@ body {
 
 h3 > i {
   color: #BFBDDB;
+}
+
+.itemTitle {
+  font-weight: bold;
+}
+
+.itemDescription {
+  font-weight: lighter;
+}
+
+.itemPrice {
+  font-weight: bold;
 }
 
