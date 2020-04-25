@@ -30,6 +30,11 @@ class CartController extends Controller
         return redirect()->back();
     }
 
+    public function remove($id){
+        \Cart::remove($id);
+        return redirect()->back();
+    }
+
     public function clear(){
         \Cart::clear();
         return redirect()->back();

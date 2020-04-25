@@ -39,10 +39,11 @@ Route::get('/r/{restaurant}', 'HomeController@show')->name('home.show');
 
 Route::get('/cart', 'CartController@index')->name('cart.index');
 Route::post('/cart/{menu}', 'CartController@add')->name('cart.add');
+Route::delete('/cart/r/{id}', 'CartController@remove')->name('cart.remove');;
 Route::get('/cart/clear', 'CartController@clear');
 
 Route::group(['middleware' => 'auth'], function () {
-    Route::get('/checkout', 'CheckoutController@index');
+    Route::get('/checkout', 'CheckoutController@index')->name('checkout');
 });
 
 Route::group(['middleware' => 'auth:driver'], function () {
