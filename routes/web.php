@@ -39,7 +39,7 @@ Route::get('/r/{restaurant}', 'HomeController@show')->name('home.show');
 
 Route::get('/cart', 'CartController@index')->name('cart.index');
 Route::post('/cart/{menu}', 'CartController@add')->name('cart.add');
-Route::delete('/cart/r/{id}', 'CartController@remove')->name('cart.remove');;
+Route::delete('/cart/{id}', 'CartController@remove')->name('cart.remove');;
 Route::get('/cart/clear', 'CartController@clear');
 
 Route::group(['middleware' => 'auth'], function () {
@@ -58,8 +58,8 @@ Route::group(['middleware' => 'auth:restaurant'], function () {
     Route::get('/management', 'RestaurantController@management')->name('restaurant.manage');
 
     Route::post('/menu/new', 'RestaurantController@createMenuItem')->name('restaurant.createMenuItem');
-    Route::patch('/menu/{menu}', 'RestaurantController@updateMenuItem')->name('restaurant.updateMenuItem');
-    Route::delete('/menu/delete/{menu}', 'RestaurantController@deleteMenuItem')->name('restaurant.deleteMenuItem');
+    Route::patch('/menu/{menu}/edit', 'RestaurantController@updateMenuItem')->name('restaurant.updateMenuItem');
+    Route::delete('/menu/{menu}/edit', 'RestaurantController@deleteMenuItem')->name('restaurant.deleteMenuItem');
     Route::post('/set-image', 'RestaurantController@setImage')->name('setImage');
     Route::post('/set-hours', 'RestaurantController@setOperatingHours')->name('setOperatingHours');
     Route::patch('/update-hours', 'RestaurantController@updateOperatingHours')->name('updateOperatingHours');
@@ -76,9 +76,9 @@ Route::group(['middleware' => 'auth:pigeon'], function () {
     Route::get('/restaurants/{restaurant}/details', 'PigeonController@restaurantDetails')->name('pigeon.restaurantDetails');
     Route::get('/account/settings', 'PigeonController@settings')->name('pigeon.settings');
 
-    Route::post('/restaurants/{restaurant}/temp', 'PigeonController@setTempPassword')->name('pigeon.setTempPass');
-    Route::patch('/restaurants/{restaurant}/activate', 'PigeonController@activateRestaurant')->name('pigeon.activateRestaurant');
-    Route::delete('/restaurants/{restaurant}/delete', 'PigeonController@delRestaurant')->name('pigeon.delRestaurant');
+    Route::post('/restaurants/{restaurant}/details', 'PigeonController@setTempPassword')->name('pigeon.setTempPass');
+    Route::patch('/restaurants/{restaurant}/details', 'PigeonController@activateRestaurant')->name('pigeon.activateRestaurant');
+    Route::delete('/restaurants/{restaurant}/details', 'PigeonController@delRestaurant')->name('pigeon.delRestaurant');
     Route::patch('/account/settings', 'PigeonController@updateAccount')->name('pigeon.updateAccount');
 });
 
