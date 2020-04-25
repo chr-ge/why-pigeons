@@ -13,7 +13,7 @@
                     <div class="info-icon ml-auto">
                         <a class="nav-link pr-0" title="More info" data-toggle="modal" aria-labelledby="modal-default" data-target="#modal-default" aria-hidden="true" role="dialog" aria-selected="false"><i class="fa fa-info-circle"></i></a>
                         <div class="modal fade" id="modal-default" tabindex="-1">
-                            <div class="modal-dialog modal- modal-dialog-centered modal-" role="document">
+                            <div class="modal-dialog modal-dialog-centered" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header">
                                         <h6 class="modal-title" id="modal-title-default">More Info</h6>
@@ -53,23 +53,50 @@
                                 <h2>{{$category->name}}</h2>
                                 @foreach($menus as $menu)
                                     @if($menu->category_id == $category->id)
-                                        <div class="row no-gutters menu-card">
-                                            <div class="row no-gutters w-100">
-                                                <div class="col-9">
-                                                    <div class="row no-gutters" >
-                                                        <h5 class="itemTitle">{{$menu->name}}</h5>
+                                        <a href="#" class="menu-link" data-toggle="modal" data-target="#modal-menu-{{$menu->id}}">
+                                            <div class="row no-gutters menu-card">
+                                                <div class="row no-gutters w-100">
+                                                    <div class="col-9">
+                                                        <div class="row no-gutters" >
+                                                            <h5 class="itemTitle">{{$menu->name}}</h5>
+                                                        </div>
+                                                        <div class="row no-gutters">
+                                                            <p class="m-0 p-0 itemDescription">{{$menu->description}}</p>
+                                                        </div>
+                                                        <div class="row no-gutters">
+                                                            <p class="m-0 p-0 itemPrice">${{$menu->price}}</p>
+                                                        </div>
                                                     </div>
-                                                    <div class="row no-gutters">
-                                                        <p class="m-0 p-0 itemDescription">{{$menu->description}}</p>
-                                                    </div>
-                                                    <div class="row no-gutters">
-                                                        <p class="m-0 p-0 itemPrice">${{$menu->price}}</p>
+                                                    <div class="col-3">
+                                                        @if($menu->image)
+                                                        <img src="{{ url('storage/'.$menu->image) }}" alt=" ">
+                                                        @endif
                                                     </div>
                                                 </div>
-                                                <div class="col-3">
-                                                    @if($menu->image)
-                                                    <img src="{{ url('storage/'.$menu->image) }}" alt=" ">
-                                                    @endif
+                                            </div>
+                                        </a>
+                                        <div class="modal fade" id="modal-menu-{{$menu->id}}" tabindex="-1" role="dialog" aria-labelledby="modal-menu-{{$menu->id}}" aria-hidden="true">
+                                            <div class="modal-dialog modal-dialog-centered" role="document">
+                                                <div class="modal-content">
+                                                    <form method="POST" action="{{ route('cart.add', $menu->id) }}">
+                                                        @csrf
+                                                        <div class="modal-header">
+                                                            <h4 class="modal-title" id="modal-title-menu-{{$menu->id}}">{{$menu->name}}</h4>
+                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                <span aria-hidden="true">×</span>
+                                                            </button>
+                                                        </div>
+                                                        <div class="modal-body text-center">
+                                                            <p>{{$menu->description}}</p>
+                                                            <div class="w-50 center-block">
+                                                                <input name="quantity" type="number" value="1" min="0" max="20" step="1"/>
+                                                            </div>
+
+                                                        </div>
+                                                        <div class="modal-footer p-0">
+                                                            <button type="submit" class="btn btn-success btn-block">Add To Order</button>
+                                                        </div>
+                                                    </form>
                                                 </div>
                                             </div>
                                         </div>
@@ -88,6 +115,7 @@
 
     <script>
         $( document ).ready(function() {
+            $("input[type='number']").inputSpinner();
             var nav = document.getElementById("navigation");
             var ignoreNextScroll = false;
             var navLinks = nav.getElementsByTagName("li");

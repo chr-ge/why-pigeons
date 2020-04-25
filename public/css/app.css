@@ -11092,6 +11092,17 @@ body {
   text-decoration-style: wavy;*/
 }
 
+.menu-link,
+.menu-link:hover {
+  text-decoration: none;
+  color: inherit;
+}
+
+.center-block {
+  float: none;
+  margin: 0 auto;
+}
+
 .menu-card {
   padding: 10px;
   margin-bottom: 15px;

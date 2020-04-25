@@ -38,6 +38,12 @@ Route::get('/account/settings', 'HomeController@settings')->middleware('auth');
 Route::get('/r/{restaurant}', 'HomeController@show')->name('home.show');
 
 Route::get('/cart', 'CartController@index')->name('cart.index');
+Route::post('/cart/{menu}', 'CartController@add')->name('cart.add');
+Route::get('/cart/clear', 'CartController@clear');
+
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('/checkout', 'CheckoutController@index');
+});
 
 Route::group(['middleware' => 'auth:driver'], function () {
     Route::view('/driver', 'driver');

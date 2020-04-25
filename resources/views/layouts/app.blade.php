@@ -47,6 +47,14 @@
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" title="Checkout Basket">
+                                <i class="fas fa-shopping-basket"></i>
+                                @if(!\Cart::isEmpty())
+                                    <span class="badge badge-info">{{ \Cart::getTotalQuantity() }}</span>
+                                @endif
+                            </a>
+                        </li>
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">
@@ -58,9 +66,6 @@
                                 </li>
                             @endif
                         @else
-                            <li class="nav-item">
-                                <a class="nav-link" href="#" title="Checkout Basket"><i class="fas fa-shopping-basket"></i></a>
-                            </li>
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ auth()->user()->name }} <span class="caret"></span>

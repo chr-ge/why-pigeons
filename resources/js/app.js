@@ -13,6 +13,7 @@ require('./bootstrap');
  */
 
 //require('./components/Example');
+require('bootstrap-input-spinner');
 
 /*****************************************************************************/
 

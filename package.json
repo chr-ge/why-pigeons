@@ -25,6 +25,7 @@
         "sass-loader": "^8.0.0"
     },
     "dependencies": {
+        "bootstrap-input-spinner": "^1.13.4",
         "select2": "^4.0.13"
     }
 }
