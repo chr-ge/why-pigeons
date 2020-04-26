@@ -17,7 +17,7 @@
         @endforeach
     </ul>
     @if(!\Cart::isEmpty())
-        <p class="pt-3"><b>Subtotal:</b> {{ presentPrice(\Cart::getSubTotal())  }} </p>
+        <p class="pt-3"><b>Subtotal:</b> ${{ \Cart::getSubTotal()  }} </p>
         <a href="{{ route('checkout') }}" class="btn btn-info btn-block">Checkout</a>
     @else
         <p>Start adding items from the menu to build your order.</p>

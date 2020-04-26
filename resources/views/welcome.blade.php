@@ -88,7 +88,7 @@
                         <img src="{{ asset('svg/dove.svg' )}}" style="height: 60px; width: 60px;">
                         <h1 class="display-4 font-weight-normal">Food and maybe some pigeons?</h1>
                         <p class="lead font-weight-normal">Quick food delivery right to your door.</p>
-                        <a class="btn btn-outline-secondary" href="{{ route('home.index') }}">Order Now</a>
+                        <a class="btn btn-outline-secondary btn-lg" href="{{ route('home.index') }}">Order Now</a>
                     </div>
                     <div class="product-device shadow-sm d-none d-md-block"></div>
                     <div class="product-device product-device-2 shadow-sm d-none d-md-block"></div>
