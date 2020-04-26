@@ -13,7 +13,13 @@ class CartController extends Controller
         return view('cart', compact('cart'));
     }
 
-    public function add(Menu $menu){
+    /**
+     * Add menu item to cart.
+     *
+     * @param Menu $menu
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function store(Menu $menu){
         $data = request()->validate([
             'quantity' => 'required|max:20'
         ]);
@@ -30,6 +36,12 @@ class CartController extends Controller
         return redirect()->back();
     }
 
+    /**
+     * Remove item from cart.
+     *
+     * @param int $id
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function remove($id){
         \Cart::remove($id);
         return redirect()->back();
