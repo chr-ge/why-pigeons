@@ -24,7 +24,7 @@ class CartController extends Controller
             'quantity' => 'required|max:20'
         ]);
 
-        \Cart::add(array(
+        \Cart::session($menu->restaurant_id)->add(array(
             'id' => $menu->id,
             'name' => $menu->name,
             'price' => $menu->price,
@@ -39,11 +39,11 @@ class CartController extends Controller
     /**
      * Remove item from cart.
      *
-     * @param int $id
+     * @param Menu $menu
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function remove($id){
-        \Cart::remove($id);
+    public function remove(Menu $menu){
+        \Cart::session($menu->restaurant_id)->remove($menu->id);
         return redirect()->back();
     }
 

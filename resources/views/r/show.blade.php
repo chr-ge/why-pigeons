@@ -107,7 +107,7 @@
                 </div>
             </div>
             <div class="col-3">
-                @include('partials.cart')
+                @include('partials.cart', ['restaurant_id' => $menu->restaurant_id])
             </div>
         </div>
     </div>
