@@ -5,7 +5,7 @@
 @section('content')
     <div class="container">
         <div class="row">
-            <div class="col-9">
+            <div class="col-md-9">
                 <div class="row header-image" style="background-image: url('{{ url('storage/'.$restaurant->image) }}')"></div>
                 <div class="row information">
                     <h1 class="m-0 my-auto">{{ $restaurant->name }}</h1>
@@ -36,7 +36,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-3 p-0">
+                    <div class="col-md-3 p-0">
                         <ul id="navigation">
                             @foreach($categories as $category)
                                 <li>
@@ -47,7 +47,7 @@
                             @endforeach
                         </ul>
                     </div>
-                    <div class="col-9 menu-list">
+                    <div class="col-md-9 menu-list">
                         @foreach($categories as $category)
                             <div class="category" id="{{$category->name}}">
                                 <h2>{{$category->name}}</h2>
@@ -56,7 +56,7 @@
                                         <a href="#" class="menu-link" data-toggle="modal" data-target="#modal-menu-{{$menu->id}}">
                                             <div class="row no-gutters menu-card">
                                                 <div class="row no-gutters w-100">
-                                                    <div class="col-9">
+                                                    <div class="col-md-9">
                                                         <div class="row no-gutters" >
                                                             <h5 class="itemTitle">{{$menu->name}}</h5>
                                                         </div>
@@ -67,7 +67,7 @@
                                                             <p class="m-0 p-0 itemPrice">${{$menu->price}}</p>
                                                         </div>
                                                     </div>
-                                                    <div class="col-3">
+                                                    <div class="col-md-3">
                                                         @if($menu->image)
                                                         <img src="{{ url('storage/'.$menu->image) }}" alt=" ">
                                                         @endif
@@ -109,7 +109,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-3">
+            <div class="col-md-3">
                 @include('partials.cart', ['restaurant_id' => $menu->restaurant_id])
             </div>
         </div>

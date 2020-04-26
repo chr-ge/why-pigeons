@@ -8,16 +8,14 @@
                     @csrf
                     @method('DELETE')
                     <span class="badge badge-dark">{{ $item->quantity }}</span>
-                    <p class="d-inline-block">{{$item->name}}</p>
-                    <button type="submit" class="close">
-                        <span>×</span>
-                    </button>
+                    <p class="d-inline-block">{{ \Illuminate\Support\Str::limit($item->name, 24, $end='...') }}</p>
+                    <button type="submit" class="close"><span>×</span></button>
                 </form>
             </li>
         @endforeach
     </ul>
     @if(!\Cart::isEmpty())
-        <p class="pt-3"><b>Subtotal:</b> ${{ \Cart::getSubTotal()  }} </p>
+        <p class="pt-3"><b>Subtotal:</b><span class="float-right">${{ \Cart::getSubTotal() }}</span></p>
         <a href="{{ route('checkout') }}" class="btn btn-info btn-block">Checkout</a>
     @else
         <p>Start adding items from the menu to build your order.</p>
