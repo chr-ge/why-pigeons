@@ -99,7 +99,7 @@ class RestaurantTableSeeder extends Seeder
             'phone' => '5143951927',
             'password' => '$2y$10$rIUcWcobxh3FL4g9jcgu.OJCm7k25m2NzdK8hCDk/wWGS/KYA3.j6',
             'category_id' => 19,
-            'image' => 'uploads/home_1950x750-smoked-meat-sandwich-3_en.jpg',
+            'image' => 'uploads/20190114-DunnsExpress7.jpg-resize_then_crop-_frame_bg_color_FFF-h_1365-gravity_center-q_70-preserve_ratio_true-w_2048_.webp',
             'active' => 1
         ]);
         Restaurant::create([
@@ -372,6 +372,5 @@ class RestaurantTableSeeder extends Seeder
             'image' => 'uploads/',
             'active' => 1
         ]);
-
     }
 }
