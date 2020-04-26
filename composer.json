@@ -32,7 +32,8 @@
         "intervention/image": "^2.5",
         "laravel/framework": "^7.0",
         "laravel/tinker": "^2.0",
-        "laravel/ui": "^2.0"
+        "laravel/ui": "^2.0",
+        "symfony/intl": "*"
     },
     "require-dev": {
         "facade/ignition": "^2.0",
@@ -58,6 +59,9 @@
         "classmap": [
             "database/seeds",
             "database/factories"
+        ],
+        "files": [
+            "app/helpers.php"
         ]
     },
     "autoload-dev": {

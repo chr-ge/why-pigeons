@@ -38,8 +38,8 @@ Route::get('/account/settings', 'HomeController@settings')->middleware('auth');
 Route::get('/r/{restaurant}', 'HomeController@show')->name('home.show');
 
 Route::get('/cart', 'CartController@index')->name('cart.index');
-Route::post('/cart/{menu}', 'CartController@add')->name('cart.add');
-Route::delete('/cart/{id}', 'CartController@remove')->name('cart.remove');;
+Route::post('/cart/{menu}', 'CartController@store')->name('cart.store');
+Route::delete('/cart/{menu}', 'CartController@remove')->name('cart.remove');;
 Route::get('/cart/clear', 'CartController@clear');
 
 Route::group(['middleware' => 'auth'], function () {

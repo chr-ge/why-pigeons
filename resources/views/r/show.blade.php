@@ -78,7 +78,7 @@
                                         <div class="modal fade" id="modal-menu-{{$menu->id}}" tabindex="-1" role="dialog" aria-labelledby="modal-menu-{{$menu->id}}" aria-hidden="true">
                                             <div class="modal-dialog modal-dialog-centered" role="document">
                                                 <div class="modal-content">
-                                                    <form method="POST" action="{{ route('cart.add', $menu->id) }}">
+                                                    <form method="POST" action="{{ route('cart.store', $menu->id) }}">
                                                         @csrf
                                                         <div class="modal-header">
                                                             <h4 class="modal-title" id="modal-title-menu-{{$menu->id}}">{{$menu->name}}</h4>
@@ -88,10 +88,9 @@
                                                         </div>
                                                         <div class="modal-body text-center">
                                                             <p>{{$menu->description}}</p>
-                                                            <div class="w-50 center-block">
-                                                                <input name="quantity" type="number" value="1" min="0" max="20" step="1"/>
+                                                            <div class="center-block">
+                                                                <input name="quantity" type="number" value="1" min="1" max="20" step="1" required />
                                                             </div>
-
                                                         </div>
                                                         <div class="modal-footer p-0">
                                                             <button type="submit" class="btn btn-success btn-block">Add To Order</button>

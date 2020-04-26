@@ -11099,7 +11099,7 @@ body {
 }
 
 .center-block {
-  float: none;
+  width: 40%;
   margin: 0 auto;
 }
 
