@@ -21,7 +21,8 @@ class CartController extends Controller
      */
     public function store(Menu $menu){
         $data = request()->validate([
-            'quantity' => 'required|max:20'
+            'quantity' => 'required|max:20',
+            'instructions' => 'nullable|string|max:255'
         ]);
 
         \Cart::session($menu->restaurant_id)->add(array(
@@ -29,7 +30,9 @@ class CartController extends Controller
             'name' => $menu->name,
             'price' => $menu->price,
             'quantity' => $data['quantity'],
-            'attributes' => array(),
+            'attributes' => array(
+                'instructions' => $data['instructions']
+            ),
             'associatedModel' => 'Menu'
         ));
 

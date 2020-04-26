@@ -62,6 +62,17 @@ body {
     width: 40%;
     margin: 0 auto;
 }
+.instructions {
+    background-color: #eaeaea;
+    resize: vertical;
+    max-height: 175px;
+    min-height: 40px;
+    &:focus {
+        outline: none !important;
+        border-color: #BFBDDB;
+        box-shadow: 0 0 10px #BFBDDB;
+    }
+}
 .menu-card {
     padding: 10px;
     margin-bottom: 15px;

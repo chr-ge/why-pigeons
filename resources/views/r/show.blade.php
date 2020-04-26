@@ -88,6 +88,9 @@
                                                         </div>
                                                         <div class="modal-body text-center">
                                                             <p>{{$menu->description}}</p>
+                                                            <div class="form-group">
+                                                                <textarea class="form-control instructions" placeholder="Add special instructions for the restaurant" rows="1" name="instructions" id="instructions" maxlength="255"></textarea>
+                                                            </div>
                                                             <div class="center-block">
                                                                 <input name="quantity" type="number" value="1" min="1" max="20" step="1" required />
                                                             </div>
