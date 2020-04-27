@@ -13,6 +13,10 @@ class Menu extends Model
         'restaurant_id', 'name', 'description', 'image', 'category_id', 'price',
     ];
 
+    public function getPrice(){
+        return $this->available ? '$'.$this->price : 'Not Available';
+    }
+
     public function restaurant()
     {
         return $this->belongsTo(Restaurant::class);

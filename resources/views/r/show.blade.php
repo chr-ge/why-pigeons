@@ -64,7 +64,7 @@
                                                             <p class="m-0 p-0 itemDescription">{{$menu->description}}</p>
                                                         </div>
                                                         <div class="row no-gutters">
-                                                            <p class="m-0 p-0 itemPrice">${{$menu->price}}</p>
+                                                            <p class="m-0 p-0 itemPrice">{{ $menu->getPrice() }}</p>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-3">
@@ -75,34 +75,36 @@
                                                 </div>
                                             </div>
                                         </a>
-                                        <div class="modal fade" id="modal-menu-{{$menu->id}}" tabindex="-1" role="dialog" aria-labelledby="modal-menu-{{$menu->id}}" aria-hidden="true">
-                                            <div class="modal-dialog modal-dialog-centered" role="document">
-                                                <div class="modal-content">
-                                                    <form method="POST" action="{{ route('cart.store', $menu->id) }}">
-                                                        @csrf
-                                                        <div class="modal-header">
-                                                            <h4 class="modal-title" id="modal-title-menu-{{$menu->id}}">{{$menu->name}}</h4>
-                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                                <span aria-hidden="true">×</span>
-                                                            </button>
-                                                        </div>
-                                                        <div class="modal-body text-center">
-                                                            <p>{{$menu->description}}</p>
-                                                            <div class="form-group">
-                                                                <textarea class="form-control instructions" placeholder="Add special instructions for the restaurant" rows="1" name="instructions" id="instructions" maxlength="255"></textarea>
-                                                                <div id="charNum"></div>
+                                        @if($menu->available)
+                                            <div class="modal fade" id="modal-menu-{{$menu->id}}" tabindex="-1" role="dialog" aria-labelledby="modal-menu-{{$menu->id}}" aria-hidden="true">
+                                                <div class="modal-dialog modal-dialog-centered" role="document">
+                                                    <div class="modal-content">
+                                                        <form method="POST" action="{{ route('cart.store', $menu->id) }}">
+                                                            @csrf
+                                                            <div class="modal-header">
+                                                                <h4 class="modal-title" id="modal-title-menu-{{$menu->id}}">{{$menu->name}}</h4>
+                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                    <span aria-hidden="true">×</span>
+                                                                </button>
                                                             </div>
-                                                            <div class="center-block">
-                                                                <input name="quantity" type="number" value="1" min="1" max="20" step="1" required />
+                                                            <div class="modal-body text-center">
+                                                                <p>{{$menu->description}}</p>
+                                                                <div class="form-group">
+                                                                    <textarea class="form-control instructions" placeholder="Add special instructions for the restaurant" rows="1" name="instructions" id="instructions" maxlength="255"></textarea>
+                                                                    <div id="charNum"></div>
+                                                                </div>
+                                                                <div class="center-block">
+                                                                    <input name="quantity" type="number" value="1" min="1" max="20" step="1" required />
+                                                                </div>
                                                             </div>
-                                                        </div>
-                                                        <div class="modal-footer p-0">
-                                                            <button type="submit" class="btn btn-success btn-block">Add To Order</button>
-                                                        </div>
-                                                    </form>
+                                                            <div class="modal-footer p-0">
+                                                                <button type="submit" class="btn btn-success btn-block">Add To Order</button>
+                                                            </div>
+                                                        </form>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
+                                        @endif
                                     @endif
                                 @endforeach
                             </div>
