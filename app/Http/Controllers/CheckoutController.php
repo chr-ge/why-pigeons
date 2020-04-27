@@ -5,13 +5,34 @@ namespace App\Http\Controllers;
 use App\Restaurant;
 use Cartalyst\Stripe\Laravel\Facades\Stripe;
 use Cartalyst\Stripe\Exception\CardErrorException;
+use Darryldecode\Cart\CartCondition;
 
 class CheckoutController extends Controller
 {
     public function index(Restaurant $restaurant) {
-        if (\Cart::session($restaurant->id)->getTotalQuantity() < 1) {
+        if (\Cart::session($restaurant->id)->isEmpty()) {
             return redirect()->back();
         }
+        $delivery_condition = new CartCondition(array(
+            'name' => 'Delivery Fee',
+            'type' => 'delivery',
+            'target' => 'total',
+            'value' => '+3.49',
+            'order' => 1,
+            'attributes' => array(
+                'amount' => '3.49'
+            )
+        ));
+        $tax_condition = new CartCondition(array(
+            'name' => 'GST/QST 14.975%',
+            'type' => 'tax',
+            'target' => 'total',
+            'value' => '14.975%',
+            'order' => 2
+        ));
+
+        \Cart::session($restaurant->id)->condition([$delivery_condition, $tax_condition]);
+
         return view('checkout', ['restaurant' => $restaurant]);
     }
 

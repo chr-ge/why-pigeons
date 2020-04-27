@@ -39,7 +39,7 @@
                             </div>
                         </div>
                         <div class="cart-table-row-right">
-                            <p class="mr-4">${{ $item->price }}</p>
+                            <p class="mr-4">${{ $item->getPriceWithConditions() }}</p>
                             <form method="POST" action="{{ route('cart.remove', $item->id) }}">
                                 @csrf
                                 @method('DELETE')
@@ -82,13 +82,16 @@
                 <h5>Subtotal: </h5><h5>${{ \Cart::getSubTotal() }}</h5>
             </div>
             <div class="m-row">
-                <h5>Taxes and Fees: </h5><h5>$0.00</h5>
+                <h5>Delivery Fee: </h5>
+                <h5>${{ \Cart::getCondition('Delivery Fee')->getAttributes()['amount'] }}</h5>
             </div>
             <div class="m-row">
-                <h5>Delivery: </h5><h5>Free</h5>
+                <h5>GST/QST: </h5>
+                <h5>${{ number_format(\Cart::getCondition('GST/QST 14.975%')->getCalculatedValue(\Cart::getSubTotal()), 2, '.', ',') }}</h5>
             </div>
             <div class="m-row">
-                <h3>Total:</h3><h3>${{ \Cart::getTotal() }}</h3>
+                <h3>Total:</h3>
+                <h3>${{ \Cart::getTotal() }}</h3>
             </div>
             <button class="btn btn-primary btn-block" form="payment-form">{{ __('Place Order') }}</button>
         </div>
