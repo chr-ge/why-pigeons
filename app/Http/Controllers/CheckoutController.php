@@ -5,9 +5,11 @@ namespace App\Http\Controllers;
 use App\Order;
 use App\OrderMenu;
 use App\Restaurant;
+use App\Mail\OrderPlaced;
+use Illuminate\Support\Facades\Mail;
+use Darryldecode\Cart\CartCondition;
 use Cartalyst\Stripe\Laravel\Facades\Stripe;
 use Cartalyst\Stripe\Exception\CardErrorException;
-use Darryldecode\Cart\CartCondition;
 
 class CheckoutController extends Controller
 {
@@ -56,9 +58,10 @@ class CheckoutController extends Controller
                 ],
             ]);
 
-            $this->addToOrdersTables(null);
-            //$order = $this->addToOrdersTables( null);
-            //Mail::send(new OrderPlaced($order));
+            $order = $this->addToOrdersTables( null);
+
+            //SEND ORDER PLACED EMAIL TO USER
+            Mail::send(new OrderPlaced($order));
 
             //SUCCESSFUL
             $cart->clear();

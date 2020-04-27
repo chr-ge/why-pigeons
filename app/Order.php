@@ -22,6 +22,6 @@ class Order extends Model
 
     public function menu_items()
     {
-        return $this->belongsToMany(Menu::class);
+        return $this->belongsToMany(Menu::class, 'order_menu')->withPivot('quantity');
     }
 }
