@@ -1,0 +1,87 @@
+.cart-table-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 0;
+    margin-right: 2rem;
+    border-top: 1px solid #919191;
+    align-items: flex-start;
+    &:last-child {
+        border-bottom: 1px solid #919191;
+    }
+    p, h4 {
+        margin-bottom: 0;
+    }
+    .cart-table-row-left {
+        width: 50%;
+        display: flex;
+        justify-content: flex-start;
+    }
+    .cart-table-row-right {
+        width: 33.33%;
+        display: flex;
+        justify-content: flex-end;
+    }
+}
+.checkout-right {
+    background-color: white;
+    padding: 1rem;
+}
+.m-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.r-header{
+    display: flex;
+    &__image {
+        height: 60px;
+        border-radius: 5px;
+        object-fit: contain;
+        align-self: flex-start;
+    }
+    &__name {
+        padding-left: 1rem;
+        margin: auto 0;
+        flex: 1 1 auto;
+        h3, h5 {
+            margin: 0;
+        }
+    }
+}
+.payment {
+    width: 100%;
+    margin-right: calc(2rem + 15px);
+    label {
+        font-size: 1.5rem;
+    }
+}
+/**
+ * The CSS shown here will not be introduced in the Quickstart guide, but shows
+ * how you can use CSS to style your Element's container.
+ */
+.StripeElement {
+    box-sizing: border-box;
+    height: 50px;
+    padding: 15px 12px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    background-color: white;
+    box-shadow: 0 1px 3px 0 #e6ebf1;
+    -webkit-transition: box-shadow 150ms ease;
+    transition: box-shadow 150ms ease;
+}
+
+.StripeElement--focus {
+    box-shadow: 0 1px 3px 0 #cfd7df;
+}
+
+.StripeElement--invalid {
+    border-color: #FA755A;
+}
+
+.StripeElement--webkit-autofill {
+    background-color: #fefde5 !important;
+}
+#card-errors {
+    color: #FA755A;
+}

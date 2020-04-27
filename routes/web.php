@@ -43,7 +43,9 @@ Route::delete('/cart/{menu}', 'CartController@remove')->name('cart.remove');;
 Route::get('/cart/clear', 'CartController@clear');
 
 Route::group(['middleware' => 'auth'], function () {
-    Route::get('/checkout', 'CheckoutController@index')->name('checkout');
+    Route::get('/{restaurant}/checkout', 'CheckoutController@index')->name('checkout');
+    Route::post('/{restaurant}/checkout', 'CheckoutController@store')->name('checkout.store');
+    Route::view('/order-complete', 'order-complete');
 });
 
 Route::group(['middleware' => 'auth:driver'], function () {

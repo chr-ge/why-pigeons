@@ -57,6 +57,7 @@ body {
 .menu-link, .menu-link:hover {
     text-decoration: none;
     color: inherit;
+    cursor: pointer;
 }
 .center-block {
     width: 40%;
@@ -66,7 +67,8 @@ body {
     background-color: #eaeaea;
     resize: vertical;
     max-height: 175px;
-    min-height: 40px;
+    min-height: 54px;
+    overflow-y: hidden;
     &:focus {
         outline: none !important;
         border-color: #BFBDDB;

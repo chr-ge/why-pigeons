@@ -16,7 +16,7 @@
     </ul>
     @if(!\Cart::isEmpty())
         <p class="pt-3"><b>Subtotal:</b><span class="float-right">${{ \Cart::getSubTotal() }}</span></p>
-        <a href="{{ route('checkout') }}" class="btn btn-info btn-block">Checkout</a>
+        <a href="{{ route('checkout', $restaurant->id) }}" class="btn btn-info btn-block">Checkout</a>
     @else
         <p>Start adding items from the menu to build your order.</p>
     @endif

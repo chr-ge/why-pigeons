@@ -25,6 +25,7 @@
     "license": "MIT",
     "require": {
         "php": "^7.2.5",
+        "cartalyst/stripe-laravel": "^12.0",
         "darryldecode/cart": "^4.1",
         "fideloper/proxy": "^4.2",
         "fruitcake/laravel-cors": "^1.0",
