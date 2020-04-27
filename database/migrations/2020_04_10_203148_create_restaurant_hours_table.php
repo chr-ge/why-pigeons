@@ -14,7 +14,7 @@ class CreateRestaurantHoursTable extends Migration
     public function up()
     {
         Schema::create('restaurant_hours', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('id');
             $table->unsignedBigInteger('restaurant_id');
             $table->unsignedInteger('day');
             $table->time('open_time', 0)->nullable();
