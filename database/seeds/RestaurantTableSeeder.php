@@ -99,7 +99,7 @@ class RestaurantTableSeeder extends Seeder
             'phone' => '5143951927',
             'password' => '$2y$10$rIUcWcobxh3FL4g9jcgu.OJCm7k25m2NzdK8hCDk/wWGS/KYA3.j6',
             'category_id' => 19,
-            'image' => 'uploads/20190114-DunnsExpress7.jpg-resize_then_crop-_frame_bg_color_FFF-h_1365-gravity_center-q_70-preserve_ratio_true-w_2048_.webp',
+            'image' => 'uploads/dunns.jpg',
             'active' => 1
         ]);
         Restaurant::create([
@@ -108,7 +108,7 @@ class RestaurantTableSeeder extends Seeder
             'phone' => '5143342828',
             'password' => '$2y$10$u2NLY1H0F7Fe2re9kmrCteGe9KBLGWxnKdbsqYEz1NPlZpZnB73ei',
             'category_id' => 9,
-            'image' => 'uploads/dinning.jpg',
+            'image' => 'uploads/03_scores--203.jpg',
             'active' => 1
         ]);
         Restaurant::create([
@@ -126,7 +126,7 @@ class RestaurantTableSeeder extends Seeder
             'phone' => '5146374417',
             'password' => '$2y$10$6eqPBKmIVU0W2XN.qfqW2ugWf9bdpqCAtNTFRfQccm1Z/Us.c8RGq',
             'category_id' => 9,
-            'image' => 'uploads/10179@2x.jpg',
+            'image' => 'uploads/st-hubert.jpg',
             'active' => 1
         ]);
         Restaurant::create([
@@ -135,16 +135,16 @@ class RestaurantTableSeeder extends Seeder
             'phone' => '5148433194',
             'password' => '$2y$10$oGsqXSKshMmQX6kuYBTsDOirBe3qCKGKV1h93KsGsd6aAa4FHNvum',
             'category_id' => 22,
-            'image' => 'uploads/Al-Boustan0767-2-1024x565.png',
+            'image' => 'uploads/236316_05051a420b6ec6b5828e547ad27b7abe541e2b73.jpg_facebook.jpg',
             'active' => 1
         ]);
         Restaurant::create([
-        'name' => 'Wendys',
+        'name' => 'Wendy\'s',
         'email' => 'wendys@info.com',
         'phone' => '5144814060',
         'password' => '$2y$10$z2pxQRYq3bAl0mmCafZVQOpOU7p/kPQqD3oqgMl.AYMa7eYffO4mG',
         'category_id' => 20,
-        'image' => 'uploads/',
+        'image' => 'uploads/wendys.jpg',
         'active' => 1
         ]);
         Restaurant::create([
@@ -153,7 +153,7 @@ class RestaurantTableSeeder extends Seeder
             'phone' => '5145959000',
             'password' => '$2y$10$I4DgdV42OH/Q1JZveF1.0.XTQeGqfE.ZIytr.y8mDFOGWgf44IZ2O',
             'category_id' => 27,
-            'image' => 'uploads/',
+            'image' => 'uploads/slider2.jpg',
             'active' => 1
         ]);
         Restaurant::create([
@@ -162,7 +162,7 @@ class RestaurantTableSeeder extends Seeder
             'phone' => '514845555',
             'password' => '2y$10$icyS6aCpQyDUyN7TLZM...lgVBhZhEnJ49vf7O7.quXgy6/026jDm',
             'category_id' => 14,
-            'image' => 'uploads/',
+            'image' => 'uploads/img.webp',
             'active' => 1
         ]);
         Restaurant::create([
@@ -171,7 +171,7 @@ class RestaurantTableSeeder extends Seeder
             'phone' => '4383337475',
             'password' => '$2y$10$JH2B046x4OvBvKphrWPrVucQNdLu5q9.PpwC7v0mZWFYNGtyVYPxW',
             'category_id' => 22,
-            'image' => 'uploads/',
+            'image' => 'uploads/ac9a668a65ad.jpg',
             'active' => 1
         ]);
         Restaurant::create([
