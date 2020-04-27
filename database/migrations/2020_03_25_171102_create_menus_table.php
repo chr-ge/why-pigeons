@@ -21,6 +21,7 @@ class CreateMenusTable extends Migration
             $table->string('image')->nullable();
             $table->unsignedBigInteger('category_id')->nullable();
             $table->unsignedDecimal('price', 8, 2);
+            $table->boolean('available')->default(true);
             $table->timestamp('added_on', 0);
         });
     }

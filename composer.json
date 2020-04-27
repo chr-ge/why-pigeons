@@ -25,6 +25,7 @@
     "license": "MIT",
     "require": {
         "php": "^7.2.5",
+        "cartalyst/stripe-laravel": "^12.0",
         "darryldecode/cart": "^4.1",
         "fideloper/proxy": "^4.2",
         "fruitcake/laravel-cors": "^1.0",
@@ -32,8 +33,7 @@
         "intervention/image": "^2.5",
         "laravel/framework": "^7.0",
         "laravel/tinker": "^2.0",
-        "laravel/ui": "^2.0",
-        "symfony/intl": "*"
+        "laravel/ui": "^2.0"
     },
     "require-dev": {
         "facade/ignition": "^2.0",
@@ -59,9 +59,6 @@
         "classmap": [
             "database/seeds",
             "database/factories"
-        ],
-        "files": [
-            "app/helpers.php"
         ]
     },
     "autoload-dev": {

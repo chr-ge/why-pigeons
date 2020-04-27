@@ -21,15 +21,18 @@ class CartController extends Controller
      */
     public function store(Menu $menu){
         $data = request()->validate([
-            'quantity' => 'required|max:20'
+            'quantity' => 'required|max:20',
+            'instructions' => 'nullable|string|max:255'
         ]);
 
-        \Cart::add(array(
+        \Cart::session($menu->restaurant_id)->add(array(
             'id' => $menu->id,
             'name' => $menu->name,
             'price' => $menu->price,
             'quantity' => $data['quantity'],
-            'attributes' => array(),
+            'attributes' => array(
+                'instructions' => $data['instructions']
+            ),
             'associatedModel' => 'Menu'
         ));
 
@@ -39,11 +42,11 @@ class CartController extends Controller
     /**
      * Remove item from cart.
      *
-     * @param int $id
+     * @param Menu $menu
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function remove($id){
-        \Cart::remove($id);
+    public function remove(Menu $menu){
+        \Cart::session($menu->restaurant_id)->remove($menu->id);
         return redirect()->back();
     }
 

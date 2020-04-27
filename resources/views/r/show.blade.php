@@ -5,7 +5,7 @@
 @section('content')
     <div class="container">
         <div class="row">
-            <div class="col-9">
+            <div class="col-md-9">
                 <div class="row header-image" style="background-image: url('{{ url('storage/'.$restaurant->image) }}')"></div>
                 <div class="row information">
                     <h1 class="m-0 my-auto">{{ $restaurant->name }}</h1>
@@ -36,7 +36,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-3 p-0">
+                    <div class="col-md-3 p-0">
                         <ul id="navigation">
                             @foreach($categories as $category)
                                 <li>
@@ -47,16 +47,16 @@
                             @endforeach
                         </ul>
                     </div>
-                    <div class="col-9 menu-list">
+                    <div class="col-md-9 menu-list">
                         @foreach($categories as $category)
                             <div class="category" id="{{$category->name}}">
                                 <h2>{{$category->name}}</h2>
                                 @foreach($menus as $menu)
                                     @if($menu->category_id == $category->id)
-                                        <a href="#" class="menu-link" data-toggle="modal" data-target="#modal-menu-{{$menu->id}}">
+                                        <a class="menu-link" data-toggle="modal" data-target="#modal-menu-{{$menu->id}}">
                                             <div class="row no-gutters menu-card">
                                                 <div class="row no-gutters w-100">
-                                                    <div class="col-9">
+                                                    <div class="col-md-9">
                                                         <div class="row no-gutters" >
                                                             <h5 class="itemTitle">{{$menu->name}}</h5>
                                                         </div>
@@ -67,7 +67,7 @@
                                                             <p class="m-0 p-0 itemPrice">${{$menu->price}}</p>
                                                         </div>
                                                     </div>
-                                                    <div class="col-3">
+                                                    <div class="col-md-3">
                                                         @if($menu->image)
                                                         <img src="{{ url('storage/'.$menu->image) }}" alt=" ">
                                                         @endif
@@ -88,6 +88,10 @@
                                                         </div>
                                                         <div class="modal-body text-center">
                                                             <p>{{$menu->description}}</p>
+                                                            <div class="form-group">
+                                                                <textarea class="form-control instructions" placeholder="Add special instructions for the restaurant" rows="1" name="instructions" id="instructions" maxlength="255"></textarea>
+                                                                <div id="charNum"></div>
+                                                            </div>
                                                             <div class="center-block">
                                                                 <input name="quantity" type="number" value="1" min="1" max="20" step="1" required />
                                                             </div>
@@ -106,8 +110,8 @@
                     </div>
                 </div>
             </div>
-            <div class="col-3">
-                @include('partials.cart')
+            <div class="col-md-3">
+                @include('partials.cart', ['restaurant_id' => $menu->restaurant_id])
             </div>
         </div>
     </div>
@@ -115,6 +119,7 @@
     <script>
         $( document ).ready(function() {
             $("input[type='number']").inputSpinner();
+
             var nav = document.getElementById("navigation");
             var ignoreNextScroll = false;
             var navLinks = nav.getElementsByTagName("li");
@@ -162,6 +167,14 @@
                         }
                     });
                 }
+            });
+
+            //Textarea auto-resize
+            $('textarea').each(function () {
+                this.setAttribute('style', 'height:' + (this.scrollHeight) + 'px;');
+            }).on('input', function () {
+                this.style.height = 'auto';
+                this.style.height = (this.scrollHeight) + 'px';
             });
         });
     </script>

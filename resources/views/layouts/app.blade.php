@@ -48,7 +48,7 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="#" title="Checkout Basket">
+                            <a class="nav-link" href="#" title="Order Basket">
                                 <i class="fas fa-shopping-basket"></i>
                                 @if(!\Cart::isEmpty())
                                     <span class="badge badge-info">{{ \Cart::getTotalQuantity() }}</span>
@@ -96,5 +96,7 @@
         </main>
         @extends('layouts.footer')
     </div>
+
+    @yield('extra-js')
 </body>
 </html>

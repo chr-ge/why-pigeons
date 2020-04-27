@@ -11096,11 +11096,26 @@ body {
 .menu-link:hover {
   text-decoration: none;
   color: inherit;
+  cursor: pointer;
 }
 
 .center-block {
   width: 40%;
   margin: 0 auto;
+}
+
+.instructions {
+  background-color: #eaeaea;
+  resize: vertical;
+  max-height: 175px;
+  min-height: 54px;
+  overflow-y: hidden;
+}
+
+.instructions:focus {
+  outline: none !important;
+  border-color: #BFBDDB;
+  box-shadow: 0 0 10px #BFBDDB;
 }
 
 .menu-card {
@@ -11137,5 +11152,110 @@ h3 > i {
 
 .itemPrice {
   font-weight: bold;
+}
+
+.cart-table-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 0;
+  margin-right: 2rem;
+  border-top: 1px solid #919191;
+  align-items: flex-start;
+}
+
+.cart-table-row:last-child {
+  border-bottom: 1px solid #919191;
+}
+
+.cart-table-row p,
+.cart-table-row h4 {
+  margin-bottom: 0;
+}
+
+.cart-table-row .cart-table-row-left {
+  width: 50%;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.cart-table-row .cart-table-row-right {
+  width: 33.33%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.checkout-right {
+  background-color: white;
+  padding: 1rem;
+}
+
+.m-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.r-header {
+  display: flex;
+}
+
+.r-header__image {
+  height: 60px;
+  border-radius: 5px;
+  -o-object-fit: contain;
+     object-fit: contain;
+  align-self: flex-start;
+}
+
+.r-header__name {
+  padding-left: 1rem;
+  margin: auto 0;
+  flex: 1 1 auto;
+}
+
+.r-header__name h3,
+.r-header__name h5 {
+  margin: 0;
+}
+
+.payment {
+  width: 100%;
+  margin-right: calc(2rem + 15px);
+}
+
+.payment label {
+  font-size: 1.5rem;
+}
+
+/**
+ * The CSS shown here will not be introduced in the Quickstart guide, but shows
+ * how you can use CSS to style your Element's container.
+ */
+
+.StripeElement {
+  box-sizing: border-box;
+  height: 50px;
+  padding: 15px 12px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  background-color: white;
+  box-shadow: 0 1px 3px 0 #e6ebf1;
+  transition: box-shadow 150ms ease;
+}
+
+.StripeElement--focus {
+  box-shadow: 0 1px 3px 0 #cfd7df;
+}
+
+.StripeElement--invalid {
+  border-color: #FA755A;
+}
+
+.StripeElement--webkit-autofill {
+  background-color: #fefde5 !important;
+}
+
+#card-errors {
+  color: #FA755A;
 }
 
