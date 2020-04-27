@@ -10955,6 +10955,12 @@ body {
   color: var(--gray);
 }
 
+.error {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 235px;
+}
+
 @media (min-width: 600px) {
   .module {
     max-width: calc(50% - 16px);

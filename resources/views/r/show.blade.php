@@ -53,7 +53,7 @@
                                 <h2>{{$category->name}}</h2>
                                 @foreach($menus as $menu)
                                     @if($menu->category_id == $category->id)
-                                        <a class="menu-link" data-toggle="modal" data-target="#modal-menu-{{$menu->id}}">
+                                        <a class="menu-link" data-toggle="modal" data-target="{{ $menu->available ? '#modal-menu-'.$menu->id : '' }}">
                                             <div class="row no-gutters menu-card">
                                                 <div class="row no-gutters w-100">
                                                     <div class="col-md-9">
@@ -91,7 +91,6 @@
                                                                 <p>{{$menu->description}}</p>
                                                                 <div class="form-group">
                                                                     <textarea class="form-control instructions" placeholder="Add special instructions for the restaurant" rows="1" name="instructions" id="instructions" maxlength="255"></textarea>
-                                                                    <div id="charNum"></div>
                                                                 </div>
                                                                 <div class="center-block">
                                                                     <input name="quantity" type="number" value="1" min="1" max="20" step="1" required />

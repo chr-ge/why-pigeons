@@ -21,3 +21,13 @@
         <p>Start adding items from the menu to build your order.</p>
     @endif
 </div>
+
+@if (Session::has('error'))
+    <div class="error alert alert-danger alert-dismissible fade show" role="alert">
+        <span class="alert-icon"><i class="fa fa-exclamation-circle" aria-hidden="true"></i></span>
+        <span class="alert-text">{!! Session::get('error') !!}</span>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+@endif

@@ -20,6 +20,10 @@ class CartController extends Controller
      * @return \Illuminate\Http\RedirectResponse
      */
     public function store(Menu $menu){
+        if(!$menu->available){
+            return redirect()->back()->with('error', 'Item Unavailable');
+        }
+
         $data = request()->validate([
             'quantity' => 'required|max:20',
             'instructions' => 'nullable|string|max:255'
