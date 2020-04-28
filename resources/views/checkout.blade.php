@@ -4,6 +4,8 @@
 
 @section('extra-css')
     <script src="https://js.stripe.com/v3/"></script>
+    <script src="https://api.mapbox.com/mapbox-gl-js/v1.9.1/mapbox-gl.js"></script>
+    <link href="https://api.mapbox.com/mapbox-gl-js/v1.9.1/mapbox-gl.css" rel="stylesheet" />
 @endsection
 
 @section('content')
@@ -50,6 +52,15 @@
                 @endforeach
             </div>
 
+            <div class="row mt-5 ">
+                <label for="card-element" style="font-size: 1.5rem">Address</label>
+                <div id="map" class="checkout-map"></div>
+                <div class="address payment mt-3">
+                    <h5 class="d-inline-block mb-0">{{ \Session::get('address.place_name', '') }}</h5>
+                    <a href="#" class="change-address">Change</a>
+                </div>
+            </div>
+
             <div class="row mt-5">
                 <form action="{{ route('checkout.store', $restaurant->id) }}" method="POST" id="payment-form" class="payment">
                     @csrf
@@ -75,8 +86,8 @@
                     <h3>{{ $restaurant->name }}</h3>
                 </div>
             </div>
-            <div class="tip">
-                <div></div>
+            <div class="tip mt-4 text-center">
+                <div>-- DRIVER TIP TODO --</div>
             </div>
             <div class="m-row mt-4">
                 <h5>Subtotal: </h5><h5>${{ \Cart::getSubTotal() }}</h5>
@@ -101,6 +112,29 @@
 @endsection
 
 @section('extra-js')
+    <script>
+        mapboxgl.accessToken = '{{ env('MAPBOX') }}';
+        if (!mapboxgl.supported()) {
+            alert('Your browser does not support Mapbox GL');
+        } else {
+            var map = new mapboxgl.Map({
+                container: 'map',
+                style: 'mapbox://styles/mapbox/light-v10',
+                center: [
+                    `{{ \Session::get('address.coordinates.0', '-73.65') }}`,
+                    `{{ \Session::get('address.coordinates.1', '45.5087') }}`
+                ],
+                zoom: 14,
+                //interactive: false
+            });
+            var marker = new mapboxgl.Marker()
+                .setLngLat([
+                    `{{ \Session::get('address.coordinates.0', '-73.65') }}`,
+                    `{{ \Session::get('address.coordinates.1', '45.5087') }}`
+                ])
+                .addTo(map);
+        }
+    </script>
     <script>
         // Create a Stripe client.
         var stripe = Stripe('pk_test_mNjesFca5FunBm9OGl3vYC8C00cS5CP03i');

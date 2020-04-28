@@ -25,6 +25,13 @@
 .checkout-right {
     background-color: white;
     padding: 1rem;
+    border-radius: 0.25rem;
+}
+.tip {
+    background-color: #BFBDDB;
+    height: 50px;
+    width: 100%;
+    border-radius: 0.25rem;
 }
 .m-row {
     display: flex;
@@ -46,6 +53,24 @@
         h3, h5 {
             margin: 0;
         }
+    }
+}
+.checkout-map {
+    width: 100%;
+    height: 200px;
+    margin-right: calc(2rem + 15px);
+}
+.address {
+    background-color: white;
+    padding: 1rem;
+}
+.change-address {
+    color: #3FB1CE;
+    padding-left: 1rem;
+    font-size: 1.125rem;
+    &:hover {
+        color: var(--primary);
+        text-decoration: none;
     }
 }
 .payment {
