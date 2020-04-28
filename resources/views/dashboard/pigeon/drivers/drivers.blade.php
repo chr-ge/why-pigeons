@@ -33,7 +33,7 @@
                         <nav aria-label="breadcrumb" class="d-none d-md-inline-block">
                             <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
                                 <li class="breadcrumb-item"><a href="{{ route('pigeon.index') }}"><i class="fas fa-home"></i></a></li>
-                                <li class="breadcrumb-item"><a href="{{ route('pigeon.users') }}">Drivers</a></li>
+                                <li class="breadcrumb-item"><a href="{{ route('pigeon.drivers') }}">Drivers</a></li>
                                 <li class="breadcrumb-item active" aria-current="page">All</li>
                             </ol>
                         </nav>
@@ -93,13 +93,13 @@
                                             {{$driver->phone}}
                                         </td>
                                         <td>
-                                            {{$driver->type}}
+                                            {{$driver->type ?? 'N/A'}}
                                         </td>
                                         <td>
                                             {{$driver->address->city ?? 'N/A'}}
                                         </td>
                                         <td>
-                                            <button class="btn btn-sm" data-toggle="tooltip" onclick="window.location ='{{route('pigeon.restaurantDetails', $user->id)}}'">
+                                            <button class="btn btn-sm" data-toggle="tooltip" onclick="window.location ='{{route('pigeon.driverDetails', $driver->id)}}'">
                                                 <i class="fas fa-info-circle"></i> View
                                             </button>
                                         </td>
