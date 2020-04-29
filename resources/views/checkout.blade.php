@@ -86,21 +86,29 @@
                     <h3>{{ $restaurant->name }}</h3>
                 </div>
             </div>
-            <div class="tip mt-4 text-center">
-                <div>-- DRIVER TIP TODO --</div>
+            <div class=" mt-4 m-row">
+                <div style="display:flex;align-items: center; width: 100%;">
+                    <h5 class="m-0">Tip:</h5>
+                    <div style="width: 100%;">
+                        <button style="float:right;" class="btn btn-primary">other</button>
+                        <button style="float:right; margin-right: 5px;" class="btn btn-primary">$4.00</button>
+                        <button style="float:right; margin-right: 5px;" class="btn btn-primary">$3.00</button>
+                        <button style="float:right; margin-right: 5px;" class="btn btn-primary">$2.00</button>
+                    </div>
+                </div>
             </div>
-            <div class="m-row mt-4">
+            <div class="m-row mt-1">
                 <h5>Subtotal: </h5><h5>${{ \Cart::getSubTotal() }}</h5>
             </div>
-            <div class="m-row">
+            <div class="m-row mt-1">
                 <h5>Delivery Fee: </h5>
                 <h5>${{ \Cart::getCondition('Delivery Fee')->getAttributes()['amount'] }}</h5>
             </div>
-            <div class="m-row">
+            <div class="m-row mt-1">
                 <h5>GST/QST: </h5>
                 <h5>${{ number_format(\Cart::getCondition('GST/QST 14.975%')->getCalculatedValue(\Cart::getSubTotal()), 2, '.', ',') }}</h5>
             </div>
-            <div class="m-row">
+            <div class="m-row mt-1">
                 <h3>Total:</h3>
                 <h3>${{ \Cart::getTotal() }}</h3>
             </div>
