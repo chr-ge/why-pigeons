@@ -52,6 +52,10 @@ class PigeonController extends Controller
         return view('dashboard.pigeon.users.u-details', compact('user'));
     }
 
+    public function driverDetails(Driver $driver){
+        return view('dashboard.pigeon.drivers.d-details', compact('driver'));
+    }
+
     public function restaurantDetails(Restaurant $restaurant){
         $menu_items = Cache::remember('menu.count.'.$restaurant->id, now()->addSeconds(30), function () use ($restaurant){
             return $restaurant->menu_items_count();
