@@ -107,11 +107,14 @@
                     </div>
                     <div class="row no-gutters mt-2" style=" width: 100%;">
                         <div style="width: 100%; display:flex;justify-content: center;">
-                            <button style="align-content: center;border-bottom-left-radius: 25px; border-top-left-radius: 25px; border-bottom-right-radius: 0px; border-top-right-radius: 0px;" class="btn btn-primary">$2.00</button>
-                            <button style="float:right; border-radius: 0px;" class="btn btn-primary">$3.00</button>
-                            <button style="float:right; border-radius: 0px;" class="btn btn-primary">$4.00</button>
-                            <button style="float:right; border-bottom-left-radius: 0px; border-top-left-radius: 0px; border-bottom-right-radius: 25px; border-top-right-radius: 25px;" class="btn btn-primary">other</button>
+                            <button style=" border: none; background-color: #3FB1CE; width: 65px;align-content: center;border-bottom-left-radius: 25px; border-top-left-radius: 25px; border-bottom-right-radius: 0px; border-top-right-radius: 0px;" class="btn btn-primary">$2.00</button>
+                            <button style=" border: none; background-color: #3FB1CE; width: 65px; float:right; border-radius: 0px;" class="btn btn-primary">$3.00</button>
+                            <button style=" border: none; background-color: #3FB1CE; width: 65px; float:right; border-radius: 0px;" class="btn btn-primary">$4.00</button>
+                            <button id="otherTipBtn" style=" border: none; background-color: #3FB1CE; width: 65px; float:right; border-bottom-left-radius: 0px; border-top-left-radius: 0px; border-bottom-right-radius: 25px; border-top-right-radius: 25px;" class="btn btn-primary">other</button>
                         </div>
+                    </div>
+                    <div  id="otherTipInput" class="row no-gutters mt-2" style="display:none;justify-content: center;">
+                        <input style="width: 260px; border-color: #BFBDDB; border-radius: 5px;" type="text" id="fname" name="fname">
                     </div>
                     <div class="row no-gutters mt-3">
                         <p class="text-secondary">
@@ -157,80 +160,93 @@
 {{--        }--}}
 {{--    </script>--}}
     <script>
-        // Create a Stripe client.
-        var stripe = Stripe('pk_test_mNjesFca5FunBm9OGl3vYC8C00cS5CP03i');
+        $( document ).ready(function() {
 
-        // Create an instance of Elements.
-        var elements = stripe.elements();
+            var otherTipBtn = document.getElementById('otherTipBtn');
+            var otherTipInput = document.getElementById('otherTipInput');
+            otherTipBtn.addEventListener("click",function(){
+               if(otherTipInput.style.display === "none"){
+                   otherTipInput.style.display = "flex";
+               }
+               else{
+                   otherTipInput.style.display = "none";
+               }
+            });
+            // Create a Stripe client.
+            var stripe = Stripe('pk_test_mNjesFca5FunBm9OGl3vYC8C00cS5CP03i');
 
-        // Custom styling can be passed to options when creating an Element.
-        // (Note that this demo uses a wider set of styles than the guide below.)
-        var style = {
-            base: {
-                color: '#32325d',
-                fontFamily: 'Nunito, "Helvetica Neue", Helvetica, sans-serif',
-                fontSmoothing: 'antialiased',
-                fontSize: '16px',
-                '::placeholder': {
-                    color: '#aab7c4'
+            // Create an instance of Elements.
+            var elements = stripe.elements();
+
+            // Custom styling can be passed to options when creating an Element.
+            // (Note that this demo uses a wider set of styles than the guide below.)
+            var style = {
+                base: {
+                    color: '#32325d',
+                    fontFamily: 'Nunito, "Helvetica Neue", Helvetica, sans-serif',
+                    fontSmoothing: 'antialiased',
+                    fontSize: '16px',
+                    '::placeholder': {
+                        color: '#aab7c4'
+                    }
+                },
+                invalid: {
+                    color: '#fa755a',
+                    iconColor: '#fa755a'
                 }
-            },
-            invalid: {
-                color: '#fa755a',
-                iconColor: '#fa755a'
-            }
-        };
+            };
 
-        // Create an instance of the card Element.
-        var card = elements.create('card', {
-            style: style,
-            hidePostalCode: true
-        });
+            // Create an instance of the card Element.
+            var card = elements.create('card', {
+                style: style,
+                hidePostalCode: true
+            });
 
-        // Add an instance of the card Element into the `card-element` <div>.
-        card.mount('#card-element');
+            // Add an instance of the card Element into the `card-element` <div>.
+            card.mount('#card-element');
 
-        // Handle real-time validation errors from the card Element.
-        card.addEventListener('change', function(event) {
-            var displayError = document.getElementById('card-errors');
-            if (event.error) {
-                displayError.textContent = event.error.message;
-            } else {
-                displayError.textContent = '';
-            }
-        });
-
-        // Handle form submission.
-        var form = document.getElementById('payment-form');
-        form.addEventListener('submit', function(event) {
-            event.preventDefault();
-
-            var name = { name: "{{ auth()->user()->name }}"}
-
-            stripe.createToken(card, name).then(function(result) {
-                if (result.error) {
-                    // Inform the user if there was an error.
-                    var errorElement = document.getElementById('card-errors');
-                    errorElement.textContent = result.error.message;
+            // Handle real-time validation errors from the card Element.
+            card.addEventListener('change', function(event) {
+                var displayError = document.getElementById('card-errors');
+                if (event.error) {
+                    displayError.textContent = event.error.message;
                 } else {
-                    // Send the token to your server.
-                    stripeTokenHandler(result.token);
+                    displayError.textContent = '';
                 }
             });
-        });
 
-        // Submit the form with the token ID.
-        function stripeTokenHandler(token) {
-            // Insert the token ID into the form so it gets submitted to the server
+            // Handle form submission.
             var form = document.getElementById('payment-form');
-            var hiddenInput = document.createElement('input');
-            hiddenInput.setAttribute('type', 'hidden');
-            hiddenInput.setAttribute('name', 'stripeToken');
-            hiddenInput.setAttribute('value', token.id);
-            form.appendChild(hiddenInput);
+            form.addEventListener('submit', function(event) {
+                event.preventDefault();
 
-            // Submit the form
-            form.submit();
-        }
+                var name = { name: "{{ auth()->user()->name }}"}
+
+                stripe.createToken(card, name).then(function(result) {
+                    if (result.error) {
+                        // Inform the user if there was an error.
+                        var errorElement = document.getElementById('card-errors');
+                        errorElement.textContent = result.error.message;
+                    } else {
+                        // Send the token to your server.
+                        stripeTokenHandler(result.token);
+                    }
+                });
+            });
+
+            // Submit the form with the token ID.
+            function stripeTokenHandler(token) {
+                // Insert the token ID into the form so it gets submitted to the server
+                var form = document.getElementById('payment-form');
+                var hiddenInput = document.createElement('input');
+                hiddenInput.setAttribute('type', 'hidden');
+                hiddenInput.setAttribute('name', 'stripeToken');
+                hiddenInput.setAttribute('value', token.id);
+                form.appendChild(hiddenInput);
+
+                // Submit the form
+                form.submit();
+            }
+        });
     </script>
 @endsection
