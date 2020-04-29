@@ -26,6 +26,7 @@
     },
     "dependencies": {
         "bootstrap-input-spinner": "^1.13.4",
+        "mapbox-gl": "^1.9.1",
         "select2": "^4.0.13"
     }
 }

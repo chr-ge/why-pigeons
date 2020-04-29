@@ -11233,7 +11233,7 @@ h3 > i {
 }
 
 .checkout-map {
-  width: 100%;
+  width: 94%;
   height: 200px;
   margin-right: calc(2rem + 15px);
 }
@@ -11293,5 +11293,11 @@ h3 > i {
 
 #card-errors {
   color: #FA755A;
+}
+
+.mapContainer {
+  position: absolute !important;
+  width: inherit;
+  height: 200px;
 }
 

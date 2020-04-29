@@ -17,5 +17,8 @@ body{ padding-top: 60px; }
 @import 'pages/checkout';
 
 
-
-
+.mapContainer {
+    position: absolute !important;
+    width: inherit;
+    height: 200px;
+}

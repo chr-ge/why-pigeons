@@ -52,7 +52,7 @@
                 @endforeach
             </div>
 
-            <div class="row mt-5 ">
+            <div class="row mt-5">
                 <label for="card-element" style="font-size: 1.5rem">Address</label>
                 <div id="mapbox" data-lng="{{ \Session::get('address.coordinates.0', '-73.65') }}" data-lat="{{ \Session::get('address.coordinates.1', '45.5087') }}" class="checkout-map" ></div>
                 <div class="address payment mt-3">
