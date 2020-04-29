@@ -86,18 +86,8 @@
                     <h3>{{ $restaurant->name }}</h3>
                 </div>
             </div>
-            <div class=" mt-4 m-row">
-                <div style="display:flex;align-items: center; width: 100%;">
-                    <h5 class="m-0">Tip:</h5>
-                    <div style="width: 100%;">
-                        <button style="float:right;" class="btn btn-primary">other</button>
-                        <button style="float:right; margin-right: 5px;" class="btn btn-primary">$4.00</button>
-                        <button style="float:right; margin-right: 5px;" class="btn btn-primary">$3.00</button>
-                        <button style="float:right; margin-right: 5px;" class="btn btn-primary">$2.00</button>
-                    </div>
-                </div>
-            </div>
-            <div class="m-row mt-1">
+            <hr>
+            <div class="m-row">
                 <h5>Subtotal: </h5><h5>${{ \Cart::getSubTotal() }}</h5>
             </div>
             <div class="m-row mt-1">
@@ -108,6 +98,29 @@
                 <h5>GST/QST: </h5>
                 <h5>${{ number_format(\Cart::getCondition('GST/QST 14.975%')->getCalculatedValue(\Cart::getSubTotal()), 2, '.', ',') }}</h5>
             </div>
+            <hr>
+            <div class=" m-row">
+                <div class="col p-0">
+                    <div class="m-row no-gutters">
+                        <h5 class="m-0">Tip:</h5>
+                        <h5 style="text-align: right;">$0.00</h5>
+                    </div>
+                    <div class="row no-gutters mt-2" style=" width: 100%;">
+                        <div style="width: 100%; display:flex;justify-content: center;">
+                            <button style="align-content: center;border-bottom-left-radius: 25px; border-top-left-radius: 25px; border-bottom-right-radius: 0px; border-top-right-radius: 0px;" class="btn btn-primary">$2.00</button>
+                            <button style="float:right; border-radius: 0px;" class="btn btn-primary">$3.00</button>
+                            <button style="float:right; border-radius: 0px;" class="btn btn-primary">$4.00</button>
+                            <button style="float:right; border-bottom-left-radius: 0px; border-top-left-radius: 0px; border-bottom-right-radius: 25px; border-top-right-radius: 25px;" class="btn btn-primary">other</button>
+                        </div>
+                    </div>
+                    <div class="row no-gutters mt-3">
+                        <p class="text-secondary">
+                            The recommended Pigeon tip is based on the delivery distance and effort. 100% of the tip to your Pigeon.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <hr>
             <div class="m-row mt-1">
                 <h3>Total:</h3>
                 <h3>${{ \Cart::getTotal() }}</h3>
