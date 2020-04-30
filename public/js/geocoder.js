@@ -10,6 +10,7 @@ if (!mapboxgl.supported()) {
         countries: 'ca',
         types: 'address,poi',
         bbox: [-74.0917, 45.3579, -73.2711, 45.7378],
+        proximity: [-73.65, 45.5087],
         // applies a client side filter to further limit results to those strictly within the Quebec region
         filter: function(item) {
             return item.context
