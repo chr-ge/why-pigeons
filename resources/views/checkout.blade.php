@@ -172,21 +172,24 @@
 
             var tipBtnArr           = [twoDollarTipBtn,threeDollarTipBtn,fourDollarTipBtn,otherTipBtn];
 
-            var a = {{\Cart::getCondition('Tip')->getValue()}};
-            switch(a){
-                case 2:
-                    twoDollarTipBtn.classList.add("tipActive");
-                    break;
-                case 3:
-                    threeDollarTipBtn.classList.add("tipActive");
-                    break;
-                case 4:
-                    fourDollarTipBtn.classList.add("tipActive");
-                    break;
-                default:
-                    otherTipBtn.classList.add("tipActive");
-                    break;
+            var a = {{\Cart::getCondition('Tip') ? \Cart::getCondition('Tip')->getValue() : null}};
+            if(a){
+                switch(a){
+                    case 2:
+                        twoDollarTipBtn.classList.add("tipActive");
+                        break;
+                    case 3:
+                        threeDollarTipBtn.classList.add("tipActive");
+                        break;
+                    case 4:
+                        fourDollarTipBtn.classList.add("tipActive");
+                        break;
+                    default:
+                        otherTipBtn.classList.add("tipActive");
+                        break;
+                }
             }
+
 
             for(var i = 0; i < tipBtnArr.length;i++){
                 tipBtnArr[i].addEventListener("click",function(){
