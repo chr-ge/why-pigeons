@@ -51,7 +51,6 @@
                     </div>
                 @endforeach
             </div>
-
             <div class="row mt-5">
                 <label for="card-element" style="font-size: 1.5rem">Address</label>
                 <div id="mapbox" data-lng="{{ \Session::get('address.coordinates.0', '-73.65') }}" data-lat="{{ \Session::get('address.coordinates.1', '45.5087') }}" class="checkout-map" ></div>
@@ -103,7 +102,7 @@
                 <div class="col p-0">
                     <div class="m-row no-gutters">
                         <h5 class="m-0">Tip:</h5>
-                        <h5 style="text-align: right;">${{ \Cart::getCondition('Tip') ? number_format(\Cart::getCondition('Tip')->getAttributes()['amount'], 2, '.', ',') : '0.00'}}</h5>
+                        <h5 style="text-align: right;">${{ \Cart::getCondition('Tip') ? number_format(\Cart::getCondition('Tip')->getValue(), 2, '.', ',') : '0.00'}}</h5>
                     </div>
                     <div class="row no-gutters mt-2" style="width: 100%;">
                         <form method="post" action="{{ route('checkout.tip', $restaurant->id) }}" style="width:100%;display:flex;justify-content:center;">
@@ -164,6 +163,7 @@
              * Tip Buttons functionality
              * @type {HTMLElement}
              */
+
             var otherTipBtn         = document.getElementById('otherTipBtn');
             var twoDollarTipBtn     = document.getElementById('twoDollarTip');
             var threeDollarTipBtn   = document.getElementById('threeDollarTip');
@@ -171,6 +171,22 @@
             var otherTipInput       = document.getElementById('otherTipInput');
 
             var tipBtnArr           = [twoDollarTipBtn,threeDollarTipBtn,fourDollarTipBtn,otherTipBtn];
+
+            var a = {{\Cart::getCondition('Tip')->getValue()}};
+            switch(a){
+                case 2:
+                    twoDollarTipBtn.classList.add("tipActive");
+                    break;
+                case 3:
+                    threeDollarTipBtn.classList.add("tipActive");
+                    break;
+                case 4:
+                    fourDollarTipBtn.classList.add("tipActive");
+                    break;
+                default:
+                    otherTipBtn.classList.add("tipActive");
+                    break;
+            }
 
             for(var i = 0; i < tipBtnArr.length;i++){
                 tipBtnArr[i].addEventListener("click",function(){

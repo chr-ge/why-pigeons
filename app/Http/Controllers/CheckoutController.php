@@ -43,19 +43,14 @@ class CheckoutController extends Controller
         $data = request()->validate([
             'tip' => 'required|numeric|min:0|max:500'
         ]);
-
         $tip = new CartCondition(array(
             'name' => 'Tip',
             'type' => 'tip',
             'target' => 'total',
             'value' => $data['tip'],
-            'order' => 3,
-            'attributes' => array(
-                'amount' => $data['tip']
-            )
+            'order' => 3
         ));
         \Cart::session($restaurant->id)->condition($tip);
-
         return redirect()->back();
     }
 
