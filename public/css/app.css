@@ -11032,6 +11032,16 @@ body {
   line-height: 90%;
 }
 
+#geocoder {
+  z-index: 1;
+  width: 100%;
+  text-align: center;
+}
+
+.mapboxgl-ctrl-geocoder {
+  min-width: 100% !important;
+}
+
 body {
   scroll-behavior: smooth;
 }
