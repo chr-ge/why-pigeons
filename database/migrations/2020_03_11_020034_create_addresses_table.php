@@ -22,6 +22,8 @@ class CreateAddressesTable extends Migration
             $table->string('province', 20);
             $table->string('postal_code', 15);
             $table->string('country', 20);
+            $table->string('longitude')->nullable();
+            $table->string('latitude')->nullable();
             $table->timestamp('added_on');
         });
     }
