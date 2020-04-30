@@ -74,13 +74,16 @@
     padding: 1rem;
 }
 .change-address {
-    color: #3FB1CE;
+    color: #3FB1CE !important;
     padding-left: 1rem;
     font-size: 1.125rem;
+    cursor: pointer;
     &:hover {
-        color: var(--primary);
-        text-decoration: none;
+        color: var(--primary) !important;
     }
+}
+h4 > i {
+    color: #BFBDDB;
 }
 .payment {
     width: 100%;

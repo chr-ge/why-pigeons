@@ -11220,6 +11220,10 @@ h3 > i {
   width: 65px;
 }
 
+.tipActive {
+  background-color: #3C444C !important;
+}
+
 .m-row {
   display: flex;
   align-items: center;
@@ -11261,14 +11265,18 @@ h3 > i {
 }
 
 .change-address {
-  color: #3FB1CE;
+  color: #3FB1CE !important;
   padding-left: 1rem;
   font-size: 1.125rem;
+  cursor: pointer;
 }
 
 .change-address:hover {
-  color: var(--primary);
-  text-decoration: none;
+  color: var(--primary) !important;
+}
+
+h4 > i {
+  color: #BFBDDB;
 }
 
 .payment {
@@ -11278,10 +11286,6 @@ h3 > i {
 
 .payment label {
   font-size: 1.5rem;
-}
-
-.tipActive {
-  background-color: #3C444C !important;
 }
 
 /**

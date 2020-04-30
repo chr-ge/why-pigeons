@@ -4,8 +4,13 @@
 
 @section('extra-css')
     <script src="https://js.stripe.com/v3/"></script>
-{{--    <script src="https://api.mapbox.com/mapbox-gl-js/v1.9.1/mapbox-gl.js"></script>--}}
-    <link href="https://api.mapbox.com/mapbox-gl-js/v1.9.1/mapbox-gl.css" rel="stylesheet" />
+    <script src="https://api.mapbox.com/mapbox-gl-js/v1.10.0/mapbox-gl.js"></script>
+    <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.5.1/mapbox-gl-geocoder.min.js"></script>
+    <link href="https://api.mapbox.com/mapbox-gl-js/v1.10.0/mapbox-gl.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.5.1/mapbox-gl-geocoder.css" type="text/css"/>
+    <!-- Promise polyfill script required to use Mapbox GL Geocoder in IE 11 -->
+    <script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.auto.min.js"></script>
 @endsection
 
 @section('content')
@@ -56,7 +61,22 @@
                 <div id="mapbox" data-lng="{{ \Session::get('address.coordinates.0', '-73.65') }}" data-lat="{{ \Session::get('address.coordinates.1', '45.5087') }}" class="checkout-map" ></div>
                 <div class="address payment mt-3">
                     <h5 class="d-inline-block mb-0">{{ \Session::get('address.place_name', '') }}</h5>
-                    <a href="#" class="change-address">Change</a>
+                    <a class="change-address" data-toggle="modal" data-target="#changeAddressModal">Change</a>
+                </div>
+                <div class="modal fade" id="changeAddressModal" tabindex="-1" role="dialog" aria-labelledby="changeAddressModalTitle" aria-hidden="true">
+                    <div class="modal-dialog" style="top:200px" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h4 class="modal-title" id="changeAddressModalLongTitle"><i class="fas fa-car"></i> Delivery Address</h4>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <div id="geocoder" class="geocoder mb-3"></div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -147,29 +167,7 @@
 @endsection
 
 @section('extra-js')
-{{--    <script>--}}
-{{--        mapboxgl.accessToken = '{{ env('MAPBOX') }}';--}}
-{{--        if (!mapboxgl.supported()) {--}}
-{{--            alert('Your browser does not support Mapbox GL');--}}
-{{--        } else {--}}
-{{--            var map = new mapboxgl.Map({--}}
-{{--                container: 'map',--}}
-{{--                style: 'mapbox://styles/mapbox/light-v10',--}}
-{{--                center: [--}}
-{{--                    `{{ \Session::get('address.coordinates.0', '-73.65') }}`,--}}
-{{--                    `{{ \Session::get('address.coordinates.1', '45.5087') }}`--}}
-{{--                ],--}}
-{{--                zoom: 14,--}}
-{{--                //interactive: false--}}
-{{--            });--}}
-{{--            var marker = new mapboxgl.Marker()--}}
-{{--                .setLngLat([--}}
-{{--                    `{{ \Session::get('address.coordinates.0', '-73.65') }}`,--}}
-{{--                    `{{ \Session::get('address.coordinates.1', '45.5087') }}`--}}
-{{--                ])--}}
-{{--                .addTo(map);--}}
-{{--        }--}}
-{{--    </script>--}}
+    <script src="{{ asset('js/geocoder.js') }}"></script>
     <script>
         $( document ).ready(function() {
             /**
