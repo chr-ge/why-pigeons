@@ -45,6 +45,7 @@ Route::get('/cart/clear', 'CartController@clear');
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/{restaurant}/checkout', 'CheckoutController@index')->name('checkout');
     Route::post('/{restaurant}/checkout', 'CheckoutController@store')->name('checkout.store');
+    Route::post('/{restaurant}/checkout/tip','CheckoutController@tip')->name('checkout.tip');
     Route::view('/order-complete', 'order-complete');
 });
 

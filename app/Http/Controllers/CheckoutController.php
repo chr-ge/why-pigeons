@@ -38,6 +38,20 @@ class CheckoutController extends Controller
 
         return view('checkout', ['restaurant' => $restaurant]);
     }
+    public function tip(Restaurant $restaurant){
+        $tip = new CartCondition(array(
+            'name' => 'Tip',
+            'type' => 'tip',
+            'target' => 'total',
+            'value' => request()->tip,
+            'order' => 3,
+            'attributes' => array(
+                'amount' => request()->tip
+            )
+        ));
+        \Cart::session($restaurant->id)->condition($tip);
+        return redirect()->back();
+    }
 
     public function store(Restaurant $restaurant) {
         $cart = \Cart::session($restaurant->id);
