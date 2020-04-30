@@ -173,8 +173,8 @@
             var tipBtnArr           = [twoDollarTipBtn,threeDollarTipBtn,fourDollarTipBtn,otherTipBtn];
 
             var a = {{\Cart::getCondition('Tip') ? \Cart::getCondition('Tip')->getValue() : 0}};
-            if(a){
-                switch(a != 0){
+            if(a != 0){
+                switch(a){
                     case 2:
                         twoDollarTipBtn.classList.add("tipActive");
                         break;
