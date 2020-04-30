@@ -50,6 +50,7 @@ class CheckoutController extends Controller
             'value' => $data['tip'],
             'order' => 3
         ));
+
         \Cart::session($restaurant->id)->condition($tip);
         return redirect()->back();
     }
