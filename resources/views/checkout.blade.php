@@ -72,7 +72,7 @@
                         <div id="card-errors" role="alert"></div>
                     </div>
 
-                    <button class="btn">{{ __('Place Order') }}</button>
+                    <button class="btn btn-primary">{{ __('Place Order') }}</button>
                 </form>
             </div>
         </div>
