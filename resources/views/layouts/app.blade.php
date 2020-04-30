@@ -42,7 +42,11 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-
+                        <li>
+                            @if(Session::has('address'))
+                                ASAP • {{ strtok(Session::get('address.place_name'), ',') }}
+                            @endif
+                        </li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
