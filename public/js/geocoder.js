@@ -8,7 +8,21 @@ if (!mapboxgl.supported()) {
         mapboxgl: mapboxgl,
         placeholder: 'Enter your address',
         countries: 'ca',
-        bbox: [-74.0917, 45.3579, -73.2711, 45.7378]
+        types: 'address,poi',
+        bbox: [-74.0917, 45.3579, -73.2711, 45.7378],
+        // applies a client side filter to further limit results to those strictly within the Quebec region
+        filter: function(item) {
+            return item.context
+                .map(function(i) {
+                    return (
+                        i.id.split('.').shift() === 'region' &&
+                        i.text === 'Quebec'
+                    );
+                })
+                .reduce(function(acc, cur) {
+                    return acc || cur;
+                });
+        },
     });
     geocoder.on('result', function (e) {
         const coords = {
@@ -29,7 +43,7 @@ if (!mapboxgl.supported()) {
             .head
             .querySelector('meta[name="csrf-token"]');
         window.axios.defaults.headers.common['X-CSRF-TOKEN'] = token.content;
-        let res = await axios.post('http://localhost/public/home', req)
+        await axios.post('http://localhost/public/home', req)
     }
     geocoder.addTo('#geocoder')
 }
