@@ -11213,6 +11213,13 @@ h3 > i {
   border-radius: 0.25rem;
 }
 
+.tip-btn {
+  color: white;
+  border: none;
+  background-color: #BFBDDB;
+  width: 65px;
+}
+
 .m-row {
   display: flex;
   align-items: center;

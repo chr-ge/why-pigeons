@@ -103,31 +103,29 @@
                 <div class="col p-0">
                     <div class="m-row no-gutters">
                         <h5 class="m-0">Tip:</h5>
-                        <h5 style="text-align: right;">${{ \Cart::getCondition('Tip')->getAttributes()['amount'] }}</h5>
+                        <h5 style="text-align: right;">${{ \Cart::getCondition('Tip') ? number_format(\Cart::getCondition('Tip')->getAttributes()['amount'], 2, '.', ',') : '0.00'}}</h5>
                     </div>
-                    <div class="row no-gutters mt-2" style=" width: 100%;">
-                        <form method="post" action="{{route('checkout.tip',$restaurant->id)}}" style="width: 100%; display:flex;justify-content: center;">
+                    <div class="row no-gutters mt-2" style="width: 100%;">
+                        <form method="post" action="{{ route('checkout.tip', $restaurant->id) }}" style="width:100%;display:flex;justify-content:center;">
                             @csrf
-                            <button name="tip" value="2" id="twoDollarTip" onclick="this.blur();" style=" color: white; border: none; background-color: #BFBDDB; width: 65px;align-content: center;border-bottom-left-radius: 25px; border-top-left-radius: 25px; border-bottom-right-radius: 0px; border-top-right-radius: 0px;" class="btn">$2.00</button>
-                            <button name="tip" value="3" id="threeDollarTip" onclick="this.blur();" style=" color: white; border: none; background-color: #BFBDDB; width: 65px; float:right; border-radius: 0px;" class="btn">$3.00</button>
-                            <button name="tip" value="4" id="fourDollarTip" onclick="this.blur();" style=" color: white; border: none; background-color: #BFBDDB; width: 65px; float:right; border-radius: 0px;" class="btn">$4.00</button>
-                            <button name="tip" value="" id="otherTipBtn" onclick="this.blur();" style=" color: white; border: none; background-color: #BFBDDB; width: 65px; float:right; border-bottom-left-radius: 0px; border-top-left-radius: 0px; border-bottom-right-radius: 25px; border-top-right-radius: 25px;" class="btn">other</button>
+                            <button name="tip" value="2.00" id="twoDollarTip" onclick="this.blur();" style="align-content: center;border-bottom-left-radius: 25px; border-top-left-radius: 25px; border-bottom-right-radius: 0px; border-top-right-radius: 0px;" class="btn tip-btn">$2.00</button>
+                            <button name="tip" value="3.00" id="threeDollarTip" onclick="this.blur();" style="float:right;border-radius:0px;"class="btn tip-btn">$3.00</button>
+                            <button name="tip" value="4.00" id="fourDollarTip" onclick="this.blur();" style="float:right;border-radius:0px;"class="btn tip-btn">$4.00</button>
+                            <button id="otherTipBtn" onclick="this.blur();" style="float:right;border-bottom-left-radius:0px;border-top-left-radius: 0px; border-bottom-right-radius: 25px; border-top-right-radius: 25px;" class="btn tip-btn">other</button>
                         </form>
                     </div>
                     <div  id="otherTipInput" class="row no-gutters mt-2" style="display:none;justify-content: center;">
                         <input value="$" style="padding-left:5px; padding-right: 5px; width: 260px; border-color: #BFBDDB; border-radius: 5px;" type="text" id="fname" name="fname">
                     </div>
                     <div class="row no-gutters mt-3">
-                        <p class="text-secondary">
-                            The recommended Pigeon tip is based on the delivery distance and effort. 100% of the tip to your Pigeon.
-                        </p>
+                        <p class="text-secondary">The recommended Pigeon tip is based on the delivery distance and effort. 100% of the tip to your Pigeon.</p>
                     </div>
                 </div>
             </div>
             <hr>
             <div class="m-row mt-1">
                 <h3>Total:</h3>
-{{--                <h3>${{ \Cart::getTotal() }}</h3>--}}
+                <h3>${{ \Cart::getTotal() }}</h3>
             </div>
             <button class="btn btn-primary btn-block" form="payment-form">{{ __('Place Order') }}</button>
         </div>

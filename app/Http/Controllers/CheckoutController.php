@@ -38,18 +38,24 @@ class CheckoutController extends Controller
 
         return view('checkout', ['restaurant' => $restaurant]);
     }
+
     public function tip(Restaurant $restaurant){
+        $data = request()->validate([
+            'tip' => 'required|numeric|min:0|max:500'
+        ]);
+
         $tip = new CartCondition(array(
             'name' => 'Tip',
             'type' => 'tip',
             'target' => 'total',
-            'value' => request()->tip,
+            'value' => $data['tip'],
             'order' => 3,
             'attributes' => array(
-                'amount' => request()->tip
+                'amount' => $data['tip']
             )
         ));
         \Cart::session($restaurant->id)->condition($tip);
+
         return redirect()->back();
     }
 

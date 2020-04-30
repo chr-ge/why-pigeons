@@ -33,6 +33,15 @@
     width: 100%;
     border-radius: 0.25rem;
 }
+.tip-btn {
+    color: white;
+    border: none;
+    background-color: #BFBDDB;
+    width: 65px;
+}
+.tipActive{
+    background-color: #3C444C !important;
+}
 .m-row {
     display: flex;
     align-items: center;
@@ -79,9 +88,6 @@
     label {
         font-size: 1.5rem;
     }
-}
-.tipActive{
-    background-color: #3C444C !important;
 }
 /**
  * The CSS shown here will not be introduced in the Quickstart guide, but shows
