@@ -72,7 +72,7 @@
                         <div id="card-errors" role="alert"></div>
                     </div>
 
-                    <button class="btn btn-primary">{{ __('Place Order') }}</button>
+                    <button class="btn">{{ __('Place Order') }}</button>
                 </form>
             </div>
         </div>
@@ -103,18 +103,19 @@
                 <div class="col p-0">
                     <div class="m-row no-gutters">
                         <h5 class="m-0">Tip:</h5>
-                        <h5 style="text-align: right;">$0.00</h5>
+                        <h5 style="text-align: right;">${{ \Cart::getCondition('Tip')->getAttributes()['amount'] }}</h5>
                     </div>
                     <div class="row no-gutters mt-2" style=" width: 100%;">
-                        <div style="width: 100%; display:flex;justify-content: center;">
-                            <button style=" border: none; background-color: #3FB1CE; width: 65px;align-content: center;border-bottom-left-radius: 25px; border-top-left-radius: 25px; border-bottom-right-radius: 0px; border-top-right-radius: 0px;" class="btn btn-primary">$2.00</button>
-                            <button style=" border: none; background-color: #3FB1CE; width: 65px; float:right; border-radius: 0px;" class="btn btn-primary">$3.00</button>
-                            <button style=" border: none; background-color: #3FB1CE; width: 65px; float:right; border-radius: 0px;" class="btn btn-primary">$4.00</button>
-                            <button id="otherTipBtn" style=" border: none; background-color: #3FB1CE; width: 65px; float:right; border-bottom-left-radius: 0px; border-top-left-radius: 0px; border-bottom-right-radius: 25px; border-top-right-radius: 25px;" class="btn btn-primary">other</button>
-                        </div>
+                        <form method="post" action="{{route('checkout.tip',$restaurant->id)}}" style="width: 100%; display:flex;justify-content: center;">
+                            @csrf
+                            <button name="tip" value="2" id="twoDollarTip" onclick="this.blur();" style=" color: white; border: none; background-color: #BFBDDB; width: 65px;align-content: center;border-bottom-left-radius: 25px; border-top-left-radius: 25px; border-bottom-right-radius: 0px; border-top-right-radius: 0px;" class="btn">$2.00</button>
+                            <button name="tip" value="3" id="threeDollarTip" onclick="this.blur();" style=" color: white; border: none; background-color: #BFBDDB; width: 65px; float:right; border-radius: 0px;" class="btn">$3.00</button>
+                            <button name="tip" value="4" id="fourDollarTip" onclick="this.blur();" style=" color: white; border: none; background-color: #BFBDDB; width: 65px; float:right; border-radius: 0px;" class="btn">$4.00</button>
+                            <button name="tip" value="" id="otherTipBtn" onclick="this.blur();" style=" color: white; border: none; background-color: #BFBDDB; width: 65px; float:right; border-bottom-left-radius: 0px; border-top-left-radius: 0px; border-bottom-right-radius: 25px; border-top-right-radius: 25px;" class="btn">other</button>
+                        </form>
                     </div>
                     <div  id="otherTipInput" class="row no-gutters mt-2" style="display:none;justify-content: center;">
-                        <input style="width: 260px; border-color: #BFBDDB; border-radius: 5px;" type="text" id="fname" name="fname">
+                        <input value="$" style="padding-left:5px; padding-right: 5px; width: 260px; border-color: #BFBDDB; border-radius: 5px;" type="text" id="fname" name="fname">
                     </div>
                     <div class="row no-gutters mt-3">
                         <p class="text-secondary">
@@ -126,7 +127,7 @@
             <hr>
             <div class="m-row mt-1">
                 <h3>Total:</h3>
-                <h3>${{ \Cart::getTotal() }}</h3>
+{{--                <h3>${{ \Cart::getTotal() }}</h3>--}}
             </div>
             <button class="btn btn-primary btn-block" form="payment-form">{{ __('Place Order') }}</button>
         </div>
@@ -161,17 +162,48 @@
 {{--    </script>--}}
     <script>
         $( document ).ready(function() {
+            /**
+             * Tip Buttons functionality
+             * @type {HTMLElement}
+             */
+            var otherTipBtn         = document.getElementById('otherTipBtn');
+            var twoDollarTipBtn     = document.getElementById('twoDollarTip');
+            var threeDollarTipBtn   = document.getElementById('threeDollarTip');
+            var fourDollarTipBtn    = document.getElementById('fourDollarTip');
+            var otherTipInput       = document.getElementById('otherTipInput');
 
-            var otherTipBtn = document.getElementById('otherTipBtn');
-            var otherTipInput = document.getElementById('otherTipInput');
-            otherTipBtn.addEventListener("click",function(){
-               if(otherTipInput.style.display === "none"){
-                   otherTipInput.style.display = "flex";
-               }
-               else{
-                   otherTipInput.style.display = "none";
-               }
+            var tipBtnArr           = [twoDollarTipBtn,threeDollarTipBtn,fourDollarTipBtn,otherTipBtn];
+
+            for(var i = 0; i < tipBtnArr.length;i++){
+                tipBtnArr[i].addEventListener("click",function(){
+                    tipBtnArr.forEach(btn => btn.classList.remove("tipActive"));
+
+                    if(this.id === "otherTipBtn"){
+                        if (otherTipInput.style.display === "none") {
+                            otherTipInput.style.display = "flex";
+                        } else {
+                            otherTipInput.style.display = "none";
+                        }
+                    }
+                    else{
+                        otherTipInput.style.display = "none";
+                    }
+                    this.classList.add("tipActive");
+
+                });
+            }
+
+            $("input").keydown(function(e) {
+                var oldvalue=$(this).val();
+                var field=this;
+                setTimeout(function () {
+                    if(field.value.indexOf('$') !== 0) {
+                        $(field).val(oldvalue);
+                    }
+                }, 1);
             });
+
+
             // Create a Stripe client.
             var stripe = Stripe('pk_test_mNjesFca5FunBm9OGl3vYC8C00cS5CP03i');
 
