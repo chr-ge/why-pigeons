@@ -15,7 +15,8 @@ class CreateOrdersTable extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedInteger('user_id')->nullable();
+            $table->unsignedBigInteger('user_id')->nullable();
+            $table->unsignedBigInteger('restaurant_id')->nullable();
             $table->unsignedInteger('total_items_qty');
             $table->unsignedDecimal('billing_subtotal');
             $table->unsignedDecimal('billing_delivery');
@@ -28,6 +29,8 @@ class CreateOrdersTable extends Migration
 
             $table->foreign('user_id')->references('id')
                 ->on('users')->onUpdate('cascade')->onDelete('set null');
+            $table->foreign('restaurant_id')->references('id')
+                ->on('restaurants')->onUpdate('cascade')->onDelete('set null');
         });
     }
 

@@ -60,6 +60,7 @@ Route::group(['middleware' => 'auth:restaurant'], function () {
     Route::get('/menu/new', 'RestaurantController@newMenuItem')->name('restaurant.newMenuItem');
     Route::get('/menu/{menu}/edit', 'RestaurantController@editMenuItem')->name('restaurant.editMenuItem');
     Route::get('/management', 'RestaurantController@management')->name('restaurant.manage');
+    Route::get('/orders', 'RestaurantController@orders')->name('restaurant.orders');
 
     Route::post('/menu/new', 'RestaurantController@createMenuItem')->name('restaurant.createMenuItem');
     Route::patch('/menu/{menu}/edit', 'RestaurantController@updateMenuItem')->name('restaurant.updateMenuItem');

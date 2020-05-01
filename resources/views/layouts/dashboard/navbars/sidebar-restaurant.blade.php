@@ -106,7 +106,7 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="#">
+                    <a class="nav-link" href="{{ route('restaurant.orders') }}">
                         <i class="ni ni-cart text-blue"></i> {{ __('Orders') }}
                     </a>
                 </li>
