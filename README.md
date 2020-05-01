@@ -18,9 +18,6 @@
     <br> 
 </p>
 
-
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. [documentation](https://laravel.com/docs)
-
 ## Installation
 
 1. Clone the repo and `cd` into it
@@ -31,6 +28,10 @@ Laravel is a web application framework with expressive, elegant syntax. We belie
 6. `npm run dev`
 7. `php artisan storage:link`
 8. `php artisan migrate --seed`
+
+## Built With Laravel
+
+Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. [documentation](https://laravel.com/docs)
 
 ## The Team
 - George Christeas
