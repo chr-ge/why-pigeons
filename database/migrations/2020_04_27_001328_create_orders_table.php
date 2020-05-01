@@ -20,6 +20,7 @@ class CreateOrdersTable extends Migration
             $table->unsignedDecimal('billing_subtotal');
             $table->unsignedDecimal('billing_delivery');
             $table->unsignedDecimal('billing_tax');
+            $table->unsignedDecimal('driver_tip');
             $table->unsignedDecimal('billing_total');
             $table->string('status');
             $table->string('error')->nullable();

@@ -97,6 +97,7 @@ class CheckoutController extends Controller
             'billing_subtotal' => \Cart::getSubtotal(),
             'billing_delivery' => \Cart::getCondition('Delivery Fee')->getAttributes()['amount'],
             'billing_tax' => number_format(\Cart::getCondition('GST/QST 14.975%')->getCalculatedValue(\Cart::getSubTotal()), 2, '.', ','),
+            'driver_tip' =>number_format(\Cart::getCondition('Tip')->getValue(), 2, '.', ','),
             'billing_total' => \Cart::getTotal(),
             'status' => $status,
             'error' => $error,
