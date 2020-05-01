@@ -1,4 +1,23 @@
-# Food and Maybe some Pigeons?
+<p align="center">
+  <a href="" rel="noopener">
+ <img width=200px height=200px src="public/svg/dove.png" alt="Project logo"></a>
+</p>
+
+<h3 align="center">Food and Maybe some Pigeons?</h3>
+
+<div align="center">
+
+  [![Status](https://img.shields.io/badge/status-active-success.svg)]() 
+  [![License](https://img.shields.io/badge/license-MIT-blue.svg)](/LICENSE)
+
+</div>
+
+---
+
+<p align="center"> Quick food delivery right to your door.
+    <br> 
+</p>
+
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. [documentation](https://laravel.com/docs)
 
