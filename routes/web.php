@@ -48,6 +48,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/{restaurant}/checkout', 'CheckoutController@store')->name('checkout.store');
     Route::post('/{restaurant}/checkout/tip','CheckoutController@tip')->name('checkout.tip');
     Route::view('/order-complete', 'order-complete');
+    Route::get('/orders', 'UserController@orders')->name('user.orders');
 });
 
 Route::group(['middleware' => 'auth:driver'], function () {
@@ -60,7 +61,7 @@ Route::group(['middleware' => 'auth:restaurant'], function () {
     Route::get('/menu/new', 'RestaurantController@newMenuItem')->name('restaurant.newMenuItem');
     Route::get('/menu/{menu}/edit', 'RestaurantController@editMenuItem')->name('restaurant.editMenuItem');
     Route::get('/management', 'RestaurantController@management')->name('restaurant.manage');
-    Route::get('/orders', 'RestaurantController@orders')->name('restaurant.orders');
+    Route::get('/r/orders', 'RestaurantController@orders')->name('restaurant.orders');
 
     Route::post('/menu/new', 'RestaurantController@createMenuItem')->name('restaurant.createMenuItem');
     Route::patch('/menu/{menu}/edit', 'RestaurantController@updateMenuItem')->name('restaurant.updateMenuItem');

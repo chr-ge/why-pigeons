@@ -72,6 +72,9 @@
                                 @endif
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('user.orders') }}" title="Your Orders"><i class="fas fa-receipt"></i></a>
+                        </li>
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">
