@@ -142,7 +142,7 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text">$</span>
                                 </div>
-                                <input step=".01" name="tip" value="0" type="number" min="0" max="500" class="form-control">
+                                <input step=".01" name="tip" value="0.00" type="number" min="0" max="500" class="form-control">
                                 <div class="input-group-append">
                                     <button  class="btn btn-secondary" onclick="this.blur();" type="submit">Button</button>
                                 </div>
@@ -183,24 +183,20 @@
 
             var tipBtnArr           = [twoDollarTipBtn,threeDollarTipBtn,fourDollarTipBtn,otherTipBtn];
 
-            var a = {{\Cart::getCondition('Tip') ? \Cart::getCondition('Tip')->getValue() : 0}};
-            if(a != 0){
-                switch(a){
-                    case 2:
-                        twoDollarTipBtn.classList.add("tipActive");
-                        break;
-                    case 3:
-                        threeDollarTipBtn.classList.add("tipActive");
-                        break;
-                    case 4:
-                        fourDollarTipBtn.classList.add("tipActive");
-                        break;
-                    default:
-                        otherTipBtn.classList.add("tipActive");
-                        break;
-                }
+            switch({{ \Cart::getCondition('Tip')->getValue() }}){
+                case 2:
+                    twoDollarTipBtn.classList.add("tipActive");
+                    break;
+                case 3:
+                    threeDollarTipBtn.classList.add("tipActive");
+                    break;
+                case 4:
+                    fourDollarTipBtn.classList.add("tipActive");
+                    break;
+                default:
+                    otherTipBtn.classList.add("tipActive");
+                    break;
             }
-
 
             for(var i = 0; i < tipBtnArr.length;i++){
                 tipBtnArr[i].addEventListener("click",function(){
@@ -220,7 +216,6 @@
 
                 });
             }
-
 
             // Create a Stripe client.
             var stripe = Stripe('pk_test_mNjesFca5FunBm9OGl3vYC8C00cS5CP03i');

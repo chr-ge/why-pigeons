@@ -34,7 +34,16 @@ class CheckoutController extends Controller
             'value' => '14.975%',
             'order' => 2
         ));
-        \Cart::session($restaurant->id)->condition([$delivery_condition, $tax_condition]);
+        $tip = new CartCondition(array(
+            'name' => 'Tip',
+            'type' => 'tip',
+            'target' => 'total',
+            'value' => '2.00',
+            'order' => 3
+        ));
+        \Cart::session($restaurant->id)->condition([$delivery_condition, $tax_condition,
+            \Cart::getCondition('Tip') ?: $tip
+        ]);
 
         return view('checkout', ['restaurant' => $restaurant]);
     }
@@ -43,6 +52,7 @@ class CheckoutController extends Controller
         $data = request()->validate([
             'tip' => 'required|numeric|min:0|max:500'
         ]);
+
         $tip = new CartCondition(array(
             'name' => 'Tip',
             'type' => 'tip',
@@ -51,7 +61,8 @@ class CheckoutController extends Controller
             'order' => 3
         ));
 
-        \Cart::session($restaurant->id)->condition($tip);
+        \Cart::session($restaurant->id)->removeCartCondition('Tip');
+        \Cart::condition($tip);
         return redirect()->back();
     }
 
@@ -74,7 +85,7 @@ class CheckoutController extends Controller
                 ],
             ]);
 
-            $order = $this->addToOrdersTables( null);
+            $order = $this->addToOrdersTables($restaurant->id, null);
 
             //SEND ORDER PLACED EMAIL TO USER
             Mail::send(new OrderPlaced($order));
@@ -84,15 +95,16 @@ class CheckoutController extends Controller
 
             return view('order-complete')->with('success', 'Order Completed Successfully');
         } catch (CardErrorException $e){
-            $this->addToOrdersTables($e->getMessage(), 'failed');
+            $this->addToOrdersTables($restaurant->id, $e->getMessage(), 'failed');
             return redirect()->back()->withErrors('Error! ' . $e->getMessage());
         }
     }
 
-    protected function addToOrdersTables($error, $status = 'new')
+    protected function addToOrdersTables($rest_id, $error, $status = 'new')
     {
         $order = Order::create([
             'user_id' => auth()->user()->id,
+            'restaurant_id' => $rest_id,
             'total_items_qty' => \Cart::getTotalQuantity(),
             'billing_subtotal' => \Cart::getSubtotal(),
             'billing_delivery' => \Cart::getCondition('Delivery Fee')->getAttributes()['amount'],
