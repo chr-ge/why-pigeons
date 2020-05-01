@@ -58,10 +58,12 @@
             </div>
             <div class="row mt-5">
                 <label for="card-element" style="font-size: 1.5rem">Address</label>
-                <div id="mapbox" data-lng="{{ \Session::get('address.coordinates.0', '-73.65') }}" data-lat="{{ \Session::get('address.coordinates.1', '45.5087') }}" class="checkout-map" ></div>
+                @if(\Session::has('address'))
+                    <div id="mapbox" data-lng="{{ \Session::get('address.coordinates.0', '-73.65') }}" data-lat="{{ \Session::get('address.coordinates.1', '45.5087') }}" class="checkout-map" ></div>
+                @endif
                 <div class="address payment mt-3">
-                    <h5 class="d-inline-block mb-0">{{ \Session::get('address.place_name', '') }}</h5>
-                    <a class="change-address" data-toggle="modal" data-target="#changeAddressModal">Change</a>
+                <h5 class="d-inline-block mb-0">{{ \Session::get('address.place_name', '') }}</h5>
+                <a class="change-address" data-toggle="modal" data-target="#changeAddressModal">{{ \Session::has('address') ? 'Change' : 'Choose Delivery Address'}}</a>
                 </div>
                 <div class="modal fade" id="changeAddressModal" tabindex="-1" role="dialog" aria-labelledby="changeAddressModalTitle" aria-hidden="true">
                     <div class="modal-dialog" style="top:200px" role="document">
