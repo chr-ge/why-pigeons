@@ -124,7 +124,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="modal-footer">
-                                                    <form method="POST" action="{{ route('pigeon.delRestaurant', $user->id) }}" enctype="multipart/form-data">
+                                                    <form method="POST" action="{{ route('pigeon.delUser', $user->id) }}" enctype="multipart/form-data">
                                                         @csrf
                                                         @method('DELETE')
                                                         <input type="submit" value="{{__('Delete')}}" class="btn btn-white"/>

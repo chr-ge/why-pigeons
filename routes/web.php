@@ -87,6 +87,7 @@ Route::group(['middleware' => 'auth:pigeon'], function () {
     Route::patch('/users/order/{order}', 'PigeonController@cancelOrder')->name('pigeon.cancelOrder');
     Route::post('/restaurants/{restaurant}/details', 'PigeonController@setTempPassword')->name('pigeon.setTempPass');
     Route::patch('/restaurants/{restaurant}/details', 'PigeonController@activateRestaurant')->name('pigeon.activateRestaurant');
+    Route::delete('/users/{user}/details', 'PigeonController@delUser')->name('pigeon.delUser');
     Route::delete('/restaurants/{restaurant}/details', 'PigeonController@delRestaurant')->name('pigeon.delRestaurant');
     Route::delete('/drivers/{driver}/details', 'PigeonController@delDriver')->name('pigeon.delDriver');
     Route::patch('/account/settings', 'PigeonController@updateAccount')->name('pigeon.updateAccount');

@@ -92,6 +92,11 @@ class PigeonController extends Controller
         return redirect()->back();
     }
 
+    public function delUser(User $user){
+        $user->delete();
+        return redirect()->route('pigeon.users');
+    }
+
     public function delRestaurant(Restaurant $restaurant){
         $restaurant->delete();
         return redirect()->route('pigeon.restaurants');
