@@ -88,7 +88,6 @@
                         <i class="ni ni-shop" style="color: #f4645f;"></i>
                         <span class="nav-link-text" style="color: #f4645f;">{{ __('Restaurant') }}</span>
                     </a>
-
                     <div class="collapse show" id="navbar-examples">
                         <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
@@ -104,7 +103,6 @@
                         </ul>
                     </div>
                 </li>
-
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('restaurant.orders') }}">
                         <i class="ni ni-cart text-blue"></i> {{ __('Orders') }}

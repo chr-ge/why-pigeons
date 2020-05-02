@@ -43,7 +43,7 @@ Route::delete('/cart/{menu}', 'CartController@remove')->name('cart.remove');;
 
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/{restaurant}/checkout', 'CheckoutController@index')->name('checkout');
-    Route::get('/orders', 'UserController@orders')->name('user.orders');
+    Route::get('/u/orders', 'UserController@orders')->name('user.orders');
     Route::view('/order-complete', 'order-complete');
 
     Route::post('/{restaurant}/checkout', 'CheckoutController@store')->name('checkout.store');
@@ -60,7 +60,8 @@ Route::group(['middleware' => 'auth:restaurant'], function () {
     Route::get('/menu/new', 'RestaurantController@newMenuItem')->name('restaurant.newMenuItem');
     Route::get('/menu/{menu}/edit', 'RestaurantController@editMenuItem')->name('restaurant.editMenuItem');
     Route::get('/management', 'RestaurantController@management')->name('restaurant.manage');
-    Route::get('/r/orders', 'RestaurantController@orders')->name('restaurant.orders');
+    Route::get('/orders', 'RestaurantController@orders')->name('restaurant.orders');
+    Route::get('/orders/{order}', 'RestaurantController@orderDetails')->name('restaurant.orderDetails');
 
     Route::post('/menu/new', 'RestaurantController@createMenuItem')->name('restaurant.createMenuItem');
     Route::patch('/menu/{menu}/edit', 'RestaurantController@updateMenuItem')->name('restaurant.updateMenuItem');
@@ -82,6 +83,8 @@ Route::group(['middleware' => 'auth:pigeon'], function () {
     Route::get('/restaurants/{restaurant}/details', 'PigeonController@restaurantDetails')->name('pigeon.restaurantDetails');
     Route::get('/account/settings', 'PigeonController@settings')->name('pigeon.settings');
 
+    Route::post('/users/order/{order}', 'PigeonController@refundOrder')->name('pigeon.refundOrder');
+    Route::patch('/users/order/{order}', 'PigeonController@cancelOrder')->name('pigeon.cancelOrder');
     Route::post('/restaurants/{restaurant}/details', 'PigeonController@setTempPassword')->name('pigeon.setTempPass');
     Route::patch('/restaurants/{restaurant}/details', 'PigeonController@activateRestaurant')->name('pigeon.activateRestaurant');
     Route::delete('/restaurants/{restaurant}/details', 'PigeonController@delRestaurant')->name('pigeon.delRestaurant');

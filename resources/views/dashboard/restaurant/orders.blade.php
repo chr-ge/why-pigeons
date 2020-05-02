@@ -18,7 +18,6 @@
             display: inline;
         }
     </style>
-
     <div class="header bg-gradient-primary pb-8 pt-5 pt-lg-7 d-flex">
         <!-- Header container -->
         <div class="container-fluid">
@@ -56,7 +55,7 @@
                         <h3 class="mb-0">Orders</h3>
                     </div>
                     <!-- Table -->
-                    <div class="table-responsive" data-toggle="list" data-list-values='["name", "description", "price", "category"]'>
+                    <div class="table-responsive" data-toggle="list" data-list-values='["id", "status", "total", "ordered_at"]'>
                         <table class="table align-items-center table-flush">
                             <thead class="thead-light">
                                 <tr>
@@ -85,13 +84,9 @@
                                             {{ $order->created_at }}
                                         </td>
                                         <td>
-                                            <div class="button-container">
-                                                <div style="display: inline-block">
-                                                    <a href="{{route('restaurant.editMenuItem', $order->id)}}" class="table-action" data-toggle="tooltip" data-original-title="Edit menu item" onclick="window.location ='{{route('restaurant.editMenuItem', $order->id)}}'">
-                                                        <i class="fas fa-edit"></i>
-                                                    </a>
-                                                </div>
-                                            </div>
+                                            <button class="btn btn-sm" data-toggle="tooltip" onclick="window.location ='{{ route('restaurant.orderDetails', $order->id) }}'">
+                                                <i class="fas fa-info-circle"></i> View
+                                            </button>
                                         </td>
                                     </tr>
                                 @endforeach

@@ -25,6 +25,7 @@
         <link type="text/css" href="{{ asset('css/select2.min.css') }}" rel="stylesheet">
         <script src="{{ asset('dashboard/vendor/jquery/dist/jquery-3.4.1.min.js') }}"></script>
         <script src="{{ asset('dashboard/vendor/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
+        @yield('extra-css')
     </head>
     <body class="{{ $class ?? '' }}">
         @auth()

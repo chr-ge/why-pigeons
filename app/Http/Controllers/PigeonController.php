@@ -3,13 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Menu;
+use App\Order;
 use App\User;
 use App\Driver;
 use App\Pigeon;
 use App\Restaurant;
-use Carbon\Carbon;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Hash;
+use Cartalyst\Stripe\Laravel\Facades\Stripe;
 
 class PigeonController extends Controller
 {
@@ -49,7 +50,8 @@ class PigeonController extends Controller
     }
 
     public function userDetails(User $user){
-        return view('dashboard.pigeon.users.u-details', compact('user'));
+        $orders = Order::where('user_id', $user->id)->latest()->paginate(10);
+        return view('dashboard.pigeon.users.u-details', compact('user', 'orders'));
     }
 
     public function driverDetails(Driver $driver){
@@ -65,6 +67,22 @@ class PigeonController extends Controller
         });
 
         return view('dashboard.pigeon.restaurants.r-details', compact('restaurant', 'menu_items', 'menu_change'));
+    }
+
+    public function cancelOrder(Order $order){
+        $order->update([
+            'status' => 'cancelled'
+        ]);
+        return redirect()->back()->with('success', 'Order Cancelled Successfully');
+    }
+
+    public function refundOrder(Order $order){
+        $refund = Stripe::refunds()->create($order->stripe_id);
+
+        $order->update([
+            'status' => 'refunded'
+        ]);
+        return redirect()->back()->with('success', 'Order Refunded Successfully');
     }
 
     public function activateRestaurant(Restaurant $restaurant){

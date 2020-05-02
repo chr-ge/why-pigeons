@@ -75,19 +75,16 @@
                         <i class="ni ni-tv-2 text-primary"></i> {{ __('Dashboard') }}
                     </a>
                 </li>
-
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('pigeon.users') }}">
                         <i class="ni ni-single-02 text-blue"></i> {{ __('Users') }}
                     </a>
                 </li>
-
                 <li class="nav-item">
                     <a class="nav-link active" href="#navbar-examples" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="navbar-examples">
                         <i class="ni ni-shop" style="color: #f4645f;"></i>
                         <span class="nav-link-text" style="color: #f4645f;">{{ __('Restaurants') }}</span>
                     </a>
-
                     <div class="collapse show" id="navbar-examples">
                         <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
@@ -103,7 +100,6 @@
                         </ul>
                     </div>
                 </li>
-
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('pigeon.drivers') }}">
                         <i class="ni ni-delivery-fast text-red"></i> {{ __('Drivers') }}

@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Order extends Model
 {
     protected $fillable = [
-        'user_id', 'restaurant_id', 'total_items_qty', 'billing_subtotal', 'billing_delivery', 'billing_tax', 'driver_tip', 'billing_total', 'status', 'error'
+        'user_id', 'restaurant_id', 'total_items_qty', 'billing_subtotal', 'billing_delivery', 'billing_tax', 'driver_tip', 'billing_total', 'status', 'stripe_id', 'error'
     ];
 
     public function user()
@@ -23,5 +23,17 @@ class Order extends Model
     public function menu_items()
     {
         return $this->belongsToMany(Menu::class, 'order_menu')->withPivot('quantity');
+    }
+
+    public function getStatus(){
+        if($this->status === 'failed' || $this->status === 'cancelled'){
+            return 'badge-danger';
+        }
+        else if($this->status === 'refunded'){
+            return 'badge-warning';
+        }
+        else{
+            return 'badge-success';
+        }
     }
 }

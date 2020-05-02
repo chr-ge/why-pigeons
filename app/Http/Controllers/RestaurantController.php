@@ -43,6 +43,10 @@ class RestaurantController extends Controller
         return view('dashboard.restaurant.editmenuitem', compact('menu','categories'));
     }
 
+    public function orderDetails(Order $order){
+        return view('dashboard.restaurant.orderdetails', compact('order'));
+    }
+
     public function createMenuItem(){
         $data = request()->validate([
             'name' => 'required|string',

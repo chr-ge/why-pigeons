@@ -24,6 +24,7 @@ class CreateOrdersTable extends Migration
             $table->unsignedDecimal('driver_tip');
             $table->unsignedDecimal('billing_total');
             $table->string('status');
+            $table->string('stripe_id');
             $table->string('error')->nullable();
             $table->timestamps();
 

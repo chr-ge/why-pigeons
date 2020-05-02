@@ -86,7 +86,7 @@ class CheckoutController extends Controller
                 ],
             ]);
 
-            $order = $this->addToOrdersTables($restaurant->id, null);
+            $order = $this->addToOrdersTables($restaurant->id, $charge['id'], null);
 
             //SEND ORDER PLACED EMAIL TO USER
             Mail::send(new OrderPlaced($order));
@@ -96,12 +96,12 @@ class CheckoutController extends Controller
 
             return view('order-complete')->with('success', 'Order Completed Successfully');
         } catch (CardErrorException $e){
-            $this->addToOrdersTables($restaurant->id, $e->getMessage(), 'failed');
+            $this->addToOrdersTables($restaurant->id, $charge['id'], $e->getMessage(), 'failed');
             return redirect()->back()->withErrors('Error! ' . $e->getMessage());
         }
     }
 
-    protected function addToOrdersTables($rest_id, $error, $status = 'new')
+    protected function addToOrdersTables($rest_id, $charge_id, $error, $status = 'new')
     {
         $order = Order::create([
             'user_id' => auth()->user()->id,
@@ -113,6 +113,7 @@ class CheckoutController extends Controller
             'driver_tip' =>number_format(\Cart::getCondition('Tip')->getValue(), 2, '.', ','),
             'billing_total' => \Cart::getTotal(),
             'status' => $status,
+            'stripe_id' => $charge_id,
             'error' => $error,
         ]);
 
