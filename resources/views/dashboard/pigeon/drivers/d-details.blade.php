@@ -32,18 +32,18 @@
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col">
-                                        <h5 class="card-title text-uppercase text-muted mb-0 text-white">Driver</h5>
-                                        <span class="h2 font-weight-bold mb-0 text-white">N/A</span>
+                                        <h5 class="card-title text-uppercase text-muted mb-0 text-white">Account Created On</h5>
+                                        <span class="h2 font-weight-bold mb-0 text-white">{{ $driver->created_at }}</span>
                                     </div>
                                     <div class="col-auto">
                                         <div class="icon icon-shape bg-white text-dark rounded-circle shadow">
-                                            <i class="fas fa-star-half-alt"></i>
+                                            <i class="fas fa-user-clock"></i>
                                         </div>
                                     </div>
                                 </div>
                                 <p class="mt-3 mb-0 text-sm">
-                                    <span class="text-white mr-2"><i class="fa fa-arrow-up"></i> N/A %</span>
-                                    <span class="text-nowrap text-light">Since last month</span>
+                                    <span class="text-white mr-2">Last Updated:</span>
+                                    <span class="text-nowrap text-light">{{ $driver->updated_at }}</span>
                                 </p>
                             </div>
                         </div>
@@ -125,7 +125,7 @@
                                             </div>
                                         </div>
                                         <div class="modal-footer">
-                                            <form method="POST" action="{{ route('pigeon.delRestaurant', $driver->id) }}" enctype="multipart/form-data">
+                                            <form method="POST" action="{{ route('pigeon.delDriver', $driver->id) }}" enctype="multipart/form-data">
                                                 @csrf
                                                 @method('DELETE')
                                                 <input type="submit" value="{{__('Delete')}}" class="btn btn-white"/>

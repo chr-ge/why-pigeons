@@ -97,6 +97,11 @@ class PigeonController extends Controller
         return redirect()->route('pigeon.restaurants');
     }
 
+    public function delDriver(Driver $driver){
+        $driver->delete();
+        return redirect()->route('pigeon.drivers');
+    }
+
     public function setTempPassword(Restaurant $restaurant){
         $data = request()->validate([
             'temp_pass' => 'required|string'
