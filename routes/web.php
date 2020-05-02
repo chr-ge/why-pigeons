@@ -51,7 +51,10 @@ Route::group(['middleware' => 'auth'], function () {
 });
 
 Route::group(['middleware' => 'auth:driver'], function () {
-    Route::view('/driver', 'driver');
+    Route::get('/driver', 'DriverController@index')->name('driver.index');
+    Route::get('/driver/setup', 'DriverController@setup')->name('driver.setup');
+
+    Route::post('/driver/setup', 'DriverController@storeDriversLicense')->name('driver.storeDriversLicense');
 });
 
 Route::group(['middleware' => 'auth:restaurant'], function () {

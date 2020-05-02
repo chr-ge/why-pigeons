@@ -19,4 +19,8 @@ class Driver extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function drivers_license(){
+        return $this->hasOne(DriversLicense::class);
+    }
 }
