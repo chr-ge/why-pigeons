@@ -31,5 +31,11 @@ class AuthServiceProvider extends ServiceProvider
                ? Response::allow()
                : Response::deny('You must be a super admin.');
         });
+
+        Gate::define('license-is-created', function ($driver) {
+            return $driver->drivers_license
+                ? Response::allow()
+                : Response::deny('You must add your drivers license.');
+        });
     }
 }
