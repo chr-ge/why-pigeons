@@ -54,6 +54,6 @@ class HomeController extends Controller
            array_push($categories, Category::find($category->category_id));
         }
         $categories = array_unique($categories);
-        return view('r.show', compact('restaurant', 'categories', 'menus'));
+        return view('show', compact('restaurant', 'categories', 'menus'));
     }
 }
