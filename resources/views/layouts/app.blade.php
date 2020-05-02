@@ -114,7 +114,7 @@
         <main class="pb-4">
             @yield('content')
         </main>
-        @extends('layouts.footer')
+        @include('layouts.footer')
     </div>
 
     @yield('extra-js')

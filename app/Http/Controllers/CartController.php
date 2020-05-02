@@ -8,11 +8,6 @@ class CartController extends Controller
 {
     //https://github.com/darryldecode/laravelshoppingcart
 
-    public function index(){
-        $cart = \Cart::getContent();
-        return view('cart', compact('cart'));
-    }
-
     /**
      * Add menu item to cart.
      *
