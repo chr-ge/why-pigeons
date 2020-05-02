@@ -27,7 +27,7 @@ class Restaurant extends Authenticatable
 
     public function getStatus()
     {
-        return ($this->active === 1 ? 'Active' : 'Not Active');
+        return $this->active === 1 ? 'Active' : 'Not Active';
     }
 
     public function delete()

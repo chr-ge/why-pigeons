@@ -40,7 +40,6 @@ Route::get('/r/{restaurant}', 'HomeController@show')->name('home.show');
 
 Route::post('/cart/{menu}', 'CartController@store')->name('cart.store');
 Route::delete('/cart/{menu}', 'CartController@remove')->name('cart.remove');;
-Route::get('/cart/clear', 'CartController@clear');
 
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/{restaurant}/checkout', 'CheckoutController@index')->name('checkout');

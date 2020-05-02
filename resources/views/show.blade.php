@@ -24,7 +24,7 @@
                                     <div class="modal-body text-center">
                                         @if(\App\RestaurantHours::hoursExist($restaurant->id))
                                             <h3><i class="fa fa-clock"></i> {{ __('Today\'s Hours') }}</h3>
-                                            <p>{{ \App\RestaurantHours::displayHours($restaurant->id) }} </p>
+                                            <p>{{ \App\RestaurantHours::displayHours($restaurant->id) }}</p>
                                         @endif
                                         <h3><i class="fa fa-map-marker-alt"></i> Address</h3>
                                         <p class="mb-0">{{$restaurant->address->street_address}}, {{$restaurant->address->city}}</p>

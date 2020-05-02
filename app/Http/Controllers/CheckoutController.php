@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Order;
 use App\OrderMenu;
 use App\Restaurant;
+use App\RestaurantHours;
 use App\Mail\OrderPlaced;
 use Illuminate\Support\Facades\Mail;
 use Darryldecode\Cart\CartCondition;
@@ -14,7 +15,7 @@ use Cartalyst\Stripe\Exception\CardErrorException;
 class CheckoutController extends Controller
 {
     public function index(Restaurant $restaurant) {
-        if (\Cart::session($restaurant->id)->isEmpty()) {
+        if (\Cart::session($restaurant->id)->isEmpty() || !RestaurantHours::isOpen($restaurant->id)) {
             return redirect()->back();
         }
         $delivery_condition = new CartCondition(array(

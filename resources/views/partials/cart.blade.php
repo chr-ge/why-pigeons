@@ -16,7 +16,11 @@
     </ul>
     @if(!\Cart::isEmpty())
         <p class="pt-3"><b>Subtotal:</b><span class="float-right">${{ \Cart::getSubTotal() }}</span></p>
-        <a href="{{ route('checkout', $restaurant->id) }}" class="btn btn-info btn-block">Checkout</a>
+        @if(\App\RestaurantHours::isOpen($restaurant->id))
+            <a href="{{ route('checkout', $restaurant->id) }}" class="btn btn-info btn-block">Checkout</a>
+        @else
+            <button type="button" class="btn btn-secondary btn-block" disabled>Restaurant is Closed</button>
+        @endif
     @else
         <p>Start adding items from the menu to build your order.</p>
     @endif

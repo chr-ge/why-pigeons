@@ -48,9 +48,4 @@ class CartController extends Controller
         \Cart::session($menu->restaurant_id)->remove($menu->id);
         return redirect()->back();
     }
-
-    public function clear(){
-        \Cart::clear();
-        return redirect()->back();
-    }
 }

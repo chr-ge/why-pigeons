@@ -35,6 +35,15 @@ class RestaurantHours extends Model
         return RestaurantHours::where('restaurant_id', $id)->exists();
     }
 
+    public static function isOpen($id){
+        $query = RestaurantHours::where('restaurant_id', $id)->where('day', RestaurantHours::today())->first();
+
+        if(! isset($query->open_time) && !isset($query->close_time)){
+            return false;
+        }
+        return true;
+    }
+
     public static function setStatus($day)
     {
         if (isset(RestaurantHours::where('restaurant_id', auth()->user()->id)->where('day', $day)->first()->open_time) &&
@@ -67,13 +76,11 @@ class RestaurantHours extends Model
         $query = RestaurantHours::where('restaurant_id', $restaurant)->where('day',
             $day === null ? RestaurantHours::today() : $day )->first();
 
-        $open = $query->open_time;
-        $close = $query->close_time;
-
         if(! isset($query->open_time) && !isset($query->close_time)){
             return 'Closed';
         }
-        return Carbon::parse($open)->format('g:i A') . ' - ' .  Carbon::parse($close)->format('g:i A');
+        return Carbon::parse($query->open_time)->format('g:i A').' - '.
+               Carbon::parse($query->close_time)->format('g:i A');
     }
 
     public static function displayHoursLeft($restaurant){
