@@ -22,7 +22,14 @@ class Order extends Model
 
     public function menu_items()
     {
-        return $this->belongsToMany(Menu::class, 'order_menu')->withPivot('quantity');
+        return $this->belongsToMany(Menu::class, 'order_menu')->withPivot('quantity', 'special');
+    }
+
+    public function isBlocked(){
+        if($this->status === 'failed' || $this->status === 'cancelled' || $this->status === 'refunded'){
+            return true;
+        }
+        return false;
     }
 
     public function getStatus(){

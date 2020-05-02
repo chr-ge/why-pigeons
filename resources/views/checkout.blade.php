@@ -63,7 +63,7 @@
                 @endif
                 <div class="address payment mt-3">
                 <h5 class="d-inline-block mb-0">{{ \Session::get('address.place_name', '') }}</h5>
-                <a class="change-address" data-toggle="modal" data-target="#changeAddressModal">{{ \Session::has('address') ? 'Change' : 'Choose Delivery Address'}}</a>
+                <a class="change-address @if(!\Session::has('address')) pl-0 @endif" data-toggle="modal" data-target="#changeAddressModal">{{ \Session::has('address') ? 'Change' : 'Choose Delivery Address'}}</a>
                 </div>
                 <div class="modal fade" id="changeAddressModal" tabindex="-1" role="dialog" aria-labelledby="changeAddressModalTitle" aria-hidden="true">
                     <div class="modal-dialog" style="top:200px" role="document">
@@ -164,7 +164,6 @@
             <button class="btn btn-primary btn-block" form="payment-form">{{ __('Place Order') }}</button>
         </div>
     </div>
-
 </div>
 @endsection
 
@@ -176,13 +175,11 @@
              * Tip Buttons functionality
              * @type {HTMLElement}
              */
-
             var otherTipBtn         = document.getElementById('otherTipBtn');
             var twoDollarTipBtn     = document.getElementById('twoDollarTip');
             var threeDollarTipBtn   = document.getElementById('threeDollarTip');
             var fourDollarTipBtn    = document.getElementById('fourDollarTip');
             var otherTipInput       = document.getElementById('otherTipInput');
-
             var tipBtnArr           = [twoDollarTipBtn,threeDollarTipBtn,fourDollarTipBtn,otherTipBtn];
 
             switch({{ \Cart::getCondition('Tip')->getValue() }}){
@@ -199,7 +196,6 @@
                     otherTipBtn.classList.add("tipActive");
                     break;
             }
-
             for(var i = 0; i < tipBtnArr.length;i++){
                 tipBtnArr[i].addEventListener("click",function(){
                     tipBtnArr.forEach(btn => btn.classList.remove("tipActive"));

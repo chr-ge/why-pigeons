@@ -205,12 +205,12 @@
                                             <div class="modal-footer mx-auto">
                                                 <form method="POST" action="{{ route('pigeon.refundOrder', $order->id) }}" enctype="multipart/form-data">
                                                     @csrf
-                                                    <button type="submit" class="btn btn-warning" @if($order->status === 'refunded' || $order->status === 'cancelled') disabled @endif>{{__('Refund')}}</button>
+                                                    <button type="submit" class="btn btn-warning" @if($order->$order->isBlocked()) disabled @endif>{{__('Refund')}}</button>
                                                 </form>
                                                 <form method="POST" action="{{ route('pigeon.cancelOrder', $order->id) }}" enctype="multipart/form-data">
                                                     @csrf
                                                     @method('PATCH')
-                                                    <button type="submit" class="btn btn-danger" @if($order->status === 'refunded' || $order->status === 'cancelled') disabled @endif>{{__('Cancel Order')}}</button>
+                                                    <button type="submit" class="btn btn-danger" @if($order->$order->isBlocked()) disabled @endif>{{__('Cancel Order')}}</button>
                                                 </form>
                                             </div>
                                         </div>

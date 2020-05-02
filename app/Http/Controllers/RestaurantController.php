@@ -201,4 +201,18 @@ class RestaurantController extends Controller
 
         return redirect()->back();
     }
+
+    public function completeOrder(Order $order){
+        $order->update([
+            'status' => 'ready_for_pickup'
+        ]);
+        return redirect()->back();
+    }
+
+    public function cancelOrder(Order $order){
+        $order->update([
+            'status' => 'cancelled'
+        ]);
+        return redirect()->back();
+    }
 }

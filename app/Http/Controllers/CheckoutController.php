@@ -121,7 +121,8 @@ class CheckoutController extends Controller
             OrderMenu::create([
                 'order_id' => $order->id,
                 'menu_id' => $item->id,
-                'quantity' => $item->quantity
+                'quantity' => $item->quantity,
+                'special' => $item->attributes['instructions']
             ]);
         }
 

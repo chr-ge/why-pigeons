@@ -70,6 +70,8 @@ Route::group(['middleware' => 'auth:restaurant'], function () {
     Route::post('/set-hours', 'RestaurantController@setOperatingHours')->name('setOperatingHours');
     Route::patch('/update-hours', 'RestaurantController@updateOperatingHours')->name('updateOperatingHours');
     Route::post('/add-category', 'RestaurantController@addCategory')->name('addCategory');
+    Route::post('/orders/{order}', 'RestaurantController@completeOrder')->name('restaurant.completeOrder');
+    Route::patch('/orders/{order}', 'RestaurantController@cancelOrder')->name('restaurant.cancelOrder');
 });
 
 Route::group(['middleware' => 'auth:pigeon'], function () {

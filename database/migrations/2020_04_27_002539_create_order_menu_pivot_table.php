@@ -18,6 +18,7 @@ class CreateOrderMenuPivotTable extends Migration
             $table->unsignedBigInteger('order_id')->nullable();
             $table->unsignedBigInteger('menu_id')->nullable();
             $table->unsignedInteger('quantity');
+            $table->string('special')->nullable();;
             $table->timestamps();
 
             $table->foreign('order_id')->references('id')

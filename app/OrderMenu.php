@@ -8,5 +8,5 @@ class OrderMenu extends Model
 {
     protected $table = 'order_menu';
 
-    protected $fillable = ['order_id', 'menu_id', 'quantity'];
+    protected $fillable = ['order_id', 'menu_id', 'quantity', 'special'];
 }

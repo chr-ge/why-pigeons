@@ -25,17 +25,17 @@
         <div class="col-6 col-md">
             <h5>Locations</h5>
             <ul class="list-unstyled text-small">
-                <li><a class="text-muted" href="#">Montreal</a></li>
+                <li><a class="text-muted" href="{{ route('home.index') }}">Montreal</a></li>
                 <li><a class="text-muted" href="#">Laval</a></li>
                 <li><a class="text-muted" href="#">Toronto</a></li>
                 <li><a class="text-muted" href="#">Ottawa</a></li>
             </ul>
         </div>
         <div class="col-6 col-md">
-            <h5>About</h5>
+            <h5>About Us</h5>
             <ul class="list-unstyled text-small">
-                <li><a class="text-muted" href="#">Team</a></li>
-                <li><a class="text-muted" href="#">Locations</a></li>
+                <li><a class="text-muted" href="#">The Team</a></li>
+                <li><a class="text-muted" href="#">Jobs</a></li>
                 <li><a class="text-muted" href="#">Privacy</a></li>
                 <li><a class="text-muted" href="#">Terms</a></li>
             </ul>
