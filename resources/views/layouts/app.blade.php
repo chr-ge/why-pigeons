@@ -42,36 +42,25 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-{{--                        <li>--}}
-{{--                            @if(Session::has('address'))--}}
-{{--                                ASAP • {{ strtok(Session::get('address.place_name'), ',') }}--}}
-{{--                            @endif--}}
-{{--                        </li>--}}
-                        @if(Session::has('address'))
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    ASAP • {{ strtok(Session::get('address.place_name'), ',')}} <span class="caret"></span>
-                                </a>
-
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="#">
-                                        {{ __('Change') }}
-                                    </a>
-                                </div>
-                            </li>
-                        @endif
+                        <li>
+                            @if(Session::has('address'))
+                                ASAP • {{ strtok(Session::get('address.place_name'), ',') }}
+                            @endif
+                        </li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="#" title="Order Basket">
-                                <i class="fas fa-shopping-basket"></i>
-                                @if(!\Cart::isEmpty())
-                                    <span class="badge badge-info">{{ \Cart::getTotalQuantity() }}</span>
-                                @endif
-                            </a>
-                        </li>
+                        @if(Request::is('r/*'))
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('checkout', $restaurant->id) }}" title="Order Basket">
+                                    <i class="fas fa-shopping-basket"></i>
+                                    @if(!\Cart::isEmpty())
+                                        <span class="badge badge-info">{{ \Cart::getTotalQuantity() }}</span>
+                                    @endif
+                                </a>
+                            </li>
+                        @endif
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">

@@ -31,6 +31,19 @@
                 </form>
             @endif
         </div>
+        <div class="col-md-3 pr-0">
+            <div class="btn-group float-right">
+                <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fas fa-sort-amount-up"></i> Sort
+                </button>
+                <div class="dropdown-menu dropdown-menu-right">
+                    <h6 class="dropdown-header">Sort By</h6>
+                    <button class="dropdown-item" type="button">Price</button>
+                    <button class="dropdown-item" type="button">Type</button>
+                    <button class="dropdown-item" type="button">Delivery Fee</button>
+                </div>
+            </div>
+        </div>
     </div>
     <div class="row">
         @foreach($restaurants as $restaurant)

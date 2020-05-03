@@ -15,7 +15,6 @@
 
 @section('content')
 <div class="container pt-4">
-
     <div class="row mb-4">
         <h1>Complete Your Order</h1>
     </div>
@@ -30,7 +29,6 @@
                     </ul>
                 </div>
             @endif
-
             <div>
                 @foreach(\Cart::session($restaurant->id)->getContent() as $item)
                     <div class="row cart-table-row">
@@ -62,8 +60,8 @@
                     <div id="mapbox" data-lng="{{ \Session::get('address.coordinates.0', '-73.65') }}" data-lat="{{ \Session::get('address.coordinates.1', '45.5087') }}" class="checkout-map" ></div>
                 @endif
                 <div class="address payment mt-3">
-                <h5 class="d-inline-block mb-0">{{ \Session::get('address.place_name', '') }}</h5>
-                <a class="change-address @if(!\Session::has('address')) pl-0 @endif" data-toggle="modal" data-target="#changeAddressModal">{{ \Session::has('address') ? 'Change' : 'Choose Delivery Address'}}</a>
+                    <h5 class="d-inline-block mb-0">{{ substr(\Session::get('address.place_name', ''),0,strrpos(\Session::get('address.place_name', ''),',')) }}</h5>
+                    <a class="change-address @if(!\Session::has('address')) pl-0 @endif" data-toggle="modal" data-target="#changeAddressModal">{{ \Session::has('address') ? 'Change' : 'Choose Delivery Address'}}</a>
                 </div>
                 <div class="modal fade" id="changeAddressModal" tabindex="-1" role="dialog" aria-labelledby="changeAddressModalTitle" aria-hidden="true">
                     <div class="modal-dialog" style="top:200px" role="document">
