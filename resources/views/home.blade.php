@@ -38,9 +38,9 @@
                 </button>
                 <div class="dropdown-menu dropdown-menu-right">
                     <h6 class="dropdown-header">Sort By</h6>
-                    <button class="dropdown-item" type="button">Price</button>
-                    <button class="dropdown-item" type="button">Type</button>
-                    <button class="dropdown-item" type="button">Delivery Fee</button>
+                    <a class="dropdown-item" href="#"><i class="fas fa-car" style="width:14px"></i> Delivery Fee</a>
+                    <a class="dropdown-item" href="#"><i class="fas fa-award" style="width:14px"></i> Reviews</a>
+                    <a class="dropdown-item" href="#"><i class="fas fa-dollar-sign" style="width:14px"></i> Price</a>
                 </div>
             </div>
         </div>
