@@ -40,11 +40,9 @@ if (!mapboxgl.supported()) {
         makePostRequest(coords).then(() => window.location.reload())
     });
     async function makePostRequest(req) {
-        var token = document
-            .head
-            .querySelector('meta[name="csrf-token"]');
+        var token = document.head.querySelector('meta[name="csrf-token"]');
         window.axios.defaults.headers.common['X-CSRF-TOKEN'] = token.content;
-        await axios.post('http://localhost/public/home', req)
+        await axios.post('http://localhost/public/home', req);
     }
     geocoder.addTo('#geocoder')
 }

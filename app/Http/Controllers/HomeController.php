@@ -28,7 +28,7 @@ class HomeController extends Controller
 
     public function address(){
         \Session::put('address', request()->all());
-        return http_response_code(201);
+        return response()->noContent();
     }
 
     public function storeAddress() {
