@@ -81,7 +81,7 @@
             </div>
 
             <div class="row mt-5">
-                <form action="{{ route('checkout.store', $restaurant->id) }}" method="POST" id="payment-form" class="payment">
+                <form action="{{ route('checkout.store', $restaurant->slug) }}" method="POST" id="payment-form" class="payment">
                     @csrf
                     <div class="form-group">
                         <label for="card-element">Payment</label>
@@ -97,7 +97,7 @@
         </div>
         <div class="col-md-4 checkout-right">
             <div class="r-header">
-                <a href="{{ route('home.show', $restaurant->id) }}">
+                <a href="{{ route('home.show', $restaurant->slug) }}">
                     <img class="r-header__image" src="{{ url('storage/'.$restaurant->image) }}" alt="">
                 </a>
                 <div class="r-header__name">
@@ -126,7 +126,7 @@
                     </div>
                     <div class="row no-gutters mt-2" style="width: 100%;">
                         <div style="width:100%;display:flex;justify-content:center;">
-                            <form method="post" action="{{ route('checkout.tip', $restaurant->id) }}" style="display:inline-flex;justify-content:center;">
+                            <form method="post" action="{{ route('checkout.tip', $restaurant->slug) }}" style="display:inline-flex;justify-content:center;">
                                 @csrf
                                 <button name="tip" value="2.00" id="twoDollarTip" onclick="this.blur();" style="align-content: center;border-bottom-left-radius: 25px; border-top-left-radius: 25px; border-bottom-right-radius: 0px; border-top-right-radius: 0px;" class="btn tip-btn">$2.00</button>
                                 <button name="tip" value="3.00" id="threeDollarTip" onclick="this.blur();" style="float:right;border-radius:0px;"class="btn tip-btn">$3.00</button>
@@ -136,7 +136,7 @@
                         </div>
                     </div>
                     <div  id="otherTipInput" class="row no-gutters mt-2" style="display:none;justify-content: center;">
-                        <form method="post" action="{{ route('checkout.tip', $restaurant->id) }}" style="display:inline-flex;justify-content:center;">
+                        <form method="post" action="{{ route('checkout.tip', $restaurant->slug) }}" style="display:inline-flex;justify-content:center;">
                             @csrf
                             <div class="input-group mb-3" style="width: 260px;">
                                 <div class="input-group-prepend">
@@ -144,7 +144,7 @@
                                 </div>
                                 <input step=".01" name="tip" value="0.00" type="number" min="0" max="500" class="form-control">
                                 <div class="input-group-append">
-                                    <button  class="btn btn-secondary" onclick="this.blur();" type="submit">Button</button>
+                                    <button class="btn btn-secondary tip-submit" onclick="this.blur();" type="submit">submit</button>
                                 </div>
                             </div>
                         </form>

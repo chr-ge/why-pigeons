@@ -47,7 +47,7 @@
                                 </div>
                                 <div class="col-md-2">
                                     <div class="list-group text-center">
-                                        <a href="{{ route('home.show', $item->restaurant_id) }}" class="list-group-item list-group-item-action">Order Again</a>
+                                        <a href="{{ route('home.show', $item->restaurant->slug) }}" class="list-group-item list-group-item-action">Order Again</a>
                                         <a href="#" class="list-group-item list-group-item-action">Leave a Review</a>
                                         <a href="#" class="list-group-item list-group-item-action">Request Refund</a>
                                     </div>
