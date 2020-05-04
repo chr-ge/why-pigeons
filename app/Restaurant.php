@@ -13,7 +13,7 @@ class Restaurant extends Authenticatable
     protected $guard = 'restaurant';
 
     protected  $fillable = [
-        'name', 'email', 'phone', 'password', 'category_id', 'image', 'active',
+        'name', 'slug', 'email', 'phone', 'password', 'category_id', 'image', 'active',
     ];
 
     /**
@@ -24,6 +24,10 @@ class Restaurant extends Authenticatable
     protected $hidden = [
         'password', 'remember_token'
     ];
+
+    public function getRouteKeyName() {
+        return 'slug';
+    }
 
     public function getStatus()
     {

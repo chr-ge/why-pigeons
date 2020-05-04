@@ -152,6 +152,7 @@ class RegisterController extends Controller
 
         $newRestaurant = Restaurant::create([
             'name' => $data['name'],
+            'slug' => \Str::slug($data['name']),
             'email' => $data['email'],
             'phone' => $data['phone'],
             'category_id' => $data['category_id']
