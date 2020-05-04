@@ -11224,8 +11224,7 @@ h3 > i {
   width: 65px;
 }
 
-.tipActive,
-.tip-submit {
+.tipActive {
   background-color: #3C444C !important;
 }
 
