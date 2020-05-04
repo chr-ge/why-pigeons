@@ -180,7 +180,7 @@ class RestaurantTableSeeder extends Seeder
             'phone' => '5145482061',
             'password' => '$2y$10$wTia67HZWjK4tqOQf4n4u.NVgK3GVJd3h3MbI2itz.56w.stGtmkK',
             'category_id' => 26,
-            'image' => 'uploads/',
+            'image' => 'uploads/02__104-2019-02-21.jpg',
             'active' => 1
         ]);
         Restaurant::create([
@@ -189,7 +189,7 @@ class RestaurantTableSeeder extends Seeder
             'phone' => '5143631305',
             'password' => '$2y$10$vx3cXeKYk8WR/N8Rz.Zql.6rskrNiG8tvGwAxh0HTUV4rr2jNqBMe',
             'category_id' => 20,
-            'image' => 'uploads/',
+            'image' => 'uploads/la-belle-province-l-avenir-other-1.jpg',
             'active' => 1
         ]);
         Restaurant::create([
@@ -198,7 +198,7 @@ class RestaurantTableSeeder extends Seeder
             'phone' => '4506560005',
             'password' => '$2y$10$MDm1aix50tZXOt9NjyYQbOLA23IcA0VynPYhC.Mvf/qKX.vlXqF.y',
             'category_id' => 20,
-            'image' => 'uploads/',
+            'image' => 'uploads/Lafleur-Poutine-Saucisse.edbc14ff4ab1.jpg',
             'active' => 1
         ]);
         Restaurant::create([
@@ -207,7 +207,7 @@ class RestaurantTableSeeder extends Seeder
             'phone' => '5147391888',
             'password' => '$2y$10$XBNHaNyJXdoxqPQxPA7PrOXU7nIuadwGwIteIba/Tu2Enaa1g6qW.',
             'category_id' => 15,
-            'image' => 'uploads/',
+            'image' => 'uploads/party-tray.jpg',
             'active' => 1
         ]);
         Restaurant::create([
@@ -216,7 +216,7 @@ class RestaurantTableSeeder extends Seeder
             'phone' => '5147316455',
             'password' => '$2y$10$nMRchj76wU79ZpG.1OBOpeSOAGCHReiijErAkudk32xlrloJZ1jHq',
             'category_id' => 8,
-            'image' => 'uploads/',
+            'image' => 'uploads/marathon-souvlaki.jpg',
             'active' => 1
         ]);
         Restaurant::create([
@@ -225,7 +225,7 @@ class RestaurantTableSeeder extends Seeder
             'phone' => '5147271889',
             'password' => '$2y$10$vNTPb04YyBBW7fJlDUIqkuSJSSLHjkoUwqxaiV2Za/pXaNKG22Cke',
             'category_id' => 25,
-            'image' => 'uploads/',
+            'image' => 'uploads/ofuzion1.jpg',
             'active' => 1
         ]);
         Restaurant::create([
@@ -234,7 +234,7 @@ class RestaurantTableSeeder extends Seeder
             'phone' => '5145236464',
             'password' => '$2y$10$MUskiQsjfCxpO44hg0fndOD.qMhZSZyPNHkkmYcgYALkQpGhn5Xyi',
             'category_id' => 27,
-            'image' => 'uploads/',
+            'image' => 'uploads/533_f732e4339a8b641df50e707c170ea8e9.jpg',
             'active' => 1
         ]);
         Restaurant::create([
@@ -243,7 +243,7 @@ class RestaurantTableSeeder extends Seeder
             'phone' => '5149058211',
             'password' => '$2y$10$VSxnTCvMRlp.m5N11V3La.d0OXQlWVbrOqOow38VoIbuz4rd//M6y',
             'category_id' => 7,
-            'image' => 'uploads/',
+            'image' => 'uploads/pizzeria-heirloom-27.jpg',
             'active' => 1
         ]);
         Restaurant::create([
@@ -252,7 +252,7 @@ class RestaurantTableSeeder extends Seeder
             'phone' => '5145252415',
             'password' => '$2y$10$oIy1UW009c6wvUhQNxDvb.7n/xW.QhnNakLXc.MBJ7jTW3ElPZRGq',
             'category_id' => 11,
-            'image' => 'uploads/',
+            'image' => 'uploads/la banquise-1017.jpg',
             'active' => 1
         ]);
         Restaurant::create([
@@ -261,7 +261,7 @@ class RestaurantTableSeeder extends Seeder
             'phone' => '5145431267',
             'password' => '2y$10$ud8Kak2mXZrSkPRP1VfOwO6la/vx4QzOkaS9l42mRE3QrSNXjTGx2',
             'category_id' => 13,
-            'image' => 'uploads/',
+            'image' => 'uploads/smoothies.jpg',
             'active' => 1
         ]);
         Restaurant::create([
@@ -270,7 +270,7 @@ class RestaurantTableSeeder extends Seeder
             'phone' => '5143796670',
             'password' => '$2y$10$naMfXrmHhq5RKOVYpcyfOuEDrO9o5YiRQ3Lpr7bNJpAApJ1IhlsTa',
             'category_id' => 28,
-            'image' => 'uploads/',
+            'image' => 'uploads/01__299-2019-11-06.jpg',
             'active' => 1
         ]);
         Restaurant::create([
