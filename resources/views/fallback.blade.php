@@ -1,7 +1,5 @@
 @extends('layouts.app')
 
-@section('title', 'Thanks for your order!')
-
 @section('content')
     <div class="container" style="height: 65vh">
         <div class="row justify-content-center">

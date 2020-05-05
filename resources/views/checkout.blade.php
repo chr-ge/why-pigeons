@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', config('app.name').' | Checkout')
+@section('title', $restaurant->name.' | Checkout')
 
 @section('extra-css')
     <script src="https://js.stripe.com/v3/"></script>

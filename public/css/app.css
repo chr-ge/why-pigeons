@@ -11083,6 +11083,12 @@ body {
   padding: 1rem 1.5rem;
 }
 
+#navigation a {
+  cursor: pointer;
+  width: 100%;
+  display: block;
+}
+
 #navigation .active {
   color: #BFBDDB;
   font-weight: bold;
