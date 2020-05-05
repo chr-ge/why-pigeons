@@ -85,11 +85,11 @@
                                     <tr>
                                         <th scope="row">
                                             <div class="media align-items-center">
-                                                <a href="#" class="avatar rounded-circle mr-3">
+                                                <span class="avatar rounded-circle mr-3">
                                                     @if($menu_item->image)
                                                         <img alt="Image" src="{{ url('storage/'.$menu_item->image) }}">
                                                     @endif
-                                                </a>
+                                                </span>
                                                 <div class="media-body">
                                                     <span class="name mb-0 text-sm">{{$menu_item->name}}</span>
                                                 </div>
