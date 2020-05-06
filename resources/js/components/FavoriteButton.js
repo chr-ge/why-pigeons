@@ -12,10 +12,10 @@ export const FavoriteButton = ({ restaurant, fav }) => {
             firstUpdate.current = false;
             return;
         }
-        axios.post(`http://localhost/why-pigeons/public/r/${restaurant}/favorite`)
+        axios.post(`http://localhost/public/r/${restaurant}/favorite`)
             .catch(errors => {
                 if (errors.response.status === 401) {
-                    window.location = 'http://localhost/why-pigeons/public/login';
+                    window.location = 'http://localhost/public/login';
                 }
             });
     }, [favorite]);

@@ -392,9 +392,9 @@ class MenuTableSeeder extends Seeder
         Menu::create(['restaurant_id' => '35','name' => 'The Gino','description' => 'Salami, pepperoni, cheese, and choice of toppings.','image' => 'uploads/menu/35/a78e9103-6bcb-453d-9f0a-56471f03bf14.jpeg','category_id' => 19,'price' => 6.69]);
         Menu::create(['restaurant_id' => '35','name' => 'The Cheese','description' => 'Cheese and choice of toppings.','image' => 'uploads/menu/35/IMG_9829.jpg','category_id' => 19,'price' => 5.89]);
         Menu::create(['restaurant_id' => '35','name' => 'The Ham','description' => 'Ham, cheese, and choice of toppings.','image' => 'uploads/menu/35/072718-600x600-A.jpg','category_id' => 19,'price' => 5.89]);
-        Menu::create(['restaurant_id' => '35','name' => '','description' => '','image' => 'uploads/menu/35/','category_id' => 19,'price' => 4.25]);
-        Menu::create(['restaurant_id' => '35','name' => '','description' => '','image' => 'uploads/menu/35/','category_id' => 19,'price' => 4.25]);
-        Menu::create(['restaurant_id' => '35','name' => '','description' => '','image' => 'uploads/menu/35/','category_id' => 19,'price' => 4.25]);
+        Menu::create(['restaurant_id' => '35','name' => 'The Tuna','description' => 'Tuna, cheese, and choice of toppings.','image' => 'uploads/menu/35/098720-600x600-A.jpg','category_id' => 19,'price' => 7.09]);
+        Menu::create(['restaurant_id' => '35','name' => 'Turkey Salad','description' => 'Romaine lettuce, turkey, cheese, and choice of dressing.','image' => 'uploads/menu/35/1383084366559.jpeg','category_id' => 10,'price' => 7.59]);
+        Menu::create(['restaurant_id' => '35','name' => 'Garden Salad','description' => 'Romaine lettuce, cheese, and choice of dressing.','image' => 'uploads/menu/35/33517158-4a6f-4098-b4cd-df2d422246bc.jpg','category_id' => 10,'price' => 7.09]);
         Menu::create(['restaurant_id' => '35','name' => '','description' => '','image' => 'uploads/menu/35/','category_id' => 19,'price' => 4.25]);
 
         Menu::create(['restaurant_id' => '36','name' => '','description' => '','image' => 'uploads/menu/36/','category_id' => 24,'price' => 4.25]);
