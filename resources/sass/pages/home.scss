@@ -71,3 +71,27 @@
 .card-header-bg {
    background:linear-gradient(87deg,#bc65e0 0,#8965e0 100%)!important
 }
+.card_slide {
+    display: flex !important;
+    width: 250px;
+    height: 100px;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: #dddddd;
+    cursor: pointer;
+    border-radius: 15px;
+    &__image img {
+        width: 100px;
+        border-radius: 15px;
+        height: 100%;
+    }
+    &__text p {
+        margin-bottom: 0;
+        font-size: 1.5rem;
+        padding-left: 1rem;
+    }
+}
+.none, .none:hover {
+    color: inherit;
+    text-decoration: none;
+}
