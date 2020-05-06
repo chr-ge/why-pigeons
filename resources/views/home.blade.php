@@ -37,7 +37,7 @@
             @endif
         </div>
         <div class="col-md-3 pr-0">
-            <div class="btn-group float-right">
+            <div class="btn-group float-right" style="padding-right: 15px;">
                 <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <i class="fas fa-sort-amount-up"></i> Sort
                 </button>

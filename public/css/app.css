@@ -11235,6 +11235,14 @@ h3 > i {
   font-weight: bold;
 }
 
+.bg-card-pink {
+  background: linear-gradient(87deg, #f3a4b5 0, #f3b4a4 100%) !important;
+}
+
+.bg-card-yellow {
+  background: linear-gradient(87deg, #ffd600 0, #beff00 100%) !important;
+}
+
 .cart-table-row {
   display: flex;
   justify-content: space-between;

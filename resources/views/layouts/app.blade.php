@@ -54,7 +54,7 @@
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
-                        @if(Request::is('r/*'))
+                        @if(Request::is('r/*') && !Request::is('r/*/checkout'))
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('checkout', $restaurant->slug) }}" title="Order Basket">
                                     <i class="fas fa-shopping-basket"></i>

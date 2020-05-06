@@ -4,16 +4,26 @@ namespace App\Http\Controllers;
 
 use App\DriversLicense;
 use App\Http\Requests\DriversLicenseRequest;
+use App\Order;
 
 class DriverController extends Controller
 {
     public function index()
     {
-        return view('driver.driver');
+        $orders = Order::where('status', 'ready_for_pickup')->get();
+        return view('driver.driver', compact('orders'));
+    }
+
+    public function order(Order $order)
+    {
+        return view('driver.order', compact('order'));
     }
 
     public function setup()
     {
+        if(\Gate::allows('license-is-created', auth()->user()->id)){
+            return redirect()->back();
+        }
         return view('driver.setup');
     }
 
