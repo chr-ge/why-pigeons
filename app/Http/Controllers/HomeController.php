@@ -60,12 +60,7 @@ class HomeController extends Controller
     }
 
     public function favorite(Restaurant $restaurant){
-        if(!auth()->user()->favorites->contains($restaurant->id)){
-            auth()->user()->favorites()->attach($restaurant->id);
-        }
-        else{
-            auth()->user()->favorites()->detach($restaurant->id);
-        }
+        auth()->user()->favorites()->toggle($restaurant->id);
         return response()->noContent();
     }
 }

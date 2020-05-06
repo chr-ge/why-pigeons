@@ -52,9 +52,9 @@
     </div>
     @if(auth()->user() && auth()->user()->favorites->first())
         <div class="row mt-4">
-            <h2 class="col-md-12">Bookmarked Restaurants</h2>
+            <h3 class="col-md-12">Bookmarked Restaurants</h3>
             <div class="col-md-12">
-                <div class="my-slider" style="margin-bottom: 2rem">
+                <div class="my-slider mb-5">
                     @foreach(auth()->user()->favorites as $fav)
                         <div>
                             <div class="card_slide">
@@ -101,7 +101,7 @@
                 mouseDrag: true,
                 nav: false,
                 autoWidth: true,
-                gutter: 10,
+                gutter: 24,
                 controls: false,
                 viewportMax: 1140,
                 swipeAngle: false,

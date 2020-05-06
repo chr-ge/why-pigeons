@@ -11048,7 +11048,7 @@ body {
 
 .card_slide {
   display: flex !important;
-  width: 250px;
+  width: 261px;
   height: 100px;
   justify-content: flex-start;
   align-items: center;
@@ -11069,9 +11069,35 @@ body {
   padding-left: 1rem;
 }
 
+@media (min-width: 960px) {
+  .card_slide {
+    width: 240px;
+  }
+}
+
+@media (min-width: 1208px) {
+  .card_slide {
+    width: 260px;
+  }
+}
+
 .none,
 .none:hover {
   color: inherit;
+  text-decoration: none;
+}
+
+img,
+a {
+  user-drag: none;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+
+.back:hover {
   text-decoration: none;
 }
 
