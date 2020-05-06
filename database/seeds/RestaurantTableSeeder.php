@@ -359,7 +359,7 @@ class RestaurantTableSeeder extends Seeder
             'phone' => '5146391212',
             'password' => '$2y$10$WONeAWmFT.alQIZOJ.zBd.diyof33x9JeZJvn8J7X5jQOMExNHVDO',
             'category_id' => 19,
-            'image' => 'uploads/',
+            'image' => 'uploads/dbff86fc-8186-4372-8ebe-c50356234086.jpeg',
             'active' => 1
         ]);
         Restaurant::create([

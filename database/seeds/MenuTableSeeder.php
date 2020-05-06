@@ -387,6 +387,15 @@ class MenuTableSeeder extends Seeder
         Menu::create(['restaurant_id' => '34','name' => 'Viet Special Fried Rice','description' => 'Traditional Vietnamese style fried rice with peas, corn, carrots, eggs and chicken.','image' => 'uploads/menu/34/8cf43e4e-ad6b-4476-a325-0a93b7cc0ffa.jpeg','category_id' => 31,'price' => 10.95]);
 
         Menu::create(['restaurant_id' => '35','name' => '','description' => '','image' => 'uploads/menu/35/','category_id' => 19,'price' => 4.25]);
+        Menu::create(['restaurant_id' => '35','name' => '','description' => '','image' => 'uploads/menu/35/','category_id' => 19,'price' => 4.25]);
+        Menu::create(['restaurant_id' => '35','name' => '','description' => '','image' => 'uploads/menu/35/','category_id' => 19,'price' => 4.25]);
+        Menu::create(['restaurant_id' => '35','name' => '','description' => '','image' => 'uploads/menu/35/','category_id' => 19,'price' => 4.25]);
+        Menu::create(['restaurant_id' => '35','name' => '','description' => '','image' => 'uploads/menu/35/','category_id' => 19,'price' => 4.25]);
+        Menu::create(['restaurant_id' => '35','name' => '','description' => '','image' => 'uploads/menu/35/','category_id' => 19,'price' => 4.25]);
+        Menu::create(['restaurant_id' => '35','name' => '','description' => '','image' => 'uploads/menu/35/','category_id' => 19,'price' => 4.25]);
+        Menu::create(['restaurant_id' => '35','name' => '','description' => '','image' => 'uploads/menu/35/','category_id' => 19,'price' => 4.25]);
+        Menu::create(['restaurant_id' => '35','name' => '','description' => '','image' => 'uploads/menu/35/','category_id' => 19,'price' => 4.25]);
+        Menu::create(['restaurant_id' => '35','name' => '','description' => '','image' => 'uploads/menu/35/','category_id' => 19,'price' => 4.25]);
 
         Menu::create(['restaurant_id' => '36','name' => '','description' => '','image' => 'uploads/menu/36/','category_id' => 24,'price' => 4.25]);
 
