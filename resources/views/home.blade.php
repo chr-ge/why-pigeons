@@ -48,7 +48,7 @@
     <div class="row">
         @foreach($restaurants as $restaurant)
             <div class="module col-md-3 p-0">
-                <a href="{{ route('home.show', $restaurant->id) }}">
+                <a href="{{ route('home.show', $restaurant->slug) }}">
                     <img src="{{ url('storage/'.$restaurant->image) }}" class="w-100">
                     <div class="content">
                         <h1>{{ $restaurant->name }}</h1>

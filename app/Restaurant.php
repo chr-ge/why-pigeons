@@ -13,7 +13,7 @@ class Restaurant extends Authenticatable
     protected $guard = 'restaurant';
 
     protected  $fillable = [
-        'name', 'email', 'phone', 'password', 'category_id', 'image', 'active',
+        'name', 'slug', 'email', 'phone', 'password', 'category_id', 'image', 'active',
     ];
 
     /**
@@ -24,6 +24,11 @@ class Restaurant extends Authenticatable
     protected $hidden = [
         'password', 'remember_token'
     ];
+
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
 
     public function getStatus()
     {
@@ -53,12 +58,18 @@ class Restaurant extends Authenticatable
         return $this->hasOne(Address::class, 'account_id');
     }
 
-    public function categories(){
+    public function categories()
+    {
         return $this->belongsToMany(Category::class)->orderBy('name');
     }
 
     public function hours()
     {
         return $this->hasMany(RestaurantHours::class);
+    }
+
+    public function favorites()
+    {
+        return $this->belongsToMany(User::class);
     }
 }

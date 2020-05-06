@@ -10,7 +10,8 @@
                 <div class="row information">
                     <h1 class="m-0 my-auto">{{ $restaurant->name }}</h1>
                     <p class="lead ml-5 mb-0 my-auto"><span class="badge badge-danger" style="background-color:#BFBDDB;">4.5</span></p>
-                    <div class="info-icon ml-auto">
+                    <div id="favorite-button" class="ml-auto my-auto" data-restaurant="{{ $restaurant->slug }}" data-fav="{{ $favorite ? 'true' : 'false'}}"></div>
+                    <div class="info-icon">
                         <a class="nav-link pr-0" title="More info" data-toggle="modal" aria-labelledby="modal-default" data-target="#modal-default" aria-hidden="true" role="dialog" aria-selected="false"><i class="fa fa-info-circle"></i></a>
                         <div class="modal fade" id="modal-default" tabindex="-1">
                             <div class="modal-dialog modal-dialog-centered" role="document">

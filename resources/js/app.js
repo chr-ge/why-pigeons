@@ -13,6 +13,7 @@ require('./bootstrap');
  */
 
 require('./components/MapBox');
+require('./components/FavoriteButton');
 require('bootstrap-input-spinner');
 
 /*****************************************************************************/

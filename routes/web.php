@@ -42,12 +42,13 @@ Route::post('/cart/{menu}', 'CartController@store')->name('cart.store');
 Route::delete('/cart/{menu}', 'CartController@remove')->name('cart.remove');;
 
 Route::group(['middleware' => 'auth'], function () {
-    Route::get('/{restaurant}/checkout', 'CheckoutController@index')->name('checkout');
+    Route::get('/r/{restaurant}/checkout', 'CheckoutController@index')->name('checkout');
     Route::get('/u/orders', 'UserController@orders')->name('user.orders');
     Route::view('/order-complete', 'order-complete');
 
-    Route::post('/{restaurant}/checkout', 'CheckoutController@store')->name('checkout.store');
-    Route::post('/{restaurant}/checkout/tip','CheckoutController@tip')->name('checkout.tip');
+    Route::post('/r/{restaurant}/favorite', 'HomeController@favorite')->name('home.favorite');
+    Route::post('/r/{restaurant}/checkout', 'CheckoutController@store')->name('checkout.store');
+    Route::post('/r/{restaurant}/checkout/tip','CheckoutController@tip')->name('checkout.tip');
 });
 
 Route::group(['middleware' => 'auth:driver'], function () {
@@ -102,5 +103,5 @@ Route::get('/account/address/create', 'AddressController@create')->name('address
 Route::post('/account/address', 'AddressController@store')->name('address.store');
 
 Route::fallback(function() {
-    return view('welcome');
+    return view('fallback');
 });

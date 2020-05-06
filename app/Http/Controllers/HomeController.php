@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Address;
 use App\Category;
+use App\Favorite;
 use App\Menu;
 use App\Restaurant;
 
@@ -43,10 +44,11 @@ class HomeController extends Controller
             'latitude' => request()->coordinates[0],
             'longitude' => request()->coordinates[1],
         ]);
-        return http_response_code(201);
+        return response()->noContent();
     }
 
     public function show(Restaurant $restaurant){
+        $favorite = auth()->user()->favorites->contains($restaurant->id);
         $menus = Menu::where('restaurant_id', $restaurant->id)->get();
 
         $categories = [];
@@ -54,6 +56,16 @@ class HomeController extends Controller
            array_push($categories, Category::find($category->category_id));
         }
         $categories = array_unique($categories);
-        return view('show', compact('restaurant', 'categories', 'menus'));
+        return view('show', compact('restaurant', 'categories', 'menus', 'favorite'));
+    }
+
+    public function favorite(Restaurant $restaurant){
+        if(!auth()->user()->favorites->contains($restaurant->id)){
+            auth()->user()->favorites()->attach($restaurant->id);
+        }
+        else{
+            auth()->user()->favorites()->detach($restaurant->id);
+        }
+        return response()->noContent();
     }
 }

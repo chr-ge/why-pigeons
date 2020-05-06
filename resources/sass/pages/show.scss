@@ -28,6 +28,11 @@ body {
     li {
         padding: 1rem 1.5rem;
     }
+    a {
+        cursor: pointer;
+        width: 100%;
+        display:block;
+    }
     .active {
         color: #BFBDDB;
         font-weight: bold;

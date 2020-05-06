@@ -46,6 +46,9 @@ class CartController extends Controller
      */
     public function remove(Menu $menu){
         \Cart::session($menu->restaurant_id)->remove($menu->id);
+        if(\Cart::isEmpty()){
+            return redirect()->route('home.show', $menu->restaurant->slug);
+        }
         return redirect()->back();
     }
 }

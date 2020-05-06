@@ -53,7 +53,7 @@
                     <ul class="navbar-nav ml-auto">
                         @if(Request::is('r/*'))
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('checkout', $restaurant->id) }}" title="Order Basket">
+                                <a class="nav-link" href="{{ route('checkout', $restaurant->slug) }}" title="Order Basket">
                                     <i class="fas fa-shopping-basket"></i>
                                     @if(!\Cart::isEmpty())
                                         <span class="badge badge-info">{{ \Cart::getTotalQuantity() }}</span>

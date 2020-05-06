@@ -14,7 +14,7 @@ class CreateDriversLicensesTable extends Migration
     public function up()
     {
         Schema::create('drivers_licenses', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->uuid('id')->unique();
             $table->unsignedBigInteger('driver_id');
             $table->string('license_number')->unique();
             $table->string('reference_number')->unique();
