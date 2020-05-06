@@ -386,12 +386,12 @@ class MenuTableSeeder extends Seeder
         Menu::create(['restaurant_id' => '34','name' => 'Viet Special Salad','description' => 'Fresh white and purple cabbage, pickled carrot and daikon, cilantro, basil, fried onion, roasted crushed peanut, and sauce.','image' => 'uploads/menu/34/4e821d58-88db-4e77-8b58-1ce0d61be11f.jpg','category_id' => 10,'price' => 9.75]);
         Menu::create(['restaurant_id' => '34','name' => 'Viet Special Fried Rice','description' => 'Traditional Vietnamese style fried rice with peas, corn, carrots, eggs and chicken.','image' => 'uploads/menu/34/8cf43e4e-ad6b-4476-a325-0a93b7cc0ffa.jpeg','category_id' => 31,'price' => 10.95]);
 
-        Menu::create(['restaurant_id' => '35','name' => '','description' => '','image' => 'uploads/menu/35/','category_id' => 19,'price' => 4.25]);
-        Menu::create(['restaurant_id' => '35','name' => '','description' => '','image' => 'uploads/menu/35/','category_id' => 19,'price' => 4.25]);
-        Menu::create(['restaurant_id' => '35','name' => '','description' => '','image' => 'uploads/menu/35/','category_id' => 19,'price' => 4.25]);
-        Menu::create(['restaurant_id' => '35','name' => '','description' => '','image' => 'uploads/menu/35/','category_id' => 19,'price' => 4.25]);
-        Menu::create(['restaurant_id' => '35','name' => '','description' => '','image' => 'uploads/menu/35/','category_id' => 19,'price' => 4.25]);
-        Menu::create(['restaurant_id' => '35','name' => '','description' => '','image' => 'uploads/menu/35/','category_id' => 19,'price' => 4.25]);
+        Menu::create(['restaurant_id' => '35','name' => 'The Dagwood','description' => 'Ham, mortadella, pepperoni, salami, cheese, and choice of toppings.','image' => 'uploads/menu/35/e5ab589a-b8ba-4a05-98d7-a7dd78457073.jpeg','category_id' => 19,'price' => 6.79]);
+        Menu::create(['restaurant_id' => '35','name' => 'The Beef','description' => 'Roast beef, cheese, and choice of toppings.','image' => 'uploads/menu/35/2dfb68ad-8338-4248-bfc7-4bb6475bf9b0.jpeg','category_id' => 19,'price' => 7.19]);
+        Menu::create(['restaurant_id' => '35','name' => 'The Turkey','description' => 'Dinde, fromage, et choix de garnitures. / Turkey, cheese, and choice of toppings.','image' => 'uploads/menu/35/8f579e4d-5816-42d1-9880-ec36c0408e4b.jpeg','category_id' => 19,'price' => 7.19]);
+        Menu::create(['restaurant_id' => '35','name' => 'The Gino','description' => 'Salami, pepperoni, cheese, and choice of toppings.','image' => 'uploads/menu/35/a78e9103-6bcb-453d-9f0a-56471f03bf14.jpeg','category_id' => 19,'price' => 6.69]);
+        Menu::create(['restaurant_id' => '35','name' => 'The Cheese','description' => 'Cheese and choice of toppings.','image' => 'uploads/menu/35/IMG_9829.jpg','category_id' => 19,'price' => 5.89]);
+        Menu::create(['restaurant_id' => '35','name' => 'The Ham','description' => 'Ham, cheese, and choice of toppings.','image' => 'uploads/menu/35/072718-600x600-A.jpg','category_id' => 19,'price' => 5.89]);
         Menu::create(['restaurant_id' => '35','name' => '','description' => '','image' => 'uploads/menu/35/','category_id' => 19,'price' => 4.25]);
         Menu::create(['restaurant_id' => '35','name' => '','description' => '','image' => 'uploads/menu/35/','category_id' => 19,'price' => 4.25]);
         Menu::create(['restaurant_id' => '35','name' => '','description' => '','image' => 'uploads/menu/35/','category_id' => 19,'price' => 4.25]);
