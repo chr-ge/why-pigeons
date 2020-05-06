@@ -3,6 +3,11 @@
 @section('title', config('app.name').' | Home')
 
 @section('extra-css')
+    @if(auth()->user() && auth()->user()->favorites->first())
+        <!-- Tiny-Slider -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.2/tiny-slider.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.2/min/tiny-slider.js"></script>
+    @endif
     @if(!Session::has('address'))
     <script src="https://api.mapbox.com/mapbox-gl-js/v1.10.0/mapbox-gl.js"></script>
     <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.5.1/mapbox-gl-geocoder.min.js"></script>
@@ -45,6 +50,27 @@
             </div>
         </div>
     </div>
+    @if(auth()->user() && auth()->user()->favorites->first())
+        <div class="row mt-4">
+            <h3 class="col-md-12">Bookmarked Restaurants</h3>
+            <div class="col-md-12">
+                <div class="my-slider mb-5">
+                    @foreach(auth()->user()->favorites as $fav)
+                        <div>
+                            <div class="card_slide">
+                                <div class="card_slide__image">
+                                    <img src="{{ url('storage/'.$fav->image) }}">
+                                </div>
+                                <div class="card_slide__text">
+                                    <a href="{{ route('home.show', $fav->slug) }}" class="none"><p>{{ $fav->name }}</p></a>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+        </div>
+    @endif
     <div class="row">
         @foreach($restaurants as $restaurant)
             <div class="module col-md-3 p-0">
@@ -66,5 +92,21 @@
 @endsection
 
 @section('extra-js')
+    @if(auth()->user() && auth()->user()->favorites->first())
+        <script type="module">
+            var slider = tns({
+                container: '.my-slider',
+                items: 4,
+                loop:false,
+                mouseDrag: true,
+                nav: false,
+                autoWidth: true,
+                gutter: 24,
+                controls: false,
+                viewportMax: 1140,
+                swipeAngle: false,
+            });
+        </script>
+    @endif
     @if(!Session::has('address'))<script src="{{ asset('js/geocoder.js') }}"></script>@endif
 @endsection

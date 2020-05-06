@@ -31,6 +31,9 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm fixed-top">
             <div class="container">
+                @if(Request::is('r/*'))
+                    <a href="{{ route('home.index') }}" class="back pr-4" style="margin-left: -15px"><i class="fas fa-chevron-circle-left"></i> Back</a>
+                @endif
                 <a class="navbar-brand" href="{{ url('/') }}">
                     <img src="{{ asset('/svg/dove.svg') }}" style="height: 30px; width: 30px">
                     Food and Maybe Pigeons?
