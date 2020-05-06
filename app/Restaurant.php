@@ -25,7 +25,8 @@ class Restaurant extends Authenticatable
         'password', 'remember_token'
     ];
 
-    public function getRouteKeyName() {
+    public function getRouteKeyName()
+    {
         return 'slug';
     }
 
@@ -57,12 +58,18 @@ class Restaurant extends Authenticatable
         return $this->hasOne(Address::class, 'account_id');
     }
 
-    public function categories(){
+    public function categories()
+    {
         return $this->belongsToMany(Category::class)->orderBy('name');
     }
 
     public function hours()
     {
         return $this->hasMany(RestaurantHours::class);
+    }
+
+    public function favorites()
+    {
+        return $this->belongsToMany(User::class);
     }
 }
