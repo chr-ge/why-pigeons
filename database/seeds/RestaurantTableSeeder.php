@@ -279,7 +279,7 @@ class RestaurantTableSeeder extends Seeder
             'phone' => '5148320222',
             'password' => '$2y$10$CDm7GIkWFkEjOdt4gL3w7uhRVgRsJQwN24hhyl2tLDmApeu.cHHwC',
             'category_id' => 21,
-            'image' => 'uploads/',
+            'image' => 'uploads/Untitled-design-210.png',
             'active' => 1
         ]);
         Restaurant::create([
@@ -288,7 +288,7 @@ class RestaurantTableSeeder extends Seeder
             'phone' => '5144190779',
             'password' => '$2y$10$iD/Q7DfZ2.fT/a21ZC27d.NXIudNenWSCrveyjOLD0p4vkoAQ/VKC',
             'category_id' => 10,
-            'image' => 'uploads/',
+            'image' => 'uploads/mandys-salads-6.jpg',
             'active' => 1
         ]);
         Restaurant::create([
@@ -297,7 +297,7 @@ class RestaurantTableSeeder extends Seeder
             'phone' => '5148444442',
             'password' => '$2y$10$gutGnrjso8bzBXaPM0m6zOPDLFOOrmjg.368YRZMnZLYkw7mEcDQS',
             'category_id' => 5,
-            'image' => 'uploads/',
+            'image' => 'uploads/67444e8b-80c6-45a4-a7f2-c4c8d11d0a6b.jpeg',
             'active' => 1
         ]);
         Restaurant::create([
@@ -306,7 +306,7 @@ class RestaurantTableSeeder extends Seeder
             'phone' => '5143647204',
             'password' => '$2y$10$8G5MsIwBs1qnVZrK9Z8kI.bV1jtiTo5G589xlwXo4QaZ.W5wJpuJy',
             'category_id' => 4,
-            'image' => 'uploads/',
+            'image' => 'uploads/full-english-7355w.jpg',
             'active' => 1
         ]);
         Restaurant::create([
@@ -315,7 +315,7 @@ class RestaurantTableSeeder extends Seeder
             'phone' => '5144825331',
             'password' => '$2y$10$2HwJcJge6kx2wRXR/4.0h.OW0XmWpSQreTocpuRj5GKxQZ1GyqQLK',
             'category_id' => 12,
-            'image' => 'uploads/',
+            'image' => 'uploads/Pho-closeup-copy-855x570.jpg',
             'active' => 1
         ]);
         Restaurant::create([
