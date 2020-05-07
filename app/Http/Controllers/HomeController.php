@@ -21,18 +21,21 @@ class HomeController extends Controller
         return view('home', compact('restaurants'));
     }
 
-    public function search(){
+    public function search()
+    {
         $data = request()->validate(['search' => 'string|max:50']);
         $restaurants = Restaurant::where('name','like','%'. $data['search'] .'%')->paginate(12);
         return view('home', compact('restaurants'));
     }
 
-    public function address(){
+    public function address()
+    {
         \Session::put('address', request()->all());
         return response()->noContent();
     }
 
-    public function storeAddress() {
+    public function storeAddress()
+    {
         Address::create([
             'account_id' => auth()->user()->id,
             'description' => 'user',
@@ -47,7 +50,8 @@ class HomeController extends Controller
         return response()->noContent();
     }
 
-    public function show(Restaurant $restaurant){
+    public function show(Restaurant $restaurant)
+    {
         auth()->user()
             ? $favorite = auth()->user()->favorites->contains($restaurant->id)
             : $favorite = null;
@@ -62,7 +66,8 @@ class HomeController extends Controller
         return view('show', compact('restaurant', 'categories', 'menus', 'favorite'));
     }
 
-    public function favorite(Restaurant $restaurant){
+    public function favorite(Restaurant $restaurant)
+    {
         auth()->user()->favorites()->toggle($restaurant->id);
         return response()->noContent();
     }

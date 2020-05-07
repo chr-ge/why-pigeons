@@ -12,18 +12,14 @@ class Restaurant extends Authenticatable
 
     protected $guard = 'restaurant';
 
-    protected  $fillable = [
-        'name', 'slug', 'email', 'phone', 'password', 'category_id', 'image', 'active',
-    ];
+    protected  $fillable = [ 'name', 'slug', 'email', 'phone', 'password', 'category_id', 'image', 'active' ];
 
     /**
      * The attributes that should be hidden for arrays.
      *
      * @var array
      */
-    protected $hidden = [
-        'password', 'remember_token'
-    ];
+    protected $hidden = [ 'password', 'remember_token' ];
 
     public function getRouteKeyName()
     {

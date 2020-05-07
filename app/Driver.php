@@ -12,13 +12,9 @@ class Driver extends Authenticatable
 
     protected $guard = 'driver';
 
-    protected $fillable = [
-        'name', 'email', 'phone', 'password',
-    ];
+    protected $fillable = [ 'name', 'email', 'phone', 'password' ];
 
-    protected $hidden = [
-        'password', 'remember_token',
-    ];
+    protected $hidden = [ 'password', 'remember_token' ];
 
     public function drivers_license(){
         return $this->hasOne(DriversLicense::class);

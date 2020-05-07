@@ -17,7 +17,8 @@ class DriverController extends Controller
 
     public function order(Order $order)
     {
-        if($order->driver_id !== auth()->user()->id){
+        if($order->driver_id !== auth()->user()->id)
+        {
             return redirect()->back();
         }
         return view('driver.order', compact('order'));
@@ -37,7 +38,8 @@ class DriverController extends Controller
         return view('driver.setup');
     }
 
-    public function reserve(Order $order){
+    public function reserve(Order $order)
+    {
         if(\Gate::denies('driver-can-reserve', auth()->user()->id)){
             return redirect()->back()->withErrors('You already have an active reserved order.');
         }

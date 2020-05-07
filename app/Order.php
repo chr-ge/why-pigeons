@@ -30,14 +30,16 @@ class Order extends Model
         return $this->hasOne(Address::class, 'account_id');
     }
 
-    public function isBlocked(){
+    public function isBlocked()
+    {
         if($this->status === 'failed' || $this->status === 'cancelled' || $this->status === 'refunded'){
             return true;
         }
         return false;
     }
 
-    public function getStatus(){
+    public function getStatus()
+    {
         if($this->status === 'failed' || $this->status === 'cancelled'){
             return 'badge-danger';
         }
@@ -49,15 +51,18 @@ class Order extends Model
         }
     }
 
-    public function scopeGetAvailableOrders($query){
+    public function scopeGetAvailableOrders($query)
+    {
         return $query->where('status', 'ready_for_pickup')->latest();
     }
 
-    public function scopeGetDriverReserved($query){
+    public function scopeGetDriverReserved($query)
+    {
         return $query->where('driver_id', auth()->user()->id)->where('status', 'reserved')->latest();
     }
 
-    public function scopeGetDriverCompletedOrders($query){
+    public function scopeGetDriverCompletedOrders($query)
+    {
         return $query->where('driver_id', auth()->user()->id)->where('status', 'complete')->latest();
     }
 }

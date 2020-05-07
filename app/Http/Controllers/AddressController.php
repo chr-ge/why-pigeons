@@ -17,7 +17,8 @@ class AddressController extends Controller
         return view('/account/address/create');
     }
 
-    public function store(){
+    public function store()
+    {
 
         $data  = request()->validate([
             'street_address' => 'required|string',

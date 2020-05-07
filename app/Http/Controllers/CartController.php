@@ -14,7 +14,8 @@ class CartController extends Controller
      * @param Menu $menu
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function store(Menu $menu){
+    public function store(Menu $menu)
+    {
         if(!$menu->available){
             return redirect()->back()->with('error', 'Item Unavailable');
         }
@@ -44,7 +45,8 @@ class CartController extends Controller
      * @param Menu $menu
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function remove(Menu $menu){
+    public function remove(Menu $menu)
+    {
         \Cart::session($menu->restaurant_id)->remove($menu->id);
         if(\Cart::isEmpty()){
             return redirect()->route('home.show', $menu->restaurant->slug);

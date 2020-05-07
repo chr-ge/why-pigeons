@@ -12,13 +12,9 @@ class Pigeon extends Authenticatable
 
     protected $guard = 'pigeon';
 
-    protected $fillable = [
-        'name', 'username', 'password',
-    ];
+    protected $fillable = [ 'name', 'username', 'password' ];
 
-    protected $hidden = [
-        'password', 'remember_token',
-    ];
+    protected $hidden = [ 'password', 'remember_token' ];
 
     public static function getPercentatgeChange($oldValue, $newValue){
         $decreasedValue = $newValue - $oldValue;

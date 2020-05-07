@@ -15,7 +15,8 @@ use Cartalyst\Stripe\Exception\CardErrorException;
 
 class CheckoutController extends Controller
 {
-    public function index(Restaurant $restaurant) {
+    public function index(Restaurant $restaurant)
+    {
         if (\Cart::session($restaurant->id)->isEmpty() || !RestaurantHours::isOpen($restaurant->id)) {
             return redirect()->back();
         }
@@ -50,7 +51,8 @@ class CheckoutController extends Controller
         return view('checkout', ['restaurant' => $restaurant]);
     }
 
-    public function tip(Restaurant $restaurant){
+    public function tip(Restaurant $restaurant)
+    {
         $data = request()->validate([
             'tip' => 'required|numeric|min:0|max:500'
         ]);
@@ -68,7 +70,8 @@ class CheckoutController extends Controller
         return redirect()->back();
     }
 
-    public function store(Restaurant $restaurant) {
+    public function store(Restaurant $restaurant)
+    {
         if(!\Session::has('address')){
             return redirect()->back()->withErrors('Please enter your delivery address.');
         }
@@ -120,7 +123,8 @@ class CheckoutController extends Controller
             'stripe_id' => $charge_id,
             'error' => $error,
         ]);
-        foreach(\Cart::getContent() as $item){
+        foreach(\Cart::getContent() as $item)
+        {
             OrderMenu::create([
                 'order_id' => $order->id,
                 'menu_id' => $item->id,
@@ -128,7 +132,8 @@ class CheckoutController extends Controller
                 'special' => $item->attributes['instructions']
             ]);
         }
-        if(\Session::get('address.place_type') == 'address'){
+        if(\Session::get('address.place_type') == 'address')
+        {
             Address::create([
                 'account_id' => $order->id,
                 'description' => 'delivery',
@@ -141,7 +146,8 @@ class CheckoutController extends Controller
                 'latitude' => \Session::get('address.coordinates.1'),
             ]);
         }
-        elseif(\Session::get('address.place_type') == 'poi'){
+        elseif(\Session::get('address.place_type') == 'poi')
+        {
             Address::create([
                 'account_id' => $order->id,
                 'description' => 'delivery',

@@ -9,7 +9,7 @@ class RestaurantHours extends Model
 {
     public $timestamps = false;
 
-    protected $fillable = ['restaurant_id', 'day', 'open_time', 'close_time'];
+    protected $fillable = [ 'restaurant_id', 'day', 'open_time', 'close_time' ];
 
     public function restaurant()
     {
@@ -22,20 +22,23 @@ class RestaurantHours extends Model
         return $days[$day-1];
     }
 
-    public static function today(){
+    public static function today()
+    {
         $today = Carbon::today()->dayOfWeek;
         if($today === 0) $today = 7;
         return $today;
     }
 
-    public static function hoursExist($id = null){
+    public static function hoursExist($id = null)
+    {
         if($id === null){
             return RestaurantHours::where('restaurant_id', auth()->user()->id)->exists();
         }
         return RestaurantHours::where('restaurant_id', $id)->exists();
     }
 
-    public static function isOpen($id){
+    public static function isOpen($id)
+    {
         $query = RestaurantHours::where('restaurant_id', $id)->where('day', RestaurantHours::today())->first();
 
         if(! isset($query->open_time) && !isset($query->close_time)){
@@ -72,7 +75,8 @@ class RestaurantHours extends Model
         return $time;
     }
 
-    public static function displayHours($restaurant, $day = null){
+    public static function displayHours($restaurant, $day = null)
+    {
         $query = RestaurantHours::where('restaurant_id', $restaurant)->where('day',
             $day === null ? RestaurantHours::today() : $day )->first();
 
@@ -83,7 +87,8 @@ class RestaurantHours extends Model
                Carbon::parse($query->close_time)->format('g:i A');
     }
 
-    public static function displayHoursLeft($restaurant){
+    public static function displayHoursLeft($restaurant)
+    {
         //$open = RestaurantHours::where('restaurant_id', $restaurant)->where('day', RestaurantHours::today())->first()->open_time;
         $close = RestaurantHours::where('restaurant_id', $restaurant)->where('day', RestaurantHours::today())->first()->close_time;
 

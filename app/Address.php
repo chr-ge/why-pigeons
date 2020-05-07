@@ -13,19 +13,20 @@ class Address extends Model
      *
      * @var array
      */
-    protected $fillable = [
-        'account_id', 'street_address', 'city', 'province', 'postal_code','country', 'longitude', 'latitude',
-    ];
+    protected $fillable = [ 'account_id', 'street_address', 'city', 'province', 'postal_code','country', 'longitude', 'latitude' ];
 
-    public function user(){
+    public function user()
+    {
         return $this->belongsTo(User::class);
     }
 
-    public function restaurant(){
+    public function restaurant()
+    {
         return $this->belongsTo(Restaurant::class, 'account_id', 'id');
     }
 
-    public function order(){
+    public function order()
+    {
         return $this->belongsTo(Order::class, 'account_id', 'id');
     }
 }

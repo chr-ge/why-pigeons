@@ -23,11 +23,10 @@ class DriversLicense extends Model
         $this->attributes['id'] = \Str::uuid();
     }
 
-   protected $fillable = [
-       'driver_id', 'license_number', 'reference_number', 'dob', 'valid_on', 'expires_on'
-   ];
+   protected $fillable = [ 'driver_id', 'license_number', 'reference_number', 'dob', 'valid_on', 'expires_on' ];
 
-   public function driver(){
+   public function driver()
+   {
        return $this->belongsTo(Driver::class);
    }
 }
