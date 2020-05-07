@@ -68,6 +68,9 @@ class CheckoutController extends Controller
     }
 
     public function store(Restaurant $restaurant) {
+        if(!\Session::has('address')){
+            return redirect()->back()->withErrors('Please enter your delivery address.');
+        }
         $cart = \Cart::session($restaurant->id);
         $contents = $cart->getContent()->map(function ($item) {
             return $item->name.', '.$item->quantity;

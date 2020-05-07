@@ -48,7 +48,10 @@ class HomeController extends Controller
     }
 
     public function show(Restaurant $restaurant){
-        $favorite = auth()->user()->favorites->contains($restaurant->id);
+        auth()->user()
+            ? $favorite = auth()->user()->favorites->contains($restaurant->id)
+            : $favorite = null;
+
         $menus = Menu::where('restaurant_id', $restaurant->id)->get();
 
         $categories = [];
