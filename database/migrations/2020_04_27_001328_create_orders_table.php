@@ -33,6 +33,8 @@ class CreateOrdersTable extends Migration
                 ->on('users')->onUpdate('cascade')->onDelete('set null');
             $table->foreign('restaurant_id')->references('id')
                 ->on('restaurants')->onUpdate('cascade')->onDelete('set null');
+            $table->foreign('driver_id')->references('id')
+                ->on('drivers')->onUpdate('cascade')->onDelete('set null');
         });
     }
 
