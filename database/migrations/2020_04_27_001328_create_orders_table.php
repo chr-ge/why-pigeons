@@ -17,6 +17,7 @@ class CreateOrdersTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('user_id')->nullable();
             $table->unsignedBigInteger('restaurant_id')->nullable();
+            $table->unsignedBigInteger('driver_id')->nullable();
             $table->unsignedInteger('total_items_qty');
             $table->unsignedDecimal('billing_subtotal');
             $table->unsignedDecimal('billing_delivery');

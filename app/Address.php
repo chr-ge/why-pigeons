@@ -24,4 +24,8 @@ class Address extends Model
     public function restaurant(){
         return $this->belongsTo(Restaurant::class, 'account_id', 'id');
     }
+
+    public function order(){
+        return $this->belongsTo(Order::class, 'account_id', 'id');
+    }
 }

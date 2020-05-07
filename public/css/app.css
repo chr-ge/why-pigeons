@@ -11243,6 +11243,18 @@ h3 > i {
   background: linear-gradient(87deg, #ffd600 0, #beff00 100%) !important;
 }
 
+.orders-list {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.btn-pigeon {
+  color: #fff;
+  background-color: #BFBDDB;
+  border-color: #aba9c6;
+}
+
 .cart-table-row {
   display: flex;
   justify-content: space-between;

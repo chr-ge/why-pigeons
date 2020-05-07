@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Address;
 use App\Order;
 use App\OrderMenu;
 use App\Restaurant;
@@ -119,13 +120,38 @@ class CheckoutController extends Controller
             'stripe_id' => $charge_id,
             'error' => $error,
         ]);
-
         foreach(\Cart::getContent() as $item){
             OrderMenu::create([
                 'order_id' => $order->id,
                 'menu_id' => $item->id,
                 'quantity' => $item->quantity,
                 'special' => $item->attributes['instructions']
+            ]);
+        }
+        if(\Session::get('address.place_type') == 'address'){
+            Address::create([
+                'account_id' => $order->id,
+                'description' => 'delivery',
+                'street_address' => strtok(\Session::get('address.place_name'), ','),
+                'city' => \Session::get('address.context.city'),
+                'province' => \Session::get('address.context.province'),
+                'postal_code' => ltrim(strstr(ltrim(explode(',', \Session::get('address.place_name'))[2]), ' ')),
+                'country' => \Session::get('address.context.country'),
+                'longitude' => \Session::get('address.coordinates.0'),
+                'latitude' => \Session::get('address.coordinates.1'),
+            ]);
+        }
+        elseif(\Session::get('address.place_type') == 'poi'){
+            Address::create([
+                'account_id' => $order->id,
+                'description' => 'delivery',
+                'street_address' => \Session::get('address.short'),
+                'city' => \Session::get('address.context.city'),
+                'province' => \Session::get('address.context.province'),
+                'postal_code' => ltrim(strstr(ltrim(explode(',', \Session::get('address.place_name'))[3]), ' ')),
+                'country' => \Session::get('address.context.country'),
+                'longitude' => \Session::get('address.coordinates.0'),
+                'latitude' => \Session::get('address.coordinates.1'),
             ]);
         }
 

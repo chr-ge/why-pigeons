@@ -25,6 +25,11 @@ class Order extends Model
         return $this->belongsToMany(Menu::class, 'order_menu')->withPivot('quantity', 'special');
     }
 
+    public function address()
+    {
+        return $this->hasOne(Address::class, 'account_id');
+    }
+
     public function isBlocked(){
         if($this->status === 'failed' || $this->status === 'cancelled' || $this->status === 'refunded'){
             return true;

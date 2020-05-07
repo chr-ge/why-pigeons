@@ -66,7 +66,16 @@
             <div class="col-md-12">
                 <div class="list-group">
                     @forelse($orders as $order)
-                        <a href="{{ route('driver.order', $order->id) }}" class="list-group-item list-group-item-action">{{ $order->restaurant->name }}</a>
+                        <li class="list-group-item list-group-item-action">
+                            <form class="orders-list" method="POST" action="{{ route('driver.reserve', $order->id) }}">
+                                @csrf
+                                <div class="d-flex align-items-center">
+                                    <h4 class="mb-0 d-inline-block">{{ $order->restaurant->name }}</h4><span style="padding: 0 0.5rem">•</span>
+                                    <h4 class="mb-0 d-inline-block">{{ $order->restaurant->address->street_address }}</h4>
+                                </div>
+                                <button class="btn btn-pigeon btn-sm">Reserve</button>
+                            </form>
+                        </li>
                     @empty
                         <li class="list-group-item">No active orders at this time.</li>
                     @endforelse

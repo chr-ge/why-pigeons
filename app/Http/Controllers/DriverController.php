@@ -10,7 +10,7 @@ class DriverController extends Controller
 {
     public function index()
     {
-        $orders = Order::where('status', 'ready_for_pickup')->get();
+        $orders = Order::where('status', 'ready_for_pickup')->latest()->get();
         return view('driver.driver', compact('orders'));
     }
 
@@ -25,6 +25,14 @@ class DriverController extends Controller
             return redirect()->back();
         }
         return view('driver.setup');
+    }
+
+    public function reserve(Order $order){
+        $order->update([
+            'status' => 'reserved',
+            'driver_id' => auth()->user()->id
+        ]);
+        return view('driver.order', compact('order'));
     }
 
     public function storeDriversLicense(DriversLicenseRequest $request)
