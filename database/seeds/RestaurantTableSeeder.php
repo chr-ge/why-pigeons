@@ -103,7 +103,7 @@ class RestaurantTableSeeder extends Seeder
             'active' => 1
         ]);
         Restaurant::create([
-            'name' => 'Dunns',
+            'name' => 'Dunn\'s',
             'slug' => 'dunns',
             'email' => 'info@dunnsfamous.com',
             'phone' => '5143951927',
@@ -173,13 +173,13 @@ class RestaurantTableSeeder extends Seeder
             'active' => 1
         ]);
         Restaurant::create([
-            'name' => 'Dominos Pizza',
+            'name' => 'Domino\'s Pizza',
             'slug' => 'dominos-pizza',
             'email' => 'dominospizza@contactus.com',
             'phone' => '514845555',
             'password' => '2y$10$icyS6aCpQyDUyN7TLZM...lgVBhZhEnJ49vf7O7.quXgy6/026jDm',
             'category_id' => 14,
-            'image' => 'uploads/img.webp',
+            'image' => 'uploads/1-dominos-cheeseburgerpizza-1-min-5c87a15da0d1a-960x640.jpg',
             'active' => 1
         ]);
         Restaurant::create([
@@ -369,7 +369,7 @@ class RestaurantTableSeeder extends Seeder
             'phone' => '5143341440',
             'password' => '$2y$10$FhlQaXY4gMq.MoN3gvwzIeLjPhXToyihZ1lFdE8dIoRsb2uuQVYuG',
             'category_id' => 24,
-            'image' => 'uploads/',
+            'image' => 'uploads/-tmp-taco_bell.jpg',
             'active' => 1
         ]);
         Restaurant::create([
@@ -379,7 +379,7 @@ class RestaurantTableSeeder extends Seeder
             'phone' => '5149995190',
             'password' => '$2y$10$cbzodmoQUQRNY95kYWiVsOgNUD6nOhDzad/Nb4CvoPP5s3pooI3py',
             'category_id' => 5,
-            'image' => 'uploads/',
+            'image' => 'uploads/i.jpg',
             'active' => 1
         ]);
         Restaurant::create([
@@ -389,7 +389,7 @@ class RestaurantTableSeeder extends Seeder
             'phone' => '5148407507',
             'password' => '$2y$10$vD1JgLR/gMLVhpCKF6XjAewHhQMd86/jTlHAEqEHBMCzlnCpsWa7u',
             'category_id' => 12,
-            'image' => 'uploads/',
+            'image' => 'uploads/e61f66acf01438afb78b850c10098959-w1080-c2.jpg',
             'active' => 1
         ]);
         Restaurant::create([

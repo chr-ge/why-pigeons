@@ -395,16 +395,61 @@ class MenuTableSeeder extends Seeder
         Menu::create(['restaurant_id' => '35','name' => 'The Tuna','description' => 'Tuna, cheese, and choice of toppings.','image' => 'uploads/menu/35/098720-600x600-A.jpg','category_id' => 19,'price' => 7.09]);
         Menu::create(['restaurant_id' => '35','name' => 'Turkey Salad','description' => 'Romaine lettuce, turkey, cheese, and choice of dressing.','image' => 'uploads/menu/35/1383084366559.jpeg','category_id' => 10,'price' => 7.59]);
         Menu::create(['restaurant_id' => '35','name' => 'Garden Salad','description' => 'Romaine lettuce, cheese, and choice of dressing.','image' => 'uploads/menu/35/33517158-4a6f-4098-b4cd-df2d422246bc.jpg','category_id' => 10,'price' => 7.09]);
-        Menu::create(['restaurant_id' => '35','name' => '','description' => '','image' => 'uploads/menu/35/','category_id' => 19,'price' => 4.25]);
+        Menu::create(['restaurant_id' => '35','name' => 'Tuna Salad','description' => 'Romaine lettuce, tuna, cheese, and choice of dressing.','image' => 'uploads/menu/35/Avocado-Tuna-Salad-3.jpg','category_id' => 10,'price' => 7.59]);
 
-        Menu::create(['restaurant_id' => '36','name' => '','description' => '','image' => 'uploads/menu/36/','category_id' => 24,'price' => 4.25]);
+        Menu::create(['restaurant_id' => '36','name' => '2 Chicken or Steak Soft Tacos Combo','description' => 'A soft flour tortilla filled with chicken or steak, lettuce, pico de gallo and cheddar cheese. Plus regular fries and a drink.','image' => 'uploads/menu/36/d61d43b3-dd65-4fe6-9880-f9acdbecbafd.jpeg','category_id' => 9,'price' => 7.59]);
+        Menu::create(['restaurant_id' => '36','name' => 'Cheesy Gordita Crunch Combo','description' => 'A crunchy Doritos® Nacho Cheese taco shell filled with seasoned beef, lettuce, Spicy Ranch sauce and cheddar cheese, all wrapped up in a grilled flatbread filled with melted 3-cheese blend. Plus regular fries and a 20oz drink.','image' => 'uploads/menu/36/80beb07f-5107-41b4-9de4-a5d63cc3e50f.jpeg','category_id' => 24,'price' => 7.59]);
+        Menu::create(['restaurant_id' => '36','name' => '2 Tacos Supreme Combo','description' => 'A crunchy taco shell filled with seasoned beef reduced-fat sour cream, lettuce, real cheddar cheese and tomatoes. Plus regular fries and a 20oz drink.','image' => 'uploads/menu/36/3577c4c8-3c3f-470f-91ae-928549bb7853.jpeg','category_id' => 24,'price' => 7.59]);
+        Menu::create(['restaurant_id' => '36','name' => 'Mexican Pizza Combo','description' => 'Two crunchy pizza shells filled with seasoned beef and refried beans, topped with pizza sauce, 3-cheese blend and tomatoes. Plus regular fries and a 20oz drink.','image' => 'uploads/menu/36/b48fe922-66ec-496e-ba82-a0764457ef4f.jpeg','category_id' => 24,'price' => 7.59]);
+        Menu::create(['restaurant_id' => '36','name' => '7-Layer Burrito Combo','description' => 'A soft flour tortilla filled rice, refried beans, 3-cheese blend, lettuce, tomatoes, reduced-fat sour cream and guacamole.','image' => 'uploads/menu/36/593be7e1-e90f-48bd-bac6-d1d43a381c55.jpeg','category_id' => 24,'price' => 8.19]);
+        Menu::create(['restaurant_id' => '36','name' => 'Chicken Quesadilla Combo','description' => 'Grilled chicken, 3-cheese blend and creamy jalapeño sauce folded up in a toasted tortilla. Plus regular fries and a 20oz drink.','image' => 'uploads/menu/36/1aeb9798-3228-4091-8664-f75cb4ec9ce1.jpeg','category_id' => 9,'price' => 8.19]);
+        Menu::create(['restaurant_id' => '36','name' => 'Fries Supreme','description' => 'Crispy fries topped with seasoned beef, nacho cheese sauce, tomatoes, chives and reduced-fat sour cream.','image' => 'uploads/menu/36/2fdf4019-6883-4b54-b7b7-d8c9de6c9f15.jpeg','category_id' => 11,'price' => 3.69]);
+        Menu::create(['restaurant_id' => '36','name' => 'Nacho Supreme','description' => 'Crispy tortilla chips topped with seasoned beef, nacho cheese sauce, tomatoes, chives and reduced-fat sour cream.','image' => 'uploads/menu/36/09d8acbc-4c6f-495f-88be-1bf4f98cf2ed.jpeg','category_id' => 29,'price' => 3.69]);
+        Menu::create(['restaurant_id' => '36','name' => 'Crunchy Tacos Party Pack','description' => '10 Crunchy Tacos, 2 regular fries, and 2 chips and nacho cheese sauce (Serves 5) Calories: 550/per serving.','image' => 'uploads/menu/36/4b5821f9-1a19-410f-b3b1-ee06f18f84de.jpeg','category_id' => 24,'price' => 20.99]);
+        Menu::create(['restaurant_id' => '36','name' => 'Supreme Tacos Party Pack','description' => '10 Crunchy Tacos Supreme®, 2 regular fries, and 2 chips and nacho cheese sauce. (Serves 5) Calories: 600/ per serving','image' => 'uploads/menu/36/e2f4dd4a-9b36-44a8-96b1-e0fa6a202499.jpeg','category_id' => 24,'price' => 25.99]);
 
-        Menu::create(['restaurant_id' => '37','name' => '','description' => '','image' => 'uploads/menu/37/','category_id' => 5,'price' => 4.25]);
+        Menu::create(['restaurant_id' => '37','name' => 'Basic Bitch','description' => 'Churros + cinnamon sugar. Basic but tasty but basic. (All churros come with cinnamon sugar)','image' => 'uploads/menu/37/46421958-a528-46f6-8b40-adc98f89a3b7.jpeg','category_id' => 5,'price' => 5.50]);
+        Menu::create(['restaurant_id' => '37','name' => 'Safe Bet','description' => 'Churros + milk chocolate. Sometimes it\'s okay to play it safe. (All churros come with cinnamon sugar)','image' => 'uploads/menu/37/78cf1741-d254-4f79-91c1-518ad25d73b1.jpeg','category_id' => 5,'price' => 6.00]);
+        Menu::create(['restaurant_id' => '37','name' => 'White Virgin','description' => 'Churros + white chocolate. You\'ll always remember your first time. (All churros come with cinnamon sugar)','image' => 'uploads/menu/37/256a52b3-22ca-4eee-b44b-3a151a844ace.jpeg','category_id' => 5,'price' => 6.00]);
+        Menu::create(['restaurant_id' => '37','name' => 'Dark Horse','description' => 'Churros + pure chocolate. The one you never saw comming. (All churros come with cinnamon sugar)','image' => 'uploads/menu/37/07e3dcb8-f896-4bdd-b8e2-4148e433f6c5.jpeg','category_id' => 5,'price' => 6.00]);
+        Menu::create(['restaurant_id' => '37','name' => 'Salt Bae','description' => 'Churros + caramel seasalt + nuts. No explanation needed. (All churros come with cinnamon sugar)','image' => 'uploads/menu/37/060b0377-22c0-4ab4-9472-59ad3a4d816e.jpeg','category_id' => 5,'price' => 7.00]);
+        Menu::create(['restaurant_id' => '37','name' => 'Oreo Deluxe','description' => 'Churros + white chocolate + Oreo. If you know, you know. (All churros come with cinnamon sugar)','image' => 'uploads/menu/37/2f416ece-759f-4498-a667-ad95c4314cfb.jpeg','category_id' => 5,'price' => 7.00]);
+        Menu::create(['restaurant_id' => '37','name' => 'Love Sauce','description' => 'Churros + pink chocolate + pink sugar rocks. Rock solid, always performs. (All churros come with cinnamon sugar)','image' => 'uploads/menu/37/aef518de-95fd-4638-900f-0b783081fab8.jpeg','category_id' => 5,'price' => 7.00]);
+        Menu::create(['restaurant_id' => '37','name' => 'Berry Berry Good','description' => 'Vegan raspberry cookie dough with white chocolate and speculoos cookie chunks!','image' => 'uploads/menu/37/da339919-1d91-4cf0-a0ac-bc26eb6b7d80.jpeg','category_id' => 5,'price' => 4.50]);
+        Menu::create(['restaurant_id' => '37','name' => 'Brownie Batter','description' => '100% vegan cocoa cookie dough with chocolate chunks and a sprinkle of salt','image' => 'uploads/menu/37/65fd5dbb-c569-46fb-bc30-1913cb5946c5.jpeg','category_id' => 5,'price' => 4.50]);
+        Menu::create(['restaurant_id' => '37','name' => 'Nutty Butty','description' => 'Vegan peanut butter cookie dough with peanut and date chunks. CONTAINS NUTS','image' => 'uploads/menu/37/50e4b5e8-9692-4d92-8f63-66b0fc7c093d.jpeg','category_id' => 5,'price' => 4.50]);
 
+        Menu::create(['restaurant_id' => '38','name' => '','description' => '','image' => 'uploads/menu/38/','category_id' => 12,'price' => 4.25]);
+        Menu::create(['restaurant_id' => '38','name' => '','description' => '','image' => 'uploads/menu/38/','category_id' => 12,'price' => 4.25]);
+        Menu::create(['restaurant_id' => '38','name' => '','description' => '','image' => 'uploads/menu/38/','category_id' => 12,'price' => 4.25]);
+        Menu::create(['restaurant_id' => '38','name' => '','description' => '','image' => 'uploads/menu/38/','category_id' => 12,'price' => 4.25]);
+        Menu::create(['restaurant_id' => '38','name' => '','description' => '','image' => 'uploads/menu/38/','category_id' => 12,'price' => 4.25]);
+        Menu::create(['restaurant_id' => '38','name' => '','description' => '','image' => 'uploads/menu/38/','category_id' => 12,'price' => 4.25]);
+        Menu::create(['restaurant_id' => '38','name' => '','description' => '','image' => 'uploads/menu/38/','category_id' => 12,'price' => 4.25]);
+        Menu::create(['restaurant_id' => '38','name' => '','description' => '','image' => 'uploads/menu/38/','category_id' => 12,'price' => 4.25]);
+        Menu::create(['restaurant_id' => '38','name' => '','description' => '','image' => 'uploads/menu/38/','category_id' => 12,'price' => 4.25]);
         Menu::create(['restaurant_id' => '38','name' => '','description' => '','image' => 'uploads/menu/38/','category_id' => 12,'price' => 4.25]);
 
         Menu::create(['restaurant_id' => '39','name' => '','description' => '','image' => 'uploads/menu/39/','category_id' => 30,'price' => 4.25]);
+        Menu::create(['restaurant_id' => '39','name' => '','description' => '','image' => 'uploads/menu/39/','category_id' => 30,'price' => 4.25]);
+        Menu::create(['restaurant_id' => '39','name' => '','description' => '','image' => 'uploads/menu/39/','category_id' => 30,'price' => 4.25]);
+        Menu::create(['restaurant_id' => '39','name' => '','description' => '','image' => 'uploads/menu/39/','category_id' => 30,'price' => 4.25]);
+        Menu::create(['restaurant_id' => '39','name' => '','description' => '','image' => 'uploads/menu/39/','category_id' => 30,'price' => 4.25]);
+        Menu::create(['restaurant_id' => '39','name' => '','description' => '','image' => 'uploads/menu/39/','category_id' => 30,'price' => 4.25]);
+        Menu::create(['restaurant_id' => '39','name' => '','description' => '','image' => 'uploads/menu/39/','category_id' => 30,'price' => 4.25]);
+        Menu::create(['restaurant_id' => '39','name' => '','description' => '','image' => 'uploads/menu/39/','category_id' => 30,'price' => 4.25]);
+        Menu::create(['restaurant_id' => '39','name' => '','description' => '','image' => 'uploads/menu/39/','category_id' => 30,'price' => 4.25]);
+        Menu::create(['restaurant_id' => '39','name' => '','description' => '','image' => 'uploads/menu/39/','category_id' => 30,'price' => 4.25]);
 
+        Menu::create(['restaurant_id' => '40','name' => '','description' => '','image' => 'uploads/menu/40/','category_id' => 21,'price' => 4.25]);
+        Menu::create(['restaurant_id' => '40','name' => '','description' => '','image' => 'uploads/menu/40/','category_id' => 21,'price' => 4.25]);
+        Menu::create(['restaurant_id' => '40','name' => '','description' => '','image' => 'uploads/menu/40/','category_id' => 21,'price' => 4.25]);
+        Menu::create(['restaurant_id' => '40','name' => '','description' => '','image' => 'uploads/menu/40/','category_id' => 21,'price' => 4.25]);
+        Menu::create(['restaurant_id' => '40','name' => '','description' => '','image' => 'uploads/menu/40/','category_id' => 21,'price' => 4.25]);
+        Menu::create(['restaurant_id' => '40','name' => '','description' => '','image' => 'uploads/menu/40/','category_id' => 21,'price' => 4.25]);
+        Menu::create(['restaurant_id' => '40','name' => '','description' => '','image' => 'uploads/menu/40/','category_id' => 21,'price' => 4.25]);
+        Menu::create(['restaurant_id' => '40','name' => '','description' => '','image' => 'uploads/menu/40/','category_id' => 21,'price' => 4.25]);
+        Menu::create(['restaurant_id' => '40','name' => '','description' => '','image' => 'uploads/menu/40/','category_id' => 21,'price' => 4.25]);
         Menu::create(['restaurant_id' => '40','name' => '','description' => '','image' => 'uploads/menu/40/','category_id' => 21,'price' => 4.25]);
     }
 }
