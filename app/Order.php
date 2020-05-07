@@ -56,4 +56,8 @@ class Order extends Model
     public function scopeGetDriverReserved($query){
         return $query->where('driver_id', auth()->user()->id)->where('status', 'reserved')->latest();
     }
+
+    public function scopeGetDriverCompletedOrders($query){
+        return $query->where('driver_id', auth()->user()->id)->where('status', 'complete')->latest();
+    }
 }

@@ -75,9 +75,15 @@
                                 </li>
                             @endif
                         @else
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('user.orders') }}" title="Your Orders"><i class="fas fa-receipt"></i></a>
-                            </li>
+                            @if(auth()->guard('web')->check())
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('user.orders') }}" title="Your Orders"><i class="fas fa-receipt"></i></a>
+                                </li>
+                            @elseif(auth()->guard('driver')->check())
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('driver.trips') }}" title="Your Trips"><i class="fas fa-route"></i></a>
+                                </li>
+                            @endif
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ auth()->user()->name }} <span class="caret"></span>

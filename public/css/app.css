@@ -11255,6 +11255,16 @@ h3 > i {
   border-color: #aba9c6;
 }
 
+.btn-pigeon:hover {
+  color: #fff;
+  background-color: #a9a6d9;
+  border-color: #908cca;
+}
+
+.btn-driver {
+  width: 75px;
+}
+
 .cart-table-row {
   display: flex;
   justify-content: space-between;

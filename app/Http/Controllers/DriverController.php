@@ -23,6 +23,12 @@ class DriverController extends Controller
         return view('driver.order', compact('order'));
     }
 
+    public function trips()
+    {
+        $trips = Order::getDriverCompletedOrders()->paginate(5);
+        return view('driver.trips', compact('trips'));
+    }
+
     public function setup()
     {
         if(\Gate::allows('license-is-created', auth()->user()->id)){

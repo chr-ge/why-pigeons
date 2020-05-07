@@ -13,4 +13,12 @@
     color: #fff;
     background-color: #BFBDDB;
     border-color: #aba9c6;
+    &:hover{
+        color: #fff;
+        background-color: #a9a6d9;
+        border-color: #908cca;
+    }
+}
+.btn-driver {
+    width: 75px;
 }

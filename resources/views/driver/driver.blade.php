@@ -81,7 +81,7 @@
                                     <h4 class="mb-0 d-inline-block">{{ $res->restaurant->name }}</h4><span style="padding: 0 0.5rem">•</span>
                                     <h4 class="mb-0 d-inline-block">{{ $res->restaurant->address->street_address }}</h4>
                                 </div>
-                                <a href="{{ route('driver.order', $res->id) }}" class="btn btn-success btn-sm">View</a>
+                                <a href="{{ route('driver.order', $res->id) }}" class="btn btn-success btn-sm btn-driver">View Trip</a>
                             </li>
                         @endforeach
                     </div>
@@ -102,7 +102,7 @@
                                     <h4 class="mb-0 d-inline-block">{{ $order->restaurant->name }}</h4><span style="padding: 0 0.5rem">•</span>
                                     <h4 class="mb-0 d-inline-block">{{ $order->restaurant->address->street_address }}</h4>
                                 </div>
-                                <button class="btn btn-pigeon btn-sm">Reserve</button>
+                                <button class="btn btn-pigeon btn-sm btn-driver">Reserve</button>
                             </form>
                         </li>
                     @empty
