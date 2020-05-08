@@ -13,41 +13,49 @@ use App\Http\Requests\SetOperatingHoursRequest;
 
 class RestaurantController extends Controller
 {
-    public function index(){
+    public function index()
+    {
         return view('dashboard.restaurant.dashboard');
     }
 
-    public function management(){
+    public function management()
+    {
         $categories = Category::pluck('id', 'name');
 
         return view('dashboard.restaurant.management', compact('categories'));
     }
 
-    public function menu(){
+    public function menu()
+    {
         $menu_items = Menu::where('restaurant_id', auth()->id())->paginate(10);
         return view('dashboard.restaurant.menu', compact('menu_items'));
     }
 
-    public function orders(){
+    public function orders()
+    {
         $orders = Order::where('restaurant_id', auth()->id())->paginate(10);
         return view('dashboard.restaurant.orders', compact('orders'));
     }
 
-    public function newMenuItem(){
+    public function newMenuItem()
+    {
         $categories = Category::noPriceRange();
         return view('dashboard.restaurant.newmenuitem', compact('categories'));
     }
 
-    public function editMenuItem(Menu $menu){
+    public function editMenuItem(Menu $menu)
+    {
         $categories = Category::noPriceRange();
         return view('dashboard.restaurant.editmenuitem', compact('menu','categories'));
     }
 
-    public function orderDetails(Order $order){
+    public function orderDetails(Order $order)
+    {
         return view('dashboard.restaurant.orderdetails', compact('order'));
     }
 
-    public function createMenuItem(){
+    public function createMenuItem()
+    {
         $data = request()->validate([
             'name' => 'required|string',
             'description' => 'nullable|string',
@@ -77,7 +85,8 @@ class RestaurantController extends Controller
         return redirect()->route('restaurant.menu');
     }
 
-    public function updateMenuItem(Menu $menu){
+    public function updateMenuItem(Menu $menu)
+    {
         $data = request()->validate([
             'name' => 'required|string',
             'description' => 'nullable|string',
@@ -114,7 +123,8 @@ class RestaurantController extends Controller
         return redirect()->route('restaurant.menu');
     }
 
-    public function deleteMenuItem(Menu $menu){
+    public function deleteMenuItem(Menu $menu)
+    {
         if(File::exists(public_path('storage/'.$menu->image))){
             File::delete(public_path('storage/'.$menu->image));
         }
@@ -122,7 +132,8 @@ class RestaurantController extends Controller
         return redirect()->back()->with('success', 'Menu Item Deleted Successfully.');
     }
 
-    public function addCategory(){
+    public function addCategory()
+    {
         $data = request()->validate([
             'category_id' => 'required|numeric'
         ]);
@@ -152,7 +163,8 @@ class RestaurantController extends Controller
         return redirect()->back();
     }
 
-    public function setImage(){
+    public function setImage()
+    {
         $currentUser = auth()->user();
         $data  = request()->validate([
             'image' => 'required|image'
@@ -174,7 +186,8 @@ class RestaurantController extends Controller
         return redirect()->back();
     }
 
-    public function setOperatingHours(SetOperatingHoursRequest $request){
+    public function setOperatingHours(SetOperatingHoursRequest $request)
+    {
         $array = $request->validated();
 
         for($i = 1; $i < 8; $i++){
@@ -189,7 +202,8 @@ class RestaurantController extends Controller
         return redirect()->back();
     }
 
-    public function updateOperatingHours(SetOperatingHoursRequest $request){
+    public function updateOperatingHours(SetOperatingHoursRequest $request)
+    {
         $array = $request->validated();
 
         for($i = 1; $i < 8; $i++){
@@ -202,14 +216,16 @@ class RestaurantController extends Controller
         return redirect()->back();
     }
 
-    public function completeOrder(Order $order){
+    public function completeOrder(Order $order)
+    {
         $order->update([
             'status' => 'ready_for_pickup'
         ]);
         return redirect()->back();
     }
 
-    public function cancelOrder(Order $order){
+    public function cancelOrder(Order $order)
+    {
         $order->update([
             'status' => 'cancelled'
         ]);

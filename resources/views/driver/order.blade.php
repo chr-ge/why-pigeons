@@ -40,54 +40,8 @@
                 accessToken: mapboxgl.accessToken,
                 unit: 'metric',
         });
-        // directions.setOrigin([-73.65, 45.5087]);
-        // directions.setDestination([-73.65654, 45.5087564]);
-        map.on('load', function() {
-            var coordsObj = e.lngLat;
-            canvas.style.cursor = '';
-            var coords = Object.keys(coordsObj).map(function(key) {
-                return coordsObj[key];
-            });
-            var end = {
-                type: 'FeatureCollection',
-                features: [{
-                    type: 'Feature',
-                    properties: {},
-                    geometry: {
-                        type: 'Point',
-                        coordinates: coords
-                    }
-                }
-                ]
-            };
-            if (map.getLayer('end')) {
-                map.getSource('end').setData(end);
-            } else {
-                map.addLayer({
-                    id: 'end',
-                    type: 'circle',
-                    source: {
-                        type: 'geojson',
-                        data: {
-                            type: 'FeatureCollection',
-                            features: [{
-                                type: 'Feature',
-                                properties: {},
-                                geometry: {
-                                    type: 'Point',
-                                    coordinates: coords
-                                }
-                            }]
-                        }
-                    },
-                    paint: {
-                        'circle-radius': 10,
-                        'circle-color': '#f30'
-                    }
-                });
-            }
-            getRoute(coords);
-        });
+        directions.setOrigin([-73.65, 45.5087]);
+        directions.setDestination([-73.65654, 45.5087564]);
         map.addControl(
             directions,
             'top-left',

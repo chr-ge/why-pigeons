@@ -55,7 +55,9 @@ Route::group(['middleware' => 'auth:driver'], function () {
     Route::get('/driver', 'DriverController@index')->name('driver.index');
     Route::get('/d/order/{order}', 'DriverController@order')->name('driver.order');
     Route::get('/driver/setup', 'DriverController@setup')->name('driver.setup');
+    Route::get('/trips', 'DriverController@trips')->name('driver.trips');
 
+    Route::post('/d/order/{order}', 'DriverController@reserve')->name('driver.reserve');
     Route::post('/driver/setup', 'DriverController@storeDriversLicense')->name('driver.storeDriversLicense');
 });
 

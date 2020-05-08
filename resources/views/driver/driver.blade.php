@@ -4,6 +4,15 @@
 
 @section('content')
     <div class="container mt-4">
+        @if(count($errors) > 0)
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                <span class="alert-icon"><i class="ni ni-like-2"></i></span>
+                <span class="alert-text"><strong>Error!</strong> {{ $errors->first() }}</span>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        @endif
         @if(\Gate::denies('license-is-created', auth()->user()->id))
             <div class="alert alert-info alert-dismissible fade show" role="alert">
                 <span class="alert-icon"><i class="ni ni-like-2"></i></span>
@@ -59,20 +68,48 @@
                 </div>
             </div>
         </div>
+        @if($reserved->first())
+            <div class="row mt-5">
+                <div class="col-md-12">
+                    <h3>Reserved Active Orders</h3>
+                </div>
+                <div class="col-md-12">
+                    <div class="list-group">
+                        @foreach($reserved as $res)
+                            <li class="list-group-item list-group-item-action orders-list">
+                                <div class="d-flex align-items-center">
+                                    <h4 class="mb-0 d-inline-block">{{ $res->restaurant->name }}</h4><span style="padding: 0 0.5rem">•</span>
+                                    <h4 class="mb-0 d-inline-block">{{ $res->restaurant->address->street_address }}</h4>
+                                </div>
+                                <a href="{{ route('driver.order', $res->id) }}" class="btn btn-success btn-sm btn-driver">View Trip</a>
+                            </li>
+                        @endforeach
+                    </div>
+                </div>
+            </div>
+        @endif
         <div class="row mt-5">
             <div class="col-md-12">
-                <h3>Active Orders For Pickup</h3>
+                <h3>Available Orders For Pickup</h3>
             </div>
             <div class="col-md-12">
                 <div class="list-group">
                     @forelse($orders as $order)
-                        <a href="{{ route('driver.order', $order->id) }}" class="list-group-item list-group-item-action">{{ $order->restaurant->name }}</a>
+                        <li class="list-group-item list-group-item-action">
+                            <form class="orders-list" method="POST" action="{{ route('driver.reserve', $order->id) }}">
+                                @csrf
+                                <div class="d-flex align-items-center">
+                                    <h4 class="mb-0 d-inline-block">{{ $order->restaurant->name }}</h4><span style="padding: 0 0.5rem">•</span>
+                                    <h4 class="mb-0 d-inline-block">{{ $order->restaurant->address->street_address }}</h4>
+                                </div>
+                                <button class="btn btn-pigeon btn-sm btn-driver">Reserve</button>
+                            </form>
+                        </li>
                     @empty
-                        <li class="list-group-item">No active orders at this time.</li>
+                        <li class="list-group-item"><h5 class="mb-0 text-muted">No active orders at this time.</h5></li>
                     @endforelse
                 </div>
             </div>
-
         </div>
     </div>
 @endsection

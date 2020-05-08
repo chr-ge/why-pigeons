@@ -10,13 +10,24 @@ class DriverController extends Controller
 {
     public function index()
     {
-        $orders = Order::where('status', 'ready_for_pickup')->get();
-        return view('driver.driver', compact('orders'));
+        $reserved = Order::getDriverReserved()->get();
+        $orders = Order::getAvailableOrders()->get();
+        return view('driver.driver', compact('orders', 'reserved'));
     }
 
     public function order(Order $order)
     {
+        if($order->driver_id !== auth()->user()->id)
+        {
+            return redirect()->back();
+        }
         return view('driver.order', compact('order'));
+    }
+
+    public function trips()
+    {
+        $trips = Order::getDriverCompletedOrders()->paginate(5);
+        return view('driver.trips', compact('trips'));
     }
 
     public function setup()
@@ -25,6 +36,18 @@ class DriverController extends Controller
             return redirect()->back();
         }
         return view('driver.setup');
+    }
+
+    public function reserve(Order $order)
+    {
+        if(\Gate::denies('driver-can-reserve', auth()->user()->id)){
+            return redirect()->back()->withErrors('You already have an active reserved order.');
+        }
+        $order->update([
+            'driver_id' => auth()->user()->id,
+            'status' => 'reserved'
+        ]);
+        return view('driver.order', compact('order'));
     }
 
     public function storeDriversLicense(DriversLicenseRequest $request)

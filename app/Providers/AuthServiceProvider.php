@@ -37,5 +37,11 @@ class AuthServiceProvider extends ServiceProvider
                 ? Response::allow()
                 : Response::deny('You must add your drivers license.');
         });
+
+        Gate::define('driver-can-reserve', function ($driver) {
+            return $driver->reserved_order->first()
+                ? Response::deny('You must add your drivers license.')
+                : Response::allow();
+        });
     }
 }

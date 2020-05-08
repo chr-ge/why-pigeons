@@ -17,10 +17,10 @@ class CreateAddressesTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('account_id')->index();
             $table->string('description', 15)->default('delivery');
-            $table->string('street_address', 50);
-            $table->string('city', 25);
+            $table->string('street_address');
+            $table->string('city', 30);
             $table->string('province', 20);
-            $table->string('postal_code', 15);
+            $table->string('postal_code', 15)->nullable();
             $table->string('country', 20);
             $table->string('longitude')->nullable();
             $table->string('latitude')->nullable();
