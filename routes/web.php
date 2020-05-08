@@ -102,9 +102,6 @@ Route::group(['middleware' => 'auth:pigeon'], function () {
     Route::patch('/account/settings', 'PigeonController@updateAccount')->name('pigeon.updateAccount');
 });
 
-Route::get('/account/address/create', 'AddressController@create')->name('address.create');
-Route::post('/account/address', 'AddressController@store')->name('address.store');
-
 Route::fallback(function() {
     return view('fallback');
 });
