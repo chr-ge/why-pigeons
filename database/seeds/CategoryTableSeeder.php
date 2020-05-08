@@ -44,5 +44,6 @@ class CategoryTableSeeder extends Seeder
         Category::create(['name' => 'Beverage']);
         Category::create(['name' => 'Rice']);
         Category::create(['name' => 'Noodles']);
+        Category::create(['name' => 'Fast Food']);
     }
 }
