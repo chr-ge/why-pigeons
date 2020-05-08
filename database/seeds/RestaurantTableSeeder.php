@@ -399,17 +399,17 @@ class RestaurantTableSeeder extends Seeder
             'phone' => '5144846969',
             'password' => '$2y$10$L33pM9RFRFi8wJinkrPjvue/i/v8MI5DOfWvWGdXO0.a0SLYwXCYa',
             'category_id' => 30,
-            'image' => 'uploads/',
+            'image' => 'uploads/Cleanse_VITAL_a52b98c1-ec8e-4bbe-bc57-717fe3f6a163_1024x1024.webp',
             'active' => 1
         ]);
         Restaurant::create([
-            'name' => 'Grillades Verdun Grill',
-            'slug' => 'grillades-verdun-grill',
-            'email' => 'grilladesverdun@gmail.com',
+            'name' => 'Saint Sushi Bar',
+            'slug' => 'saint-sushi-bar',
+            'email' => 'saintsushibar@gmail.com',
             'phone' => '5147662345',
             'password' => '$2y$10$LCwhVWDrG9kApVmd4Wl4ieCu1uJlo.ubbulbxEOhNJzLmSORT6.YO',
-            'category_id' => 21,
-            'image' => 'uploads/',
+            'category_id' => 15,
+            'image' => 'uploads/b68954e0-1389-4951-af7a-39139ac599c1.jpeg',
             'active' => 1
         ]);
     }
