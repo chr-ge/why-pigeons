@@ -1,7 +1,7 @@
 import React, { useState, useRef, useLayoutEffect } from 'react';
 import ReactDOM from "react-dom";
 import axios from 'axios';
-import { FaBookmark, FaRegBookmark } from 'react-icons/fa';
+import { TiHeartFullOutline, TiHeartOutline } from 'react-icons/ti';
 
 export const FavoriteButton = ({ restaurant, fav }) => {
     const [ favorite, setFavorite ] = useState(JSON.parse(fav));
@@ -12,7 +12,7 @@ export const FavoriteButton = ({ restaurant, fav }) => {
             firstUpdate.current = false;
             return;
         }
-        axios.post(`http://localhost/public/r/${restaurant}/favorite`)
+        axios.post(`http://localhost/why-pigeons/public/r/${restaurant}/favorite`)
             .catch(errors => {
                 if (errors.response.status === 401) {
                     window.location = 'http://localhost/public/login';
@@ -22,11 +22,22 @@ export const FavoriteButton = ({ restaurant, fav }) => {
 
     return (
             <button
+                aria-label="Favorite this restaurant"
                 type="button"
-                className="btn btn-outline-info btn-sm"
+                style={{ color: '#E81224' }}
+                className="btn btn-sm"
                 onClick={() => setFavorite(!favorite)}
             >
-                { favorite ? <FaBookmark /> : <FaRegBookmark /> }
+                { favorite
+                    ? <TiHeartFullOutline
+                        size='2.3em'
+                        title="Unfavorite this restaurant"
+                        />
+                    : <TiHeartOutline
+                        size='2.3em'
+                        title="Favorite this restaurant"
+                    />
+                }
             </button>
     );
 }
