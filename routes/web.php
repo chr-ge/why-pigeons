@@ -18,7 +18,7 @@ Route::view('/','welcome');
 Auth::routes();
 
 Route::get('/login/pigeon', 'Auth\LoginController@showPigeonLoginForm')->name('login.pigeon');
-Route::get('/login/driver', 'Auth\LoginController@showDriverLoginForm')->name('login.driver');;
+Route::get('/login/driver', 'Auth\LoginController@showDriverLoginForm')->name('login.driver');
 Route::get('/login/restaurant', 'Auth\LoginController@showRestaurantLoginForm')->name('login.restaurant');;
 Route::get('/register/pigeon', 'Auth\RegisterController@showPigeonRegisterForm')->name('register.pigeon');
 Route::get('/register/driver', 'Auth\RegisterController@showDriverRegisterForm')->name('register.driver');
@@ -39,7 +39,7 @@ Route::get('/account/settings', 'HomeController@settings')->middleware('auth');
 Route::get('/r/{restaurant}', 'HomeController@show')->name('home.show');
 
 Route::post('/cart/{menu}', 'CartController@store')->name('cart.store');
-Route::delete('/cart/{menu}', 'CartController@remove')->name('cart.remove');;
+Route::delete('/cart/{menu}', 'CartController@remove')->name('cart.remove');
 
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/r/{restaurant}/checkout', 'CheckoutController@index')->name('checkout');

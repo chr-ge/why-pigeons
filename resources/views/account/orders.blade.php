@@ -12,14 +12,14 @@
                     <div class="card mt-4">
                         <div class="card-header card-header-bg">
                             <h4 class="mb-0 d-inline-block">{!! '<b>#'.$order->id.'</b>'.' | Order From '.$order->restaurant->name !!}</h4>
-                            <h4 class="mb-0 float-right">{{ Carbon\Carbon::parse($order->created_at)->toFormattedDateString() }}</h4>
+                            <h4 class="mb-0 float-right">{{ Carbon\Carbon::parse($order->created_at)->longRelativeToNowDiffForHumans() }}</h4>
                         </div>
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-md-5">
                                     <div class="w-50">
                                         <div class="m-row">
-                                            <h5>Status: </h5><h5><span class="badge {{ $order->getStatus() }}">{{ $order->status }}</span></h5>
+                                            <h5>Status: </h5><h5><span class="badge {{ $order->getStatus() }}">{{ str_replace('_', ' ', $order->status) }}</span></h5>
                                         </div>
                                         <div class="m-row">
                                             <h5>Subtotal: </h5><h5>${{ $order->billing_subtotal }}</h5>
@@ -45,10 +45,10 @@
                                         </ul>
                                     @endforeach
                                 </div>
-                                <div class="col-md-2">
+                                <div class="col-md-2 my-auto">
                                     <div class="list-group text-center">
                                         <a href="{{ route('home.show', $item->restaurant->slug) }}" class="list-group-item list-group-item-action">Order Again</a>
-                                        <a href="#" class="list-group-item list-group-item-action">Leave a Review</a>
+                                        <button class="list-group-item list-group-item-action @if($order->status === 'new') disabled @endif">Leave a Review</button>
                                         <a href="#" class="list-group-item list-group-item-action">Request Refund</a>
                                     </div>
                                 </div>
