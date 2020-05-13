@@ -10923,6 +10923,10 @@ body {
   border-top-right-radius: 0;
 }
 
+.form-signin button {
+  font-size: 1.125rem !important;
+}
+
 .legal {
   font-size: 12px;
 }
@@ -10935,6 +10939,30 @@ body {
 
 .legal a:link:hover {
   color: #4e50cd;
+}
+
+.card-login {
+  width: 100%;
+  background: #BFBDDB;
+  margin: 2rem auto auto auto;
+  max-width: 500px;
+}
+
+.card-login h5 {
+  color: black;
+  margin: 0;
+}
+
+.card-login h5 > a {
+  color: white;
+  margin-left: 0.5rem;
+  padding: 5px 10px;
+  background-color: #6574cd;
+  border-radius: 0.25rem;
+}
+
+.card-login h5 > a:hover {
+  text-decoration: none;
 }
 
 .restaurant-cart {

@@ -3,7 +3,7 @@
 @section('title', isset($url) ? config('app.name').' | '.ucwords($url).' Register' : config('app.name').' | Register')
 
 @section('content')
-<div class="container pt-4">
+<div class="container pt-4" style="height: 66vh">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">

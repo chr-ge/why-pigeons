@@ -7,8 +7,10 @@
         .imagerow{
             background: url("https://i.pinimg.com/originals/07/7d/e1/077de1e0a97edc48c026661b9a3ba190.jpg");
         }
-        img{
+        .right-image{
             width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
     </style>
 @endsection
@@ -18,7 +20,7 @@
     <div class="modal-body row">
         <div class="col-md-6">
             <!-- <img src="https://i.pinimg.com/originals/07/7d/e1/077de1e0a97edc48c026661b9a3ba190.jpg"/> -->
-            <img src="https://images.unsplash.com/photo-1551218808-94e220e084d2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80"/>
+            <img src="https://images.unsplash.com/photo-1551218808-94e220e084d2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80" class="right-image"/>
         </div>
         <div class="col-md-6">
             <form enctype="multipart/form-data" action='{{ url("register/$url") }}' method="POST" class="form-signin">
@@ -65,10 +67,18 @@
                         you have read the <a href="#">Privacy Policy</a>.
                     </p>
                 </div>
-                <button type="submit" class="btn btn-primary">
+                <button type="submit" class="btn btn-primary btn-block">
                     {{ __('Apply Now') }}
                 </button>
             </form>
+            <div class="card card-login">
+                <div class="card-body">
+                    <h5 class="card-title d-inline-block">
+                        Already have an account with us?
+                        <a href="{{ route('login.restaurant') }}">Login</a>
+                    </h5>
+                </div>
+            </div>
         </div>
     </div>
 </div>

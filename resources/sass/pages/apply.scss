@@ -29,6 +29,9 @@
     border-top-left-radius: 0;
     border-top-right-radius: 0;
 }
+.form-signin button {
+    font-size: 1.125rem !important;
+}
 .legal {
     font-size: 12px;
     a:link {
@@ -40,3 +43,22 @@
         }
     }
 }
+.card-login {
+    width: 100%;
+    background: #BFBDDB;
+    margin: 2rem auto auto auto;
+    max-width: 500px;
+    h5 {
+        color: black;
+        margin: 0;
+    }
+    h5 > a {
+        color: white;
+        margin-left: 0.5rem;
+        padding: 5px 10px;
+        background-color: #6574cd;
+        border-radius: .25rem;
+        &:hover {text-decoration: none}
+    }
+}
+

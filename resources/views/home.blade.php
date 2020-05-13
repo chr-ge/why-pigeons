@@ -52,7 +52,7 @@
     </div>
     @if(auth()->user() && auth()->user()->favorites->first())
         <div class="row mt-4">
-            <h3 class="col-md-12">Bookmarked Restaurants</h3>
+            <h3 class="col-md-12">Favorite Restaurants</h3>
             <div class="col-md-12">
                 <div class="my-slider mb-5">
                     @foreach(auth()->user()->favorites as $fav)
