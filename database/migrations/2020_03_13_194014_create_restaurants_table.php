@@ -26,8 +26,7 @@ class CreateRestaurantsTable extends Migration
             $table->rememberToken();
             $table->timestamps();
 
-            $table->foreign('category_id')
-                ->references('id')
+            $table->foreign('category_id')->references('id')
                 ->on('categories');
         });
     }

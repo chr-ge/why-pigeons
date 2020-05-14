@@ -46,6 +46,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/u/orders', 'UserController@orders')->name('user.orders');
     Route::view('/order-complete', 'order-complete');
 
+    Route::post('/u/orders/{order}/review', 'ReviewController@store');
     Route::post('/r/{restaurant}/favorite', 'HomeController@favorite')->name('home.favorite');
     Route::post('/r/{restaurant}/checkout', 'CheckoutController@store')->name('checkout.store');
     Route::post('/r/{restaurant}/checkout/tip','CheckoutController@tip')->name('checkout.tip');

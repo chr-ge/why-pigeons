@@ -48,8 +48,23 @@
                                 <div class="col-md-2 my-auto">
                                     <div class="list-group text-center">
                                         <a href="{{ route('home.show', $item->restaurant->slug) }}" class="list-group-item list-group-item-action">Order Again</a>
-                                        <button class="list-group-item list-group-item-action @if($order->status === 'new') disabled @endif">Leave a Review</button>
+                                        <button class="list-group-item list-group-item-action @if($order->status === 'new') disabled @endif" data-toggle="modal" data-target="#reviewModal{{$order->id}}">Leave a Review</button>
                                         <a href="#" class="list-group-item list-group-item-action">Request Refund</a>
+                                    </div>
+                                </div>
+                                <div class="modal fade" id="reviewModal{{$order->id}}" tabindex="-1" role="dialog" aria-labelledby="Leave a Review" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered" role="document">
+                                        <form class="modal-content">
+                                            <div class="modal-header">
+                                                <h4 class="modal-title" id="reviewModalLongTitle{{$order->id}}">Leave a Restaurant Review</h4>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div id="restaurant-review" data-order="{{ $order->id }}" data-restaurant="{{ $order->restaurant->name }}"></div>
+                                            </div>
+                                        </form>
                                     </div>
                                 </div>
                             </div>

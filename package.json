@@ -28,6 +28,7 @@
         "bootstrap-input-spinner": "^1.13.4",
         "mapbox-gl": "^1.10.0",
         "react-icons": "^3.10.0",
+        "react-star-rating-component": "^1.4.1",
         "select2": "^4.0.13"
     }
 }

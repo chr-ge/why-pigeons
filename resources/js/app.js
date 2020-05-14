@@ -14,6 +14,7 @@ require('./bootstrap');
 
 require('./components/MapBox');
 require('./components/FavoriteButton');
+require('./components/RestaurantReview');
 require('bootstrap-input-spinner');
 
 /*****************************************************************************/
