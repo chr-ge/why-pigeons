@@ -11,7 +11,7 @@ class DriverController extends Controller
 {
     public function index()
     {
-        $reserved = Order::getDriverReserved()->get();
+        $reserved = Order::getDriverReserved()->first();
         $orders = Order::getAvailableOrders()->get();
         return view('driver.driver', compact('orders', 'reserved'));
     }
@@ -51,6 +51,11 @@ class DriverController extends Controller
 
     public function reserve(Order $order)
     {
+        if(\Gate::denies('license-is-created', auth()->user()->id) &&
+            \Gate::denies('driver-has-car', auth()->user()->id)){
+            return redirect()->back()->withErrors('Complete your profile to reserve an order.');
+        }
+
         if(\Gate::denies('driver-can-reserve', auth()->user()->id)){
             return redirect()->back()->withErrors('You already have an active reserved order.');
         }
@@ -82,7 +87,6 @@ class DriverController extends Controller
 
     public function storeVehicle()
     {
-        //dd(request()->all());
         $data = request()->validate([
             'plate' => 'required|string|min:2|max:7',
             'model' => 'required|string|min:2',

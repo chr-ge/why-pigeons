@@ -79,22 +79,20 @@
                 </div>
             </div>
         </div>
-        @if($reserved->first())
+        @if($reserved)
             <div class="row mt-5">
                 <div class="col-md-12">
                     <h3>Reserved Active Orders</h3>
                 </div>
                 <div class="col-md-12">
                     <div class="list-group">
-                        @foreach($reserved as $res)
-                            <li class="list-group-item list-group-item-action orders-list">
-                                <div class="d-flex align-items-center">
-                                    <h4 class="mb-0 d-inline-block">{{ $res->restaurant->name }}</h4><span style="padding: 0 0.5rem">•</span>
-                                    <h4 class="mb-0 d-inline-block">{{ $res->restaurant->address->street_address }}</h4>
-                                </div>
-                                <a href="{{ route('driver.order', $res->id) }}" class="btn btn-success btn-sm btn-driver">View Trip</a>
-                            </li>
-                        @endforeach
+                        <li class="list-group-item list-group-item-action orders-list">
+                            <div class="d-flex align-items-center">
+                                <h4 class="mb-0 d-inline-block">{{ $reserved->restaurant->name }}</h4><span style="padding: 0 0.5rem">•</span>
+                                <h4 class="mb-0 d-inline-block">{{ $reserved->restaurant->address->street_address }}</h4>
+                            </div>
+                            <a href="{{ route('driver.order', $reserved->id) }}" class="btn btn-success btn-sm btn-driver">View Trip</a>
+                        </li>
                     </div>
                 </div>
             </div>

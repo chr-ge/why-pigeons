@@ -1,13 +1,10 @@
 @extends('layouts.app')
 
-@section('title', 'Order | '.$order->id )
+@section('title', 'Order | '.$order->restaurant->name )
 
 @section('extra-css')
     <script src="https://api.mapbox.com/mapbox-gl-js/v1.10.0/mapbox-gl.js"></script>
     <link href="https://api.mapbox.com/mapbox-gl-js/v1.10.0/mapbox-gl.css" rel="stylesheet" />
-    <style>
-        /*#map { position: absolute; top: 0; bottom: 0; width: 100%; }*/
-    </style>
     <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.0.2/mapbox-gl-directions.js"></script>
     <link
         rel="stylesheet"
@@ -19,7 +16,7 @@
 @section('content')
     <div class="container mt-4">
         <div class="row">
-            <h1>Order: #{{ $order->id }}</h1>
+            <h2>Pickup: {{ $order->restaurant->fullAddress() }} ({{ $order->restaurant->name }})</h2>
         </div>
         <div class="row">
             <div id="map" style="width: 100%; height: 75vh"></div>

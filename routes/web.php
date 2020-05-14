@@ -105,6 +105,6 @@ Route::group(['middleware' => 'auth:pigeon'], function () {
     Route::patch('/account/settings', 'PigeonController@updateAccount')->name('pigeon.updateAccount');
 });
 
-Route::fallback(function() {
-    return view('fallback');
-});
+//Route::fallback(function() {
+//    return view('fallback');
+//});

@@ -12,6 +12,7 @@
                     </div>
                     <div class="card-body text-center">
                         <h2>Order Placed</h2>
+                        <a href="{{ route('user.orders') }}" class="btn btn-primary w-25 mt-2">View Order</a>
                     </div>
                 </div>
             </div>
