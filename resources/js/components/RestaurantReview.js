@@ -26,7 +26,7 @@ export const RestaurantReview = ({ order, restaurant }) => {
             .then(window.location.reload())
             .catch((error) => {
                 if (error.response.status === 401) {
-                    window.location = 'http://localhost/public/login';
+                    window.location = 'http://localhost/why-pigeons/public/login';
                 }
                 console.log(error);
             });

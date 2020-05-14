@@ -1,10 +1,10 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React, { Component } from 'react';
+import { render } from 'react-dom';
 import mapboxgl from 'mapbox-gl';
 
 mapboxgl.accessToken = 'pk.eyJ1Ijoia25pZmVib3NzIiwiYSI6ImNrOWlyazllcTE1NmQzZXBuZXh5MHVpM3QifQ.eNaU-QnXEbcFzghOYUGVvA';
 
-class MapBox extends React.Component {
+class MapBox extends Component {
 
     componentDidMount() {
         const map = new mapboxgl.Map({
@@ -29,7 +29,7 @@ class MapBox extends React.Component {
             }
 
             map.loadImage(
-                'http://localhost/public/svg/dove.png',
+                'http://localhost/why-pigeons/public/svg/dove.png',
                 function(error, image) {
                     if (error) throw error;
                     map.addImage('pigeon', image);
@@ -64,5 +64,5 @@ if (document.getElementById('mapbox')) {
     const element = document.getElementById('mapbox');
     const props = Object.assign({}, element.dataset)
 
-    ReactDOM.render(<MapBox {...props}/>, element);
+    render(<MapBox {...props}/>, element);
 }

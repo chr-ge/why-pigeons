@@ -21,9 +21,9 @@ require('bootstrap-input-spinner');
 
 const getFontSize = (textLength) => {
     if (textLength >= 15) {
-        return `1.1vw`;
+        return `1.75rem`;
     }
-    return `1.5vw`;
+    return `2.25rem`;
 };
 
 const contents = document.querySelectorAll('.content h1');

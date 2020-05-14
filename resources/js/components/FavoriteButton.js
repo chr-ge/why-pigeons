@@ -15,7 +15,7 @@ export const FavoriteButton = ({ restaurant, fav }) => {
         axios.post(`http://localhost/why-pigeons/public/r/${restaurant}/favorite`)
             .catch(errors => {
                 if (errors.response.status === 401) {
-                    window.location = 'http://localhost/public/login';
+                    window.location = 'http://localhost/why-pigeons/public/login';
                 }
             });
     }, [favorite]);
