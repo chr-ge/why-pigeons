@@ -9,7 +9,7 @@
                             <div class="row">
                                 <div class="col">
                                     <h5 class="card-title text-uppercase text-muted mb-0">Reviews</h5>
-                                    <span class="h2 font-weight-bold mb-0">350</span>
+                                    <span class="h2 font-weight-bold mb-0">{{ $reviewsCount }}</span>
                                 </div>
                                 <div class="col-auto">
                                     <div class="icon icon-shape bg-danger text-white rounded-circle shadow">
@@ -30,11 +30,11 @@
                             <div class="row">
                                 <div class="col">
                                     <h5 class="card-title text-uppercase text-muted mb-0">Menu Items</h5>
-                                    <span class="h2 font-weight-bold mb-0">8</span>
+                                    <span class="h2 font-weight-bold mb-0">{{ $menusCount }}</span>
                                 </div>
                                 <div class="col-auto">
                                     <div class="icon icon-shape bg-warning text-white rounded-circle shadow">
-                                        <i class="fas fa-users"></i>
+                                        <i class="fas fa-utensils"></i>
                                     </div>
                                 </div>
                             </div>
@@ -76,7 +76,7 @@
                                 </div>
                                 <div class="col-auto">
                                     <div class="icon icon-shape bg-info text-white rounded-circle shadow">
-                                        <i class="ni ni-shop"></i>
+                                        <i class="ni ni-cart"></i>
                                     </div>
                                 </div>
                             </div>

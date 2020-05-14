@@ -8,6 +8,7 @@ use App\Review;
 use App\Category;
 use App\Restaurant;
 use App\RestaurantHours;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\File;
 use Intervention\Image\Facades\Image;
 use App\Http\Requests\SetOperatingHoursRequest;
@@ -16,7 +17,13 @@ class RestaurantController extends Controller
 {
     public function index()
     {
-        return view('dashboard.restaurant.dashboard');
+        $reviewsCount = Cache::remember('reviews.count', now()->addSeconds(30), function () {
+            return Review::where('restaurant_id', auth()->user()->id)->count();
+        });
+        $menusCount = Cache::remember('menus.count', now()->addSeconds(30), function () {
+            return Menu::where('restaurant_id', auth()->user()->id)->count();
+        });
+        return view('dashboard.restaurant.dashboard', compact('reviewsCount', 'menusCount'));
     }
 
     public function management()

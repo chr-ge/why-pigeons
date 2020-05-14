@@ -110,7 +110,7 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('restaurant.reviews') }}">
-                        <i class="ni ni-chat-round text-orange"></i> {{ __('Reviews') }}
+                        <i class="ni ni-chat-round text-orange"></i> {{ __('Feedback') }}
                     </a>
                 </li>
             </ul>

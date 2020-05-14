@@ -16,10 +16,10 @@ class PigeonController extends Controller
 {
     public function index()
     {
-        $users = Cache::remember('users.count.', now()->addSeconds(30), function () {
+        $users = Cache::remember('users.count', now()->addSeconds(30), function () {
             return User::all()->count();
         });
-        $restaurants = Cache::remember('restaurants.count.', now()->addSeconds(30), function () {
+        $restaurants = Cache::remember('restaurants.count', now()->addSeconds(30), function () {
             return Restaurant::all()->count();
         });
         return view('dashboard.pigeon.dashboard', compact('users', 'restaurants'));
