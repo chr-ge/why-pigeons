@@ -44,7 +44,7 @@
                 <div class="dropdown-menu dropdown-menu-right">
                     <h6 class="dropdown-header">Sort By</h6>
                     <a class="dropdown-item" href="#"><i class="fas fa-car" style="width:14px"></i> Delivery Fee</a>
-                    <a class="dropdown-item" href="#"><i class="fas fa-award" style="width:14px"></i> Reviews</a>
+                    <a class="dropdown-item" href="{{ route('home.index', ['sort' => 'reviews']) }}"><i class="fas fa-award" style="width:14px"></i> Reviews</a>
                     <a class="dropdown-item" href="#"><i class="fas fa-dollar-sign" style="width:14px"></i> Price</a>
                 </div>
             </div>
@@ -85,7 +85,7 @@
     </div>
     <div class="row mt-4">
         <div class="col-12 d-flex justify-content-center">
-            {{ $restaurants->links() }}
+            {{ $restaurants->appends(request()->input())->links() }}
         </div>
     </div>
 </div>

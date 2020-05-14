@@ -18,7 +18,12 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $restaurants = Restaurant::where('active', true)->paginate(12);
+        if (request()->sort === 'reviews') {
+            $restaurants = Restaurant::orderByAvgRating();
+        } else {
+            $restaurants = Restaurant::where('active', true)->paginate(12);
+        }
+
         return view('home', compact('restaurants'));
     }
 

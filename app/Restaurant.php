@@ -77,4 +77,10 @@ class Restaurant extends Authenticatable
     public function avg_rating(){
         return $this->reviews->avg('rating');
     }
+
+    public function scopeOrderByAvgRating($query){
+        return$query->where('active', true)->withCount(['reviews as average_review' => function($query) {
+            $query->select(\DB::raw('coalesce(avg(rating),0)'));
+        }])->orderByDesc('average_review')->paginate(12);
+    }
 }
