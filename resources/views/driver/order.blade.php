@@ -16,10 +16,20 @@
 @section('content')
     <div class="container mt-4">
         <div class="row">
-            <h2>Pickup: {{ $order->restaurant->fullAddress() }} ({{ $order->restaurant->name }})</h2>
+            <h2><span class="highlight-container-y"><span class="highlight">Pickup:</span></span>
+                {{ $restaurant_address }} {{ $order->status === 'reserved' ? '('.$order->restaurant->name.')' : '' }}
+            </h2>
         </div>
         <div class="row">
             <div id="map" style="width: 100%; height: 75vh"></div>
+        </div>
+        <div class="row mt-4">
+            <div class="col-md-12">
+                <form method="POST" action="{{ route('driver.foodPickupComplete', $order->id) }}" class="d-flex justify-content-center">
+                    @csrf
+                    <button class="btn btn-success btn-lg w-25">Food Pickup Complete</button>
+                </form>
+            </div>
         </div>
     </div>
 @endsection
@@ -38,7 +48,11 @@
                 unit: 'metric',
         });
         directions.setOrigin([-73.65, 45.5087]);
-        directions.setDestination([-73.65654, 45.5087564]);
+        @if($order->status === 'reserved')
+            directions.setDestination([-73.65654, 45.5087564]);
+        @else
+            directions.setDestination(['{{ $order->address->longitude }}', '{{ $order->address->latitude }}']);
+        @endif
         map.addControl(
             directions,
             'top-left',

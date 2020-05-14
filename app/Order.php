@@ -27,7 +27,12 @@ class Order extends Model
 
     public function address()
     {
-        return $this->hasOne(Address::class, 'account_id');
+        return $this->hasOne(Address::class, 'account_id')->where('description', 'delivery');
+    }
+
+    public function fullAddress(){
+        return $this->address->street_address.', '.$this->address->city.' '.
+            $this->address->province.', '.$this->address->postal_code;
     }
 
     public function isBlocked()

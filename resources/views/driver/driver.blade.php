@@ -82,7 +82,7 @@
         @if($reserved)
             <div class="row mt-5">
                 <div class="col-md-12">
-                    <h3>Reserved Active Orders</h3>
+                    <h3><span class="highlight-container-y"><span class="highlight">Reserved Active Orders</span></span></h3>
                 </div>
                 <div class="col-md-12">
                     <div class="list-group">
@@ -99,7 +99,7 @@
         @endif
         <div class="row mt-5">
             <div class="col-md-12">
-                <h3>Available Orders For Pickup</h3>
+                <h3><span class="highlight-container-y"><span class="highlight">Orders Available For Pickup</span></span></h3>
             </div>
             <div class="col-md-12">
                 <div class="list-group">

@@ -22,7 +22,10 @@ class DriverController extends Controller
         {
             return redirect()->back();
         }
-        return view('driver.order', compact('order'));
+        $restaurant_address = $order->status === 'reserved'
+            ? $order->restaurant->fullAddress()
+            : $order->fullAddress();
+        return view('driver.order', compact('order', 'restaurant_address'));
     }
 
     public function trips()
@@ -64,6 +67,17 @@ class DriverController extends Controller
             'status' => 'reserved'
         ]);
         return view('driver.order', compact('order'));
+    }
+
+    public function foodPickupComplete(Order $order){
+        if($order->driver_id !== auth()->user()->id){
+            return redirect()->back();
+        }
+        $order->update([
+            'status' => 'food_pickup_up'
+        ]);
+        $restaurant_address = $order->fullAddress();
+        return view('driver.order', compact('order', 'restaurant_address'));
     }
 
     public function storeDriversLicense(DriversLicenseRequest $request)
