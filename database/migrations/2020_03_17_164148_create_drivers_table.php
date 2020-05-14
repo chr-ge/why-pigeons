@@ -20,7 +20,7 @@ class CreateDriversTable extends Migration
             $table->string('phone', 12)->unique();
             $table->string('password');
             $table->string('type', 50)->nullable();
-            $table->string('profile_picture')->nullable();
+            $table->string('profile_picture')->default('uploads/drivers/default.png');
             $table->rememberToken();
             $table->timestamps();
         });

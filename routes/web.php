@@ -53,12 +53,12 @@ Route::group(['middleware' => 'auth'], function () {
 
 Route::group(['middleware' => 'auth:driver'], function () {
     Route::get('/driver', 'DriverController@index')->name('driver.index');
-    Route::get('/d/order/{order}', 'DriverController@order')->name('driver.order');
+    Route::get('/d/orders/{order}', 'DriverController@order')->name('driver.order');
     Route::get('/driver/setup', 'DriverController@setup')->name('driver.setup');
     Route::get('/driver/setup/2', 'DriverController@vehicle')->name('driver.vehicle');
     Route::get('/trips', 'DriverController@trips')->name('driver.trips');
 
-    Route::post('/driver', 'DriverController@reserve')->name('driver.reserve');
+    Route::post('/driver/{order}', 'DriverController@reserve')->name('driver.reserve');
     Route::post('/driver/setup', 'DriverController@storeDriversLicense')->name('driver.storeDriversLicense');
     Route::post('/driver/setup/2', 'DriverController@storeVehicle')->name('driver.storeVehicle');
     Route::post('/d/order/{order}', 'DriverController@foodPickupComplete')->name('driver.foodPickupComplete');

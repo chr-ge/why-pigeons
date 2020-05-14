@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Menu;
 use App\Order;
+use App\Review;
 use App\User;
 use App\Driver;
 use App\Pigeon;
@@ -63,11 +64,18 @@ class PigeonController extends Controller
 
     public function driverDetails(Driver $driver)
     {
-        return view('dashboard.pigeon.drivers.d-details', compact('driver'));
+        $trips = Order::where('driver_id', $driver->id)->get();
+        return view('dashboard.pigeon.drivers.d-details', compact('driver', 'trips'));
     }
 
     public function restaurantDetails(Restaurant $restaurant)
     {
+        $reviewsAvg = Cache::remember('reviews.avg.'.$restaurant->id, now()->addSeconds(30), function () use ($restaurant){
+            return number_format(Review::where('restaurant_id', $restaurant->id)->avg('rating'), 1, '.', '');
+        });
+        $reviewsCount = Cache::remember('reviews.count.'.$restaurant->id, now()->addSeconds(30), function () use ($restaurant){
+            return Review::where('restaurant_id', $restaurant->id)->count();
+        });
         $menu_items = Cache::remember('menu.count.'.$restaurant->id, now()->addSeconds(30), function () use ($restaurant){
             return $restaurant->menu_items_count();
         });
@@ -75,7 +83,8 @@ class PigeonController extends Controller
             return Pigeon::getPercentatgeChange( Menu::newMenuItemsLastMonth($restaurant->id), Menu::newMenuItemsThisMonth($restaurant->id));
         });
 
-        return view('dashboard.pigeon.restaurants.r-details', compact('restaurant', 'menu_items', 'menu_change'));
+        return view('dashboard.pigeon.restaurants.r-details',
+            compact('restaurant', 'menu_items', 'menu_change', 'reviewsAvg', 'reviewsCount'));
     }
 
     public function cancelOrder(Order $order)

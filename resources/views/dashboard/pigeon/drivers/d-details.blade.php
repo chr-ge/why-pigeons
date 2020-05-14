@@ -54,12 +54,12 @@
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col">
-                                        <h5 class="card-title text-uppercase text-muted mb-0 text-white">Driver</h5>
-                                        <span class="h2 font-weight-bold mb-0 text-white">N/A</span>
+                                        <h5 class="card-title text-uppercase text-muted mb-0 text-white">Completed Trips</h5>
+                                        <span class="h2 font-weight-bold mb-0 text-white">0</span>
                                     </div>
                                     <div class="col-auto">
                                         <div class="icon icon-shape bg-white text-dark rounded-circle shadow">
-                                            <i class="ni ni-basket"></i>
+                                            <i class="fas fa-route"></i>
                                         </div>
                                     </div>
                                 </div>
@@ -78,13 +78,35 @@
                                 <h2 class="mb-0"><i class="fa fa-info-circle"></i> Information</h2>
                             </div>
                             <div class="card-body">
-                                <dl class="dl-horizontal w-50" style="float: left;display: inline-block">
-                                    <dt>Email</dt>
-                                    <dd>{{$driver->email}}</dd>
-
-                                    <dt>Phone</dt>
-                                    <dd>{{$driver->phone}}</dd>
-                                </dl>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <h6 class="heading-small text-muted mb-4 w-auto">User Information</h6>
+                                        <dl class="dl-horizontal pl-md-4 pr-4" style="float: left;display: inline-block;">
+                                            <img src="{{ url('storage/'.$driver->profile_picture) }}" alt="driver profile" style="height: 150px;width: 150px;object-fit: cover;">
+                                        </dl>
+                                        <dl class="dl-horizontal pl-md-4" style="height: 150px">
+                                            <dt>Email</dt>
+                                            <dd>{{$driver->email}}</dd>
+                                            <dt>Phone</dt>
+                                            <dd>{{$driver->phone}}</dd>
+                                            <dt>City</dt>
+                                            <dd>{{$driver->city ?? 'N/A'}}</dd>
+                                        </dl>
+                                    </div>
+                                    <div class="col-md-6">
+                                        @if($driver->vehicle)
+                                            <h6 class="heading-small text-muted mb-4 w-auto">Vehicle Information</h6>
+                                            <dl class="dl-horizontal pl-md-4" style="height: 150px">
+                                                <dt>Model</dt>
+                                                <dd>{{ $driver->vehicle->car_model }}</dd>
+                                                <dt>Year</dt>
+                                                <dd>{{ $driver->vehicle->year }}</dd>
+                                                <dt>Color</dt>
+                                                <dd>{{ $driver->vehicle->color }}</dd>
+                                            </dl>
+                                        @endif
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -95,8 +117,16 @@
                     <div class="card-header">
                         <h2 class="mb-0"><i class="ni ni-delivery-fast"></i> Trips</h2>
                     </div>
-                    <div class="card-body">
-
+                    <div class="card-body p-0">
+                        <ul class="list-group">
+                            @forelse($trips as $trip)
+                                <li class="list-group-item">
+                                    #{{ $trip->id.' | '.$trip->created_at }}<span class="badge {{ $trip->getStatus() }} float-right">{{ $trip->status }}</span>
+                                </li>
+                            @empty
+                                <li class="list-group-item">Driver has not made any trips yet.</li>
+                            @endforelse
+                        </ul>
                     </div>
                 </div>
             </div>

@@ -21,7 +21,7 @@
             </h2>
         </div>
         <div class="row">
-            <div id="map" style="width: 100%; height: 75vh"></div>
+            <div id="map" style="width: 100%; height: 70vh"></div>
         </div>
         <div class="row mt-4">
             <div class="col-md-12">

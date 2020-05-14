@@ -56,8 +56,8 @@
                                 <div class="card-body">
                                     <div class="row">
                                         <div class="col">
-                                            <h5 class="card-title text-uppercase text-muted mb-0 text-white">Restaurant Reviews</h5>
-                                            <span class="h2 font-weight-bold mb-0 text-white">N/A</span>
+                                            <h5 class="card-title text-uppercase text-muted mb-0 text-white">Feedback / Reviews</h5>
+                                            <span class="h1 font-weight-bold mb-0 text-white">{{ $reviewsAvg }}/5</span>
                                         </div>
                                         <div class="col-auto">
                                             <div class="icon icon-shape bg-white text-dark rounded-circle shadow">
@@ -66,8 +66,8 @@
                                         </div>
                                     </div>
                                     <p class="mt-3 mb-0 text-sm">
-                                        <span class="text-white mr-2"><i class="fa fa-arrow-up"></i> N/A %</span>
-                                        <span class="text-nowrap text-light">Since last month</span>
+                                        <span class="text-white mr-2 h4">{{ $reviewsCount }}</span>
+                                        <span class="text-nowrap text-light">Customer Reviews</span>
                                     </p>
                                 </div>
                             </div>
@@ -79,7 +79,7 @@
                                     <div class="row">
                                         <div class="col">
                                             <h5 class="card-title text-uppercase text-muted mb-0 text-white">Total Menu Items</h5>
-                                            <span class="h2 font-weight-bold mb-0 text-white">{{$menu_items}}</span>
+                                            <span class="h1 font-weight-bold mb-0 text-white">{{$menu_items}}</span>
                                         </div>
                                         <div class="col-auto">
                                             <div class="icon icon-shape bg-white text-dark rounded-circle shadow">
