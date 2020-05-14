@@ -68,4 +68,13 @@ class Restaurant extends Authenticatable
     {
         return $this->belongsToMany(User::class);
     }
+
+    public function reviews()
+    {
+        return $this->hasMany(Review::class);
+    }
+
+    public function avg_rating(){
+        return $this->reviews->avg('rating');
+    }
 }

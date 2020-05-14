@@ -7,6 +7,7 @@ use App\Category;
 use App\Favorite;
 use App\Menu;
 use App\Restaurant;
+use App\Review;
 
 class HomeController extends Controller
 {
@@ -52,18 +53,20 @@ class HomeController extends Controller
 
     public function show(Restaurant $restaurant)
     {
-        auth()->user()
-            ? $favorite = auth()->user()->favorites->contains($restaurant->id)
-            : $favorite = null;
+        $favorite = auth()->user()
+            ? auth()->user()->favorites->contains($restaurant->id)
+            : null;
 
         $menus = Menu::where('restaurant_id', $restaurant->id)->get();
+
+        $rating = number_format(Review::where('restaurant_id', $restaurant->id)->avg('rating'), 1, '.', '');
 
         $categories = [];
         foreach($menus as $category){
            array_push($categories, Category::find($category->category_id));
         }
         $categories = array_unique($categories);
-        return view('show', compact('restaurant', 'categories', 'menus', 'favorite'));
+        return view('show', compact('restaurant', 'categories', 'menus', 'favorite', 'rating'));
     }
 
     public function favorite(Restaurant $restaurant)
