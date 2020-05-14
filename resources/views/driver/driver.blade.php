@@ -24,18 +24,29 @@
                 </button>
             </div>
         @endif
+        @if(\Gate::denies('driver-has-vehicle', auth()->user()->id))
+            <div class="alert alert-dark alert-dismissible fade show" role="alert">
+                <span class="alert-icon"><i class="ni ni-like-2"></i></span>
+                <span class="alert-text"><strong>Attention!</strong> You have not provided your vehicle information.
+                <a href="{{ route('driver.vehicle') }}" class="alert-link">add it here</a>
+            </span>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        @endif
         <div class="row">
             <div class="col-md-6" >
-                <div class="card border-0 bg-card-pink">
+                <div class="card border-0 bg-card-yellow">
                     <div class="card-body">
                         <div class="row">
                             <div class="col">
-                                <h5 class="card-title text-uppercase text-muted mb-0 text-white">Driver Reviews</h5>
+                                <h5 class="card-title text-uppercase text-muted mb-0 text-white">Completed Trips </h5>
                                 <span class="h2 font-weight-bold mb-0 text-white">N/A</span>
                             </div>
                             <div class="col-auto">
-                                <div class="">
-                                    <i class="fas fa-star-half-alt"></i>
+                                <div style="font-size: x-large">
+                                    <i class="fas fa-route"></i>
                                 </div>
                             </div>
                         </div>
@@ -47,15 +58,15 @@
                 </div>
             </div>
             <div class="col-md-6" >
-                <div class="card border-0 bg-card-yellow">
+                <div class="card border-0 bg-card-pink">
                     <div class="card-body">
                         <div class="row">
                             <div class="col">
-                                <h5 class="card-title text-uppercase text-muted mb-0 text-white">Completed Trips </h5>
+                                <h5 class="card-title text-uppercase text-muted mb-0 text-white">Driver Reviews</h5>
                                 <span class="h2 font-weight-bold mb-0 text-white">N/A</span>
                             </div>
                             <div class="col-auto">
-                                <div class="">
+                                <div style="font-size: x-large">
                                     <i class="fas fa-star-half-alt"></i>
                                 </div>
                             </div>

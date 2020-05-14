@@ -20,6 +20,10 @@ class Driver extends Authenticatable
         return $this->hasOne(DriversLicense::class);
     }
 
+    public function vehicle(){
+        return $this->hasOne(Vehicle::class);
+    }
+
     public function orders(){
         return $this->hasMany(Order::class);
     }

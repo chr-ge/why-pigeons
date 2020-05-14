@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Order;
+use App\Vehicle;
 use App\DriversLicense;
 use App\Http\Requests\DriversLicenseRequest;
-use App\Order;
 
 class DriverController extends Controller
 {
@@ -38,6 +39,16 @@ class DriverController extends Controller
         return view('driver.setup');
     }
 
+    public function vehicle()
+    {
+        if(\Gate::allows('driver-has-vehicle', auth()->user()->id)){
+            return view('driver.driver');
+        }
+        else {
+            return view('driver.vehicle');
+        }
+    }
+
     public function reserve(Order $order)
     {
         if(\Gate::denies('driver-can-reserve', auth()->user()->id)){
@@ -61,6 +72,37 @@ class DriverController extends Controller
             'expires_on' => $request['expires_on'],
         ]);
 
-        return view('driver.driver');
+        if(\Gate::allows('driver-has-vehicle', auth()->user()->id)){
+            return view('driver.driver');
+        }
+        else {
+            return view('driver.vehicle');
+        }
+    }
+
+    public function storeVehicle()
+    {
+        //dd(request()->all());
+        $data = request()->validate([
+            'plate' => 'required|string|min:2|max:7',
+            'model' => 'required|string|min:2',
+            'year' => 'required|date_format:Y',
+            'color' => 'required|string|min:2'
+        ]);
+
+        Vehicle::create([
+            'driver_id' => auth()->user()->id,
+            'license_plate' => $data['plate'],
+            'car_model' => $data['model'],
+            'year' => $data['year'],
+            'color' => $data['color']
+        ]);
+
+        if(\Gate::allows('license-is-created', auth()->user()->id)){
+            return view('driver.driver');
+        }
+        else {
+            return view('driver.setup');
+        }
     }
 }

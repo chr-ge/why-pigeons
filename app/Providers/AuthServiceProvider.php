@@ -43,5 +43,11 @@ class AuthServiceProvider extends ServiceProvider
                 ? Response::deny('You must add your drivers license.')
                 : Response::allow();
         });
+
+        Gate::define('driver-has-vehicle', function ($driver) {
+            return $driver->vehicle
+                ? Response::allow()
+                : Response::deny('You must add your vehicle information.');
+        });
     }
 }

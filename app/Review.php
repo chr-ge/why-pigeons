@@ -27,4 +27,16 @@ class Review extends Model
             return "badge badge-danger";
         }
     }
+
+    public static function getAvgColor($avg){
+        $avg = (double)$avg;
+        if($avg >= 4 && $avg <= 5)
+            return "badge badge-success";
+        else if($avg >= 2 && $avg < 4) {
+            return "badge badge-warning";
+        }
+        else {
+            return "badge badge-danger";
+        }
+    }
 }

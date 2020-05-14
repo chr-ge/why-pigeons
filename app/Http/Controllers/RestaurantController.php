@@ -47,8 +47,11 @@ class RestaurantController extends Controller
 
     public function reviews()
     {
+        $avgRating = Cache::remember('reviews.avg', now()->addSeconds(30), function () {
+            return number_format(Review::where('restaurant_id', auth()->user()->id)->avg('rating'), 1, '.', '');
+        });
         $reviews = Review::where('restaurant_id', auth()->id())->latest()->paginate(10);
-        return view('dashboard.restaurant.reviews', compact('reviews'));
+        return view('dashboard.restaurant.reviews', compact('reviews', 'avgRating'));
     }
 
     public function newMenuItem()

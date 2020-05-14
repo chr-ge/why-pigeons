@@ -51,7 +51,7 @@
                 <div class="card shadow">
                     <!-- Card header -->
                     <div class="card-header border-0">
-                        <h3 class="mb-0">Reviews</h3>
+                        <h3 class="mb-0">Rating: <span class="{{ App\Review::getAvgColor($avgRating) }}" style="font-size: small">{{ $avgRating }}</span></h3>
                     </div>
                     <!-- Table -->
                     <div class="table-responsive" data-toggle="list" data-list-values='[ "rating", "comment", "created_at"]'>
@@ -67,11 +67,9 @@
                                 @foreach($reviews as $review)
                                     <tr>
                                         <td>
-                                            <span class="badge badge-dot mr-4">
-                                                <span class="badge {{$review->getColor()}}" style="font-size: larger">{{ $review->rating }}</span>
-                                            </span>
+                                            <span class="{{$review->getColor()}}" style="font-size: larger">{{ $review->rating }}</span>
                                         </td>
-                                        <td class="budget">
+                                        <td>
                                             {{ $review->comment ?? 'N/A' }}
                                         </td>
                                         <td>

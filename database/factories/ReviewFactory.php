@@ -20,7 +20,7 @@ $factory->define(Review::class, function (Faker $faker) {
     return [
         'user_id' => $faker->numberBetween($min = 1, $max = 30),
         'restaurant_id' => $faker->numberBetween($min = 1, $max = 40),
-        'rating' => $faker->numberBetween($min = 3, $max = 5),
+        'rating' => $faker->numberBetween($min = 2, $max = 5),
         'comment' => $faker->sentence($nbWords = 6, $variableNbWords = true)
     ];
 });
