@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Menu;
 use App\Order;
+use App\Review;
 use App\Category;
 use App\Restaurant;
 use App\RestaurantHours;
@@ -35,6 +36,12 @@ class RestaurantController extends Controller
     {
         $orders = Order::where('restaurant_id', auth()->id())->paginate(10);
         return view('dashboard.restaurant.orders', compact('orders'));
+    }
+
+    public function reviews()
+    {
+        $reviews = Review::where('restaurant_id', auth()->id())->latest()->paginate(10);
+        return view('dashboard.restaurant.reviews', compact('reviews'));
     }
 
     public function newMenuItem()

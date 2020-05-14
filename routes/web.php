@@ -69,6 +69,7 @@ Route::group(['middleware' => 'auth:restaurant'], function () {
     Route::get('/management', 'RestaurantController@management')->name('restaurant.manage');
     Route::get('/orders', 'RestaurantController@orders')->name('restaurant.orders');
     Route::get('/orders/{order}', 'RestaurantController@orderDetails')->name('restaurant.orderDetails');
+    Route::get('/reviews', 'RestaurantController@reviews')->name('restaurant.reviews');
 
     Route::post('/menu/new', 'RestaurantController@createMenuItem')->name('restaurant.createMenuItem');
     Route::patch('/menu/{menu}/edit', 'RestaurantController@updateMenuItem')->name('restaurant.updateMenuItem');

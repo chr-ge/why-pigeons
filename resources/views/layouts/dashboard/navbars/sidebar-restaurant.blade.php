@@ -109,8 +109,8 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">
-                        <i class="ni ni-chart-bar-32 text-orange"></i> {{ __('Sales') }}
+                    <a class="nav-link" href="{{ route('restaurant.reviews') }}">
+                        <i class="ni ni-chat-round text-orange"></i> {{ __('Reviews') }}
                     </a>
                 </li>
             </ul>
