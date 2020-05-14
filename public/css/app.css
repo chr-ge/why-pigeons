@@ -11129,6 +11129,62 @@ a {
   text-decoration: none;
 }
 
+.highlight-container-y,
+.highlight-container-r,
+.highlight {
+  position: relative;
+}
+
+.highlight-container-y,
+.highlight-container-r {
+  display: inline-block;
+}
+
+.highlight-container-y:before,
+.highlight-container-y:after,
+.highlight-container-r:before,
+.highlight-container-r:after {
+  content: " ";
+  display: block;
+  height: 90%;
+  width: 100%;
+  margin-left: -3px;
+  margin-right: -3px;
+  position: absolute;
+}
+
+.highlight-container-y .highlight,
+.highlight-container-r .highlight {
+  color: #333;
+  z-index: 4;
+}
+
+.highlight-container-y:before {
+  background: rgba(234, 221, 6, 0.9);
+  transform: rotate(2deg);
+  top: -1px;
+  left: -1px;
+}
+
+.highlight-container-y:after {
+  background: rgba(234, 210, 6, 0.6);
+  top: 3px;
+  right: -2px;
+}
+
+.highlight-container-r:before {
+  background: rgba(234, 52, 6, 0.8);
+  transform: rotate(2deg);
+  top: -1px;
+  left: -1px;
+}
+
+.highlight-container-r:after {
+  background: rgba(234, 52, 6, 0.5);
+  top: 3px;
+  right: -2px;
+}
+
 body {
   scroll-behavior: smooth;
 }

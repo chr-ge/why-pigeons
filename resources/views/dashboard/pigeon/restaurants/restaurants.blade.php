@@ -39,7 +39,6 @@
                         </nav>
                     </div>
                     <div class="col-lg-6 col-5 text-right">
-                        <a href="{{ route('restaurant.newMenuItem') }}" class="btn btn-sm btn-neutral">New</a>
                         <a href="#" class="btn btn-sm btn-neutral">Filters</a>
                     </div>
                 </div>
@@ -107,7 +106,7 @@
                                             {{$restaurant->address->city ?? 'N/A'}}
                                         </td>
                                         <td>
-                                            <button class="btn btn-sm" data-toggle="tooltip" onclick="window.location ='{{route('pigeon.restaurantDetails', $restaurant->id)}}'">
+                                            <button class="btn btn-sm" data-toggle="tooltip" onclick="window.location ='{{route('pigeon.restaurantDetails', $restaurant->slug)}}'">
                                                 <i class="fas fa-info-circle"></i> View
                                             </button>
                                         </td>

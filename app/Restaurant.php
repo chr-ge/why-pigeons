@@ -83,4 +83,8 @@ class Restaurant extends Authenticatable
             $query->select(\DB::raw('coalesce(avg(rating),0)'));
         }])->orderByDesc('average_review')->paginate(12);
     }
+
+    public function scopeSearchRestaurants($query, $search){
+        return$query->where('active', true)->where('name','like','%'. $search .'%')->paginate(12);
+    }
 }

@@ -26,7 +26,7 @@
             @if(!Session::has('address'))
                 <div id="geocoder" class="geocoder mb-3"></div>
             @else
-                <form action="{{ route('home.search') }}" accept-charset="UTF-8" method="get">
+                <form action="{{ route('home.index', ['search' => 'search']) }}" method="GET">
                     <div class="input-group d-flex mb-3">
                         <input type="text" name="search" class="form-control" placeholder="Search for restaurants">
                         <div class="input-group-append">
@@ -43,16 +43,16 @@
                 </button>
                 <div class="dropdown-menu dropdown-menu-right">
                     <h6 class="dropdown-header">Sort By</h6>
-                    <a class="dropdown-item" href="#"><i class="fas fa-car" style="width:14px"></i> Delivery Fee</a>
+                    <a class="dropdown-item" href="{{ route('home.index', ['sort' => 'delivery']) }}"><i class="fas fa-car" style="width:14px"></i> Delivery Fee</a>
                     <a class="dropdown-item" href="{{ route('home.index', ['sort' => 'reviews']) }}"><i class="fas fa-award" style="width:14px"></i> Reviews</a>
-                    <a class="dropdown-item" href="#"><i class="fas fa-dollar-sign" style="width:14px"></i> Price</a>
+                    <a class="dropdown-item" href="{{ route('home.index', ['sort' => 'price']) }}"><i class="fas fa-dollar-sign" style="width:14px"></i> Price</a>
                 </div>
             </div>
         </div>
     </div>
     @if(auth()->user() && auth()->user()->favorites->first())
         <div class="row mt-4">
-            <h3 class="col-md-12">Favorite Restaurants</h3>
+            <h2 class="col-md-12"><span class="highlight-container-r"><span class="highlight"><i class="fas fa-heart"></i> Favorite Restaurants</span></span></h2>
             <div class="col-md-12">
                 <div class="my-slider mb-5">
                     @foreach(auth()->user()->favorites as $fav)
@@ -71,6 +71,9 @@
             </div>
         </div>
     @endif
+    <div class="row mt-3">
+        <div class="col-md-12"><h2><span class="highlight-container-y"><span class="highlight">{!! $title !!}</span></span></h2></div>
+    </div>
     <div class="row">
         @foreach($restaurants as $restaurant)
             <div class="module col-md-3 p-0">

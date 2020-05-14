@@ -18,20 +18,19 @@ class HomeController extends Controller
      */
     public function index()
     {
-        if (request()->sort === 'reviews') {
+        if(request()->search){
+            $restaurants = Restaurant::searchRestaurants(request()->search);
+            $title = '<i class="fas fa-search"></i> Search Results';
+        }
+        else if (request()->sort === 'reviews') {
             $restaurants = Restaurant::orderByAvgRating();
+            $title = '<i class="fas fa-award"></i> Reviews High->Low';
         } else {
             $restaurants = Restaurant::where('active', true)->paginate(12);
+            $title = '<i class="fas fa-highlighter"></i> Featured Restaurants';
         }
 
-        return view('home', compact('restaurants'));
-    }
-
-    public function search()
-    {
-        $data = request()->validate(['search' => 'string|max:50']);
-        $restaurants = Restaurant::where('name','like','%'. $data['search'] .'%')->paginate(12);
-        return view('home', compact('restaurants'));
+        return view('home', compact('restaurants', 'title'));
     }
 
     public function address()

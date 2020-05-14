@@ -166,7 +166,7 @@
             <div class="col-xl-12 mb-xl-0">
                 <div class="card shadow border-danger">
                     <div class="card-body button-container">
-                        <form method="POST" action="{{ route('pigeon.activateRestaurant', $restaurant->id) }}" enctype="multipart/form-data">
+                        <form method="POST" action="{{ route('pigeon.activateRestaurant', $restaurant->slug) }}" enctype="multipart/form-data">
                             @csrf
                             @method('PATCH')
                             {!!
@@ -194,7 +194,7 @@
                                             </div>
                                         </div>
                                         <div class="modal-footer">
-                                            <form method="POST" action="{{ route('pigeon.delRestaurant', $restaurant->id) }}" enctype="multipart/form-data">
+                                            <form method="POST" action="{{ route('pigeon.delRestaurant', $restaurant->slug) }}" enctype="multipart/form-data">
                                                 @csrf
                                                 @method('DELETE')
                                                 <input type="submit" value="{{__('Delete')}}" class="btn btn-white"/>
