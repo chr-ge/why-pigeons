@@ -84,13 +84,13 @@
                                 @foreach($users as $user)
                                     <tr>
                                         <th>
-                                            {{$user->id}}
+                                            {{ $user->id }}
                                         </th>
                                         <th>
-                                            {{$user->name}}
+                                            {{ $user->name }}
                                         </th>
                                         <td>
-                                            {{$user->phone}}
+                                            {{ $user->phone }}
                                         </td>
                                         <td>
                                             <span class="badge badge-dot mr-4">
@@ -99,7 +99,7 @@
                                             </span>
                                         </td>
                                         <td>
-                                            {{$user->address->city ?? 'N/A'}}
+                                            {{ App\Address::getCity($user->id) }}
                                         </td>
                                         <td>
                                             <button class="btn btn-sm" data-toggle="tooltip" onclick="window.location ='{{route('pigeon.userDetails', $user->id)}}'">
@@ -111,7 +111,7 @@
                             </tbody>
                         </table>
                     </div>
-                    <!-- Card footer -->
+                    <!-- Pagination -->
                     @if($users->hasPages())
                         <div class="card-footer">
                             {{ $users->links() }}

@@ -27,6 +27,12 @@ class Address extends Model
 
     public function order()
     {
-        return $this->belongsTo(Order::class, 'account_id', 'id');
+        return $this->belongsTo(Order::class, 'account_id', 'id')
+            ->where('description', 'delivery');
+    }
+
+    public static function getCity($user)
+    {
+        return Order::where('user_id', $user)->first()->address->city ?? 'N/A';
     }
 }

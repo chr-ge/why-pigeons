@@ -80,7 +80,7 @@
                             </tbody>
                         </table>
                     </div>
-                    <!-- Card footer -->
+                    <!-- Pagination -->
                     @if($reviews->hasPages())
                         <div class="card-footer">
                             {{ $reviews->links() }}

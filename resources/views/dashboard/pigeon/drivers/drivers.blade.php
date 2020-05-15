@@ -108,7 +108,7 @@
                             </tbody>
                         </table>
                     </div>
-                    <!-- Card footer -->
+                    <!-- Pagination -->
                     @if($drivers->hasPages())
                         <div class="card-footer">
                             {{ $drivers->links() }}

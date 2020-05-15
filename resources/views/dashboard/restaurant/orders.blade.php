@@ -96,7 +96,7 @@
                             </tbody>
                         </table>
                     </div>
-                    <!-- Card footer -->
+                    <!-- Pagination -->
                     @if($orders->hasPages())
                         <div class="card-footer">
                             {{ $orders->links() }}

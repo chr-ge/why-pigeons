@@ -69,7 +69,8 @@ class DriverController extends Controller
         return view('driver.order', compact('order'));
     }
 
-    public function foodPickupComplete(Order $order){
+    public function foodPickupComplete(Order $order)
+    {
         if($order->driver_id !== auth()->user()->id){
             return redirect()->back();
         }

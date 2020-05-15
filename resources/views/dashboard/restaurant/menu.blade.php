@@ -131,7 +131,7 @@
                             </tbody>
                         </table>
                     </div>
-                    <!-- Card footer -->
+                    <!-- Pagination -->
                     @if($menu_items->hasPages())
                         <div class="card-footer">
                             {{ $menu_items->links() }}

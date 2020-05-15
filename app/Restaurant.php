@@ -74,22 +74,21 @@ class Restaurant extends Authenticatable
         return $this->hasMany(Review::class);
     }
 
-    public function fullAddress(){
+    public function fullAddress()
+    {
         return $this->address->street_address.', '.$this->address->city.' '.
             $this->address->province.', '.$this->address->postal_code;
     }
 
-    public function avg_rating(){
-        return $this->reviews->avg('rating');
-    }
-
-    public function scopeOrderByAvgRating($query){
+    public function scopeOrderByAvgRating($query)
+    {
         return$query->where('active', true)->withCount(['reviews as average_review' => function($query) {
             $query->select(\DB::raw('coalesce(avg(rating),0)'));
         }])->orderByDesc('average_review')->paginate(12);
     }
 
-    public function scopeSearchRestaurants($query, $search){
+    public function scopeSearchRestaurants($query, $search)
+    {
         return$query->where('active', true)->where('name','like','%'. $search .'%')->paginate(12);
     }
 }

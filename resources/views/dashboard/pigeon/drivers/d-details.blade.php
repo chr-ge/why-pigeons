@@ -81,7 +81,7 @@
                                 <div class="row">
                                     <div class="col-md-6">
                                         <h6 class="heading-small text-muted mb-4 w-auto">User Information</h6>
-                                        <dl class="dl-horizontal pl-md-4 pr-4" style="float: left;display: inline-block;">
+                                        <dl class="dl-horizontal pr-4" style="float: left;display: inline-block;">
                                             <img src="{{ url('storage/'.$driver->profile_picture) }}" alt="driver profile" style="height: 150px;width: 150px;object-fit: cover;">
                                         </dl>
                                         <dl class="dl-horizontal pl-md-4" style="height: 150px">
