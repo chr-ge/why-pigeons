@@ -6,6 +6,7 @@ use App\Order;
 use App\Vehicle;
 use App\DriversLicense;
 use Intervention\Image\Facades\Image;
+use Illuminate\Support\Facades\Crypt;
 use App\Http\Requests\DriversLicenseRequest;
 
 class DriverController extends Controller
@@ -102,14 +103,14 @@ class DriverController extends Controller
     {
         DriversLicense::create([
             'driver_id' => auth()->user()->id,
-            'license_number' => $request['license_number'],
-            'reference_number' => $request['reference_number'],
+            'license_number' => Crypt::encryptString($request['license_number']),
+            'reference_number' => Crypt::encryptString($request['reference_number']),
             'dob' => $request['dob'],
             'valid_on' => $request['valid_on'],
             'expires_on' => $request['expires_on'],
         ]);
 
-        if(\Gate::allows('driver-has-vehicle', auth()->user()->id)){
+        if(auth()->user()->vehicle){
             return view('driver.driver');
         }
         else {

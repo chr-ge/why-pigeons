@@ -15,9 +15,9 @@ class CreateDriversLicensesTable extends Migration
     {
         Schema::create('drivers_licenses', function (Blueprint $table) {
             $table->uuid('id')->unique();
-            $table->unsignedBigInteger('driver_id');
-            $table->string('license_number')->unique();
-            $table->string('reference_number')->unique();
+            $table->unsignedInteger('driver_id');
+            $table->string('license_number', 400);
+            $table->string('reference_number', 400);
             $table->date('dob');
             $table->date('valid_on');
             $table->date('expires_on');

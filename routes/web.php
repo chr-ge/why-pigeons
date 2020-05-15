@@ -60,7 +60,7 @@ Route::group(['middleware' => 'auth:driver'], function () {
 
     Route::post('/driver', 'DriverController@profilePicture')->name('driver.image');
     Route::post('/driver/{order}', 'DriverController@reserve')->name('driver.reserve');
-    Route::post('/driver/setup', 'DriverController@storeDriversLicense')->name('driver.storeDriversLicense');
+    Route::post('/driver/setup/1', 'DriverController@storeDriversLicense')->name('driver.storeDriversLicense');
     Route::post('/driver/setup/2', 'DriverController@storeVehicle')->name('driver.storeVehicle');
     Route::post('/d/order/{order}', 'DriverController@foodPickupComplete')->name('driver.foodPickupComplete');
 });
