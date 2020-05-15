@@ -15,8 +15,8 @@ class CreateCategoryRestaurantPivotTable extends Migration
     {
         Schema::create('category_restaurant', function (Blueprint $table) {
             $table->primary(['category_id', 'restaurant_id']);
-            $table->unsignedBigInteger('category_id');
-            $table->unsignedBigInteger('restaurant_id');
+            $table->unsignedInteger('category_id');
+            $table->unsignedInteger('restaurant_id');
         });
     }
 

@@ -14,10 +14,10 @@ class CreateReviewsTable extends Migration
     public function up()
     {
         Schema::create('reviews', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->unsignedBigInteger('user_id')->nullable();
-            $table->unsignedBigInteger('restaurant_id')->nullable();
-            $table->unsignedInteger('rating');
+            $table->increments('id');
+            $table->unsignedInteger('user_id')->nullable();
+            $table->unsignedInteger('restaurant_id')->nullable();
+            $table->unsignedTinyInteger('rating');
             $table->string('comment')->nullable();
             $table->timestamps();
 

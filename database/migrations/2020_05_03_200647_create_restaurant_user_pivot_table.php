@@ -15,8 +15,8 @@ class CreateRestaurantUserPivotTable extends Migration
     {
         Schema::create('restaurant_user', function (Blueprint $table) {
             $table->primary(['restaurant_id', 'user_id']);
-            $table->unsignedBigInteger('restaurant_id');
-            $table->unsignedBigInteger('user_id');
+            $table->unsignedInteger('restaurant_id');
+            $table->unsignedInteger('user_id');
         });
     }
 

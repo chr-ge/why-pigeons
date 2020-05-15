@@ -15,10 +15,10 @@ class CreatePigeonsTable extends Migration
     {
         Schema::create('pigeons', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
-            $table->string('username')->unique();
-            $table->string('password');
+            $table->string('name', 30);
+            $table->string('username', 30)->unique();
             $table->boolean('is_super')->default(false);
+            $table->string('password');
             $table->rememberToken();
             $table->timestamps();
         });

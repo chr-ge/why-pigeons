@@ -14,10 +14,10 @@ class CreateOrderMenuPivotTable extends Migration
     public function up()
     {
         Schema::create('order_menu', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->unsignedBigInteger('order_id')->nullable();
-            $table->unsignedBigInteger('menu_id')->nullable();
-            $table->unsignedInteger('quantity');
+            $table->increments('id');
+            $table->unsignedInteger('order_id')->nullable();
+            $table->unsignedInteger('menu_id')->nullable();
+            $table->unsignedSmallInteger('quantity');
             $table->string('special')->nullable();;
             $table->timestamps();
 
