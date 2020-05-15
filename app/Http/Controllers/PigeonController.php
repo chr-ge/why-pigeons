@@ -3,14 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Menu;
+use App\User;
 use App\Order;
 use App\Review;
-use App\User;
 use App\Driver;
 use App\Pigeon;
 use App\Restaurant;
-use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Cache;
 use Cartalyst\Stripe\Laravel\Facades\Stripe;
 
 class PigeonController extends Controller
@@ -50,6 +50,12 @@ class PigeonController extends Controller
         return view('dashboard.pigeon.restaurants.applications', compact('restaurants'));
     }
 
+    public function orders()
+    {
+        $orders = Order::latest()->paginate(10);
+        return view('dashboard.pigeon.orders.orders', compact('orders'));
+    }
+
     public function settings()
     {
         $pigeon = auth()->user();
@@ -60,6 +66,11 @@ class PigeonController extends Controller
     {
         $orders = Order::where('user_id', $user->id)->latest()->paginate(10);
         return view('dashboard.pigeon.users.u-details', compact('user', 'orders'));
+    }
+
+    public function orderDetails(Order $order)
+    {
+        return view('dashboard.pigeon.orders.o-details', compact('order'));
     }
 
     public function driverDetails(Driver $driver)

@@ -95,6 +95,8 @@ Route::group(['middleware' => 'auth:pigeon'], function () {
     Route::get('/restaurants', 'PigeonController@restaurants')->name('pigeon.restaurants');
     Route::get('/restaurants/applications', 'PigeonController@applications')->name('pigeon.applications');
     Route::get('/restaurants/{restaurant}/details', 'PigeonController@restaurantDetails')->name('pigeon.restaurantDetails');
+    Route::get('/orders', 'PigeonController@orders')->name('pigeon.orders');
+    Route::get('/orders/{order}/details', 'PigeonController@orderDetails')->name('pigeon.orderDetails');
     Route::get('/account/settings', 'PigeonController@settings')->name('pigeon.settings');
 
     Route::post('/users/order/{order}', 'PigeonController@refundOrder')->name('pigeon.refundOrder');

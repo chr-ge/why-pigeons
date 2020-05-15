@@ -2,17 +2,6 @@
 
 @section('content')
     <style>
-        .table-action {
-            font-size:.875rem;
-            margin:0 .25rem;
-            color:#adb5bd
-        }
-        .table-action:hover {
-            color:#919ca6
-        }
-        .table-action-delete:hover {
-            color:#f5365c
-        }
         .button-container form,
         .button-container form div {
             display: inline;

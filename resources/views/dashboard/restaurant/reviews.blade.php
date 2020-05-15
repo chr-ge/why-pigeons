@@ -1,23 +1,6 @@
 @extends('layouts.dashboard.app')
 
 @section('content')
-    <style>
-        .table-action {
-            font-size:.875rem;
-            margin:0 .25rem;
-            color:#adb5bd
-        }
-        .table-action:hover {
-            color:#919ca6
-        }
-        .table-action-delete:hover {
-            color:#f5365c
-        }
-        .button-container form,
-        .button-container form div {
-            display: inline;
-        }
-    </style>
     <div class="header bg-gradient-primary pb-8 pt-5 pt-lg-7 d-flex">
         <!-- Header container -->
         <div class="container-fluid">

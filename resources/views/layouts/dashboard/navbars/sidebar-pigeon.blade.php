@@ -101,6 +101,11 @@
                     </div>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link" href="{{ route('pigeon.orders') }}">
+                        <i class="ni ni-cart text-blue"></i> {{ __('Orders') }}
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="{{ route('pigeon.drivers') }}">
                         <i class="ni ni-delivery-fast text-red"></i> {{ __('Drivers') }}
                     </a>
