@@ -75,7 +75,7 @@ class DriverController extends Controller
             return redirect()->back();
         }
         $order->update([
-            'status' => 'food_pickup_up'
+            'status' => 'food_picked_up'
         ]);
         $restaurant_address = $order->fullAddress();
         return view('driver.order', compact('order', 'restaurant_address'));

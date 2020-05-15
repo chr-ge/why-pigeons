@@ -90,12 +90,13 @@
                                 <h2 class="mb-0"><i class="fa fa-info-circle"></i> Information</h2>
                             </div>
                             <div class="card-body">
-                                <dl class="dl-horizontal w-50" style="float: left;display: inline-block">
+                                <dl class="dl-horizontal pl-lg-4 w-50" style="float: left;display: inline-block">
                                     <dt>Email</dt>
                                     <dd>{{$user->email}}</dd>
-
                                     <dt>Phone</dt>
                                     <dd>{{$user->phone}}</dd>
+                                    <dt>City</dt>
+                                    <dd>{{App\Address::getCity($user->id)}}</dd>
                                 </dl>
                             </div>
                         </div>
@@ -205,12 +206,12 @@
                                             <div class="modal-footer mx-auto">
                                                 <form method="POST" action="{{ route('pigeon.refundOrder', $order->id) }}" enctype="multipart/form-data">
                                                     @csrf
-                                                    <button type="submit" class="btn btn-warning" @if($order->$order->isBlocked()) disabled @endif>{{__('Refund')}}</button>
+                                                    <button type="submit" class="btn btn-warning" @if($order->isBlocked()) disabled @endif>{{__('Refund')}}</button>
                                                 </form>
                                                 <form method="POST" action="{{ route('pigeon.cancelOrder', $order->id) }}" enctype="multipart/form-data">
                                                     @csrf
                                                     @method('PATCH')
-                                                    <button type="submit" class="btn btn-danger" @if($order->$order->isBlocked()) disabled @endif>{{__('Cancel Order')}}</button>
+                                                    <button type="submit" class="btn btn-danger" @if($order->isBlocked()) disabled @endif>{{__('Cancel Order')}}</button>
                                                 </form>
                                             </div>
                                         </div>

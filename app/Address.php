@@ -33,6 +33,6 @@ class Address extends Model
 
     public static function getCity($user)
     {
-        return Order::where('user_id', $user)->first()->address->city ?? 'N/A';
+        return Order::where('user_id', $user)->latest()->first()->address->city ?? 'N/A';
     }
 }
