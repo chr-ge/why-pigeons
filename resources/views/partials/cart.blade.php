@@ -2,7 +2,7 @@
     <h3 class="mb-0">Your Order</h3>
     <hr>
     <ul class="list-group" style="list-style: none">
-        @foreach(\Cart::session($restaurant_id)->getContent() as $item)
+        @foreach(\Cart::session($restaurant->id)->getContent() as $item)
             <li>
                 <form method="POST" action="{{ route('cart.remove', $item->id) }}">
                     @csrf

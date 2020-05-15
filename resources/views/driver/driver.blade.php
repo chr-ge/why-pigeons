@@ -36,48 +36,7 @@
             </div>
         @endif
         <div class="row">
-            <div class="col-md-6" >
-                <div class="card border-0 bg-card-yellow">
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col">
-                                <h5 class="card-title text-uppercase text-muted mb-0 text-white">Completed Trips </h5>
-                                <span class="h2 font-weight-bold mb-0 text-white">N/A</span>
-                            </div>
-                            <div class="col-auto">
-                                <div style="font-size: x-large">
-                                    <i class="fas fa-route"></i>
-                                </div>
-                            </div>
-                        </div>
-                        <p class="mt-3 mb-0 text-sm">
-                            <span class="text-white mr-2"><i class="fa fa-arrow-up"></i> N/A %</span>
-                            <span class="text-nowrap text-light">Since last month</span>
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6" >
-                <div class="card border-0 bg-card-pink">
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col">
-                                <h5 class="card-title text-uppercase text-muted mb-0 text-white">Driver Reviews</h5>
-                                <span class="h2 font-weight-bold mb-0 text-white">N/A</span>
-                            </div>
-                            <div class="col-auto">
-                                <div style="font-size: x-large">
-                                    <i class="fas fa-star-half-alt"></i>
-                                </div>
-                            </div>
-                        </div>
-                        <p class="mt-3 mb-0 text-sm">
-                            <span class="text-white mr-2"><i class="fa fa-arrow-up"></i> N/A %</span>
-                            <span class="text-nowrap text-light">Since last month</span>
-                        </p>
-                    </div>
-                </div>
-            </div>
+            @include('partials.driver_cards')
         </div>
         @if($reserved)
             <div class="row mt-5">

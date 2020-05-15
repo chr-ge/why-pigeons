@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Order;
 use App\Vehicle;
 use App\DriversLicense;
+use Intervention\Image\Facades\Image;
 use App\Http\Requests\DriversLicenseRequest;
 
 class DriverController extends Controller
@@ -50,6 +51,22 @@ class DriverController extends Controller
         else {
             return view('driver.vehicle');
         }
+    }
+
+    public function profilePicture(){
+        $data = request()->validate([
+            'image' => 'required|image'
+        ]);
+
+        $imagePath = $data['image']->store('uploads/drivers', 'public');
+        $image = Image::make(public_path("storage/{$imagePath}"))->fit(600, 600);
+        $image->save();
+
+        auth()->user()->update([
+            'profile_picture' => $imagePath
+        ]);
+
+        return redirect()->back();
     }
 
     public function reserve(Order $order)
