@@ -24,11 +24,8 @@ class CheckoutController extends Controller
             'name' => 'Delivery Fee',
             'type' => 'delivery',
             'target' => 'total',
-            'value' => '+3.49',
-            'order' => 1,
-            'attributes' => array(
-                'amount' => '3.49'
-            )
+            'value' => $restaurant->delivery_fee,
+            'order' => 1
         ));
         $tax_condition = new CartCondition(array(
             'name' => 'GST/QST 14.975%',
@@ -115,7 +112,7 @@ class CheckoutController extends Controller
             'restaurant_id' => $rest_id,
             'total_items_qty' => \Cart::getTotalQuantity(),
             'billing_subtotal' => \Cart::getSubtotal(),
-            'billing_delivery' => \Cart::getCondition('Delivery Fee')->getAttributes()['amount'],
+            'billing_delivery' => \Cart::getCondition('Delivery Fee')->getValue(),
             'billing_tax' => number_format(\Cart::getCondition('GST/QST 14.975%')->getCalculatedValue(\Cart::getSubTotal()), 2, '.', ','),
             'driver_tip' =>number_format(\Cart::getCondition('Tip')->getValue(), 2, '.', ','),
             'billing_total' => \Cart::getTotal(),

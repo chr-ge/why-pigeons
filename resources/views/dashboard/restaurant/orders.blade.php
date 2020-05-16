@@ -43,15 +43,14 @@
                         <h3 class="mb-0">Orders</h3>
                     </div>
                     <!-- Table -->
-                    <div class="table-responsive" data-toggle="list" data-list-values='["id", "status", "quantity", "total", "ordered_at"]'>
+                    <div class="table-responsive" data-toggle="list" data-list-values='["ordered_at", "status", "quantity", "total"]'>
                         <table class="table align-items-center table-flush">
                             <thead class="thead-light">
                                 <tr>
-                                    <th scope="col" class="sort" data-sort="id">Id</th>
+                                    <th scope="col" class="sort" data-sort="ordered_at">Order Placed On</th>
                                     <th scope="col" class="sort" data-sort="status">status</th>
                                     <th scope="col" class="sort" data-sort="quantity">Item Quantity</th>
                                     <th scope="col" class="sort" data-sort="total">Total</th>
-                                    <th scope="col" class="sort" data-sort="ordered_at">Ordered At</th>
                                     <th scope="col"></th>
                                 </tr>
                             </thead>
@@ -59,21 +58,18 @@
                                 @foreach($orders as $order)
                                     <tr>
                                         <td>
-                                            {{ $order->id }}
+                                            {{ Carbon\Carbon::parse($order->created_at)->toDayDateTimeString() }}
                                         </td>
                                         <td>
                                             <span class="badge badge-dot mr-4">
-                                                <span class="badge {{$order->getStatus()}}">{{ $order->status }}</span>
+                                                <span class="badge {{$order->getStatus()}}">{{ str_replace('_', ' ', $order->status) }}</span>
                                             </span>
                                         </td>
                                         <td>
                                             {{ $order->total_items_qty }}
                                         </td>
                                         <td class="budget">
-                                            $ {{ $order->billing_total }}
-                                        </td>
-                                        <td>
-                                            {{ $order->created_at }}
+                                            ${{ $order->billing_total }}
                                         </td>
                                         <td>
                                             <button class="btn btn-sm" data-toggle="tooltip" onclick="window.location ='{{ route('restaurant.orderDetails', $order->id) }}'">

@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', config('app.name').' | Home')
+@section('title', 'Restaurants | '.config('app.name'))
 
 @section('extra-css')
     @if(auth()->user() && auth()->user()->favorites->first())

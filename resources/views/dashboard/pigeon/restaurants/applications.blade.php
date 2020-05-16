@@ -81,7 +81,7 @@
                                 </tr>
                             </thead>
                             <tbody class="list">
-                                @foreach($restaurants as $restaurant)
+                                @forelse($restaurants as $restaurant)
                                     <tr>
                                         <th scope="row">
                                             <div class="media align-items-center">
@@ -132,7 +132,12 @@
                                             </div>
                                         </td>
                                     </tr>
-                                @endforeach
+                                @empty
+                                    <td></td>
+                                    <td></td>
+                                    <td class="mx-auto"><b>Currently, there are no new applications.</b></td>
+                                    <td></td>
+                                @endforelse
                             </tbody>
                         </table>
                     </div>

@@ -44,15 +44,14 @@
                         <h3 class="mb-0">Orders</h3>
                     </div>
                     <!-- Table -->
-                    <div class="table-responsive" data-toggle="list" data-list-values='["id", "status", "restaurant", "user", "ordered_at", "city"]'>
+                    <div class="table-responsive" data-toggle="list" data-list-values='["ordered_at", "status", "restaurant", "user", "city"]'>
                         <table class="table align-items-center table-flush">
                             <thead class="thead-light">
                                 <tr>
-                                    <th scope="col" class="sort" data-sort="id">ID</th>
+                                    <th scope="col" class="sort" data-sort="ordered_at">Ordered Placed On</th>
                                     <th scope="col" class="sort" data-sort="status">Status</th>
                                     <th scope="col" class="sort" data-sort="restaurant">Restaurant</th>
                                     <th scope="col" class="sort" data-sort="user">Customer</th>
-                                    <th scope="col" class="sort" data-sort="ordered_at">Ordered At</th>
                                     <th scope="col" class="sort" data-sort="city">City</th>
                                     <th scope="col"></th>
                                 </tr>
@@ -60,12 +59,12 @@
                             <tbody class="list">
                                 @foreach($orders as $order)
                                     <tr>
+                                        <td>
+                                            {{ Carbon\Carbon::parse($order->created_at)->toDayDateTimeString() }}
+                                        </td>
                                         <th>
-                                            {{ $order->id }}
-                                        </th>
-                                        <th>
-                                            <span class="badge badge-info">
-                                                {{ $order->status }}
+                                            <span class="badge {{ $order->getStatus() }}">
+                                                {{ str_replace('_', ' ', $order->status) }}
                                             </span>
                                         </th>
                                         <td>
@@ -75,10 +74,7 @@
                                             {{ $order->user->name }}
                                         </td>
                                         <td>
-                                            {{ Carbon\Carbon::parse($order->created_at)->toDayDateTimeString() }}
-                                        </td>
-                                        <td>
-                                            {{ App\Address::getCity($order->id) }}
+                                            {{ App\Address::getCity($order->user->id) }}
                                         </td>
                                         <td>
                                             <button class="btn btn-sm" data-toggle="tooltip" onclick="window.location ='{{route('pigeon.orderDetails', $order->id)}}'">

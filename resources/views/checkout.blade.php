@@ -111,7 +111,7 @@
             </div>
             <div class="m-row mt-1">
                 <h5>Delivery Fee: </h5>
-                <h5>${{ \Cart::getCondition('Delivery Fee')->getAttributes()['amount'] }}</h5>
+                <h5>{{ $restaurant->delivery_fee == 0.00 ? 'Free' : '$'.\Cart::getCondition('Delivery Fee')->getValue() }}</h5>
             </div>
             <div class="m-row mt-1">
                 <h5>GST/QST: </h5>

@@ -2,6 +2,9 @@
 
 @section('content')
     <style>
+        .today {
+            background-color: #e3e3e3;
+        }
         .button-container form,
         .button-container form div {
             display: inline;
@@ -50,7 +53,7 @@
                             </div>
                         </div>
                     @else
-                        <div class="col-lg-6">
+                        <div class="col-lg-4">
                             <div class="card bg-gradient-info border-0">
                                 <!-- Card body -->
                                 <div class="card-body">
@@ -72,8 +75,30 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-6">
+                        <div class="col-lg-4">
                             <div class="card bg-gradient-blue border-0">
+                                <!-- Card body -->
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col">
+                                            <h5 class="card-title text-uppercase text-muted mb-0 text-white">Total Orders</h5>
+                                            <span class="h1 font-weight-bold mb-0 text-white">{{ $total_orders }}</span>
+                                        </div>
+                                        <div class="col-auto">
+                                            <div class="icon icon-shape bg-white text-dark rounded-circle shadow">
+                                                <i class="ni ni-basket"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <p class="mt-3 mb-0 text-sm">
+                                        <span class="text-white mr-2"><i class="fa fa-arrow-up"></i> {{ 'N/A '}}%</span>
+                                        <span class="text-nowrap text-light">Since last month</span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="card bg-gradient-green border-0">
                                 <!-- Card body -->
                                 <div class="card-body">
                                     <div class="row">
@@ -145,13 +170,9 @@
                     <div class="card-body">
                         @if(\App\RestaurantHours::hoursExist($restaurant->id))
                             @for($i = 1; $i < 8; $i++)
-                                <div class="row">
-                                    <div class="col-5">
-                                        <h4>{{\App\RestaurantHours::dayFromNumber($i) }}: </h4>
-                                    </div>
-                                    <div class="col-7 @if($i !== \App\RestaurantHours::today()) text-muted @endif">
-                                        <p>{{\App\RestaurantHours::displayHours($restaurant->id, $i)}}</p>
-                                    </div>
+                                <div class="d-flex justify-content-between @if($i === \App\RestaurantHours::today()) today @endif align-items-center py-2">
+                                    <h4 class="mb-0">{{\App\RestaurantHours::dayFromNumber($i) }}: </h4>
+                                    <p class="mb-0">{{\App\RestaurantHours::displayHours($restaurant->id, $i)}}</p>
                                 </div>
                             @endfor
                         @else

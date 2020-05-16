@@ -36,8 +36,8 @@
                                 <h2 class="mb-0"><i class="fa fa-info-circle"></i> Information</h2>
                             </div>
                             <div class="card-body">
-                                <dl class="dl-horizontal pl-md-4">
-                                    <dt>Created On</dt>
+                                <dl class="dl-horizontal">
+                                    <dt>Order Placed On</dt>
                                     <dd>{{ \Carbon\Carbon::parse($order->created_at)->toDayDateTimeString() }}</dd>
                                     <dt>Customer</dt>
                                     <dd>{{ $order->user->name }}</dd>
@@ -87,17 +87,10 @@
                     <div class="col-xl-12 mb-xl-0">
                         <div class="card shadow h-100">
                             <div class="card-header">
-                                <h2 class="mb-0"><i class="fa fa-info-circle"></i> Status</h2>
+                                <h2 class="mb-0"><i class="fa fa-stream"></i> Status</h2>
                             </div>
                             <div class="card-body">
-                                <dl class="dl-horizontal pl-md-4" style="height: 150px">
-                                    <dt>Email</dt>
-                                    <dd>{{$order->email}}</dd>
-                                    <dt>Phone</dt>
-                                    <dd>{{$order->phone}}</dd>
-                                    <dt>City</dt>
-                                    <dd>{{$order->city ?? 'N/A'}}</dd>
-                                </dl>
+
                             </div>
                         </div>
                     </div>

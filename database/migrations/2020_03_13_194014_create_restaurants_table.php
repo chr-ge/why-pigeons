@@ -22,6 +22,7 @@ class CreateRestaurantsTable extends Migration
             $table->unsignedInteger('category_id');
             $table->string('image')->default('uploads/default.jpeg');
             $table->boolean('active')->default(false);
+            $table->unsignedDecimal('delivery_fee')->default(0.00);
             $table->string('password')->nullable();
             $table->rememberToken();
             $table->timestamps();

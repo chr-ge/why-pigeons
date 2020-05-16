@@ -12,7 +12,7 @@ class Restaurant extends Authenticatable
 
     protected $guard = 'restaurant';
 
-    protected  $fillable = [ 'name', 'slug', 'email', 'phone', 'password', 'category_id', 'image', 'active' ];
+    protected  $fillable = [ 'name', 'slug', 'email', 'phone', 'password', 'category_id', 'image', 'delivery_fee', 'active' ];
 
     /**
      * The attributes that should be hidden for arrays.
@@ -51,7 +51,7 @@ class Restaurant extends Authenticatable
 
     public function address()
     {
-        return $this->hasOne(Address::class, 'account_id');
+        return $this->hasOne(Address::class, 'account_id')->where('description', 'restaurant');
     }
 
     public function categories()

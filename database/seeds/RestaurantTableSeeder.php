@@ -20,6 +20,7 @@ class RestaurantTableSeeder extends Seeder
             'password' => '$2y$10$y5kqAI6HM3gLqcWdLVxscOfah1tj8liaBeAF6xcCTb8aJ0ornMvK2',
             'category_id' => 14,
             'image' => 'uploads/k0w0zyVQ8wWcGp7KkplGQkrnTY4sgp9bNA3SIRSb.png',
+            'delivery_fee' => '2.00',
             'active' => 1
         ]);
         Restaurant::create([
@@ -30,6 +31,7 @@ class RestaurantTableSeeder extends Seeder
             'password' => '$2y$10$zHxgRSJJufRX3KhIvqZ7ouWiKPVoaxSMWQYP15a6468yCA1tZtXXG',
             'category_id' => 14,
             'image' => 'uploads/m6h1UxxDsqGZlqq6mSgf6ivgMhWU52gR0iX9R1QS.jpeg',
+            'delivery_fee' => '2.50',
             'active' => 1
         ]);
         Restaurant::create([
@@ -40,6 +42,7 @@ class RestaurantTableSeeder extends Seeder
             'password' => '$2y$10$fNlc/pFipndZ2mNpIKtd5e9GMeqCUzMD6QH7DiyrLDBF6IVkvq116',
             'category_id' => 9,
             'image' => 'uploads/4Pz9iVZMACVKBNf5OrANsPkCBajd4nagGz5CnDhD.jpeg',
+            'delivery_fee' => '3.00',
             'active' => 1
         ]);
         Restaurant::create([
@@ -80,6 +83,7 @@ class RestaurantTableSeeder extends Seeder
             'password' => '$2y$10$aPQbkSdt1JLXMFKq.3cSMukW09N4HRxlyIUluKaEcV090Vkw6bz8u',
             'category_id' => 20,
             'image' => 'uploads/vmUhuBOGFo1evapnmuzPLKlvuhCWQE6sxo0RDde5.webp',
+            'delivery_fee' => '3.50',
             'active' => 1
         ]);
         Restaurant::create([
@@ -90,6 +94,7 @@ class RestaurantTableSeeder extends Seeder
             'password' => '$2y$10$BsHCqBhuPY0kO/od.M7dku6T560J38thfjNrM754HDz98SQs1Jbia',
             'category_id' => 20,
             'image' => 'uploads/vlBjPVQ9UfvVHY6EA3FJVNk93KIWgA0TgWhZSdJM.webp',
+            'delivery_fee' => '5.00',
             'active' => 1
         ]);
         Restaurant::create([
@@ -110,6 +115,7 @@ class RestaurantTableSeeder extends Seeder
             'password' => '$2y$10$rIUcWcobxh3FL4g9jcgu.OJCm7k25m2NzdK8hCDk/wWGS/KYA3.j6',
             'category_id' => 19,
             'image' => 'uploads/dunns.jpg',
+            'delivery_fee' => '5.25',
             'active' => 1
         ]);
         Restaurant::create([
@@ -120,6 +126,7 @@ class RestaurantTableSeeder extends Seeder
             'password' => '$2y$10$u2NLY1H0F7Fe2re9kmrCteGe9KBLGWxnKdbsqYEz1NPlZpZnB73ei',
             'category_id' => 9,
             'image' => 'uploads/03_scores--203.jpg',
+            'delivery_fee' => '1.00',
             'active' => 1
         ]);
         Restaurant::create([
@@ -140,6 +147,7 @@ class RestaurantTableSeeder extends Seeder
             'password' => '$2y$10$6eqPBKmIVU0W2XN.qfqW2ugWf9bdpqCAtNTFRfQccm1Z/Us.c8RGq',
             'category_id' => 9,
             'image' => 'uploads/st-hubert.jpg',
+            'delivery_fee' => '1.00',
             'active' => 1
         ]);
         Restaurant::create([
@@ -153,14 +161,15 @@ class RestaurantTableSeeder extends Seeder
             'active' => 1
         ]);
         Restaurant::create([
-        'name' => 'Wendy\'s',
-         'slug' => 'wendys',
-        'email' => 'wendys@info.com',
-        'phone' => '5144814060',
-        'password' => '$2y$10$z2pxQRYq3bAl0mmCafZVQOpOU7p/kPQqD3oqgMl.AYMa7eYffO4mG',
-        'category_id' => 20,
-        'image' => 'uploads/wendys.jpg',
-        'active' => 1
+            'name' => 'Wendy\'s',
+             'slug' => 'wendys',
+            'email' => 'wendys@info.com',
+            'phone' => '5144814060',
+            'password' => '$2y$10$z2pxQRYq3bAl0mmCafZVQOpOU7p/kPQqD3oqgMl.AYMa7eYffO4mG',
+            'category_id' => 20,
+            'image' => 'uploads/wendys.jpg',
+            'delivery_fee' => '2.25',
+            'active' => 1
         ]);
         Restaurant::create([
             'name' => 'BBQ Tandoori',
@@ -220,6 +229,7 @@ class RestaurantTableSeeder extends Seeder
             'password' => '$2y$10$MDm1aix50tZXOt9NjyYQbOLA23IcA0VynPYhC.Mvf/qKX.vlXqF.y',
             'category_id' => 20,
             'image' => 'uploads/Lafleur-Poutine-Saucisse.edbc14ff4ab1.jpg',
+            'delivery_fee' => '2.00',
             'active' => 1
         ]);
         Restaurant::create([
@@ -250,6 +260,7 @@ class RestaurantTableSeeder extends Seeder
             'password' => '$2y$10$vNTPb04YyBBW7fJlDUIqkuSJSSLHjkoUwqxaiV2Za/pXaNKG22Cke',
             'category_id' => 25,
             'image' => 'uploads/ofuzion1.jpg',
+            'delivery_fee' => '2.75',
             'active' => 1
         ]);
         Restaurant::create([
@@ -280,6 +291,7 @@ class RestaurantTableSeeder extends Seeder
             'password' => '$2y$10$oIy1UW009c6wvUhQNxDvb.7n/xW.QhnNakLXc.MBJ7jTW3ElPZRGq',
             'category_id' => 11,
             'image' => 'uploads/la banquise-1017.jpg',
+            'delivery_fee' => '2.99',
             'active' => 1
         ]);
         Restaurant::create([
@@ -310,6 +322,7 @@ class RestaurantTableSeeder extends Seeder
             'password' => '$2y$10$CDm7GIkWFkEjOdt4gL3w7uhRVgRsJQwN24hhyl2tLDmApeu.cHHwC',
             'category_id' => 21,
             'image' => 'uploads/Untitled-design-210.png',
+            'delivery_fee' => '4.01',
             'active' => 1
         ]);
         Restaurant::create([
@@ -360,6 +373,7 @@ class RestaurantTableSeeder extends Seeder
             'password' => '$2y$10$WONeAWmFT.alQIZOJ.zBd.diyof33x9JeZJvn8J7X5jQOMExNHVDO',
             'category_id' => 19,
             'image' => 'uploads/dbff86fc-8186-4372-8ebe-c50356234086.jpeg',
+            'delivery_fee' => '3.49',
             'active' => 1
         ]);
         Restaurant::create([
@@ -410,6 +424,7 @@ class RestaurantTableSeeder extends Seeder
             'password' => '$2y$10$LCwhVWDrG9kApVmd4Wl4ieCu1uJlo.ubbulbxEOhNJzLmSORT6.YO',
             'category_id' => 15,
             'image' => 'uploads/b68954e0-1389-4951-af7a-39139ac599c1.jpeg',
+            'delivery_fee' => '3.49',
             'active' => 1
         ]);
     }

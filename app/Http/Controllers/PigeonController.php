@@ -20,10 +20,13 @@ class PigeonController extends Controller
         $users = Cache::remember('users.count', now()->addSeconds(30), function () {
             return User::all()->count();
         });
+        $sales = Cache::remember('total.sales', now()->addSeconds(30), function () {
+            return Order::where('status', '!=', 'error')->sum('billing_total');
+        });
         $restaurants = Cache::remember('restaurants.count', now()->addSeconds(30), function () {
             return Restaurant::all()->count();
         });
-        return view('dashboard.pigeon.dashboard', compact('users', 'restaurants'));
+        return view('dashboard.pigeon.dashboard', compact('users', 'restaurants', 'sales'));
     }
 
     public function users()
@@ -87,6 +90,9 @@ class PigeonController extends Controller
         $reviewsCount = Cache::remember('reviews.count.'.$restaurant->id, now()->addSeconds(30), function () use ($restaurant){
             return Review::where('restaurant_id', $restaurant->id)->count();
         });
+        $total_orders = Cache::remember('total_orders.'.$restaurant->id, now()->addSeconds(30), function () use ($restaurant){
+            return Order::where('restaurant_id', $restaurant->id)->count();
+        });
         $menu_items = Cache::remember('menu.count.'.$restaurant->id, now()->addSeconds(30), function () use ($restaurant){
             return $restaurant->menu_items_count();
         });
@@ -95,7 +101,7 @@ class PigeonController extends Controller
         });
 
         return view('dashboard.pigeon.restaurants.r-details',
-            compact('restaurant', 'menu_items', 'menu_change', 'reviewsAvg', 'reviewsCount'));
+            compact('restaurant', 'menu_items', 'menu_change', 'reviewsAvg', 'reviewsCount', 'total_orders'));
     }
 
     public function cancelOrder(Order $order)
