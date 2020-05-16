@@ -87,6 +87,11 @@ class Restaurant extends Authenticatable
         }])->orderByDesc('average_review')->paginate(12);
     }
 
+    public function scopeOrderByDeliveryFee($query)
+    {
+        return $query->where('active', true)->orderBy('delivery_fee')->paginate(12);
+    }
+
     public function scopeSearchRestaurants($query, $search)
     {
         return$query->where('active', true)->where('name','like','%'. $search .'%')->paginate(12);
