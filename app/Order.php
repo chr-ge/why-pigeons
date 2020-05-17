@@ -67,9 +67,9 @@ class Order extends Model
         })->latest();
     }
 
-    public function scopeGetDriverCompletedOrders($query)
+    public function scopeGetDriverCompletedOrders($query, $driver = null)
     {
-        return $query->where('driver_id', auth()->user()->id)->whereHas('status', function ($q) {
+        return $query->where('driver_id', $driver === null ? auth()->user()->id : $driver)->whereHas('status', function ($q) {
             $q->where('status', 'delivered');
         })->latest();
     }

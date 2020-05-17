@@ -82,7 +82,7 @@ class PigeonController extends Controller
 
     public function driverDetails(Driver $driver)
     {
-        $trips = Order::where('driver_id', $driver->id)->get();
+        $trips = Order::getDriverCompletedOrders($driver->id)->get();
         return view('dashboard.pigeon.drivers.d-details', compact('driver', 'trips'));
     }
 

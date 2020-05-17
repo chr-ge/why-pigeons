@@ -1,4 +1,4 @@
-@if(auth()->user()->profile_picture)
+@if(auth()->user()->profile_picture !== 'uploads/drivers/default.png')
     <div class="col-md-6" >
         <div class="card border-0 bg-card-yellow">
             <div class="card-body">

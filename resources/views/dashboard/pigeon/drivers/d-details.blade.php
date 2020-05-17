@@ -133,7 +133,7 @@
                                     <span class="badge {{ $trip->status->first()->getColor() }} float-right">{{ $trip->status->first()->status }}</span>
                                 </li>
                             @empty
-                                <li class="list-group-item">Driver has not made any trips yet.</li>
+                                <li class="list-group-item">{{ $driver->name }} has not completed any trips yet.</li>
                             @endforelse
                         </ul>
                     </div>
