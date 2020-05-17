@@ -3,7 +3,7 @@
 @section('title', 'Your Order History')
 
 @section('content')
-    <div class="container">
+    <div class="container" @if($orders->count() < 2) style="height: 66vh" @endif>
         <h1 class="pt-4">Your Order History</h1>
 
         <div class="row justify-content-center">

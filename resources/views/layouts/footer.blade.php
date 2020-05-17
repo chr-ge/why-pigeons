@@ -36,7 +36,7 @@
             <ul class="list-unstyled text-small">
                 <li><a class="text-muted" href="#">The Team</a></li>
                 <li><a class="text-muted" href="#">Jobs</a></li>
-                <li><a class="text-muted" href="#">Privacy</a></li>
+                <li><a class="text-muted" href="{{ route('privacy') }}">Privacy</a></li>
                 <li><a class="text-muted" href="#">Terms</a></li>
             </ul>
         </div>

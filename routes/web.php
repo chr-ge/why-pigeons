@@ -105,6 +105,8 @@ Route::group(['middleware' => 'auth:pigeon'], function () {
     Route::patch('/account/settings', 'PigeonController@updateAccount')->name('pigeon.updateAccount');
 });
 
+Route::view('/privacy', 'privacy')->name('privacy');
+
 Route::fallback(function() {
     return view('fallback');
 });

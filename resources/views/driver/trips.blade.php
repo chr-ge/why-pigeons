@@ -3,7 +3,7 @@
 @section('title', 'Your Trip History')
 
 @section('content')
-    <div class="container">
+    <div class="container" @if($trips->count() < 2) style="height: 66vh" @endif>
         <h1 class="pt-4">Your Trip History</h1>
 
         <div class="row justify-content-center">

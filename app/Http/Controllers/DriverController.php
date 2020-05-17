@@ -50,15 +50,13 @@ class DriverController extends Controller
         if(\Gate::allows('driver-has-vehicle', auth()->user()->id)){
             return view('driver.driver');
         }
-        $types = ['Automobile', 'Motorcycle', 'Scooter', 'Bicycle'];
+        $types = ['Automobile', 'Motorcycle', 'Scooter', 'Moped'];
         return view('driver.vehicle', compact('types'));
     }
 
     public function profilePicture()
     {
-        $data = request()->validate([
-            'image' => 'required|image'
-        ]);
+        $data = request()->validate([ 'image' => 'required|image' ]);
 
         $imagePath = $data['image']->store('uploads/drivers', 'public');
         $image = Image::make(public_path("storage/{$imagePath}"))->fit(600, 600);
