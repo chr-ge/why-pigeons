@@ -16,8 +16,11 @@
 @section('content')
     <div class="container mt-4">
         <div class="row">
-            <h2><span class="highlight-container-y"><span class="highlight">Pickup:</span></span>
-                {{ $restaurant_address }} {{ $order->status === 'reserved' ? '('.$order->restaurant->name.')' : '' }}
+            <h2>
+                <span class="highlight-container-y"><span class="highlight">
+                        {{ $order->status->first()->status === 'reserved' ? 'Pickup From: ' : 'Deliver To: ' }}
+                </span></span>
+                {{ $restaurant_address }}
             </h2>
         </div>
         <div class="row">
@@ -25,10 +28,17 @@
         </div>
         <div class="row mt-4">
             <div class="col-md-12">
-                <form method="POST" action="{{ route('driver.foodPickupComplete', $order->id) }}" class="d-flex justify-content-center">
-                    @csrf
-                    <button class="btn btn-success btn-lg w-25">Food Pickup Complete</button>
-                </form>
+                @if($order->status->first()->status === 'reserved')
+                    <form method="POST" action="{{ route('driver.foodPickupComplete', $order->id) }}" class="d-flex justify-content-center">
+                        @csrf
+                        <button class="btn btn-info btn-lg w-25">Food Pickup Complete</button>
+                    </form>
+                @elseif($order->status->first()->status === 'food_picked_up')
+                    <form method="POST" action="{{ route('driver.foodDeliveryComplete', $order->id) }}" class="d-flex justify-content-center">
+                        @csrf
+                        <button class="btn btn-success btn-lg w-25">Food Delivered To Customer</button>
+                    </form>
+                @endif
             </div>
         </div>
     </div>
@@ -48,7 +58,7 @@
                 unit: 'metric',
         });
         directions.setOrigin([-73.65, 45.5087]);
-        @if($order->status === 'reserved')
+        @if($order->status->first()->status === 'reserved')
             directions.setDestination([-73.65654, 45.5087564]);
         @else
             directions.setDestination(['{{ $order->address->longitude }}', '{{ $order->address->latitude }}']);

@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Order extends Model
 {
     protected $fillable = [
-        'user_id', 'restaurant_id', 'driver_id', 'total_items_qty', 'billing_subtotal', 'billing_delivery', 'billing_tax', 'driver_tip', 'billing_total', 'status', 'stripe_id', 'error'
+        'user_id', 'restaurant_id', 'driver_id', 'total_items_qty', 'billing_subtotal', 'billing_delivery', 'billing_tax', 'driver_tip', 'billing_total', 'stripe_id', 'error'
     ];
 
     public function user()
@@ -30,6 +30,11 @@ class Order extends Model
         return $this->hasOne(Address::class, 'account_id')->where('description', 'delivery');
     }
 
+    public function status()
+    {
+        return $this->hasMany(OrderStatus::class)->latest();
+    }
+
     public function fullAddress()
     {
         return $this->address->street_address.', '.$this->address->city.' '.
@@ -38,37 +43,30 @@ class Order extends Model
 
     public function isBlocked()
     {
-        if($this->status === 'failed' || $this->status === 'cancelled' || $this->status === 'refunded'){
+        if($this->status->first()->status === 'failed' || $this->status->first()->status === 'cancelled' || $this->status->first()->status === 'refunded'){
             return true;
         }
         return false;
     }
 
-    public function getStatus()
-    {
-        if($this->status === 'failed' || $this->status === 'cancelled'){
-            return 'badge-danger';
-        }
-        else if($this->status === 'refunded'){
-            return 'badge-warning';
-        }
-        else{
-            return 'badge-success';
-        }
-    }
-
     public function scopeGetAvailableOrders($query)
     {
-        return $query->where('status', 'ready_for_pickup')->latest();
+        return $query->whereNull('driver_id')->whereHas('status', function ($q) {
+            $q->where('status', 'food_ready_for_pickup');
+        })->latest();
     }
 
     public function scopeGetDriverReserved($query)
     {
-        return $query->where('driver_id', auth()->user()->id)->where('status', 'reserved')->latest();
+        return $query->where('driver_id', auth()->user()->id)->whereDoesntHave('status', function ($q) {
+            $q->where('status', 'delivered');
+        })->latest();
     }
 
     public function scopeGetDriverCompletedOrders($query)
     {
-        return $query->where('driver_id', auth()->user()->id)->where('status', 'complete')->latest();
+        return $query->where('driver_id', auth()->user()->id)->whereHas('status', function ($q) {
+            $q->where('status', 'delivered');
+        })->latest();
     }
 }

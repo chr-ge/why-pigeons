@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Order;
 use App\Vehicle;
+use App\OrderStatus;
 use App\DriversLicense;
 use Intervention\Image\Facades\Image;
 use Illuminate\Support\Facades\Crypt;
@@ -22,9 +23,9 @@ class DriverController extends Controller
     {
         if($order->driver_id !== auth()->user()->id)
         {
-            return redirect()->back();
+            return redirect()->back()->setStatusCode(403);
         }
-        $restaurant_address = $order->status === 'reserved'
+        $restaurant_address = $order->status->first()->status === 'reserved'
             ? $order->restaurant->fullAddress()
             : $order->fullAddress();
         return view('driver.order', compact('order', 'restaurant_address'));
@@ -54,7 +55,8 @@ class DriverController extends Controller
         }
     }
 
-    public function profilePicture(){
+    public function profilePicture()
+    {
         $data = request()->validate([
             'image' => 'required|image'
         ]);
@@ -80,21 +82,27 @@ class DriverController extends Controller
         if(\Gate::denies('driver-can-reserve', auth()->user()->id)){
             return redirect()->back()->withErrors('You already have an active reserved order.');
         }
-        $order->update([
-            'driver_id' => auth()->user()->id,
-            'status' => 'reserved'
-        ]);
+        $order->update([ 'driver_id' => auth()->user()->id ]);
+        OrderStatus::create(['order_id' => $order->id, 'status' => 'reserved']);
         return view('driver.order', compact('order'));
     }
 
     public function foodPickupComplete(Order $order)
     {
         if($order->driver_id !== auth()->user()->id){
-            return redirect()->back();
+            return redirect()->back()->setStatusCode(403);
         }
-        $order->update([
-            'status' => 'food_picked_up'
-        ]);
+        OrderStatus::create(['order_id' => $order->id, 'status' => 'food_picked_up']);
+        $restaurant_address = $order->fullAddress();
+        return view('driver.order', compact('order', 'restaurant_address'));
+    }
+
+    public function foodDeliveryComplete(Order $order)
+    {
+        if($order->driver_id !== auth()->user()->id){
+            return redirect()->back()->setStatusCode(403);
+        }
+        OrderStatus::create(['order_id' => $order->id, 'status' => 'delivered']);
         $restaurant_address = $order->fullAddress();
         return view('driver.order', compact('order', 'restaurant_address'));
     }

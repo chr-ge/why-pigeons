@@ -53,7 +53,7 @@ Route::group(['middleware' => 'auth'], function () {
 
 Route::group(['middleware' => 'auth:driver'], function () {
     Route::get('/driver', 'DriverController@index')->name('driver.index');
-    Route::get('/d/orders/{order}', 'DriverController@order')->name('driver.order');
+    Route::get('/d/order/{order}', 'DriverController@order')->name('driver.order');
     Route::get('/driver/setup', 'DriverController@setup')->name('driver.setup');
     Route::get('/driver/setup/2', 'DriverController@vehicle')->name('driver.vehicle');
     Route::get('/trips', 'DriverController@trips')->name('driver.trips');
@@ -63,6 +63,7 @@ Route::group(['middleware' => 'auth:driver'], function () {
     Route::post('/driver/setup/1', 'DriverController@storeDriversLicense')->name('driver.storeDriversLicense');
     Route::post('/driver/setup/2', 'DriverController@storeVehicle')->name('driver.storeVehicle');
     Route::post('/d/order/{order}', 'DriverController@foodPickupComplete')->name('driver.foodPickupComplete');
+    Route::post('/d/order/{order}/delivered', 'DriverController@foodDeliveryComplete')->name('driver.foodDeliveryComplete');
 });
 
 Route::group(['middleware' => 'auth:restaurant'], function () {
@@ -95,7 +96,7 @@ Route::group(['middleware' => 'auth:pigeon'], function () {
     Route::get('/restaurants', 'PigeonController@restaurants')->name('pigeon.restaurants');
     Route::get('/restaurants/applications', 'PigeonController@applications')->name('pigeon.applications');
     Route::get('/restaurants/{restaurant}/details', 'PigeonController@restaurantDetails')->name('pigeon.restaurantDetails');
-    Route::get('/orders', 'PigeonController@orders')->name('pigeon.orders');
+    Route::get('/all-orders', 'PigeonController@orders')->name('pigeon.orders');
     Route::get('/orders/{order}/details', 'PigeonController@orderDetails')->name('pigeon.orderDetails');
     Route::get('/account/settings', 'PigeonController@settings')->name('pigeon.settings');
 

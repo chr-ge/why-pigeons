@@ -62,7 +62,9 @@
                                         </td>
                                         <td>
                                             <span class="badge badge-dot mr-4">
-                                                <span class="badge {{$order->getStatus()}}">{{ str_replace('_', ' ', $order->status) }}</span>
+                                                <span class="badge {{$order->status->first()->getColor()}}">
+                                                    {{ str_replace('_', ' ', $order->status->first()->status) }}
+                                                </span>
                                             </span>
                                         </td>
                                         <td>

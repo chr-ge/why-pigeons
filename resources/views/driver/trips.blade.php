@@ -11,45 +11,31 @@
                 @forelse($trips as $trip)
                     <div class="card mt-4">
                         <div class="card-header card-header-bg">
-                            <h4 class="mb-0 d-inline-block">{!! '<b>#'.$trip->id.'</b>'.' | Trip From '.$trip->restaurant->name !!}</h4>
+                            <h4 class="mb-0 d-inline-block">{!! '<b>#'.$trip->id.'</b>'.' | Trip To '.$trip->restaurant->name !!}</h4>
                             <h4 class="mb-0 float-right">{{ Carbon\Carbon::parse($trip->created_at)->toFormattedDateString() }}</h4>
                         </div>
                         <div class="card-body">
                             <div class="row">
-                                <div class="col-md-5">
-                                    <div class="w-50">
+                                <div class="col-md-10">
+                                    <div class="w-25">
                                         <div class="m-row">
-                                            <h5>Status: </h5><h5><span class="badge {{ $trip->getStatus() }}">{{ $trip->status }}</span></h5>
+                                            <h5>Status: </h5><h5><span class="badge {{ $trip->status->first()->getColor() }}">{{ $trip->status->first()->status }}</span></h5>
                                         </div>
                                         <div class="m-row">
-                                            <h5>Subtotal: </h5><h5>${{ $trip->billing_subtotal }}</h5>
-                                        </div>
-                                        <div class="m-row">
-                                            <h5>Delivery Fee: </h5><h5>${{ $trip->billing_delivery }}</h5>
-                                        </div>
-                                        <div class="m-row">
-                                            <h5>GST/QST: </h5><h5>${{ $trip->billing_tax }}</h5>
+                                            <h5>Delivery: </h5><h5>{{ $trip->billing_delivery == 0.00 ? 'Free' : '$'.$trip->billing_delivery }}</h5>
                                         </div>
                                         <div class="m-row">
                                             <h5>Tip: </h5><h5>${{ $trip->driver_tip }}</h5>
                                         </div>
                                         <div class="m-row">
-                                            <h5>Total: </h5><h5>${{ $trip->billing_total }}</h5>
+                                            <h5>Total: </h5><h5>${{ number_format($trip->driver_tip + $trip->billing_delivery, 2, '.', '') }}</h5>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-5">
-                                    @foreach($trip->menu_items as $item)
-                                        <ul class="list-unstyled">
-                                            <li><span class="badge badge-dark">{{ $item->pivot->quantity }}</span> {{$item->name}}</li>
-                                        </ul>
-                                    @endforeach
-                                </div>
-                                <div class="col-md-2">
+                                <div class="col-md-2 my-auto">
                                     <div class="list-group text-center">
-                                        <a href="{{ route('home.show', $item->restaurant->slug) }}" class="list-group-item list-group-item-action">Order Again</a>
-                                        <a href="#" class="list-group-item list-group-item-action">Leave a Review</a>
-                                        <a href="#" class="list-group-item list-group-item-action">Request Refund</a>
+                                        <a href="{{ route('driver.order', $trip->id) }}" class="list-group-item list-group-item-action">View Route</a>
+                                        <a href="#" class="list-group-item list-group-item-action @if($trip->status->first()->status === 'delivered') disabled @endif">Cancel</a>
                                     </div>
                                 </div>
                             </div>
@@ -62,7 +48,7 @@
                                 <div class="card-body text-center">
                                     <i class="fas fa-route fa-4x" style="color: #BFBDDB;"></i>
                                     <h2 class="mt-4">You haven't made any trips yet.</h2>
-                                <p class="px-5 py-4">You haven't made any trips yet. Check our the trips list and reserve your first trip!</p>
+                                <p class="px-5 py-4">You haven't made any trips yet. Check out the trips list and reserve your first trip!</p>
                                 <a href="{{ route('driver.index') }}" class="btn btn-primary">Reserve Trip</a>
                                 </div>
                             </div>

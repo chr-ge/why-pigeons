@@ -63,8 +63,8 @@
                                             {{ Carbon\Carbon::parse($order->created_at)->toDayDateTimeString() }}
                                         </td>
                                         <th>
-                                            <span class="badge {{ $order->getStatus() }}">
-                                                {{ str_replace('_', ' ', $order->status) }}
+                                            <span class="badge {{ $order->status->first()->getColor() }}">
+                                                {{ str_replace('_', ' ', $order->status->first()->status) }}
                                             </span>
                                         </th>
                                         <td>

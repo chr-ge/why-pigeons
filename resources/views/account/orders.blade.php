@@ -19,7 +19,9 @@
                                 <div class="col-md-5">
                                     <div class="w-50">
                                         <div class="m-row">
-                                            <h5>Status: </h5><h5><span class="badge {{ $order->getStatus() }}">{{ str_replace('_', ' ', $order->status) }}</span></h5>
+                                            <h5>Status: </h5><h5><span class="badge {{ $order->status->first()->getColor() }}">
+                                                {{ str_replace('_', ' ', $order->status->first()->status) }}
+                                            </span></h5>
                                         </div>
                                         <div class="m-row">
                                             <h5>Subtotal: </h5><h5>${{ $order->billing_subtotal }}</h5>

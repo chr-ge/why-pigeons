@@ -7,6 +7,7 @@ use App\Order;
 use App\Review;
 use App\Category;
 use App\Restaurant;
+use App\OrderStatus;
 use App\RestaurantHours;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\File;
@@ -235,17 +236,13 @@ class RestaurantController extends Controller
 
     public function completeOrder(Order $order)
     {
-        $order->update([
-            'status' => 'ready_for_pickup'
-        ]);
+        OrderStatus::create(['order_id' => $order->id, 'status' => 'food_ready_for_pickup']);
         return redirect()->back();
     }
 
     public function cancelOrder(Order $order)
     {
-        $order->update([
-            'status' => 'cancelled'
-        ]);
+        OrderStatus::create(['order_id' => $order->id, 'status' => 'cancelled']);
         return redirect()->back();
     }
 }

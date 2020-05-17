@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Address;
 use App\Order;
 use App\OrderMenu;
+use App\OrderStatus;
 use App\Restaurant;
 use App\RestaurantHours;
 use App\Mail\OrderPlaced;
@@ -100,12 +101,12 @@ class CheckoutController extends Controller
 
             return view('order-complete')->with('success', 'Order Completed Successfully');
         } catch (CardErrorException $e){
-            $this->addToOrdersTables($restaurant->id, $charge['id'], $e->getMessage(), 'failed');
+            $this->addToOrdersTables($restaurant->id, $charge['id'], $e->getMessage());
             return redirect()->back()->withErrors('Error! ' . $e->getMessage());
         }
     }
 
-    protected function addToOrdersTables($rest_id, $charge_id, $error, $status = 'new')
+    protected function addToOrdersTables($rest_id, $charge_id, $error)
     {
         $order = Order::create([
             'user_id' => auth()->user()->id,
@@ -116,10 +117,15 @@ class CheckoutController extends Controller
             'billing_tax' => number_format(\Cart::getCondition('GST/QST 14.975%')->getCalculatedValue(\Cart::getSubTotal()), 2, '.', ','),
             'driver_tip' =>number_format(\Cart::getCondition('Tip')->getValue(), 2, '.', ','),
             'billing_total' => \Cart::getTotal(),
-            'status' => $status,
             'stripe_id' => $charge_id,
-            'error' => $error,
+            'error' => $error
         ]);
+        if($error) {
+            OrderStatus::create(['order_id' => $order->id, 'status' => 'failed']);
+        }
+        else {
+            OrderStatus::create(['order_id' => $order->id, 'status' => 'new']);
+        }
         foreach(\Cart::getContent() as $item)
         {
             OrderMenu::create([

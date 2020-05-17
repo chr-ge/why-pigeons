@@ -90,7 +90,14 @@
                                 <h2 class="mb-0"><i class="fa fa-stream"></i> Status</h2>
                             </div>
                             <div class="card-body">
-
+                                <div class="list-group">
+                                    @foreach($statuses as $status)
+                                        <div class="pb-2 d-flex justify-content-between">
+                                            <span class="badge {{ $status->getColor() }}">{{ str_replace('_', ' ', $status->status) }}</span>
+                                            <span>{{ Carbon\Carbon::parse($status->created_at)->toTimeString() }}</span>
+                                        </div>
+                                    @endforeach
+                                </div>
                             </div>
                         </div>
                     </div>

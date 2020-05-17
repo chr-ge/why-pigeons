@@ -9,6 +9,7 @@ use App\Review;
 use App\Driver;
 use App\Pigeon;
 use App\Restaurant;
+use App\OrderStatus;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Cache;
 use Cartalyst\Stripe\Laravel\Facades\Stripe;
@@ -21,7 +22,7 @@ class PigeonController extends Controller
             return User::all()->count();
         });
         $sales = Cache::remember('total.sales', now()->addSeconds(30), function () {
-            return Order::where('status', '!=', 'error')->sum('billing_total');
+            return Order::whereNull('error')->sum('billing_total');
         });
         $restaurants = Cache::remember('restaurants.count', now()->addSeconds(30), function () {
             return Restaurant::all()->count();
@@ -73,7 +74,8 @@ class PigeonController extends Controller
 
     public function orderDetails(Order $order)
     {
-        return view('dashboard.pigeon.orders.o-details', compact('order'));
+        $statuses = OrderStatus::where('order_id', $order->id)->get();
+        return view('dashboard.pigeon.orders.o-details', compact('order', 'statuses'));
     }
 
     public function driverDetails(Driver $driver)
@@ -106,19 +108,14 @@ class PigeonController extends Controller
 
     public function cancelOrder(Order $order)
     {
-        $order->update([
-            'status' => 'cancelled'
-        ]);
+        OrderStatus::create(['order_id' => $order->id, 'status' => 'cancelled']);
         return redirect()->back()->with('success', 'Order Cancelled Successfully');
     }
 
     public function refundOrder(Order $order)
     {
-        $refund = Stripe::refunds()->create($order->stripe_id);
-
-        $order->update([
-            'status' => 'refunded'
-        ]);
+        Stripe::refunds()->create($order->stripe_id);
+        OrderStatus::create(['order_id' => $order->id, 'status' => 'refunded']);
         return redirect()->back()->with('success', 'Order Refunded Successfully');
     }
 

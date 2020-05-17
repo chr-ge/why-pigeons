@@ -32,6 +32,9 @@ class Driver extends Authenticatable
 
     public function reserved_order()
     {
-        return $this->hasMany(Order::class)->where('driver_id', auth()->user()->id)->where('status', 'reserved');
+        return $this->hasMany(Order::class)->where('driver_id', auth()->user()->id)
+            ->whereDoesntHave('status', function ($q) {
+                $q->where('status', 'delivered');
+            })->latest();
     }
 }

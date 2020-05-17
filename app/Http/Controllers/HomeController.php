@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Address;
 use App\Category;
-use App\Favorite;
 use App\Menu;
 use App\Restaurant;
 use App\Review;
