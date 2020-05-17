@@ -19,7 +19,7 @@ class CreateReviewsTable extends Migration
             $table->unsignedInteger('restaurant_id')->nullable();
             $table->unsignedTinyInteger('rating');
             $table->string('comment')->nullable();
-            $table->timestamps();
+            $table->timestamp('created_at', 0);
 
             $table->foreign('user_id')->references('id')
                 ->on('users')->onUpdate('cascade')->onDelete('set null');

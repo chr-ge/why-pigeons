@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class OrderStatus extends Model
 {
+    public $timestamps = false;
     protected $touches = ['order'];
     protected $with = ['order'];
 
