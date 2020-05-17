@@ -151,72 +151,10 @@
                     <div class="card-body p-0">
                         <div class="list-group">
                             @forelse($orders as $order)
-                                <a href="#" class="list-group-item list-group-item-action" data-toggle="modal" data-target="{{ '#orderModal'.$order->id }}">
-                                    #{{ $order->id.' | '.$order->created_at }}<span class="badge {{ $order->getStatus() }} float-right">{{ $order->status }}</span>
+                                <a href="{{ route('pigeon.orderDetails', $order->id) }}" class="list-group-item list-group-item-action">
+                                    #{{ $order->id.' | '.Carbon\Carbon::parse($order->created_at)->toDayDateTimeString() }}
+                                    <span class="badge {{ $order->status->first()->getColor() }} float-right">{{ $order->status->first()->status }}</span>
                                 </a>
-                                <div class="modal fade" id="{{ 'orderModal'.$order->id }}" tabindex="-1" role="dialog" aria-labelledby="{{ 'orderModal'.$order->id }}" aria-hidden="true">
-                                    <div class="modal-dialog modal-dialog-centered" role="document">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h4 class="modal-title d-inline-block" id="{{ '#orderModal'.$order->id.'Title' }}">#{{ $order->id.' | '.$order->created_at}}</h4>
-                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                    <span aria-hidden="true">&times;</span>
-                                                </button>
-                                            </div>
-                                            <div class="modal-body">
-                                                <div class="row">
-                                                    <div class="col-md-12">
-                                                        Status: <span class="badge {{ $order->getStatus() }}">{{ $order->status }}</span>
-                                                        @if($order->status === 'failed') <p class="mb-0 d-inline-block">"{{ $order->error }}"</p>@endif
-                                                    </div>
-                                                </div>
-                                                <hr style="margin-top: 1rem;margin-bottom: 1rem">
-                                                <div class="row">
-                                                    <div class="col-md-6">
-                                                        <div>
-                                                            <div class="d-flex justify-content-between">
-                                                                <h5>Restaurant: </h5><h5>{{ $order->restaurant->name }}</h5>
-                                                            </div>
-                                                            <div class="d-flex justify-content-between">
-                                                                <h5>Subtotal: </h5><h5>${{ $order->billing_subtotal }}</h5>
-                                                            </div>
-                                                            <div class="d-flex justify-content-between">
-                                                                <h5>Delivery Fee: </h5><h5>${{ $order->billing_delivery }}</h5>
-                                                            </div>
-                                                            <div class="d-flex justify-content-between">
-                                                                <h5>GST/QST: </h5><h5>${{ $order->billing_tax }}</h5>
-                                                            </div>
-                                                            <div class="d-flex justify-content-between">
-                                                                <h5>Tip: </h5><h5>${{ $order->driver_tip }}</h5>
-                                                            </div>
-                                                            <div class="d-flex justify-content-between">
-                                                                <h5><b>Total: </b></h5><h5><b>${{ $order->billing_total }}</b></h5>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        @foreach($order->menu_items as $item)
-                                                            <ul class="list-unstyled">
-                                                                <li><span class="badge badge-dark">{{ $item->pivot->quantity }}</span> {{$item->name}}</li>
-                                                            </ul>
-                                                        @endforeach
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="modal-footer mx-auto">
-                                                <form method="POST" action="{{ route('pigeon.refundOrder', $order->id) }}" enctype="multipart/form-data">
-                                                    @csrf
-                                                    <button type="submit" class="btn btn-warning" @if($order->isBlocked()) disabled @endif>{{__('Refund')}}</button>
-                                                </form>
-                                                <form method="POST" action="{{ route('pigeon.cancelOrder', $order->id) }}" enctype="multipart/form-data">
-                                                    @csrf
-                                                    @method('PATCH')
-                                                    <button type="submit" class="btn btn-danger" @if($order->isBlocked()) disabled @endif>{{__('Cancel Order')}}</button>
-                                                </form>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
                             @empty
                                 <a class="list-group-item text-center">{{ $user->name }} has not made any orders.</a>
                             @endforelse

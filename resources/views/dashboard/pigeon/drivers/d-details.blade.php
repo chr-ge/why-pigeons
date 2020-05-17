@@ -7,6 +7,14 @@
             display: inline;
             margin-right: 5px;
         }
+        .list-group-item:first-child {
+            border-top-left-radius: 0;
+            border-top-right-radius: 0;
+        }
+        .list-group-item:last-child {
+            border-bottom-right-radius: 0;
+            border-bottom-left-radius: 0;
+        }
     </style>
 
     <div class="header pb-8 pt-5 pt-lg-8 d-flex">
@@ -121,7 +129,8 @@
                         <ul class="list-group">
                             @forelse($trips as $trip)
                                 <li class="list-group-item">
-                                    #{{ $trip->id.' | '.$trip->created_at }}<span class="badge {{ $trip->getStatus() }} float-right">{{ $trip->status }}</span>
+                                    #{{ $trip->id.' | '.$trip->created_at }}
+                                    <span class="badge {{ $trip->status->first()->getColor() }} float-right">{{ $trip->status->first()->status }}</span>
                                 </li>
                             @empty
                                 <li class="list-group-item">Driver has not made any trips yet.</li>

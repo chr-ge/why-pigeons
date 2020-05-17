@@ -29,9 +29,9 @@
     <div class="container-fluid mt--7">
         <div class="row">
             <div class="col-xl-4 mb-xl-4">
-                <div class="row">
+                <div class="row h-100">
                     <div class="col-xl-12 mb-xl-0">
-                        <div class="card shadow">
+                        <div class="card shadow h-100">
                             <div class="card-header">
                                 <h2 class="mb-0"><i class="fa fa-info-circle"></i> Information</h2>
                             </div>
@@ -66,7 +66,7 @@
                                     <h3>Subtotal: </h3><h3>${{ $order->billing_subtotal }}</h3>
                                 </div>
                                 <div class="d-flex justify-content-between">
-                                    <h3>Delivery Fee: </h3><h3>${{ $order->billing_delivery }}</h3>
+                                    <h3>Delivery Fee: </h3><h3>{{ $order->billing_delivery == 0.00 ? 'Free' : '$'.$order->billing_delivery }}</h3>
                                 </div>
                                 <div class="d-flex justify-content-between">
                                     <h3>GST/QST: </h3><h3>${{ $order->billing_tax }}</h3>
@@ -92,7 +92,7 @@
                             <div class="card-body">
                                 <div class="list-group">
                                     @foreach($statuses as $status)
-                                        <div class="pb-2 d-flex justify-content-between">
+                                        <div class="pb-2 d-flex justify-content-between h3">
                                             <span class="badge {{ $status->getColor() }}">{{ str_replace('_', ' ', $status->status) }}</span>
                                             <span>{{ Carbon\Carbon::parse($status->created_at)->toTimeString() }}</span>
                                         </div>

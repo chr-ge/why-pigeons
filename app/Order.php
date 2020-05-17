@@ -30,6 +30,11 @@ class Order extends Model
         return $this->hasOne(Address::class, 'account_id')->where('description', 'delivery');
     }
 
+    public function driver()
+    {
+        return $this->belongsTo(Driver::class);
+    }
+
     public function status()
     {
         return $this->hasMany(OrderStatus::class)->latest();
