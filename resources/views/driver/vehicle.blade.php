@@ -12,6 +12,17 @@
                     <form method="POST" action="{{ route('driver.storeVehicle') }}" aria-label="{{ __('Save Vehicle') }}">
                         @csrf
                         <div class="form-group row">
+                            <label for="type" class="col-md-4 col-form-label text-md-right">{{ __('Vehicle Type') }}</label>
+
+                            <div class="col-md-6">
+                                <select id="type" class="form-control" name="type">
+                                    @foreach($types as $type)
+                                        <option value="{{ $type }}">{{ $type }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group row">
                             <label for="plate" class="col-md-4 col-form-label text-md-right">{{ __('License Plate') }}</label>
 
                             <div class="col-md-6">

@@ -19,7 +19,6 @@
 <div class="container pt-2">
     <div class="modal-body row">
         <div class="col-md-6">
-            <!-- <img src="https://i.pinimg.com/originals/07/7d/e1/077de1e0a97edc48c026661b9a3ba190.jpg"/> -->
             <img src="https://images.unsplash.com/photo-1551218808-94e220e084d2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80" class="right-image"/>
         </div>
         <div class="col-md-6">

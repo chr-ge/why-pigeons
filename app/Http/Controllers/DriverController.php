@@ -50,9 +50,8 @@ class DriverController extends Controller
         if(\Gate::allows('driver-has-vehicle', auth()->user()->id)){
             return view('driver.driver');
         }
-        else {
-            return view('driver.vehicle');
-        }
+        $types = ['Automobile', 'Motorcycle', 'Scooter', 'Bicycle'];
+        return view('driver.vehicle', compact('types'));
     }
 
     public function profilePicture()
@@ -129,10 +128,15 @@ class DriverController extends Controller
     public function storeVehicle()
     {
         $data = request()->validate([
+            'type' => 'required',
             'plate' => 'required|string|min:2|max:7',
             'model' => 'required|string|min:2',
-            'year' => 'required|date_format:Y',
+            'year' => 'required|date_format:Y|after:1901|before:2050',
             'color' => 'required|string|min:2'
+        ]);
+
+        auth()->user()->update([
+            'type' => $data['type']
         ]);
 
         Vehicle::create([
