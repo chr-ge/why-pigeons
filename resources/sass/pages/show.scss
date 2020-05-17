@@ -7,6 +7,11 @@ body {
     background-repeat: no-repeat;
     background-position: center;
 }
+.badge-rating {
+    color:white;
+    background-color:#BFBDDB;
+    font-size: 1.125em
+}
 .information {
     padding: 1rem 0.5rem 1rem 1.5rem;
     border: 1px solid #BFBDDB;
@@ -96,6 +101,7 @@ body {
         height:100px;
         width:100px;
         float:right;
+        border-radius: 0.25rem;
     }
 }
 h3 > i {

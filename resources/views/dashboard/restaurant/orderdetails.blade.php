@@ -33,8 +33,8 @@
                             </div>
                             <div class="card-body">
                                 <dl class="dl-horizontal" style="float: left;display: inline-block">
-                                    <dt>Order Placed By:</dt>
-                                    <dd>{{$order->user->name}}</dd>
+                                    <dt>Order Status:</dt>
+                                    <dd><span class="badge {{ $order->status->first()->getColor() }}" style="font-size: 0.8rem">{{ $order->status->first()->status }}</span></dd>
 
                                     <dt class="mt-4">Order Placed At:</dt>
                                     <dd>{{$order->created_at}}</dd>
@@ -50,7 +50,9 @@
             <div class="col-xl-9 mb-xl-0 mt-4">
                 <div class="card shadow h-100">
                     <div class="card-header">
-                        <h2 class="mb-0"><i class="fa fa-receipt"></i> Ordered Menu Items</h2>
+                        <div class="d-flex justify-content-between">
+                            <h2 class="mb-0"><i class="fa fa-receipt"></i> Ordered Menu Items</h2>
+                        </div>
                     </div>
                     <div class="card-body" style="padding-top: 1rem">
                         <div class="row">
@@ -69,17 +71,17 @@
                                     </div>
                                     <div class="col-md-6">
                                         <label class="custom-toggle mb-0">
-                                            <input type="checkbox" {{ $order->status === 'ready_for_pickup' ? 'checked disabled' : 'required'}}>
+                                            <input type="checkbox" {{ $order->isBlocked() || $order->status->first()->status === 'food_ready_for_pickup' ? 'checked disabled' : 'required'}}>
                                             <span class="custom-toggle-slider rounded-circle"></span>
                                         </label>
                                     </div>
                                 </div>
                             @endforeach
 
-                            <button class="btn btn-success btn-block mt-4" type="submit"
+                            <button class="btn {{ $order->status->first()->status === 'food_ready_for_pickup' ? 'btn-dark' : 'btn-success' }} btn-block mt-4" type="submit"
                                     title="{{ $order->status === 'ready_for_pickup' ? 'Order has already been completed.' :
                                         'Toggle all switches to complete order.'}}"
-                                    @if($order->isBlocked() || $order->status === 'ready_for_pickup') disabled @endif>Complete Order
+                                    @if($order->isBlocked() || $order->status->first()->status === 'food_ready_for_pickup') disabled @endif>Complete Order
                             </button>
                         </form>
                     </div>

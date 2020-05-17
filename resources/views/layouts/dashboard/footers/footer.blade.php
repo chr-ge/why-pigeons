@@ -11,7 +11,7 @@
                 <a href="{{ route('home.index') }}" class="nav-link" target="_blank">Browse Restaurants</a>
             </li>
             <li class="nav-item">
-                <a href="#" class="nav-link" target="_blank">Contact</a>
+                <a href="#" class="nav-link" target="_blank">Contact Us</a>
             </li>
             <li class="nav-item">
                 <a href="{{ route('login.driver') }}" class="nav-link" target="_blank">Drivers</a>

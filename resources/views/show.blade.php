@@ -9,7 +9,8 @@
                 <div class="row header-image" style="background-image: url('{{ url('storage/'.$restaurant->image) }}')"></div>
                 <div class="row information">
                     <h1 class="m-0 my-auto">{{ $restaurant->name }}</h1>
-                    <p class="lead ml-5 mb-0 my-auto"><span class="badge badge-danger" style="background-color:#BFBDDB;font-size: 1.125em">{{ $rating }}</span></p>
+                    <p class="lead ml-5 mb-0 my-auto"><span class="badge badge-rating">{{ $rating }}</span></p>
+                    <p class="h5 ml-3 mb-0 my-auto">{{ $restaurant->delivery_fee == 0.00 ? 'Free Delivery' : '$'.$restaurant->delivery_fee.' Delivery' }}</p>
                     <div id="favorite-button" class="ml-auto my-auto" data-restaurant="{{ $restaurant->slug }}" data-fav="{{ $favorite ? 'true' : 'false'}}"></div>
                     <div class="info-icon">
                         <a class="nav-link pr-0" title="More info" data-toggle="modal" aria-labelledby="modal-default" data-target="#modal-default" aria-hidden="true" role="dialog" aria-selected="false"><i class="fa fa-info-circle"></i></a>
@@ -70,7 +71,7 @@
                                                     </div>
                                                     <div class="col-md-3">
                                                         @if($menu->image)
-                                                        <img src="{{ url('storage/'.$menu->image) }}" alt=" ">
+                                                            <img src="{{ url('storage/'.$menu->image) }}" alt="{{ $menu->name }}">
                                                         @endif
                                                     </div>
                                                 </div>

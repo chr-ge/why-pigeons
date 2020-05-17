@@ -34,7 +34,7 @@
                 <div class="card shadow">
                     <!-- Card header -->
                     <div class="card-header border-0">
-                        <h3 class="mb-0">Rating: <span class="{{ App\Review::getAvgColor($avgRating) }}" style="font-size: small">{{ $avgRating }}</span></h3>
+                        <h3 class="mb-0">Rating: <span class="{{ App\Review::getAvgColor($avgRating) }}" style="font-size: large">{{ $avgRating }}</span></h3>
                     </div>
                     <!-- Table -->
                     <div class="table-responsive" data-toggle="list" data-list-values='[ "rating", "comment", "created_at"]'>
