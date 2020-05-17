@@ -112,20 +112,20 @@
                         <a href="{{ route('pigeon.userDetails', $order->user->id) }}" class="btn btn-info">View User</a>
                         <a href="{{ route('pigeon.restaurantDetails', $order->restaurant->slug) }}" class="btn btn-info">View Restaurant</a>
                         @if($order->driver)<a href="{{ route('pigeon.driverDetails', $order->driver->id) }}" class="btn btn-info">View Driver</a>@endif
-                        @can('delete-restaurant')
+                        @if(!$order->isBlocked())
                             <form method="POST" action="{{ route('pigeon.refundOrder', $order->id) }}">
                                 @csrf
-                                <button class="btn btn-warning">Refund Order</button>
+                                <button class="btn btn-warning">{{__('Refund Order')}}</button>
                             </form>
                             <form method="POST" action="{{ route('pigeon.cancelOrder', $order->id) }}">
                                 @csrf
                                 @method('DELETE')
-                                <button class="btn btn-danger">Cancel Order</button>
+                                <button class="btn btn-danger">{{__('Cancel Order')}}</button>
                             </form>
                         @else
-                            <input type="button" value="{{__('Refund')}}" class="btn btn-warning" disabled/>
-                            <input type="button" value="{{__('Cancel')}}" class="btn btn-danger" disabled/>
-                        @endcan
+                            <button class="btn btn-warning disabled">Refund Order</button>
+                            <button class="btn btn-danger disabled">Cancel Order</button>
+                        @endif
                     </div>
                 </div>
             </div>

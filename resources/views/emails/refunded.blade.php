@@ -1,14 +1,14 @@
 @component('mail::message')
-# Order Received
+# Order Refunded
 
-Thank you {{ auth()->user()->name }} for your order.
+Your order has been refunded.
 
 **Order ID:** {{ $order->id }}<br>
 **Order Total:** ${{ $order->billing_total }}<br>
 
 **Items Ordered:**<br>
 @foreach ($order->menu_items as $menu)
-* {{ $menu->name }} <br>
+* Name: {{ $menu->name }} <br>
 Price: ${{ $menu->price }} <br>
 Quantity: {{ $menu->pivot->quantity }} <br><br>
 @endforeach

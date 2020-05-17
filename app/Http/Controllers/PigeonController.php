@@ -10,7 +10,9 @@ use App\Driver;
 use App\Pigeon;
 use App\Restaurant;
 use App\OrderStatus;
+use App\Mail\OrderRefunded;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Cache;
 use Cartalyst\Stripe\Laravel\Facades\Stripe;
 
@@ -116,6 +118,8 @@ class PigeonController extends Controller
     {
         Stripe::refunds()->create($order->stripe_id);
         OrderStatus::create(['order_id' => $order->id, 'status' => 'refunded']);
+
+        Mail::send(new OrderRefunded($order));
         return redirect()->back()->with('success', 'Order Refunded Successfully');
     }
 
