@@ -10,7 +10,8 @@
                 <div class="row information">
                     <h1 class="m-0 my-auto">{{ $restaurant->name }}</h1>
                     <p class="lead ml-5 mb-0 my-auto"><span class="badge badge-rating">{{ $rating }}</span></p>
-                    <p class="h5 ml-3 mb-0 my-auto">{{ $restaurant->delivery_fee == 0.00 ? 'Free Delivery' : '$'.$restaurant->delivery_fee.' Delivery' }}</p>
+                    <p class="h5 ml-3 mb-0 my-auto"><span class="badge badge-delivery">{{ $restaurant->delivery_fee == 0.00 ? 'Free Delivery' : '$'.$restaurant->delivery_fee.' Delivery' }}</span></p>
+                    <p class="h5 ml-3 mb-0 my-auto"><span class="badge badge-price">{{ $restaurant->categories->first()->name }}</span></p>
                     <div id="favorite-button" class="ml-auto my-auto" data-restaurant="{{ $restaurant->slug }}" data-fav="{{ $favorite ? 'true' : 'false'}}"></div>
                     <div class="info-icon">
                         <a class="nav-link pr-0" title="More info" data-toggle="modal" aria-labelledby="modal-default" data-target="#modal-default" aria-hidden="true" role="dialog" aria-selected="false"><i class="fa fa-info-circle"></i></a>

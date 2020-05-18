@@ -18,7 +18,7 @@ class CreateRestaurantsTable extends Migration
             $table->string('name', 50)->unique()->index();
             $table->string('slug', 50)->unique()->index();
             $table->string('email')->unique();
-            $table->string('phone', 12)->unique();
+            $table->string('phone', 12);
             $table->unsignedInteger('category_id');
             $table->string('image')->default('uploads/default.jpeg');
             $table->boolean('active')->default(false);

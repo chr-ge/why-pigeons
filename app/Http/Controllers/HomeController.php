@@ -29,6 +29,10 @@ class HomeController extends Controller
             $restaurants = Restaurant::orderByDeliveryFee();
             $title = '<i class="fas fa-car"></i> Delivery Fee Low->High';
         }
+        else if(request()->sort === 'price'){
+            $restaurants = Restaurant::orderByPrice();
+            $title = '<i class="fas fa-dollar-sign"></i> Price Range Low->High';
+        }
         else {
             $restaurants = Restaurant::where('active', true)->paginate(12);
             $title = '<i class="fas fa-highlighter"></i> Featured Restaurants';

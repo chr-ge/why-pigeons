@@ -11198,8 +11198,23 @@ body {
 
 .badge-rating {
   color: white;
+  background-color: #9f99f1;
+  font-size: 1.125em;
+}
+
+.badge-price {
+  color: white;
   background-color: #BFBDDB;
   font-size: 1.125em;
+}
+
+.badge-delivery {
+  color: black;
+  font-size: 1.125rem;
+  font-weight: normal;
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 0.25rem;
 }
 
 .information {

@@ -17,7 +17,7 @@ class CreateDriversTable extends Migration
             $table->increments('id');
             $table->string('name', 40);
             $table->string('email', 50)->unique();
-            $table->string('phone', 12)->unique();
+            $table->string('phone', 12);
             $table->string('type', 50)->nullable();
             $table->string('profile_picture')->default('uploads/drivers/default.png');
             $table->string('password');
