@@ -40,7 +40,7 @@
                                     </div>
                                 </div>
                                 <div class="card-body">
-                                    <form method="POST" action="{{ route('pigeon.setTempPass', $restaurant->id) }}" enctype="multipart/form-data">
+                                    <form method="POST" action="{{ route('pigeon.setTempPass', $restaurant->slug) }}" enctype="multipart/form-data">
                                         @csrf
                                         <div class="input-group">
                                             <input type="text" class="form-control" placeholder="Set Temporary Password" name="temp_pass">

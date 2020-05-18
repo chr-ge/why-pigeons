@@ -24,7 +24,7 @@
                 </button>
             </div>
         @endif
-        @if(\Gate::denies('driver-has-vehicle', auth()->user()->id))
+        @if(!auth()->user()->vehicle)
             <div class="alert alert-dark alert-dismissible fade show" role="alert">
                 <span class="alert-icon"><i class="ni ni-like-2"></i></span>
                 <span class="alert-text"><strong>Attention!</strong> You have not provided your vehicle information.

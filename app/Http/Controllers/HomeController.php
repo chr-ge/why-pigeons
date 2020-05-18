@@ -7,6 +7,7 @@ use App\Category;
 use App\Menu;
 use App\Restaurant;
 use App\Review;
+use Illuminate\Support\Facades\Cache;
 
 class HomeController extends Controller
 {
@@ -71,7 +72,9 @@ class HomeController extends Controller
 
         $menus = Menu::where('restaurant_id', $restaurant->id)->get();
 
-        $rating = number_format(Review::where('restaurant_id', $restaurant->id)->avg('rating'), 1, '.', '');
+        $rating = Cache::remember('restaurant.rating', now()->addSeconds(30), function () use ($restaurant){
+            return number_format(Review::where('restaurant_id', $restaurant->id)->avg('rating'), 1, '.', '');
+        });
 
         $categories = [];
         foreach($menus as $category){

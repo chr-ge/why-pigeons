@@ -1,24 +1,6 @@
 @extends('layouts.dashboard.app')
 
 @section('content')
-    <style>
-        .table-action {
-            font-size:.875rem;
-            margin:0 .25rem;
-            color:#adb5bd
-        }
-        .table-action:hover {
-            color:#919ca6
-        }
-        .table-action-delete:hover {
-            color:#f5365c
-        }
-        .button-container form,
-        .button-container form div {
-            display: inline;
-        }
-    </style>
-
     <div class="header bg-gradient-primary pb-8 pt-5 pt-lg-7 d-flex">
         <!-- Header container -->
         <div class="container-fluid">
@@ -112,24 +94,9 @@
                                             {{$restaurant->address->city ?? 'N/A'}}
                                         </td>
                                         <td>
-                                            <div class="button-container">
-                                                <div style="display: inline-block">
-                                                    <a href="{{route('restaurant.editMenuItem', $restaurant->id)}}" class="table-action" data-toggle="tooltip" data-original-title="Edit menu item" onclick="window.location ='{{route('restaurant.editMenuItem', $restaurant->id)}}'">
-                                                        <i class="fas fa-edit"></i>
-                                                    </a>
-                                                </div>
-
-                                                <form id="delete-form-{{$restaurant->id}}" action="{{route('restaurant.deleteMenuItem', $restaurant->id)}}" method="POST">
-                                                    @csrf
-                                                    @method('DELETE')
-                                                    <div>
-                                                        <a href="" class="table-action table-action-delete" data-toggle="tooltip" data-original-title="Delete menu item"
-                                                           onclick="document.getElementById('delete-form-{{$restaurant->id}}').submit();">
-                                                            <i class="fas fa-trash"></i>
-                                                        </a>
-                                                    </div>
-                                                </form>
-                                            </div>
+                                            <button class="btn btn-sm" data-toggle="tooltip" onclick="window.location ='{{route('pigeon.restaurantDetails', $restaurant->slug)}}'">
+                                                <i class="fas fa-info-circle"></i> View
+                                            </button>
                                         </td>
                                     </tr>
                                 @empty

@@ -71,17 +71,18 @@ class DriverController extends Controller
 
     public function reserve(Order $order)
     {
-        if(\Gate::denies('license-is-created', auth()->user()->id) &&
-            \Gate::denies('driver-has-car', auth()->user()->id)){
+        if(\Gate::denies('license-is-created', auth()->user()->id) || auth()->user()->vehicle == null){
             return redirect()->back()->withErrors('Complete your profile to reserve an order.');
         }
-
         if(\Gate::denies('driver-can-reserve', auth()->user()->id)){
             return redirect()->back()->withErrors('You already have an active reserved order.');
         }
         $order->update([ 'driver_id' => auth()->user()->id ]);
         OrderStatus::create(['order_id' => $order->id, 'status' => 'reserved']);
-        return view('driver.order', compact('order'));
+        $restaurant_address = $order->status->first()->status === 'reserved'
+            ? $order->restaurant->fullAddress()
+            : $order->fullAddress();
+        return view('driver.order', compact('order', 'restaurant_address'));
     }
 
     public function foodPickupComplete(Order $order)
@@ -114,12 +115,14 @@ class DriverController extends Controller
             'valid_on' => $request['valid_on'],
             'expires_on' => $request['expires_on'],
         ]);
-
         if(auth()->user()->vehicle){
-            return view('driver.driver');
+            $reserved = Order::getDriverReserved()->first();
+            $orders = Order::getAvailableOrders()->get();
+            return view('driver.driver', compact('orders', 'reserved'));
         }
         else {
-            return view('driver.vehicle');
+            $types = ['Automobile', 'Motorcycle', 'Scooter', 'Moped'];
+            return view('driver.vehicle', compact('types'));
         }
     }
 
@@ -146,7 +149,9 @@ class DriverController extends Controller
         ]);
 
         if(\Gate::allows('license-is-created', auth()->user()->id)){
-            return view('driver.driver');
+            $reserved = Order::getDriverReserved()->first();
+            $orders = Order::getAvailableOrders()->get();
+            return view('driver.driver', compact('orders', 'reserved'));
         }
         else {
             return view('driver.setup');

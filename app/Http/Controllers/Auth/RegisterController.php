@@ -165,7 +165,7 @@ class RegisterController extends Controller
             'city' => $data['city'],
             'province' => $data['province'],
             'postal_code' => $data['postal_code'],
-            'country' => $data['country'],
+            'country' => $data['country']
         ]);
 
         return redirect()->intended('get-back-to-you');
