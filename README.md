@@ -1,9 +1,9 @@
 <p align="center">
   <a href="" rel="noopener">
- <img width=200px height=200px src="public/svg/dove.svg" alt="Project logo"></a>
+  <img width=175px height=175px src="public/svg/dove.svg" alt="Project logo"></a>
 </p>
 
-<h3 align="center">Food and Maybe some Pigeons?</h3>
+<h3 align="center">Food and Maybe Some Pigeons?</h3>
 
 <div align="center">
 
