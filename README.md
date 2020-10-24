@@ -34,9 +34,9 @@
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. [documentation](https://laravel.com/docs)
 
 ## APIs
-Payments: https://stripe.com/docs/stripe-js<br> 
-Maps & Geocoding: https://docs.mapbox.com/mapbox-gl-js/api/ <br>
-Emails: https://mailtrap.io/
+- Payments: https://stripe.com/docs/stripe-js<br> 
+- Maps & Geocoding: https://docs.mapbox.com/mapbox-gl-js/api/ <br>
+- Emails: https://mailtrap.io/
 
 ## The Team
 - George Christeas
