@@ -38,7 +38,7 @@ Laravel is a web application framework with expressive, elegant syntax. We belie
 - Maps & Geocoding: https://docs.mapbox.com/mapbox-gl-js/api/ <br>
 - Emails: https://mailtrap.io/
 
-## The Team
+## Contributors
 - George Christeas
 - Kian Morot
 - Terence Ludford 
