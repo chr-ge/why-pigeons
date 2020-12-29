@@ -18,6 +18,14 @@
     <br> 
 </p>
 
+Restaurant Page             |  Checkout
+:-------------------------:|:-------------------------:
+![image](https://s3.amazonaws.com/poly-screenshots.angel.co/Project/c5/1243967/ccb8d92d47cff5c58a5549b927bda0e1-original.png)  |  ![image](https://s3.amazonaws.com/poly-screenshots.angel.co/Project/c5/1243967/52e64b5fa189d6bd67ac092838a2accf-original.png) 
+
+Restaurant Dashboard - **Menu**             |  Restaurant Dashboard - **Feedback**
+:-------------------------:|:-------------------------:
+![image](https://s3.amazonaws.com/poly-screenshots.angel.co/Project/c5/1243967/9a2c9fad85dc63886ae09ba078f7bf94-original.png)  |  ![image](https://s3.amazonaws.com/poly-screenshots.angel.co/Project/c5/1243967/729789147b031847c7124a988cbea34e-original.png) 
+
 ## Installation
 
 1. Clone the repo and `cd` into it
