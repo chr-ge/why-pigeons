@@ -14,9 +14,8 @@
 
 ---
 
-<p align="center"> Quick food delivery right to your door.
-    <br> 
-</p>
+<p align="center">Quick food delivery right to your door.</p>
+<br>
 
 Restaurant Page             |  Checkout
 :-------------------------:|:-------------------------:
