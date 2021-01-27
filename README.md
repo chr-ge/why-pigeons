@@ -17,7 +17,7 @@
 <p align="center">Quick food delivery right to your door.</p>
 <br>
 
-Restaurant Page             |  Checkout
+Restaurant Page             |  Order Checkout
 :-------------------------:|:-------------------------:
 ![image](https://s3.amazonaws.com/poly-screenshots.angel.co/Project/c5/1243967/ccb8d92d47cff5c58a5549b927bda0e1-original.png)  |  ![image](https://s3.amazonaws.com/poly-screenshots.angel.co/Project/c5/1243967/52e64b5fa189d6bd67ac092838a2accf-original.png) 
 
