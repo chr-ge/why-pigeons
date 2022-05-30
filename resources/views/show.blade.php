@@ -14,7 +14,7 @@
                     <p class="h5 ml-3 mb-0 my-auto"><span class="badge badge-price">{{ $restaurant->categories->first()->name }}</span></p>
                     <div id="favorite-button" class="ml-auto my-auto" data-restaurant="{{ $restaurant->slug }}" data-fav="{{ $favorite ? 'true' : 'false'}}"></div>
                     <div class="info-icon">
-                        <a class="nav-link pr-0" title="More info" data-toggle="modal" aria-labelledby="modal-default" data-target="#modal-default" aria-hidden="true" role="dialog" aria-selected="false"><i class="fa fa-info-circle"></i></a>
+                        <a class="nav-link" title="More info" data-toggle="modal" aria-labelledby="modal-default" data-target="#modal-default" aria-hidden="true" role="dialog" aria-selected="false"><i class="fa fa-info-circle"></i></a>
                         <div class="modal fade" id="modal-default" tabindex="-1">
                             <div class="modal-dialog modal-dialog-centered" role="document">
                                 <div class="modal-content">

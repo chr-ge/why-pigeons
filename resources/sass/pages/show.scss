@@ -36,7 +36,7 @@ body {
     }
 }
 #navigation {
-    margin: 10px 10px 10px 0;
+    margin: 16px 16px 16px 0;
     border: 1px solid #BFBDDB;
     list-style-type: none;
     background-color: #ffffff;
@@ -69,12 +69,7 @@ body {
     padding: 0;
     margin-bottom: 50px;
     h2 {
-        /*
-        text-decoration: underline;
-        -webkit-text-decoration-color: salmon;
-        text-decoration-color: salmon;
-        -webkit-text-decoration-style: wavy;
-        text-decoration-style: wavy;*/
+        padding-bottom: 0.5rem;
     }
 }
 .menu-link, .menu-link:hover {
